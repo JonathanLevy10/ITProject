@@ -17,26 +17,82 @@ namespace ClientSignup
             InitializeComponent();
         }
 
-        private void button_Signup_Click(object sender, EventArgs e)
+        public bool ValidateForm()
         {
-            if (textBox_FirstName.Text == "" || textBox_LastName.Text == "" || textBox_Email.Text == "" || textBox_Pwd.Text == "" || textBox_PwdConfirm.Text == "" || comboBox_Gender.SelectedIndex.ToString() == "Choose Gender")
+            bool isValidated = true;
+
+            if (String.IsNullOrEmpty(textBox_FirstName.Text))
             {
-                MessageBox.Show("Please fill out the entire form!", "Lacking Submission", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                isValidated = false;
+                textBox_FirstName.BackColor = Color.Red;
             }
 
+            else
+                textBox_FirstName.BackColor = Color.White;
+
+            if (String.IsNullOrEmpty(textBox_LastName.Text))
+            {
+                isValidated = false;
+                textBox_LastName.BackColor = Color.Red;
+            }
+
+            else
+                textBox_LastName.BackColor = Color.White;
+
+            if (String.IsNullOrEmpty(textBox_Email.Text))
+            {
+                isValidated = false;
+                textBox_Email.BackColor = Color.Red;
+            }
+
+            else
+                textBox_Email.BackColor = Color.White;
+
+            if (String.IsNullOrEmpty(textBox_Pwd.Text))
+            {
+                isValidated = false;
+                textBox_Pwd.BackColor = Color.Red;
+            }
+
+            else
+                textBox_Pwd.BackColor = Color.White;
+
+            if (String.IsNullOrEmpty(textBox_PwdConfirm.Text))
+            {
+                isValidated = false;
+                textBox_PwdConfirm.BackColor = Color.Red;
+            }
+
+            else
+                textBox_PwdConfirm.BackColor = Color.White;
+
+
+            // Password Validation
             if (textBox_Pwd.Text != textBox_PwdConfirm.Text)
             {
-                MessageBox.Show("Your passwords are inconsistent!", "Inconsistent Passwords", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                isValidated = false;
+                textBox_FirstName.BackColor = Color.Red;
             }
+
             if (textBox_Pwd.Text.Length < 8)
             {
-                MessageBox.Show("Your password must have at least 8 characters in length.", "Password Not Long Enough", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                isValidated = false;
+                textBox_FirstName.BackColor = Color.Red;
+            }
+
+            return isValidated;
+        }
+
+        private void button_Signup_Click(object sender, EventArgs e)
+        {
+            if (ValidateForm() == false)
+            {
+                MessageBox.Show("Some of the information provided is incorrect or missspelled. Please verify that everything you typed fits the examples given.", "Lacking or Insufficent Submission", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show("Thanks for creating an account with Shawarma, Inc. Group!", "Succesful Submission", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Your submission has been recorded, and your account is being created right now. You can safely leave this page.", "Succesful Submission", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void textBox_Name_KeyPress(object sender, KeyPressEventArgs e)

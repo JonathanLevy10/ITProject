@@ -24,7 +24,7 @@ namespace ClientSignup
             if ("" == (textBox_FirstName.Text))
             {
                 isValidated = false;
-                textBox_FirstName.BackColor = Color.Red;
+                textBox_FirstName.BackColor = Color.OrangeRed;
             }
 
             else
@@ -33,7 +33,7 @@ namespace ClientSignup
             if ("" == (textBox_LastName.Text))
             {
                 isValidated = false;
-                textBox_LastName.BackColor = Color.Red;
+                textBox_LastName.BackColor = Color.OrangeRed;
             }
 
             else
@@ -42,7 +42,7 @@ namespace ClientSignup
             if ("" == (textBox_Email.Text))
             {
                 isValidated = false;
-                textBox_Email.BackColor = Color.Red;
+                textBox_Email.BackColor = Color.OrangeRed;
             }
 
             else
@@ -51,7 +51,7 @@ namespace ClientSignup
             if ("" == (textBox_Pwd.Text))
             {
                 isValidated = false;
-                textBox_Pwd.BackColor = Color.Red;
+                textBox_Pwd.BackColor = Color.OrangeRed;
             }
 
             else
@@ -60,7 +60,7 @@ namespace ClientSignup
             if ("" == (textBox_PwdConfirm.Text))
             {
                 isValidated = false;
-                textBox_PwdConfirm.BackColor = Color.Red;
+                textBox_PwdConfirm.BackColor = Color.OrangeRed;
             }
 
             else
@@ -71,14 +71,14 @@ namespace ClientSignup
             if (textBox_Pwd.Text != textBox_PwdConfirm.Text)
             {
                 isValidated = false;
-                textBox_Pwd.BackColor = Color.Red;
-                textBox_PwdConfirm.BackColor = Color.Red;
+                textBox_Pwd.BackColor = Color.OrangeRed;
+                textBox_PwdConfirm.BackColor = Color.OrangeRed;
             }
 
             if (textBox_Pwd.Text.Length < 8)
             {
                 isValidated = false;
-                textBox_Pwd.BackColor = Color.Red;
+                textBox_Pwd.BackColor = Color.OrangeRed;
             }
 
             return isValidated;

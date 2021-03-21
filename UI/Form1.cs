@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClientSignup.BL;
 
 namespace ClientSignup
 {
@@ -82,6 +83,19 @@ namespace ClientSignup
             }
 
             return isValidated;
+        }
+
+        private Client FormToClient()
+        {
+            Client client = new Client();
+
+            client.FirstName = textBox_FirstName.Text;
+            client.LastName = textBox_LastName.Text;
+            client.Email = textBox_Email.Text;
+            client.Pwd = textBox_Pwd.Text;
+            client.Gender = comboBox_Gender.Text;
+
+            return client;
         }
 
         private void button_Signup_Click(object sender, EventArgs e)

@@ -8,11 +8,11 @@ namespace ClientSignup.BL
 {
     public class Client
     {
-        private string m_FirstName;
-        private string m_LastName;
-        private string m_Email;
-        private string m_Pwd;
-        private string m_Gender;
+        private string m_FirstName; // Client's first name
+        private string m_LastName; // Client's last name
+        private string m_Email; // Client's email address
+        private string m_Pwd; // Client's password
+        private string m_Gender; // Client's gender
 
         public string FirstName { get => m_FirstName; set => m_FirstName = value; }
         public string LastName { get => m_LastName; set => m_LastName = value; }

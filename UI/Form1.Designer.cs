@@ -94,6 +94,7 @@ namespace ClientSignup
             this.comboBox_Gender.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox_Gender.FormattingEnabled = true;
             this.comboBox_Gender.Items.AddRange(new object[] {
+            "Not Specified",
             "Male",
             "Female",
             "Non-Binary",
@@ -102,7 +103,7 @@ namespace ClientSignup
             this.comboBox_Gender.Name = "comboBox_Gender";
             this.comboBox_Gender.Size = new System.Drawing.Size(266, 21);
             this.comboBox_Gender.TabIndex = 6;
-            this.comboBox_Gender.Text = "Choose Gender";
+            this.comboBox_Gender.Text = "Not Specified";
             // 
             // button_Signup
             // 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClientSignup.BL;
+using ClientSignup.DAL;
 
 namespace ClientSignup
 {
@@ -144,6 +145,7 @@ namespace ClientSignup
             {
                 Client client = FormToClient();
                 MessageBox.Show($"Dear {client.FirstName}, your submission has been recorded! Your account is being created right now. You can safely leave this page.\n\nA confirmation will be sent to {client.Email} within five business days.", "Succesful Submission", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                client.Insert();
             }
         }
         //makes sure user can olny use the abc's when writing thier name.

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClientSignup.DAL;
 
 namespace ClientSignup.BL
 {
@@ -19,5 +20,10 @@ namespace ClientSignup.BL
         public string Email { get => m_Email; set => m_Email = value; }
         public string Pwd { get => m_Pwd; set => m_Pwd = value; }
         public string Gender { get => m_Gender; set => m_Gender = value; }
+
+        public void Insert()
+        {
+            Client_Dal.Insert(m_FirstName, m_LastName, m_Email, m_Pwd, m_Gender);
+        }
     }
 }

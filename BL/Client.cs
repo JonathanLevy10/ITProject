@@ -21,6 +21,7 @@ namespace ClientSignup.BL
         public string Pwd { get => m_Pwd; set => m_Pwd = value; }
         public string Gender { get => m_Gender; set => m_Gender = value; }
 
+        // Sends client information to DAL layer for insertion to database
         public void Insert()
         {
             Client_Dal.Insert(m_FirstName, m_LastName, m_Email, m_Pwd, m_Gender);

@@ -17,13 +17,12 @@ class Dal
         try
         {
             connection.Open();
-
             command.ExecuteNonQuery();
-
             connection.Close();
 
             return true;
         }
+
         catch (Exception e)
         {
             e.ToString();
@@ -39,6 +38,7 @@ class Dal
 
         SqlCommand command = new SqlCommand();
         command.Connection = connection;
+
         if (orderBy != "")
             command.CommandText = "SELECT * FROM " + tableName + " ORDER BY " + orderBy;
         else
@@ -54,8 +54,7 @@ class Dal
         SqlConnectionStringBuilder cString = new SqlConnectionStringBuilder();
 
         cString.DataSource = @"(localdb)\.";
-        cString.AttachDBFilename = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + @"\Database.mdf";
-
+        cString.AttachDBFilename = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + @"\DB_ClientSignup.mdf";
 
         return cString.ToString();
     }

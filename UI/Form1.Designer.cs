@@ -29,7 +29,6 @@ namespace ClientSignup
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBox_FirstName = new System.Windows.Forms.TextBox();
             this.textBox_Pwd = new System.Windows.Forms.TextBox();
             this.textBox_LastName = new System.Windows.Forms.TextBox();
@@ -52,7 +51,6 @@ namespace ClientSignup
             this.textBox_FirstName.Name = "textBox_FirstName";
             this.textBox_FirstName.Size = new System.Drawing.Size(130, 20);
             this.textBox_FirstName.TabIndex = 0;
-            this.textBox_FirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Name_KeyPress);
             // 
             // textBox_Pwd
             // 
@@ -69,7 +67,6 @@ namespace ClientSignup
             this.textBox_LastName.Name = "textBox_LastName";
             this.textBox_LastName.Size = new System.Drawing.Size(130, 20);
             this.textBox_LastName.TabIndex = 1;
-            this.textBox_LastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Name_KeyPress);
             // 
             // textBox_PwdConfirm
             // 
@@ -86,7 +83,6 @@ namespace ClientSignup
             this.textBox_Email.Name = "textBox_Email";
             this.textBox_Email.Size = new System.Drawing.Size(266, 20);
             this.textBox_Email.TabIndex = 3;
-            this.textBox_Email.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Email_KeyPress);
             // 
             // comboBox_Gender
             // 
@@ -107,10 +103,10 @@ namespace ClientSignup
             // 
             // button_Signup
             // 
-            this.button_Signup.Location = new System.Drawing.Point(12, 214);
+            this.button_Signup.Location = new System.Drawing.Point(12, 213);
             this.button_Signup.Name = "button_Signup";
             this.button_Signup.Size = new System.Drawing.Size(266, 23);
-            this.button_Signup.TabIndex = 7;
+            this.button_Signup.TabIndex = 8;
             this.button_Signup.Text = "Sign Up";
             this.button_Signup.UseVisualStyleBackColor = true;
             this.button_Signup.Click += new System.EventHandler(this.button_Signup_Click);
@@ -175,7 +171,7 @@ namespace ClientSignup
             this.checkBox_AgreeToTerms.Location = new System.Drawing.Point(12, 187);
             this.checkBox_AgreeToTerms.Name = "checkBox_AgreeToTerms";
             this.checkBox_AgreeToTerms.Size = new System.Drawing.Size(268, 17);
-            this.checkBox_AgreeToTerms.TabIndex = 13;
+            this.checkBox_AgreeToTerms.TabIndex = 7;
             this.checkBox_AgreeToTerms.Text = "I consent to the Terms of Usage and Privacy Policy";
             this.checkBox_AgreeToTerms.UseVisualStyleBackColor = true;
             // 
@@ -198,11 +194,10 @@ namespace ClientSignup
             this.Controls.Add(this.textBox_LastName);
             this.Controls.Add(this.textBox_Pwd);
             this.Controls.Add(this.textBox_FirstName);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Daniel Naaman & Jonathan Levy: Clients";
+            this.Text = "ClientSignup";
             this.ResumeLayout(false);
             this.PerformLayout();
 

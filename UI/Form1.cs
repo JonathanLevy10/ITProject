@@ -35,14 +35,99 @@ namespace ClientSignup
 
         private void button_Signup_Click(object sender, EventArgs e)
         {
-            // Set client to the client that just formed
-            Client client = FormToClient();
+            if (ValidateForm() == true)
+            {
+                // Set client to the client that just formed
+                Client client = FormToClient();
 
-            // Add client to SQL database
-            client.Insert();
+                // Add client to SQL database
+                client.Insert();
 
-            // Confirmation message
-            MessageBox.Show($"Dear {client.FirstName}, your submission has been recorded! Your account is being created right now. You can safely leave this page.\n\nA confirmation will be sent to {client.Email} within five business days.", "Succesful Submission", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Confirmation message
+                MessageBox.Show($"Dear {client.FirstName}, your user has been created succesfully in the database. You can safely leave this page.", "User created succesfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private bool ValidateForm()
+        {
+            // First Name Validation
+            if ("" == (textBox_FirstName.Text))
+            {
+                textBox_FirstName.BackColor = Color.OrangeRed;
+                MessageBox.Show("First name cannot be empty!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                return false;
+            }
+
+            else
+                textBox_FirstName.BackColor = Color.White;
+
+            // Last Name Validation
+            if ("" == (textBox_LastName.Text))
+            {
+                textBox_LastName.BackColor = Color.OrangeRed;
+                MessageBox.Show("Last name cannot be empty!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                return false;
+            }
+
+            else
+                textBox_LastName.BackColor = Color.White;
+
+            // Email Validation
+            if ("" == (textBox_Email.Text))
+            {
+                textBox_Email.BackColor = Color.OrangeRed;
+                MessageBox.Show("Email cannot be empty!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                return false;
+            }
+
+            else
+                textBox_Email.BackColor = Color.White;
+
+            // Password Validation
+            if ("" == (textBox_Pwd.Text))
+            {
+                textBox_Pwd.BackColor = Color.OrangeRed;
+                MessageBox.Show("Password cannot be empty!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                return false;
+            }
+
+            else
+                textBox_Pwd.BackColor = Color.White;
+
+            if (textBox_Pwd.Text.Length < 8)
+            {
+                textBox_Pwd.BackColor = Color.OrangeRed;
+                MessageBox.Show("Password must be longer then 8 characters!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                return false;
+            }
+
+            else
+                textBox_Pwd.BackColor = Color.White;
+
+            if (textBox_Pwd.Text != textBox_PwdConfirm.Text)
+            {
+                textBox_PwdConfirm.BackColor = Color.OrangeRed;
+                MessageBox.Show("Passwords must be identical!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                return false;
+            }
+
+            else
+            {
+                textBox_PwdConfirm.BackColor = Color.White;
+            }
+
+            // Terms of Usage and Privacy Policy Validation
+            if (!checkBox_AgreeToTerms.Checked)
+            {
+                checkBox_AgreeToTerms.BackColor = Color.OrangeRed;
+                MessageBox.Show("You must agree to the Terms of Usage and Privacy Policy in order to create a user!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                return false;
+            }
+
+            else
+                checkBox_AgreeToTerms.BackColor = Color.Empty;
+
+            return true;
         }
     }
 }

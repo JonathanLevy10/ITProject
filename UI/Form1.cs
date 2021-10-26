@@ -17,6 +17,7 @@ namespace ClientSignup
         {
             InitializeComponent();
             ClientArrToForm();
+            CapsLockCheck();
         }
 
         // Form client from data collected by the form
@@ -81,6 +82,27 @@ namespace ClientSignup
         }
 
 
+        private bool IsEngLetter(char c)
+        {
+            return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+        }
+        private void textBox_Eng_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!IsEngLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+                e.KeyChar = char.MinValue;
+        }
+
+        private void textBox_NotHebrew_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!IsEngLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '@')
+                e.KeyChar = char.MinValue;
+        }
+        private void CapsLockCheck()
+        {
+            if (Control.IsKeyLocked(Keys.CapsLock))
+                MessageBox.Show("Warning! You have enabled caps-lock");
+                
+        }
 
 
         private bool ValidateForm()
@@ -266,6 +288,11 @@ namespace ClientSignup
         private void button_Clear_Click(object sender, EventArgs e)
         {
             ClientToForm(null);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

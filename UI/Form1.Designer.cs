@@ -69,6 +69,7 @@ namespace ClientSignup
             this.textBox_FirstName.Name = "textBox_FirstName";
             this.textBox_FirstName.Size = new System.Drawing.Size(172, 22);
             this.textBox_FirstName.TabIndex = 0;
+            this.textBox_FirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Eng_KeyPress);
             // 
             // textBox_Pwd
             // 
@@ -87,6 +88,7 @@ namespace ClientSignup
             this.textBox_LastName.Name = "textBox_LastName";
             this.textBox_LastName.Size = new System.Drawing.Size(172, 22);
             this.textBox_LastName.TabIndex = 1;
+            this.textBox_LastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Eng_KeyPress);
             // 
             // textBox_PwdConfirm
             // 
@@ -105,6 +107,7 @@ namespace ClientSignup
             this.textBox_Email.Name = "textBox_Email";
             this.textBox_Email.Size = new System.Drawing.Size(353, 22);
             this.textBox_Email.TabIndex = 3;
+            this.textBox_Email.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_NotHebrew_KeyPress);
             // 
             // comboBox_Gender
             // 
@@ -404,6 +407,7 @@ namespace ClientSignup
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "ClientSignup";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.GroupBox_Filter.ResumeLayout(false);
             this.GroupBox_Filter.PerformLayout();
             this.ResumeLayout(false);

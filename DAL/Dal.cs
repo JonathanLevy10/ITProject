@@ -2,9 +2,11 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.Collections;
 
 class Dal
 {
+    
     public static bool ExecuteSql(string sql)
     {
         SqlConnection connection = new SqlConnection();

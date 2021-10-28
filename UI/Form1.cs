@@ -78,6 +78,7 @@ namespace ClientSignup
 
                 // Confirmation message
                 MessageBox.Show($"Dear {client.FirstName}, your user has been created succesfully in the database. You can safely leave this page.", "User created succesfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClientArrToForm();
             }
         }
 
@@ -119,10 +120,10 @@ namespace ClientSignup
                 textBox_FirstName.BackColor = Color.White;
 
             // Last Name Validation
-            if ("" == (textBox_LastName.Text))
+            if ("" == (textBox_LastName.Text) || (textBox_LastName.Text.Length) == 1)
             {
                 textBox_LastName.BackColor = Color.OrangeRed;
-                MessageBox.Show("Last name cannot be empty!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Last name must be at least 2 charachters!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -130,15 +131,24 @@ namespace ClientSignup
                 textBox_LastName.BackColor = Color.White;
 
             // Email Validation
-            if ("" == (textBox_Email.Text))
+            try
+            {
+                new System.Net.Mail.MailAddress(this.textBox_Email.Text);
+            }
+            catch (ArgumentException)
             {
                 textBox_Email.BackColor = Color.OrangeRed;
                 MessageBox.Show("Email cannot be empty!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 return false;
             }
+            catch (FormatException)
+            {
+                textBox_Email.BackColor = Color.OrangeRed;
+                MessageBox.Show("Email is invalid!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                return false;
+            }
 
-            else
-                textBox_Email.BackColor = Color.White;
+
 
             // Password Validation
             if ("" == (textBox_Pwd.Text))
@@ -228,6 +238,7 @@ namespace ClientSignup
                         MessageBox.Show("Error update");
                 }
                 ClientArrToForm();
+
             }
 
 

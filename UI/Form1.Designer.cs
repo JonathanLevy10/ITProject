@@ -132,7 +132,7 @@ namespace ClientSignup
             this.button_Signup.Location = new System.Drawing.Point(421, 370);
             this.button_Signup.Margin = new System.Windows.Forms.Padding(4);
             this.button_Signup.Name = "button_Signup";
-            this.button_Signup.Size = new System.Drawing.Size(355, 28);
+            this.button_Signup.Size = new System.Drawing.Size(77, 28);
             this.button_Signup.TabIndex = 8;
             this.button_Signup.Text = "Sign Up";
             this.button_Signup.UseVisualStyleBackColor = true;
@@ -274,7 +274,7 @@ namespace ClientSignup
             this.Save.TabIndex = 21;
             this.Save.Text = "Save";
             this.Save.UseVisualStyleBackColor = true;
-            this.Save.Click += new System.EventHandler(this.Save_Click);
+            this.Save.Click += new System.EventHandler(this.button_Save_Click);
             // 
             // label1
             // 

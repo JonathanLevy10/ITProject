@@ -15,7 +15,7 @@ namespace ClientSignup.DAL
         {
             string sql = "INSERT INTO Table_Client"
             + "("
-            + "[FirstName],[LastName],[Email],[Pwd],[Gender], [BackgrondMA], [isPro]"
+            + "[FirstName],[LastName],[Email],[Pwd],[Gender], [BackgroundMA], [isPro]"
             + ")"
             + " VALUES "
             + "("
@@ -53,7 +53,7 @@ namespace ClientSignup.DAL
             + $",[Email] = N'{email}'"
             + $",[Pwd] = N'{pwd}'"
             + $",[Gender] = N'{gender}'"
-            + $",[BackgorundMA] = N'{backgroundMA}'"
+            + $",[BackgroundMA] = N'{backgroundMA}'"
             + $",[isPro] = {isPro}"
             + $" WHERE ID = {id}";
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה הצליחה

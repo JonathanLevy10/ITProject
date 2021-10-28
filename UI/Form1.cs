@@ -93,7 +93,7 @@ namespace ClientSignup
                 e.KeyChar = char.MinValue;
         }
 
-        private void textBox_NotHebrew_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBox_NotHebrew_KeyPress(object sender, KeyPressEventArgs e) //for email
         {
             if (!IsEngLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '@')
                 e.KeyChar = char.MinValue;
@@ -301,9 +301,6 @@ namespace ClientSignup
             ClientToForm(null);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

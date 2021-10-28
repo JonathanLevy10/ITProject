@@ -407,7 +407,7 @@ namespace ClientSignup
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "ClientSignup";
-            this.Load += new System.EventHandler(this.Form1_Load);
+           
             this.GroupBox_Filter.ResumeLayout(false);
             this.GroupBox_Filter.PerformLayout();
             this.ResumeLayout(false);

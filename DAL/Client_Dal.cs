@@ -54,9 +54,9 @@ namespace ClientSignup.DAL
             + $",[Pwd] = N'{pwd}'"
             + $",[Gender] = N'{gender}'"
             + $",[BackgroundMA] = N'{backgroundMA}'"
-            + $",[isPro] = {isPro}"
+            + $",[isPro] = '{isPro}'"
             + $" WHERE ID = {id}";
-            //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה הצליחה
+            //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה
             return Dal.ExecuteSql(str);
         }
 

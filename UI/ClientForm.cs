@@ -244,20 +244,6 @@ namespace ClientSignup
 
         }
 
-        private void label_id_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Save_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button_Delete_Click(object sender, EventArgs e)
         {
@@ -300,6 +286,8 @@ namespace ClientSignup
         {
             ClientToForm(null);
         }
+
+
 
 
     }

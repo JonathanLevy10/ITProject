@@ -264,7 +264,7 @@ namespace ClientSignup
             this.label_id.Size = new System.Drawing.Size(16, 17);
             this.label_id.TabIndex = 20;
             this.label_id.Text = "0";
-            this.label_id.Click += new System.EventHandler(this.label_id_Click);
+            //this.label_id.Click += new System.EventHandler(this.label_id_Click);
             // 
             // Save
             // 
@@ -284,7 +284,7 @@ namespace ClientSignup
             this.label1.Size = new System.Drawing.Size(29, 17);
             this.label1.TabIndex = 22;
             this.label1.Text = "ID: ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Clear
             // 

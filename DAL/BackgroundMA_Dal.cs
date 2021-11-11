@@ -11,15 +11,15 @@ namespace ClientSignup.DAL
     class BackgroundMA_Dal
     {
         // Adds client directly to database via SQL
-        public static bool Insert(string BackgroundMA)
+        public static bool Insert(string name)
         {
             string sql = "INSERT INTO Table_BackgroundMA"
             + "("
-            + "[BackgroundMA]"
+            + "[Name]"
             + ")"
             + " VALUES "
             + "("
-            + $"'{BackgroundMA}'"
+            + $"'{name}'"
             + ")";
 
             return Dal.ExecuteSql(sql);
@@ -46,13 +46,13 @@ namespace ClientSignup.DAL
 
 
 
-        public static bool Update(int id, string backgroundMA)
+        public static bool Update(int id, string name)
         {
 
             //מעדכנת את הלקוח במסד הנתונים
 
             string str = "UPDATE Table_BackgroundMA SET"
-            + $",[BackgroundMA] = N'{backgroundMA}'"
+            + $"[Name] = N'{name}'"
             + $"WHERE [Id] = {id}";
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה
             return Dal.ExecuteSql(str);

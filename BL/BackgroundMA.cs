@@ -30,7 +30,7 @@ namespace ClientSignup.BL
         public BackgroundMA(DataRow dataRow)
         {
             this.m_id = (int)dataRow["ID"];
-            m_Name = dataRow["BackgroundMA"].ToString();
+            m_Name = dataRow["Name"].ToString();
            
         }
         public override string ToString()

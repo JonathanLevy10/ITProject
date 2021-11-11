@@ -36,6 +36,7 @@ namespace ClientSignup.UI
             this.Name_Label = new System.Windows.Forms.Label();
             this.label_id = new System.Windows.Forms.Label();
             this.textBox_Name = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -55,24 +56,27 @@ namespace ClientSignup.UI
             this.listBox_BackgroundMA.Name = "listBox_BackgroundMA";
             this.listBox_BackgroundMA.Size = new System.Drawing.Size(161, 372);
             this.listBox_BackgroundMA.TabIndex = 2;
+            this.listBox_BackgroundMA.DoubleClick += new System.EventHandler(this.listBox_BackgroundMA_DoubleClick);
             // 
             // clear
             // 
-            this.clear.Location = new System.Drawing.Point(303, 377);
+            this.clear.Location = new System.Drawing.Point(303, 364);
             this.clear.Name = "clear";
-            this.clear.Size = new System.Drawing.Size(75, 23);
+            this.clear.Size = new System.Drawing.Size(75, 36);
             this.clear.TabIndex = 3;
             this.clear.Text = "Clear";
             this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.button_Clear_Click);
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(198, 377);
+            this.save.Location = new System.Drawing.Point(211, 335);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(75, 23);
+            this.save.Size = new System.Drawing.Size(75, 65);
             this.save.TabIndex = 4;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.button_Save_Click);
             // 
             // Name_Label
             // 
@@ -88,9 +92,9 @@ namespace ClientSignup.UI
             this.label_id.AutoSize = true;
             this.label_id.Location = new System.Drawing.Point(381, 28);
             this.label_id.Name = "label_id";
-            this.label_id.Size = new System.Drawing.Size(38, 17);
+            this.label_id.Size = new System.Drawing.Size(16, 17);
             this.label_id.TabIndex = 6;
-            this.label_id.Text = "label";
+            this.label_id.Text = "0";
             // 
             // textBox_Name
             // 
@@ -99,11 +103,24 @@ namespace ClientSignup.UI
             this.textBox_Name.Size = new System.Drawing.Size(100, 22);
             this.textBox_Name.TabIndex = 7;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(303, 335);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 34);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Delete";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button_Delete_Click);
+            // 
             // Form_BackgroundMA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox_Name);
             this.Controls.Add(this.label_id);
             this.Controls.Add(this.Name_Label);
@@ -127,5 +144,6 @@ namespace ClientSignup.UI
         private System.Windows.Forms.Label Name_Label;
         private System.Windows.Forms.Label label_id;
         private System.Windows.Forms.TextBox textBox_Name;
+        private System.Windows.Forms.Button button1;
     }
 }

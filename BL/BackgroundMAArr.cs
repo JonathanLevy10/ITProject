@@ -17,13 +17,13 @@ namespace ClientSignup.BL
             DataTable dataTable = BackgroundMA_Dal.GetDataTable();
 
             DataRow dataRow;
-            Client curClient; //Do I change this?
+            BackgroundMA curBackgroundMA; //Do I change this?
 
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 dataRow = dataTable.Rows[i];
-                curClient = new Client(dataRow);
-                this.Add(curClient);
+                curBackgroundMA = new BackgroundMA(dataRow);
+                this.Add(curBackgroundMA);
             }
         }
 

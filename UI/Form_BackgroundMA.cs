@@ -16,6 +16,7 @@ namespace ClientSignup.UI
         public Form_BackgroundMA()
         {
             InitializeComponent();
+            BackgroundMAArrToForm();
         }
 
         private BackgroundMA FormToBackgroundMA()
@@ -26,12 +27,12 @@ namespace ClientSignup.UI
 
             return backgroundMA;
         }
-       
+
         private void BackgroundMAArrToForm()
         {
             BackgroundMAArr backgroundMAArr = new BackgroundMAArr();
             backgroundMAArr.Fill();
-            listBox_BackgroundMA.DataSource = backgroundMAArr; //edit listbox name to get rid of error
+            listBox_BackgroundMA.DataSource = backgroundMAArr;
         }
         private bool CheckForm()
         {
@@ -134,9 +135,32 @@ namespace ClientSignup.UI
 
 
         }
+        private void listBox_BackgroundMA_DoubleClick(object sender, EventArgs e)
+        {
+            BackgroundMAToForm(listBox_BackgroundMA.SelectedItem as BackgroundMA);
+        }
 
+        private void button_Delete_Click(object sender, EventArgs e)
+        {
+            BackgroundMA backgroundMA = FormToBackgroundMA();
+
+            if (backgroundMA.Id == 0)
+                MessageBox.Show("You need to choose an option");
+            else
+            {
+                if (MessageBox.Show("Are you sure?", "warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    if (backgroundMA.Delete())
+                        MessageBox.Show("Success! it has been deleted");
+                    else
+                        MessageBox.Show("Error, please choose an option you would like to delete");
+
+                    BackgroundMAToForm(null);
+                    BackgroundMAArrToForm();
+                }
+
+            }
+        }
 
     }
-
-    
 }

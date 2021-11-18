@@ -43,7 +43,7 @@ namespace ClientSignup.BL
         }
 
         
-        public bool Delete()
+        public bool Delete() 
         {
             return BackgroundMA_Dal.Delete(m_id);
         }

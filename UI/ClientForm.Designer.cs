@@ -64,7 +64,7 @@ namespace ClientSignup
             // 
             // textBox_FirstName
             // 
-            this.textBox_FirstName.Location = new System.Drawing.Point(423, 49);
+            this.textBox_FirstName.Location = new System.Drawing.Point(423, 39);
             this.textBox_FirstName.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_FirstName.Name = "textBox_FirstName";
             this.textBox_FirstName.Size = new System.Drawing.Size(172, 22);
@@ -73,7 +73,7 @@ namespace ClientSignup
             // 
             // textBox_Pwd
             // 
-            this.textBox_Pwd.Location = new System.Drawing.Point(423, 156);
+            this.textBox_Pwd.Location = new System.Drawing.Point(423, 146);
             this.textBox_Pwd.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Pwd.MaxLength = 32;
             this.textBox_Pwd.Name = "textBox_Pwd";
@@ -83,7 +83,7 @@ namespace ClientSignup
             // 
             // textBox_LastName
             // 
-            this.textBox_LastName.Location = new System.Drawing.Point(604, 49);
+            this.textBox_LastName.Location = new System.Drawing.Point(604, 39);
             this.textBox_LastName.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_LastName.Name = "textBox_LastName";
             this.textBox_LastName.Size = new System.Drawing.Size(172, 22);
@@ -92,7 +92,7 @@ namespace ClientSignup
             // 
             // textBox_PwdConfirm
             // 
-            this.textBox_PwdConfirm.Location = new System.Drawing.Point(604, 156);
+            this.textBox_PwdConfirm.Location = new System.Drawing.Point(604, 146);
             this.textBox_PwdConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_PwdConfirm.MaxLength = 32;
             this.textBox_PwdConfirm.Name = "textBox_PwdConfirm";
@@ -102,7 +102,7 @@ namespace ClientSignup
             // 
             // textBox_Email
             // 
-            this.textBox_Email.Location = new System.Drawing.Point(423, 104);
+            this.textBox_Email.Location = new System.Drawing.Point(423, 94);
             this.textBox_Email.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Email.Name = "textBox_Email";
             this.textBox_Email.Size = new System.Drawing.Size(353, 22);
@@ -120,7 +120,7 @@ namespace ClientSignup
             "Female",
             "Non-Binary",
             "Prefer Not To Say"});
-            this.comboBox_Gender.Location = new System.Drawing.Point(423, 211);
+            this.comboBox_Gender.Location = new System.Drawing.Point(423, 201);
             this.comboBox_Gender.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_Gender.Name = "comboBox_Gender";
             this.comboBox_Gender.Size = new System.Drawing.Size(353, 24);
@@ -129,7 +129,7 @@ namespace ClientSignup
             // 
             // button_Signup
             // 
-            this.button_Signup.Location = new System.Drawing.Point(421, 370);
+            this.button_Signup.Location = new System.Drawing.Point(421, 360);
             this.button_Signup.Margin = new System.Windows.Forms.Padding(4);
             this.button_Signup.Name = "button_Signup";
             this.button_Signup.Size = new System.Drawing.Size(77, 28);
@@ -141,7 +141,7 @@ namespace ClientSignup
             // label_FirstName
             // 
             this.label_FirstName.AutoSize = true;
-            this.label_FirstName.Location = new System.Drawing.Point(419, 29);
+            this.label_FirstName.Location = new System.Drawing.Point(419, 19);
             this.label_FirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_FirstName.Name = "label_FirstName";
             this.label_FirstName.Size = new System.Drawing.Size(144, 17);
@@ -151,7 +151,7 @@ namespace ClientSignup
             // label_LastName
             // 
             this.label_LastName.AutoSize = true;
-            this.label_LastName.Location = new System.Drawing.Point(600, 30);
+            this.label_LastName.Location = new System.Drawing.Point(600, 20);
             this.label_LastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_LastName.Name = "label_LastName";
             this.label_LastName.Size = new System.Drawing.Size(139, 17);
@@ -161,7 +161,7 @@ namespace ClientSignup
             // label_Email
             // 
             this.label_Email.AutoSize = true;
-            this.label_Email.Location = new System.Drawing.Point(419, 84);
+            this.label_Email.Location = new System.Drawing.Point(419, 74);
             this.label_Email.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Email.Name = "label_Email";
             this.label_Email.Size = new System.Drawing.Size(272, 17);
@@ -171,7 +171,7 @@ namespace ClientSignup
             // label_PwdConfirm
             // 
             this.label_PwdConfirm.AutoSize = true;
-            this.label_PwdConfirm.Location = new System.Drawing.Point(600, 136);
+            this.label_PwdConfirm.Location = new System.Drawing.Point(600, 126);
             this.label_PwdConfirm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_PwdConfirm.Name = "label_PwdConfirm";
             this.label_PwdConfirm.Size = new System.Drawing.Size(152, 17);
@@ -181,7 +181,7 @@ namespace ClientSignup
             // label_Pwd
             // 
             this.label_Pwd.AutoSize = true;
-            this.label_Pwd.Location = new System.Drawing.Point(419, 136);
+            this.label_Pwd.Location = new System.Drawing.Point(419, 126);
             this.label_Pwd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Pwd.Name = "label_Pwd";
             this.label_Pwd.Size = new System.Drawing.Size(180, 17);
@@ -191,7 +191,7 @@ namespace ClientSignup
             // label_Gender
             // 
             this.label_Gender.AutoSize = true;
-            this.label_Gender.Location = new System.Drawing.Point(419, 191);
+            this.label_Gender.Location = new System.Drawing.Point(419, 181);
             this.label_Gender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Gender.Name = "label_Gender";
             this.label_Gender.Size = new System.Drawing.Size(123, 17);
@@ -201,7 +201,7 @@ namespace ClientSignup
             // checkBox_AgreeToTerms
             // 
             this.checkBox_AgreeToTerms.AutoSize = true;
-            this.checkBox_AgreeToTerms.Location = new System.Drawing.Point(422, 341);
+            this.checkBox_AgreeToTerms.Location = new System.Drawing.Point(422, 331);
             this.checkBox_AgreeToTerms.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox_AgreeToTerms.Name = "checkBox_AgreeToTerms";
             this.checkBox_AgreeToTerms.Size = new System.Drawing.Size(351, 21);
@@ -212,7 +212,7 @@ namespace ClientSignup
             // checkBox_isPro
             // 
             this.checkBox_isPro.AutoSize = true;
-            this.checkBox_isPro.Location = new System.Drawing.Point(422, 313);
+            this.checkBox_isPro.Location = new System.Drawing.Point(422, 303);
             this.checkBox_isPro.Name = "checkBox_isPro";
             this.checkBox_isPro.Size = new System.Drawing.Size(193, 21);
             this.checkBox_isPro.TabIndex = 17;
@@ -222,7 +222,7 @@ namespace ClientSignup
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(418, 256);
+            this.label2.Location = new System.Drawing.Point(418, 246);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(224, 17);
@@ -241,7 +241,7 @@ namespace ClientSignup
             "Karate",
             "Judo",
             "Tae Kwon Do"});
-            this.comboBox_BackgroundMA.Location = new System.Drawing.Point(421, 276);
+            this.comboBox_BackgroundMA.Location = new System.Drawing.Point(421, 266);
             this.comboBox_BackgroundMA.Name = "comboBox_BackgroundMA";
             this.comboBox_BackgroundMA.Size = new System.Drawing.Size(352, 24);
             this.comboBox_BackgroundMA.TabIndex = 18;
@@ -250,7 +250,7 @@ namespace ClientSignup
             // 
             this.listBox_Clients.FormattingEnabled = true;
             this.listBox_Clients.ItemHeight = 16;
-            this.listBox_Clients.Location = new System.Drawing.Point(12, 170);
+            this.listBox_Clients.Location = new System.Drawing.Point(12, 160);
             this.listBox_Clients.Name = "listBox_Clients";
             this.listBox_Clients.Size = new System.Drawing.Size(391, 340);
             this.listBox_Clients.TabIndex = 19;
@@ -259,16 +259,15 @@ namespace ClientSignup
             // label_id
             // 
             this.label_id.AutoSize = true;
-            this.label_id.Location = new System.Drawing.Point(455, 409);
+            this.label_id.Location = new System.Drawing.Point(455, 399);
             this.label_id.Name = "label_id";
             this.label_id.Size = new System.Drawing.Size(16, 17);
             this.label_id.TabIndex = 20;
             this.label_id.Text = "0";
-            //this.label_id.Click += new System.EventHandler(this.label_id_Click);
             // 
             // Save
             // 
-            this.Save.Location = new System.Drawing.Point(423, 448);
+            this.Save.Location = new System.Drawing.Point(423, 438);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(75, 62);
             this.Save.TabIndex = 21;
@@ -279,16 +278,15 @@ namespace ClientSignup
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(420, 409);
+            this.label1.Location = new System.Drawing.Point(420, 399);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 17);
             this.label1.TabIndex = 22;
             this.label1.Text = "ID: ";
-            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Clear
             // 
-            this.Clear.Location = new System.Drawing.Point(504, 448);
+            this.Clear.Location = new System.Drawing.Point(504, 438);
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(75, 33);
             this.Clear.TabIndex = 23;
@@ -299,7 +297,7 @@ namespace ClientSignup
             // Delete
             // 
             this.Delete.BackColor = System.Drawing.Color.Red;
-            this.Delete.Location = new System.Drawing.Point(504, 482);
+            this.Delete.Location = new System.Drawing.Point(504, 472);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(75, 28);
             this.Delete.TabIndex = 24;
@@ -315,7 +313,7 @@ namespace ClientSignup
             this.GroupBox_Filter.Controls.Add(this.label3);
             this.GroupBox_Filter.Controls.Add(this.label4);
             this.GroupBox_Filter.Controls.Add(this.label5);
-            this.GroupBox_Filter.Location = new System.Drawing.Point(12, 22);
+            this.GroupBox_Filter.Location = new System.Drawing.Point(12, 12);
             this.GroupBox_Filter.Name = "GroupBox_Filter";
             this.GroupBox_Filter.Size = new System.Drawing.Size(391, 142);
             this.GroupBox_Filter.TabIndex = 25;
@@ -407,7 +405,6 @@ namespace ClientSignup
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "ClientSignup";
-           
             this.GroupBox_Filter.ResumeLayout(false);
             this.GroupBox_Filter.PerformLayout();
             this.ResumeLayout(false);

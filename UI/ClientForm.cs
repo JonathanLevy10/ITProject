@@ -31,7 +31,7 @@ namespace ClientSignup
             client.Email = textBox_Email.Text;
             client.Pwd = textBox_Pwd.Text;
             client.IsPro = checkBox_isPro.Checked;
-            client.BackgroundMA = comboBox_BackgroundMA.Text;
+            client.BackgroundMA = comboBox_BackgroundMA.SelectedItem as BackgroundMA;
             if (comboBox_Gender.Text != "Not Specified")
                 client.Gender = comboBox_Gender.Text;
 
@@ -50,7 +50,7 @@ namespace ClientSignup
                 textBox_Email.Text = client.Email;
                 textBox_Pwd.Text = client.Pwd;
                 comboBox_Gender.Text = client.Gender;
-                comboBox_BackgroundMA.Text = client.BackgroundMA;
+                comboBox_BackgroundMA.SelectedItem = client.BackgroundMA;
                 checkBox_isPro.Checked = client.IsPro;
             }
             else
@@ -61,7 +61,7 @@ namespace ClientSignup
                 textBox_Email.Text = "";
                 textBox_Pwd.Text = "";
                 comboBox_Gender.Text = null;
-                comboBox_BackgroundMA.Text = null;
+                comboBox_BackgroundMA.SelectedItem = null;
                 //checkBox_isPro.Checked = null; check why it cannot be null
             }
         }
@@ -286,7 +286,18 @@ namespace ClientSignup
             ClientToForm(null);
         }
 
+        public void BackgroundMAArrToForm()
+        {
 
+            //ממירה את הטנ "מ אוסף ישובים לטופס
+
+            BackgroundMAArr backgrounaMAArr = new BackgroundMAArr();
+            backgrounaMAArr.Fill();
+
+            comboBox_BackgroundMA.DataSource = backgrounaMAArr;
+            comboBox_BackgroundMA.ValueMember = "Id";
+            comboBox_BackgroundMA.DisplayMember = "Name";
+        }
 
 
     }

@@ -46,6 +46,17 @@ namespace ClientSignup.BL
             }
             return clientArr;
         }
+        public bool DoesExist(BackgroundMA curBackgroundMA)
+        {
+
+            //מחזירה האם לפחות לאחד מהלקוחות יש את היישוב
+
+            for (int i = 0; i < this.Count; i++)
+                if ((this[i] as Client).BackgroundMA.Id == curBackgroundMA.Id)
+                    return true;
+
+            return false;
+        }
 
     }
 }

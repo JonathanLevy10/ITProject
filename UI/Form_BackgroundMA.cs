@@ -140,27 +140,38 @@ namespace ClientSignup.UI
             BackgroundMAToForm(listBox_BackgroundMA.SelectedItem as BackgroundMA);
         }
 
+ 
+
         private void button_Delete_Click(object sender, EventArgs e)
         {
-            BackgroundMA backgroundMA = FormToBackgroundMA();
-
-            if (backgroundMA.Id == 0)
-                MessageBox.Show("You need to choose an option");
+            if(label_id.Text == "0")
+                MessageBox.Show("You must select a background martial art");
             else
             {
-                if (MessageBox.Show("Are you sure?", "warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
+                if (MessageBox.Show("Warning", "Are you sure you want to delete?", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
-                    if (backgroundMA.Delete())
-                        MessageBox.Show("Success! it has been deleted");
+                    BackgroundMA backgroundMA = FormToBackgroundMA();
+                    ClientArr clientArr = new ClientArr();
+                    clientArr.Fill();
+                    if (clientArr.DoesExist(backgroundMA))
+                        MessageBox.Show("You can’t delete a city that is related to a client");
                     else
-                        MessageBox.Show("Error, please choose an option you would like to delete");
-
-                    BackgroundMAToForm(null);
-                    BackgroundMAArrToForm();
+                    if (backgroundMA.Delete())
+                    {
+                        MessageBox.Show("Deleted");
+                        BackgroundMAToForm(null);
+                        BackgroundMAArrToForm();
+                    }
+                    else
+                        MessageBox.Show("Error");
                 }
 
+
+            
             }
         }
+
 
     }
 }

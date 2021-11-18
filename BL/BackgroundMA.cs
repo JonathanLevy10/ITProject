@@ -11,13 +11,12 @@ namespace ClientSignup.BL
 {
     public class BackgroundMA
     {
-        private string m_Name; //If client has trained beforehand they can say here
-        private int m_id; //clients individual and unique id used for identifying Jews
-
+        private string m_Name; //Name of backgroundMA
+        private int m_id; //Items individual and unique id used for identifying Jews
         
         public string Name { get => m_Name; set => m_Name = value; } //change this variable name to anything no errors
-        
         public int Id { get => m_id; set => m_id = value; }
+       
 
         // Sends client information to DAL layer for insertion to database
         public bool Insert()

@@ -13,10 +13,15 @@ namespace ClientSignup.UI
 {
     public partial class Form_BackgroundMA : Form
     {
-        public Form_BackgroundMA()
+        public Form_BackgroundMA(BackgroundMA backgroundMA = null)
         {
             InitializeComponent();
-            BackgroundMAArrToForm();
+
+            if (backgroundMA != null && backgroundMA.Id <= 0)
+                backgroundMA = null;
+            BackgroundMAArrToForm(backgroundMA);
+            BackgroundMAToForm(backgroundMA);
+
         }
 
         private BackgroundMA FormToBackgroundMA()
@@ -28,11 +33,19 @@ namespace ClientSignup.UI
             return backgroundMA;
         }
 
-        private void BackgroundMAArrToForm()
+        private void BackgroundMAArrToForm(BackgroundMA curBackgroundMA = null)
         {
             BackgroundMAArr backgroundMAArr = new BackgroundMAArr();
+
             backgroundMAArr.Fill();
+            //BackgroundMA curBackgroundMA = null;
+            //BackgroundMAArr backgroundMAArr = new BackgroundMAArr();
+            
             listBox_BackgroundMA.DataSource = backgroundMAArr;
+            listBox_BackgroundMA.ValueMember = "Id";
+            listBox_BackgroundMA.DisplayMember = "Name";
+            if (curBackgroundMA != null)
+                comboBox_BackgroundMA.SelectedValue = curBackgroundMA.Id;
         }
         private bool CheckForm()
         {
@@ -67,6 +80,8 @@ namespace ClientSignup.UI
 
                 BackgroundMAArr oldBackgroundMAArr = new BackgroundMAArr();
                 oldBackgroundMAArr.Fill();
+                backgroundMA = oldBackgroundMAArr.GetBackgroundMAWithMaxId(); //why error?
+                BackgroundMAArrToForm(backgroundMA);
                 if (!oldBackgroundMAArr.IsContains(backgroundMA.Name))
                 {
                     if (backgroundMA.Insert())
@@ -172,6 +187,8 @@ namespace ClientSignup.UI
             }
         }
 
+        public BackgroundMA SelectedBackgroundMA { get => listBox_BackgroundMA.SelectedItem as BackgroundMA; }
+        
 
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClientSignup.BL;
+using ClientSignup.UI;
 
 namespace ClientSignup
 {
@@ -286,19 +287,31 @@ namespace ClientSignup
             ClientToForm(null);
         }
 
-        public void BackgroundMAArrToForm()
+        public void BackgroundMAArrToForm(BackgroundMA backgroundMA = null)
         {
-
+         
             //ממירה את הטנ "מ אוסף ישובים לטופס
+            BackgroundMA curBackgroundMA = null;
+            BackgroundMAArr backgroundMAArr = new BackgroundMAArr();
+            BackgroundMA backgroundMADefault = new BackgroundMA();
+            backgroundMADefault.Id = -1;
+            backgroundMADefault.Name = "Choose a Background Martial Art";
+            backgroundMAArr.Add(backgroundMADefault);
 
-            BackgroundMAArr backgrounaMAArr = new BackgroundMAArr();
-            backgrounaMAArr.Fill();
+            backgroundMAArr.Fill();
 
-            comboBox_BackgroundMA.DataSource = backgrounaMAArr;
+            comboBox_BackgroundMA.DataSource = backgroundMAArr;
             comboBox_BackgroundMA.ValueMember = "Id";
             comboBox_BackgroundMA.DisplayMember = "Name";
+            if (curBackgroundMA != null)
+                comboBox_BackgroundMA.SelectedValue = curBackgroundMA.Id;
         }
 
-
+        private void ChooseBackgroundMA_Click(object sender, EventArgs e)
+        {
+            Form_BackgroundMA form_BackgroundMA = new Form_BackgroundMA(comboBox_BackgroundMA.SelectedItem as BackgroundMA);
+            form_BackgroundMA.ShowDialog();
+            BackgroundMAArrToForm(form_BackgroundMA.SelectedBackgroundMA);
+        }
     }
 }

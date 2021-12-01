@@ -59,6 +59,7 @@ namespace ClientSignup
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.GroupBox_Filter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -231,6 +232,9 @@ namespace ClientSignup
             // 
             // comboBox_BackgroundMA
             // 
+            this.comboBox_BackgroundMA.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_BackgroundMA.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_BackgroundMA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_BackgroundMA.FormattingEnabled = true;
             this.comboBox_BackgroundMA.Items.AddRange(new object[] {
             "Grappling",
@@ -243,7 +247,7 @@ namespace ClientSignup
             "Tae Kwon Do"});
             this.comboBox_BackgroundMA.Location = new System.Drawing.Point(421, 266);
             this.comboBox_BackgroundMA.Name = "comboBox_BackgroundMA";
-            this.comboBox_BackgroundMA.Size = new System.Drawing.Size(352, 24);
+            this.comboBox_BackgroundMA.Size = new System.Drawing.Size(270, 24);
             this.comboBox_BackgroundMA.TabIndex = 18;
             // 
             // listBox_Clients
@@ -371,11 +375,22 @@ namespace ClientSignup
             this.label5.TabIndex = 28;
             this.label5.Text = "ID";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(701, 266);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Choose";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.ChooseBackgroundMA_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 544);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.GroupBox_Filter);
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.Clear);
@@ -444,6 +459,7 @@ namespace ClientSignup
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
     }
 }
 

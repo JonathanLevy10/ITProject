@@ -30,14 +30,14 @@ namespace ClientSignup.BL
         public BackgroundMAArr Filter(int id, string BackgroundMA) //checks if clients exists, then moves the ones that exist into new array
         {
             BackgroundMAArr backgroundMAArr = new BackgroundMAArr();
-            Client client; //change this??
+            Client client;
             for (int i = 0; i < this.Count; i++)
             {
                 client = (this[i] as Client);
                 if (
 
                     (id == 0 || client.id == id) &&
-                    client.BackgroundMA.ToLower().StartsWith(BackgroundMA.ToLower()) 
+                    client.BackgroundMA.Name.ToLower().StartsWith(BackgroundMA.ToLower()) 
 
 
                     )
@@ -53,6 +53,16 @@ namespace ClientSignup.BL
                     return true;
 
             return false;
+        }
+
+        public BackgroundMA GetBackgroundMAWithMaxId()
+        {
+            BackgroundMA maxBackgroundMA = new BackgroundMA();
+            for (int i = 0; i < this.Count; i++)
+                if ((this[i] as BackgroundMA).Id > maxBackgroundMA.Id)
+                    maxBackgroundMA = this[i] as BackgroundMA;
+
+            return maxBackgroundMA;
         }
 
     }

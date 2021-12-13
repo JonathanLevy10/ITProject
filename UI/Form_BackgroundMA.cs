@@ -44,8 +44,7 @@ namespace ClientSignup.UI
             listBox_BackgroundMA.DataSource = backgroundMAArr;
             listBox_BackgroundMA.ValueMember = "Id";
             listBox_BackgroundMA.DisplayMember = "Name";
-            if (curBackgroundMA != null)
-                comboBox_BackgroundMA.SelectedValue = curBackgroundMA.Id;
+           
         }
         private bool CheckForm()
         {
@@ -82,7 +81,7 @@ namespace ClientSignup.UI
                 oldBackgroundMAArr.Fill();
                 backgroundMA = oldBackgroundMAArr.GetBackgroundMAWithMaxId(); //why error?
                 BackgroundMAArrToForm(backgroundMA);
-                if (!oldBackgroundMAArr.IsContains(backgroundMA.Name))
+                if (!oldBackgroundMAArr.IsContains(backgroundMA.Name))//
                 {
                     if (backgroundMA.Insert())
                     {
@@ -155,11 +154,11 @@ namespace ClientSignup.UI
             BackgroundMAToForm(listBox_BackgroundMA.SelectedItem as BackgroundMA);
         }
 
- 
+
 
         private void button_Delete_Click(object sender, EventArgs e)
         {
-            if(label_id.Text == "0")
+            if (label_id.Text == "0")
                 MessageBox.Show("You must select a background martial art");
             else
             {
@@ -167,10 +166,14 @@ namespace ClientSignup.UI
                 MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     BackgroundMA backgroundMA = FormToBackgroundMA();
+
+                    //לפני המחיקה - בדיקה שהישוב לא בשימוש בישויות אחרות
+                    //בדיקה עבור לקוחות
+
                     ClientArr clientArr = new ClientArr();
                     clientArr.Fill();
                     if (clientArr.DoesExist(backgroundMA))
-                        MessageBox.Show("You can’t delete a city that is related to a client");
+                        MessageBox.Show("You can’t delete a background martial art that is related to a client");
                     else
                     if (backgroundMA.Delete())
                     {
@@ -180,15 +183,13 @@ namespace ClientSignup.UI
                     }
                     else
                         MessageBox.Show("Error");
+
                 }
-
-
-            
             }
         }
 
         public BackgroundMA SelectedBackgroundMA { get => listBox_BackgroundMA.SelectedItem as BackgroundMA; }
-        
 
+       
     }
 }

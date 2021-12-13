@@ -61,7 +61,12 @@ namespace ClientSignup.DAL
 
         public static bool Delete(int id)
         {
-            string str = $"DELETE FROM Table_BackgroundMA WHERE ID = {id}";
+
+            //מוחקת את הישוב ממסד הנתונים
+
+            string str = "DELETE FROM Table_BackgroundMA WHERE ID = " + id;
+
+            //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה הצליחה
 
             return Dal.ExecuteSql(str);
         }

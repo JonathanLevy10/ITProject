@@ -43,7 +43,7 @@ namespace ClientSignup.DAL
             dataRelation = new DataRelation(
                 "ClientBackgroundMA"
                 , dataSet.Tables["Table_BackgroundMA"].Columns["ID"]//עמודת הקשר בטבלת האב )המפתח הראשי של טבלת האב(
-                , dataSet.Tables["Table_Client"].Columns["Name"]);////עמודת הקשר בטבלת הבן )המפתח הזר בטבלת הבן(
+                , dataSet.Tables["Table_Client"].Columns["BackgroundMA"]);////עמודת הקשר בטבלת הבן )המפתח הזר בטבלת הבן(
             dataSet.Relations.Add(dataRelation);
         }
 

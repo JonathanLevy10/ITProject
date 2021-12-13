@@ -47,6 +47,8 @@ namespace ClientSignup.BL
         {
             return BackgroundMA_Dal.Delete(m_id);
         }
+
+
     }
 
 

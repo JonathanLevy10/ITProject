@@ -37,8 +37,6 @@ namespace ClientSignup.UI
             this.label_id = new System.Windows.Forms.Label();
             this.textBox_Name = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox_BackgroundMA = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -115,31 +113,13 @@ namespace ClientSignup.UI
             this.button1.TabIndex = 8;
             this.button1.Text = "Delete";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // comboBox_BackgroundMA
-            // 
-            this.comboBox_BackgroundMA.FormattingEnabled = true;
-            this.comboBox_BackgroundMA.Location = new System.Drawing.Point(384, 122);
-            this.comboBox_BackgroundMA.Name = "comboBox_BackgroundMA";
-            this.comboBox_BackgroundMA.Size = new System.Drawing.Size(100, 24);
-            this.comboBox_BackgroundMA.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(182, 125);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 17);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Pick a Background Martial Art";
+            this.button1.Click += new System.EventHandler(this.button_Delete_Click);
             // 
             // Form_BackgroundMA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox_BackgroundMA);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox_Name);
             this.Controls.Add(this.label_id);
@@ -165,7 +145,5 @@ namespace ClientSignup.UI
         private System.Windows.Forms.Label label_id;
         private System.Windows.Forms.TextBox textBox_Name;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox_BackgroundMA;
-        private System.Windows.Forms.Label label2;
     }
 }

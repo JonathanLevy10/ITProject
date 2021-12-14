@@ -11,15 +11,15 @@ namespace ClientSignup.DAL
     class Client_Dal
     {
         // Adds client directly to database via SQL
-        public static bool Insert(string firstName, string lastName, string email, string pwd, string gender, int BackgroundMA, bool isPro)
+        public static bool Insert(string firstName, string lastName, string email, string pwd, string gender, int Location, bool isPro)
         {
             string sql = "INSERT INTO Table_Client"
             + "("
-            + "[FirstName],[LastName],[Email],[Pwd],[Gender], [BackgroundMA], [isPro], [IdBackgroundMA]"
+            + "[FirstName],[LastName],[Email],[Pwd],[Gender], [Location], [isPro], [IdLocation]"
             + ")"
             + " VALUES "
             + "("
-            + $"'{firstName}','{lastName}','{email}','{pwd}','{gender}', '{BackgroundMA}', '{isPro}'"
+            + $"'{firstName}','{lastName}','{email}','{pwd}','{gender}', '{Location}', '{isPro}'"
             + ")";
 
             return Dal.ExecuteSql(sql);
@@ -39,11 +39,11 @@ namespace ClientSignup.DAL
         {
             Dal.FillDataSet(dataSet, "Table_Client", "[LastName], [FirstName]");
             DataRelation dataRelation = null; //הגדרת משתנה קשר הגומלין
-            BackgroundMA_Dal.FillDataSet(dataSet);
+            Location_Dal.FillDataSet(dataSet);
             dataRelation = new DataRelation(
-                "ClientBackgroundMA"
-                , dataSet.Tables["Table_BackgroundMA"].Columns["ID"]//עמודת הקשר בטבלת האב )המפתח הראשי של טבלת האב(
-                , dataSet.Tables["Table_Client"].Columns["BackgroundMA"]);////עמודת הקשר בטבלת הבן )המפתח הזר בטבלת הבן(
+                "ClientLocation"
+                , dataSet.Tables["Table_Location"].Columns["ID"]//עמודת הקשר בטבלת האב )המפתח הראשי של טבלת האב(
+                , dataSet.Tables["Table_Client"].Columns["Location"]);////עמודת הקשר בטבלת הבן )המפתח הזר בטבלת הבן(
             dataSet.Relations.Add(dataRelation);
         }
 
@@ -60,7 +60,7 @@ namespace ClientSignup.DAL
             + $",[Email] = N'{email}'"
             + $",[Pwd] = N'{pwd}'"
             + $",[Gender] = N'{gender}'"
-            + $",[BackgroundMA] = N'{backgroundMA}'" //this might have to go
+            + $",[Location] = N'{backgroundMA}'" //this might have to go
             + $",[isPro] = '{isPro}'"
             + $" WHERE ID = {id}";
 

@@ -9,7 +9,7 @@ using ClientSignup.DAL;
 
 namespace ClientSignup.BL
 {
-    public class BackgroundMA
+    public class Location
     {
         private string m_Name; //Name of backgroundMA
         private int m_id; //Items individual and unique id used for identifying Jews
@@ -21,12 +21,12 @@ namespace ClientSignup.BL
         // Sends client information to DAL layer for insertion to database
         public bool Insert()
         {
-            return BackgroundMA_Dal.Insert(m_Name);
+            return Location_Dal.Insert(m_Name);
         }
 
-        public BackgroundMA() { }
+        public Location() { }
 
-        public BackgroundMA(DataRow dataRow)
+        public Location(DataRow dataRow)
         {
             this.m_id = (int)dataRow["ID"];
             m_Name = dataRow["Name"].ToString();
@@ -39,13 +39,13 @@ namespace ClientSignup.BL
         public bool Update()
         {
             
-            return BackgroundMA_Dal.Update(m_id, m_Name);
+            return Location_Dal.Update(m_id, m_Name);
         }
 
         
         public bool Delete() 
         {
-            return BackgroundMA_Dal.Delete(m_id);
+            return Location_Dal.Delete(m_id);
         }
 
 

@@ -32,7 +32,7 @@ namespace ClientSignup
             client.Email = textBox_Email.Text;
             client.Pwd = textBox_Pwd.Text;
             client.IsPro = checkBox_isPro.Checked;
-            client.BackgroundMA = comboBox_BackgroundMA.SelectedItem as BackgroundMA;
+            client.Location = comboBox_Location.SelectedItem as Location;
             if (comboBox_Gender.Text != "Not Specified")
                 client.Gender = comboBox_Gender.Text;
 
@@ -51,7 +51,7 @@ namespace ClientSignup
                 textBox_Email.Text = client.Email;
                 textBox_Pwd.Text = client.Pwd;
                 comboBox_Gender.Text = client.Gender;
-                comboBox_BackgroundMA.SelectedItem = client.BackgroundMA;
+                comboBox_Location.SelectedItem = client.Location;
                 checkBox_isPro.Checked = client.IsPro;
             }
             else
@@ -62,7 +62,7 @@ namespace ClientSignup
                 textBox_Email.Text = "";
                 textBox_Pwd.Text = "";
                 comboBox_Gender.Text = null;
-                comboBox_BackgroundMA.SelectedItem = null;
+                comboBox_Location.SelectedItem = null;
                 //checkBox_isPro.Checked = null; check why it cannot be null
             }
         }
@@ -287,31 +287,31 @@ namespace ClientSignup
             ClientToForm(null);
         }
 
-        public void BackgroundMAArrToForm(BackgroundMA backgroundMA = null)
+        public void LocationArrToForm(Location backgroundMA = null)
         {
          
             //ממירה את הטנ "מ אוסף ישובים לטופס
-            BackgroundMA curBackgroundMA = null;
-            BackgroundMAArr backgroundMAArr = new BackgroundMAArr();
-            BackgroundMA backgroundMADefault = new BackgroundMA();
+            Location curLocation = null;
+            LocationArr backgroundMAArr = new LocationArr();
+            Location backgroundMADefault = new Location();
             backgroundMADefault.Id = -1;
             backgroundMADefault.Name = "Choose a Background Martial Art";
             backgroundMAArr.Add(backgroundMADefault);
 
             backgroundMAArr.Fill();
 
-            comboBox_BackgroundMA.DataSource = backgroundMAArr;
-            comboBox_BackgroundMA.ValueMember = "Id";
-            comboBox_BackgroundMA.DisplayMember = "Name";
-            if (curBackgroundMA != null)
-                comboBox_BackgroundMA.SelectedValue = curBackgroundMA.Id;
+            comboBox_Location.DataSource = backgroundMAArr;
+            comboBox_Location.ValueMember = "Id";
+            comboBox_Location.DisplayMember = "Name";
+            if (curLocation != null)
+                comboBox_Location.SelectedValue = curLocation.Id;
         }
 
-        private void ChooseBackgroundMA_Click(object sender, EventArgs e)
+        private void ChooseLocation_Click(object sender, EventArgs e)
         {
-            Form_BackgroundMA form_BackgroundMA = new Form_BackgroundMA(comboBox_BackgroundMA.SelectedItem as BackgroundMA);
-            form_BackgroundMA.ShowDialog();
-            BackgroundMAArrToForm(form_BackgroundMA.SelectedBackgroundMA);
+            Form_Location form_Location = new Form_Location(comboBox_Location.SelectedItem as Location);
+            form_Location.ShowDialog();
+            LocationArrToForm(form_Location.SelectedLocation);
         }
     }
 }

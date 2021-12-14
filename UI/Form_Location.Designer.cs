@@ -1,7 +1,7 @@
 ﻿
 namespace ClientSignup.UI
 {
-    partial class Form_BackgroundMA
+    partial class Form_Location
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace ClientSignup.UI
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox_BackgroundMA = new System.Windows.Forms.ListBox();
+            this.listBox_Location = new System.Windows.Forms.ListBox();
             this.clear = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
             this.Name_Label = new System.Windows.Forms.Label();
@@ -48,15 +48,15 @@ namespace ClientSignup.UI
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
             // 
-            // listBox_BackgroundMA
+            // listBox_Location
             // 
-            this.listBox_BackgroundMA.FormattingEnabled = true;
-            this.listBox_BackgroundMA.ItemHeight = 16;
-            this.listBox_BackgroundMA.Location = new System.Drawing.Point(15, 28);
-            this.listBox_BackgroundMA.Name = "listBox_BackgroundMA";
-            this.listBox_BackgroundMA.Size = new System.Drawing.Size(161, 372);
-            this.listBox_BackgroundMA.TabIndex = 2;
-            this.listBox_BackgroundMA.DoubleClick += new System.EventHandler(this.listBox_BackgroundMA_DoubleClick);
+            this.listBox_Location.FormattingEnabled = true;
+            this.listBox_Location.ItemHeight = 16;
+            this.listBox_Location.Location = new System.Drawing.Point(15, 28);
+            this.listBox_Location.Name = "listBox_Location";
+            this.listBox_Location.Size = new System.Drawing.Size(161, 372);
+            this.listBox_Location.TabIndex = 2;
+            this.listBox_Location.DoubleClick += new System.EventHandler(this.listBox_Location_DoubleClick);
             // 
             // clear
             // 
@@ -115,7 +115,7 @@ namespace ClientSignup.UI
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button_Delete_Click);
             // 
-            // Form_BackgroundMA
+            // Form_Location
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -126,10 +126,10 @@ namespace ClientSignup.UI
             this.Controls.Add(this.Name_Label);
             this.Controls.Add(this.save);
             this.Controls.Add(this.clear);
-            this.Controls.Add(this.listBox_BackgroundMA);
+            this.Controls.Add(this.listBox_Location);
             this.Controls.Add(this.label1);
-            this.Name = "Form_BackgroundMA";
-            this.Text = "Form_BackgroundMA";
+            this.Name = "Form_Location";
+            this.Text = "Form_Location";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,7 +138,7 @@ namespace ClientSignup.UI
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox_BackgroundMA;
+        private System.Windows.Forms.ListBox listBox_Location;
         private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.Label Name_Label;

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace ClientSignup.DAL
 {
-    class BackgroundMA_Dal
+    class Location_Dal
     {
         // Adds client directly to database via SQL
         public static bool Insert(string name)
         {
-            string sql = "INSERT INTO Table_BackgroundMA"
+            string sql = "INSERT INTO Table_Location"
             + "("
             + "[Name]"
             + ")"
@@ -30,16 +30,16 @@ namespace ClientSignup.DAL
             DataSet dataset = new DataSet();
 
             FillDataSet(dataset);
-            dataTable = dataset.Tables["Table_BackgroundMA"];
+            dataTable = dataset.Tables["Table_Location"];
 
             return dataTable;
         }
 
         public static void FillDataSet(DataSet dataSet)
         {
-            if (!dataSet.Tables.Contains("Table_BackgroundMA"))
+            if (!dataSet.Tables.Contains("Table_Location"))
             {
-                Dal.FillDataSet(dataSet, "Table_BackgroundMA", "[Name]");
+                Dal.FillDataSet(dataSet, "Table_Location", "[Name]");
             }
 
             
@@ -52,7 +52,7 @@ namespace ClientSignup.DAL
 
             //מעדכנת את הלקוח במסד הנתונים
 
-            string str = "UPDATE Table_BackgroundMA SET"
+            string str = "UPDATE Table_Location SET"
             + $"[Name] = N'{name}'"
             + $"WHERE [Id] = {id}";
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה
@@ -64,7 +64,7 @@ namespace ClientSignup.DAL
 
             //מוחקת את הישוב ממסד הנתונים
 
-            string str = "DELETE FROM Table_BackgroundMA WHERE ID = " + id;
+            string str = "DELETE FROM Table_Location WHERE ID = " + id;
 
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה הצליחה
 

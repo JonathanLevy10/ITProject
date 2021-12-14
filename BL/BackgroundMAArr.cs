@@ -10,26 +10,26 @@ using ClientSignup.DAL;
 namespace ClientSignup.BL
 {
 
-    public class BackgroundMAArr : ArrayList
+    public class LocationArr : ArrayList
     {
         public void Fill()
         {
-            DataTable dataTable = BackgroundMA_Dal.GetDataTable();
+            DataTable dataTable = Location_Dal.GetDataTable();
 
             DataRow dataRow;
-            BackgroundMA curBackgroundMA; //Do I change this?
+            Location curLocation; //Do I change this?
 
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 dataRow = dataTable.Rows[i];
-                curBackgroundMA = new BackgroundMA(dataRow);
-                this.Add(curBackgroundMA);
+                curLocation = new Location(dataRow);
+                this.Add(curLocation);
             }
         }
 
-        public BackgroundMAArr Filter(int id, string BackgroundMA) //checks if clients exists, then moves the ones that exist into new array
+        public LocationArr Filter(int id, string Location) //checks if clients exists, then moves the ones that exist into new array
         {
-            BackgroundMAArr backgroundMAArr = new BackgroundMAArr();
+            LocationArr backgroundMAArr = new LocationArr();
             Client client;
             for (int i = 0; i < this.Count; i++)
             {
@@ -37,7 +37,7 @@ namespace ClientSignup.BL
                 if (
 
                     (id == 0 || client.id == id) &&
-                    client.BackgroundMA.Name.ToLower().StartsWith(BackgroundMA.ToLower()) 
+                    client.Location.Name.ToLower().StartsWith(Location.ToLower()) 
 
 
                     )
@@ -46,23 +46,23 @@ namespace ClientSignup.BL
             return backgroundMAArr;
         }
 
-        public bool IsContains(string BackgroundMA_Name)
+        public bool IsContains(string Location_Name)
         {
             for (int i = 0; i < this.Count; i++)
-                if ((this[i] as BackgroundMA).Name == BackgroundMA_Name)
+                if ((this[i] as Location).Name == Location_Name)
                     return true;
 
             return false;
         }
 
-        public BackgroundMA GetBackgroundMAWithMaxId()
+        public Location GetLocationWithMaxId()
         {
-            BackgroundMA maxBackgroundMA = new BackgroundMA();
+            Location maxLocation = new Location();
             for (int i = 0; i < this.Count; i++)
-                if ((this[i] as BackgroundMA).Id > maxBackgroundMA.Id)
-                    maxBackgroundMA = this[i] as BackgroundMA;
+                if ((this[i] as Location).Id > maxLocation.Id)
+                    maxLocation = this[i] as Location;
 
-            return maxBackgroundMA;
+            return maxLocation;
         }
 
     }

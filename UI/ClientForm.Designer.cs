@@ -45,7 +45,7 @@ namespace ClientSignup
             this.checkBox_AgreeToTerms = new System.Windows.Forms.CheckBox();
             this.checkBox_isPro = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox_BackgroundMA = new System.Windows.Forms.ComboBox();
+            this.comboBox_Location = new System.Windows.Forms.ComboBox();
             this.listBox_Clients = new System.Windows.Forms.ListBox();
             this.label_id = new System.Windows.Forms.Label();
             this.Save = new System.Windows.Forms.Button();
@@ -230,13 +230,13 @@ namespace ClientSignup
             this.label2.TabIndex = 16;
             this.label2.Text = "Speacialist/Background Martial Art";
             // 
-            // comboBox_BackgroundMA
+            // comboBox_Location
             // 
-            this.comboBox_BackgroundMA.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox_BackgroundMA.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_BackgroundMA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_BackgroundMA.FormattingEnabled = true;
-            this.comboBox_BackgroundMA.Items.AddRange(new object[] {
+            this.comboBox_Location.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_Location.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_Location.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Location.FormattingEnabled = true;
+            this.comboBox_Location.Items.AddRange(new object[] {
             "Grappling",
             "Striking",
             "Jiu Jitsu",
@@ -245,10 +245,10 @@ namespace ClientSignup
             "Karate",
             "Judo",
             "Tae Kwon Do"});
-            this.comboBox_BackgroundMA.Location = new System.Drawing.Point(421, 266);
-            this.comboBox_BackgroundMA.Name = "comboBox_BackgroundMA";
-            this.comboBox_BackgroundMA.Size = new System.Drawing.Size(270, 24);
-            this.comboBox_BackgroundMA.TabIndex = 18;
+            this.comboBox_Location.Location = new System.Drawing.Point(421, 266);
+            this.comboBox_Location.Name = "comboBox_Location";
+            this.comboBox_Location.Size = new System.Drawing.Size(270, 24);
+            this.comboBox_Location.TabIndex = 18;
             // 
             // listBox_Clients
             // 
@@ -383,7 +383,7 @@ namespace ClientSignup
             this.button1.TabIndex = 26;
             this.button1.Text = "Choose";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.ChooseBackgroundMA_Click);
+            this.button1.Click += new System.EventHandler(this.ChooseLocation_Click);
             // 
             // Form1
             // 
@@ -398,7 +398,7 @@ namespace ClientSignup
             this.Controls.Add(this.Save);
             this.Controls.Add(this.label_id);
             this.Controls.Add(this.listBox_Clients);
-            this.Controls.Add(this.comboBox_BackgroundMA);
+            this.Controls.Add(this.comboBox_Location);
             this.Controls.Add(this.checkBox_isPro);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.checkBox_AgreeToTerms);
@@ -445,7 +445,7 @@ namespace ClientSignup
         private System.Windows.Forms.CheckBox checkBox_AgreeToTerms;
         private System.Windows.Forms.CheckBox checkBox_isPro;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox_BackgroundMA;
+        private System.Windows.Forms.ComboBox comboBox_Location;
         private System.Windows.Forms.ListBox listBox_Clients;
         private System.Windows.Forms.Label label_id;
         private System.Windows.Forms.Button Save;

@@ -11,39 +11,39 @@ using System.Windows.Forms;
 
 namespace ClientSignup.UI
 {
-    public partial class Form_BackgroundMA : Form
+    public partial class Form_Location : Form
     {
-        public Form_BackgroundMA(BackgroundMA backgroundMA = null)
+        public Form_Location(Location backgroundMA = null)
         {
             InitializeComponent();
 
             if (backgroundMA != null && backgroundMA.Id <= 0)
                 backgroundMA = null;
-            BackgroundMAArrToForm(backgroundMA);
-            BackgroundMAToForm(backgroundMA);
+            LocationArrToForm(backgroundMA);
+            LocationToForm(backgroundMA);
 
         }
 
-        private BackgroundMA FormToBackgroundMA()
+        private Location FormToLocation()
         {
-            BackgroundMA backgroundMA = new BackgroundMA();
+            Location backgroundMA = new Location();
             backgroundMA.Id = int.Parse(label_id.Text);
             backgroundMA.Name = textBox_Name.Text;
 
             return backgroundMA;
         }
 
-        private void BackgroundMAArrToForm(BackgroundMA curBackgroundMA = null)
+        private void LocationArrToForm(Location curLocation = null)
         {
-            BackgroundMAArr backgroundMAArr = new BackgroundMAArr();
+            LocationArr backgroundMAArr = new LocationArr();
 
             backgroundMAArr.Fill();
-            //BackgroundMA curBackgroundMA = null;
-            //BackgroundMAArr backgroundMAArr = new BackgroundMAArr();
+            //Location curLocation = null;
+            //LocationArr backgroundMAArr = new LocationArr();
             
-            listBox_BackgroundMA.DataSource = backgroundMAArr;
-            listBox_BackgroundMA.ValueMember = "Id";
-            listBox_BackgroundMA.DisplayMember = "Name";
+            listBox_Location.DataSource = backgroundMAArr;
+            listBox_Location.ValueMember = "Id";
+            listBox_Location.DisplayMember = "Name";
            
         }
         private bool CheckForm()
@@ -74,14 +74,14 @@ namespace ClientSignup.UI
             }
             else
             {
-                BackgroundMA backgroundMA = FormToBackgroundMA();
+                Location backgroundMA = FormToLocation();
 
 
-                BackgroundMAArr oldBackgroundMAArr = new BackgroundMAArr();
-                oldBackgroundMAArr.Fill();
-                backgroundMA = oldBackgroundMAArr.GetBackgroundMAWithMaxId(); //why error?
-                BackgroundMAArrToForm(backgroundMA);
-                if (!oldBackgroundMAArr.IsContains(backgroundMA.Name))//
+                LocationArr oldLocationArr = new LocationArr();
+                oldLocationArr.Fill();
+                backgroundMA = oldLocationArr.GetLocationWithMaxId(); //why error?
+                LocationArrToForm(backgroundMA);
+                if (!oldLocationArr.IsContains(backgroundMA.Name))//
                 {
                     if (backgroundMA.Insert())
                     {
@@ -89,7 +89,7 @@ namespace ClientSignup.UI
 
                         //עדכון תיבת הרשימה
 
-                        BackgroundMAArrToForm();
+                        LocationArrToForm();
                     }
                     else
                         MessageBox.Show("Not Ok");
@@ -124,14 +124,14 @@ namespace ClientSignup.UI
                     else
                         MessageBox.Show("Error updating");
                 }
-                BackgroundMAArrToForm();
+                LocationArrToForm();
             }
         }
         private void button_Clear_Click(object sender, EventArgs e)
         {
-            BackgroundMAToForm(null);
+            LocationToForm(null);
         }
-        private void BackgroundMAToForm(BackgroundMA backgroundMA)
+        private void LocationToForm(Location backgroundMA)
         {
             if (backgroundMA != null)
             {
@@ -149,9 +149,9 @@ namespace ClientSignup.UI
 
 
         }
-        private void listBox_BackgroundMA_DoubleClick(object sender, EventArgs e)
+        private void listBox_Location_DoubleClick(object sender, EventArgs e)
         {
-            BackgroundMAToForm(listBox_BackgroundMA.SelectedItem as BackgroundMA);
+            LocationToForm(listBox_Location.SelectedItem as Location);
         }
 
 
@@ -165,7 +165,7 @@ namespace ClientSignup.UI
                 if (MessageBox.Show("Warning", "Are you sure you want to delete?", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
-                    BackgroundMA backgroundMA = FormToBackgroundMA();
+                    Location backgroundMA = FormToLocation();
 
                     //לפני המחיקה - בדיקה שהישוב לא בשימוש בישויות אחרות
                     //בדיקה עבור לקוחות
@@ -178,8 +178,8 @@ namespace ClientSignup.UI
                     if (backgroundMA.Delete())
                     {
                         MessageBox.Show("Deleted");
-                        BackgroundMAToForm(null);
-                        BackgroundMAArrToForm();
+                        LocationToForm(null);
+                        LocationArrToForm();
                     }
                     else
                         MessageBox.Show("Error");
@@ -188,7 +188,7 @@ namespace ClientSignup.UI
             }
         }
 
-        public BackgroundMA SelectedBackgroundMA { get => listBox_BackgroundMA.SelectedItem as BackgroundMA; }
+        public Location SelectedLocation { get => listBox_Location.SelectedItem as Location; }
 
        
     }

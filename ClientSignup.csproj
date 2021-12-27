@@ -63,13 +63,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\BackgroundMA.cs" />
+    <Compile Include="BL\Location.cs" />
     <Compile Include="BL\Client.cs" />
-    <Compile Include="BL\BackgroundMAArr.cs" />
+    <Compile Include="BL\LocationArr.cs" />
     <Compile Include="BL\ClientArr.cs" />
-    <Compile Include="DAL\BackgroundMA_Dal.cs" />
+    <Compile Include="BL\Product.cs" />
+    <Compile Include="BL\ProductArr.cs" />
+    <Compile Include="DAL\Location_Dal.cs" />
     <Compile Include="DAL\Client_Dal.cs" />
     <Compile Include="DAL\Dal.cs" />
+    <Compile Include="DAL\Product_Dal.cs" />
     <Compile Include="UI\ClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +86,12 @@
     </Compile>
     <Compile Include="UI\Form_Location.Designer.cs">
       <DependentUpon>Form_Location.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Product.Designer.cs">
+      <DependentUpon>Form_Product.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="UI\ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>

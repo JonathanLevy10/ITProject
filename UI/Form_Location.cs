@@ -13,35 +13,35 @@ namespace ClientSignup.UI
 {
     public partial class Form_Location : Form
     {
-        public Form_Location(Location backgroundMA = null)
+        public Form_Location(Location location = null)
         {
             InitializeComponent();
 
-            if (backgroundMA != null && backgroundMA.Id <= 0)
-                backgroundMA = null;
-            LocationArrToForm(backgroundMA);
-            LocationToForm(backgroundMA);
+            if (location != null && location.Id <= 0)
+                location = null;
+            LocationArrToForm(location);
+            LocationToForm(location);
 
         }
 
         private Location FormToLocation()
         {
-            Location backgroundMA = new Location();
-            backgroundMA.Id = int.Parse(label_id.Text);
-            backgroundMA.Name = textBox_Name.Text;
+            Location location = new Location();
+            location.Id = int.Parse(label_id.Text);
+            location.Name = textBox_Name.Text;
 
-            return backgroundMA;
+            return location;
         }
 
         private void LocationArrToForm(Location curLocation = null)
         {
-            LocationArr backgroundMAArr = new LocationArr();
+            LocationArr locationArr = new LocationArr();
 
-            backgroundMAArr.Fill();
+            locationArr.Fill();
             //Location curLocation = null;
-            //LocationArr backgroundMAArr = new LocationArr();
-            
-            listBox_Location.DataSource = backgroundMAArr;
+            //LocationArr locationArr = new LocationArr();
+
+            listBox_Location.DataSource = locationArr;
             listBox_Location.ValueMember = "Id";
             listBox_Location.DisplayMember = "Name";
            
@@ -74,16 +74,16 @@ namespace ClientSignup.UI
             }
             else
             {
-                Location backgroundMA = FormToLocation();
+                Location location = FormToLocation();
 
 
                 LocationArr oldLocationArr = new LocationArr();
                 oldLocationArr.Fill();
-                backgroundMA = oldLocationArr.GetLocationWithMaxId(); //why error?
-                LocationArrToForm(backgroundMA);
-                if (!oldLocationArr.IsContains(backgroundMA.Name))//
+                location = oldLocationArr.GetLocationWithMaxId(); //why error?
+                LocationArrToForm(location);
+                if (!oldLocationArr.IsContains(location.Name))//
                 {
-                    if (backgroundMA.Insert())
+                    if (location.Insert())
                     {
                         MessageBox.Show("Ok");
 
@@ -101,11 +101,11 @@ namespace ClientSignup.UI
 
 
 
-                if (backgroundMA.Id == 0)
+                if (location.Id == 0)
                 {
                     //הוספת לקוח חדש
 
-                    if (backgroundMA.Insert())
+                    if (location.Insert())
                     {
                         MessageBox.Show("Added successfully");
                     }
@@ -117,7 +117,7 @@ namespace ClientSignup.UI
 
                     //עדכון לקוח קיים
 
-                    if (backgroundMA.Update())
+                    if (location.Update())
                     {
                         MessageBox.Show("Updated successfully");
                     }
@@ -131,14 +131,14 @@ namespace ClientSignup.UI
         {
             LocationToForm(null);
         }
-        private void LocationToForm(Location backgroundMA)
+        private void LocationToForm(Location location)
         {
-            if (backgroundMA != null)
+            if (location != null)
             {
                 //ממירה את המידע בטנ "מ לקוח לטופס
 
-                label_id.Text = backgroundMA.Id.ToString();
-                textBox_Name.Text = backgroundMA.Name;
+                label_id.Text = location.Id.ToString();
+                textBox_Name.Text = location.Name;
             }
             else
             {
@@ -165,17 +165,17 @@ namespace ClientSignup.UI
                 if (MessageBox.Show("Warning", "Are you sure you want to delete?", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
-                    Location backgroundMA = FormToLocation();
+                    Location location = FormToLocation();
 
                     //לפני המחיקה - בדיקה שהישוב לא בשימוש בישויות אחרות
                     //בדיקה עבור לקוחות
 
                     ClientArr clientArr = new ClientArr();
                     clientArr.Fill();
-                    if (clientArr.DoesExist(backgroundMA))
+                    if (clientArr.DoesExist(location))
                         MessageBox.Show("You can’t delete a background martial art that is related to a client");
                     else
-                    if (backgroundMA.Delete())
+                    if (location.Delete())
                     {
                         MessageBox.Show("Deleted");
                         LocationToForm(null);

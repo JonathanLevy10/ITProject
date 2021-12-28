@@ -63,12 +63,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\Category.cs" />
+    <Compile Include="BL\CategoryArr.cs" />
+    <Compile Include="BL\Level.cs" />
+    <Compile Include="BL\LevelArr.cs" />
     <Compile Include="BL\Location.cs" />
     <Compile Include="BL\Client.cs" />
     <Compile Include="BL\LocationArr.cs" />
     <Compile Include="BL\ClientArr.cs" />
     <Compile Include="BL\Product.cs" />
     <Compile Include="BL\ProductArr.cs" />
+    <Compile Include="DAL\Category_Dal.cs" />
+    <Compile Include="DAL\Level_Dal.cs" />
     <Compile Include="DAL\Location_Dal.cs" />
     <Compile Include="DAL\Client_Dal.cs" />
     <Compile Include="DAL\Dal.cs" />
@@ -107,6 +113,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Form_Location.resx">
       <DependentUpon>Form_Location.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Product.resx">
+      <DependentUpon>Form_Product.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

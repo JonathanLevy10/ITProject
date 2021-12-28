@@ -11,8 +11,8 @@ namespace ClientSignup.BL
 {
     public class Location
     {
-        private string m_Name; //Name of backgroundMA
-        private int m_id; //Items individual and unique id used for identifying Jews
+        private string m_Name; 
+        private int m_id; //Items individual and unique id used for identifying locations
         
         public string Name { get => m_Name; set => m_Name = value; } //change this variable name to anything no errors
         public int Id { get => m_id; set => m_id = value; }

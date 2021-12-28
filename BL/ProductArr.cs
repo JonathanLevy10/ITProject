@@ -13,55 +13,66 @@ namespace ClientSignup.BL
     {
         public void Fill()
         {
-            DataTable dataTable = Location_Dal.GetDataTable();
+            DataTable dataTable = Product_Dal.GetDataTable();
 
             DataRow dataRow;
-            Location curLocation; 
+            Product curProduct; 
 
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 dataRow = dataTable.Rows[i];
-                curLocation = new Location(dataRow);
-                this.Add(curLocation);
+                curProduct = new Product(dataRow);
+                this.Add(curProduct);
             }
         }
 
-        public LocationArr Filter(int id, string Location) //checks if clients exists, then moves the ones that exist into new array
-        {
-            LocationArr backgroundMAArr = new LocationArr();
-            Client client;
-            for (int i = 0; i < this.Count; i++)
-            {
-                client = (this[i] as Client);
-                if (
-
-                    (id == 0 || client.id == id) &&
-                    client.Location.Name.ToLower().StartsWith(Location.ToLower())
-
-
-                    )
-                    backgroundMAArr.Add(backgroundMAArr);
-            }
-            return backgroundMAArr;
-        }
-
-        public bool IsContains(string Location_Name)
+        
+        public bool IsContains(string Product_Name)
         {
             for (int i = 0; i < this.Count; i++)
-                if ((this[i] as Location).Name == Location_Name)
+                if ((this[i] as Product).Name == Product_Name)
                     return true;
 
             return false;
         }
 
-        public Location GetLocationWithMaxId()
+        public Product GetProductWithMaxId()
         {
-            Location maxLocation = new Location();
+            Product maxProduct = new Product();
             for (int i = 0; i < this.Count; i++)
-                if ((this[i] as Location).Id > maxLocation.Id)
-                    maxLocation = this[i] as Location;
+                if ((this[i] as Product).Id > maxProduct.Id)
+                    maxProduct = this[i] as Product;
 
-            return maxLocation;
+            return maxProduct;
+        }
+
+        public ProductArr Filter(string name, Level level, Category category)
+        {
+            ProductArr productArr = new ProductArr();
+
+            for (int i = 0; i < this.Count; i++)
+            {
+
+                //הצבת המוצר הנוכחי במשתנה עזר - מוצר
+
+                Product product = (this[i] as Product);
+                if (
+
+                //סינון לפי שם המוצר
+
+                product.Name.StartsWith(name)
+
+                //סינון לפי החברה
+                && (level == null || level.Id == -1 || product.Level.Id == level.Id)
+                //סינון לפי קטגוריה
+                && (category == null || category.Id == -1 || product.Category.Id == category.Id)
+                )
+
+                    //ה מוצר ענה לדרישות החיפוש - הוספה שלו לאוסף המוחזר
+
+                    productArr.Add(product);
+            }
+            return productArr;
         }
 
     }

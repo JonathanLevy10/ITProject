@@ -10,17 +10,22 @@ namespace ClientSignup.BL
 {
     class Product
     {
-        private string m_Name; //Name of backgroundMA
-        private int m_id; //Items individual and unique id used for identifying Jews
+        private int m_id;
+        private string m_Name;
+        private string m_Level;
+        private string m_Category;
 
-        public string Name { get => m_Name; set => m_Name = value; } //change this variable name to anything no errors
+
         public int Id { get => m_id; set => m_id = value; }
+        public string Name { get => m_Name; set => m_Name = value; }
+        public string Level { get => m_Level; set => m_Level = value; }      
+        public string Category { get => m_Category; set => m_Category = value; }
 
 
         // Sends client information to DAL layer for insertion to database
         public bool Insert()
         {
-            return Location_Dal.Insert(m_Name);
+            return Product_Dal.Insert(m_Name);
         }
 
         public Product() { }
@@ -28,23 +33,23 @@ namespace ClientSignup.BL
         public Product(DataRow dataRow)
         {
             this.m_id = (int)dataRow["ID"];
-            m_Name = dataRow["Name"].ToString();
+            m_Level = dataRow["Name"].ToString();
 
         }
         public override string ToString()
-        { return $"{m_Name}"; }
+        { return $"{m_Level}"; }
 
 
         public bool Update()
         {
 
-            return Location_Dal.Update(m_id, m_Name);
+            return Product_Dal.Update(m_id, m_Name, m_Level, m_Category);
         }
 
 
         public bool Delete()
         {
-            return Location_Dal.Delete(m_id);
+            return Product_Dal.Delete(m_id);
         }
 
 

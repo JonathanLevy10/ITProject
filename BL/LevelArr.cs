@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientSignup.BL
 {
-    class LevelArr
+    public class LevelArr
     {
     }
 }

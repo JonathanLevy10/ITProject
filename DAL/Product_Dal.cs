@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace ClientSignup.DAL
 {
     class Product_Dal
@@ -46,13 +47,15 @@ namespace ClientSignup.DAL
 
 
 
-        public static bool Update(int id, string name)
+        public static bool Update(int id, string name, int level, int category)
         {
 
             //מעדכנת את הלקוח במסד הנתונים
 
-            string str = "UPDATE Table_Location SET"
+            string str = "UPDATE Table_Products SET"
             + $"[Name] = N'{name}'"
+            + $"[Level] = N'{level}'"
+            + $"[Category] = N'{category}'"
             + $"WHERE [Id] = {id}";
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה
             return Dal.ExecuteSql(str);

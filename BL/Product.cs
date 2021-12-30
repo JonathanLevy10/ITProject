@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 using ClientSignup.DAL;
 namespace ClientSignup.BL
 {
-    class Product
+    public class Product
     {
         private int m_id;
         private string m_Name;
-        private string m_Level;
-        private string m_Category;
+        private Level m_Level;
+        private Category m_Category;
 
 
         public int Id { get => m_id; set => m_id = value; }
         public string Name { get => m_Name; set => m_Name = value; }
-        public string Level { get => m_Level; set => m_Level = value; }      
-        public string Category { get => m_Category; set => m_Category = value; }
+        public Level Level { get => m_Level; set => m_Level = value; }      
+        public Category Category { get => m_Category; set => m_Category = value; }
 
 
         // Sends client information to DAL layer for insertion to database
@@ -43,7 +43,7 @@ namespace ClientSignup.BL
         public bool Update()
         {
 
-            return Product_Dal.Update(m_id, m_Name, m_Level, m_Category);
+            return Product_Dal.Update(m_id, m_Name, m_Level.Id, m_Category.Id);
         }
 
 

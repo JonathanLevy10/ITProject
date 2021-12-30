@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientSignup.BL
 {
-    class Level
+    public class Level
     {
 
         private int m_id;

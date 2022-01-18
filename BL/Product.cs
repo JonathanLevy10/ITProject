@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClientSignup.DAL;
+
 namespace ClientSignup.BL
 {
     public class Product
@@ -32,8 +33,10 @@ namespace ClientSignup.BL
 
         public Product(DataRow dataRow)
         {
-            this.m_id = (int)dataRow["ID"];
-            m_Level = dataRow["Name"].ToString();
+            m_id = (int)dataRow["Id"];
+            m_Name = dataRow["Name"].ToString();
+            m_Level = new Level(dataRow.GetParentRow("ProductLevel"));
+            m_Category = new Category(dataRow.GetParentRow("ProductCategory"));
 
         }
         public override string ToString()

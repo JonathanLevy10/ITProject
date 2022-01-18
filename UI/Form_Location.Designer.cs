@@ -83,9 +83,9 @@ namespace ClientSignup.UI
             this.Name_Label.AutoSize = true;
             this.Name_Label.Location = new System.Drawing.Point(182, 60);
             this.Name_Label.Name = "Name_Label";
-            this.Name_Label.Size = new System.Drawing.Size(152, 17);
+            this.Name_Label.Size = new System.Drawing.Size(45, 17);
             this.Name_Label.TabIndex = 5;
-            this.Name_Label.Text = "Background Martial Art";
+            this.Name_Label.Text = "Name";
             // 
             // label_id
             // 

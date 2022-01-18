@@ -39,6 +39,7 @@ namespace ClientSignup.DAL
         {
             Dal.FillDataSet(dataSet, "Table_Client", "[LastName], [FirstName]");
             DataRelation dataRelation = null; //הגדרת משתנה קשר הגומלין
+            
             Location_Dal.FillDataSet(dataSet);
             dataRelation = new DataRelation(
                 "ClientLocation"

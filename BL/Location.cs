@@ -14,7 +14,7 @@ namespace ClientSignup.BL
         private string m_Name; 
         private int m_id; //Items individual and unique id used for identifying locations
         
-        public string Name { get => m_Name; set => m_Name = value; } //change this variable name to anything no errors
+        public string Name { get => m_Name; set => m_Name = value; } 
         public int Id { get => m_id; set => m_id = value; }
        
 

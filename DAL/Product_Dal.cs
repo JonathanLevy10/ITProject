@@ -13,7 +13,7 @@ namespace ClientSignup.DAL
         // Adds client directly to database via SQL
         public static bool Insert(string name)
         {
-            string sql = "INSERT INTO Table_Location"
+            string sql = "INSERT INTO Table_Product"
             + "("
             + "[Name]"
             + ")"
@@ -30,16 +30,32 @@ namespace ClientSignup.DAL
             DataSet dataset = new DataSet();
 
             FillDataSet(dataset);
-            dataTable = dataset.Tables["Table_Location"];
+            dataTable = dataset.Tables["Table_Product"];
 
             return dataTable;
         }
 
         public static void FillDataSet(DataSet dataSet)
         {
-            if (!dataSet.Tables.Contains("Table_Location"))
+            if (!dataSet.Tables.Contains("Table_Product"))
             {
-                Dal.FillDataSet(dataSet, "Table_Location", "[Name]");
+                Dal.FillDataSet(dataSet, "Table_Product", "[Name]");
+
+                DataRelation dataRelation = null; //הגדרת משתנה קשר הגומלין
+
+                Level_Dal.FillDataSet(dataSet);
+                dataRelation = new DataRelation(
+                    "ProductLevel"
+                    , dataSet.Tables["Table_Level"].Columns["Id"]//עמודת הקשר בטבלת האב )המפתח הראשי של טבלת האב(
+                    , dataSet.Tables["Table_Product"].Columns["Level"]);////עמודת הקשר בטבלת הבן )המפתח הזר בטבלת הבן(
+                dataSet.Relations.Add(dataRelation);
+                
+                Category_Dal.FillDataSet(dataSet);
+                dataRelation = new DataRelation(
+                    "ProductCategory"
+                    , dataSet.Tables["Table_Category"].Columns["Id"]//עמודת הקשר בטבלת האב )המפתח הראשי של טבלת האב(
+                    , dataSet.Tables["Table_Product"].Columns["Category"]);////עמודת הקשר בטבלת הבן )המפתח הזר בטבלת הבן(
+                dataSet.Relations.Add(dataRelation);
             }
 
 
@@ -66,7 +82,7 @@ namespace ClientSignup.DAL
 
             //מוחקת את הישוב ממסד הנתונים
 
-            string str = "DELETE FROM Table_Location WHERE ID = " + id;
+            string str = "DELETE FROM Table_Product WHERE ID = " + id;
 
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה הצליחה
 

@@ -11,26 +11,19 @@ namespace ClientSignup.BL
 {
     public class Product
     {
+        #region Members
         private int m_id;
         private string m_Name;
         private Level m_Level;
         private Category m_Category;
 
-
         public int Id { get => m_id; set => m_id = value; }
         public string Name { get => m_Name; set => m_Name = value; }
         public Level Level { get => m_Level; set => m_Level = value; }      
         public Category Category { get => m_Category; set => m_Category = value; }
-
-
-        // Sends client information to DAL layer for insertion to database
-        public bool Insert()
-        {
-            return Product_Dal.Insert(m_Name);
-        }
+        #endregion
 
         public Product() { }
-
         public Product(DataRow dataRow)
         {
             m_id = (int)dataRow["Id"];
@@ -39,22 +32,23 @@ namespace ClientSignup.BL
             m_Category = new Category(dataRow.GetParentRow("ProductCategory"));
 
         }
-        public override string ToString()
-        { return $"{m_Level}"; }
 
 
+        public bool Insert()
+        {
+            return Product_Dal.Insert(m_Name); // Sends product information to DAL layer for insertion to database
+        }
         public bool Update()
         {
 
             return Product_Dal.Update(m_id, m_Name, m_Level.Id, m_Category.Id);
         }
-
-
         public bool Delete()
         {
             return Product_Dal.Delete(m_id);
         }
-
+        public override string ToString()
+        { return $"{m_Level}"; }
 
     }
 }

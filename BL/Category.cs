@@ -11,45 +11,38 @@ namespace ClientSignup.BL
 {
     public class Category
     {
+        #region Members
+        private int m_Id;
         private string m_Name;
-        private int m_id; //Items individual and unique id used for identifying locations
-
-        public string Name { get => m_Name; set => m_Name = value; } //change this variable name to anything no errors
-        public int Id { get => m_id; set => m_id = value; }
 
 
-        // Sends client information to DAL layer for insertion to database
-        public bool Insert()
-        {
-            return Category_Dal.Insert(m_Name);
-        }
-
+        public int Id { get => m_Id; set => m_Id = value; }
+        public string Name { get => m_Name; set => m_Name = value; }
+        #endregion
 
 
         public Category() { }
         public Category(DataRow dataRow)
         {
-            this.m_id = (int)dataRow["ID"];
+            m_Id = (int)dataRow["Id"];
             m_Name = dataRow["Name"].ToString();
 
         }
-        public override string ToString()
-        { return $"{m_Name}"; }
 
+        public bool Insert()
+        {
+            return Category_Dal.Insert(m_Name);  //Sends Category information to DAL layer
 
+        }
         public bool Update()
         {
-
-            return Category_Dal.Update(m_id, m_Name);
+            return Category_Dal.Update(m_Id, m_Name);
         }
-
-
         public bool Delete()
         {
-            return Category_Dal.Delete(m_id);
+            return Category_Dal.Delete(m_Id);
         }
-
-
-
+        public override string ToString()
+        { return $"{m_Name}"; }
     }
 }

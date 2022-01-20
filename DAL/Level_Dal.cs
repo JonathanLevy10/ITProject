@@ -34,7 +34,6 @@ namespace ClientSignup.DAL
 
             return dataTable;
         }
-
         public static void FillDataSet(DataSet dataSet)
         {
             if (!dataSet.Tables.Contains("Table_Level"))
@@ -42,9 +41,6 @@ namespace ClientSignup.DAL
                 Dal.FillDataSet(dataSet, "Table_Level", "[Name]");
             }
         }
-
-
-
         public static bool Update(int id, string name)
         {
 
@@ -56,7 +52,6 @@ namespace ClientSignup.DAL
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה
             return Dal.ExecuteSql(str);
         }
-
         public static bool Delete(int id)
         {
 

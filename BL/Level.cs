@@ -29,7 +29,7 @@ namespace ClientSignup.BL
         }
 
 
-        //Sends client information to DAL layer
+        //Sends Level information to DAL layer
         public bool Insert()
         {
             return Level_Dal.Insert(m_Name);

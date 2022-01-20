@@ -21,9 +21,9 @@ namespace ClientSignup.BL
             }
         }
 
-        public LevelArr Filter(int id, string name) //checks if clients exists, then moves the ones that exist into new array
+        public LevelArr Filter(int id, string name) 
         {
-            LevelArr levelArr = new LevelArr();
+            LevelArr levelArr = new LevelArr(); //checks if level exists, then moves the ones that exist into new array
             Level level;
             for (int i = 0; i < this.Count; i++)
             {

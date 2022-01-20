@@ -17,7 +17,7 @@ namespace ClientSignup.BL
             DataTable dataTable = Location_Dal.GetDataTable();
 
             DataRow dataRow;
-            Location curLocation; 
+            Location curLocation;
 
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
@@ -26,35 +26,27 @@ namespace ClientSignup.BL
                 this.Add(curLocation);
             }
         }
-
-        public LocationArr Filter(int id, string Location) //checks if clients exists, then moves the ones that exist into new array
+        public LocationArr Filter(int id, string name)
         {
-            LocationArr backgroundMAArr = new LocationArr();
-            Client client;
+            LocationArr levelArr = new LocationArr(); //checks if level exists, then moves the ones that exist into new array
+            Location level;
             for (int i = 0; i < this.Count; i++)
             {
-                client = (this[i] as Client);
+                level = (this[i] as Location);
                 if (
-
-                    (id == 0 || client.id == id) &&
-                    client.Location.Name.ToLower().StartsWith(Location.ToLower()) 
-
-
-                    )
-                    backgroundMAArr.Add(backgroundMAArr);
+                    (id == 0 || level.Id == id) && level.Name.ToLower().StartsWith(name.ToLower()))
+                    levelArr.Add(levelArr);
             }
-            return backgroundMAArr;
+            return levelArr;
         }
-
-        public bool IsContains(string Location_Name)
+        public bool IsContains(string name)
         {
             for (int i = 0; i < this.Count; i++)
-                if ((this[i] as Location).Name == Location_Name)
+                if ((this[i] as Location).Name == name)
                     return true;
 
             return false;
         }
-
         public Location GetLocationWithMaxId()
         {
             Location maxLocation = new Location();

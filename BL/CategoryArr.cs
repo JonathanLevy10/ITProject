@@ -27,36 +27,28 @@ namespace ClientSignup.BL
             }
         }
 
-        public CategoryArr Filter(int id, string Category) //checks if clients exists, then moves the ones that exist into new array
+        public CategoryArr Filter(int id, string name)
         {
-            CategoryArr backgroundMAArr = new CategoryArr();
-            Product product;
+            CategoryArr levelArr = new CategoryArr(); //checks if level exists, then moves the ones that exist into new array
+            Category level;
             for (int i = 0; i < this.Count; i++)
             {
-                product = (this[i] as Product);
+                level = (this[i] as Category);
                 if (
-
-                    (id == 0 || product.Id == id) &&
-                    product.Category.Name.ToLower().StartsWith(Category.ToLower())
-
-
-                    )
-                    backgroundMAArr.Add(backgroundMAArr);
+                    (id == 0 || level.Id == id) && level.Name.ToLower().StartsWith(name.ToLower()))
+                    levelArr.Add(levelArr);
             }
-            return backgroundMAArr;
+            return levelArr;
         }
 
-        public bool IsContains(string Category_Name)
+        public bool IsContains(string name)
         {
             for (int i = 0; i < this.Count; i++)
-                if ((this[i] as Category).Name == Category_Name)
+                if ((this[i] as Category).Name == name)
                     return true;
 
             return false;
         }
-
-        
-
 
         public Category GetCategoryWithMaxId()
         {
@@ -66,8 +58,6 @@ namespace ClientSignup.BL
                     maxCategory = this[i] as Category;
 
             return maxCategory;
-
-
         }
     }
 }

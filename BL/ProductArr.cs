@@ -75,5 +75,29 @@ namespace ClientSignup.BL
             return productArr;
         }
 
+        public bool DoesExist(Category curCategory)
+        {
+
+            //מחזירה האם לפחות לאחד מהלקוחות יש את היישוב
+
+            for (int i = 0; i < this.Count; i++)
+                if ((this[i] as Product).Category.Id == curCategory.Id)
+                    return true;
+
+            return false;
+        }
+
+        public bool DoesExist(Level curLevel)
+        {
+
+            //מחזירה האם לפחות לאחד מהלקוחות יש את היישוב
+
+            for (int i = 0; i < this.Count; i++)
+                if ((this[i] as Product).Level.Id == curLevel.Id)
+                    return true;
+
+            return false;
+        }
+
     }
 }

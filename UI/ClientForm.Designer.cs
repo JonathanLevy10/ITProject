@@ -226,9 +226,9 @@ namespace ClientSignup
             this.label2.Location = new System.Drawing.Point(418, 246);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(224, 17);
+            this.label2.Size = new System.Drawing.Size(62, 17);
             this.label2.TabIndex = 16;
-            this.label2.Text = "Speacialist/Background Martial Art";
+            this.label2.Text = "Location";
             // 
             // comboBox_Location
             // 
@@ -237,14 +237,13 @@ namespace ClientSignup
             this.comboBox_Location.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Location.FormattingEnabled = true;
             this.comboBox_Location.Items.AddRange(new object[] {
-            "Grappling",
-            "Striking",
-            "Jiu Jitsu",
-            "Muay Thai",
-            "Boxing",
-            "Karate",
-            "Judo",
-            "Tae Kwon Do"});
+            "Miami",
+            "Pittsburgh",
+            "Tel Aviv",
+            "Tokyo",
+            "New York",
+            "London",
+            "Paris"});
             this.comboBox_Location.Location = new System.Drawing.Point(421, 266);
             this.comboBox_Location.Name = "comboBox_Location";
             this.comboBox_Location.Size = new System.Drawing.Size(270, 24);

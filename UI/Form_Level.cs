@@ -38,14 +38,13 @@ namespace ClientSignup.UI
                 LevelArr levelArr = new LevelArr();
 
                 levelArr.Fill();
-                //Level curLevel = null;
-                //LevelArr levelArr = new LevelArr();
 
                 listBox_Level.DataSource = levelArr;
                 listBox_Level.ValueMember = "Id";
                 listBox_Level.DisplayMember = "Name";
 
             }
+
             private bool CheckForm()
             {
 
@@ -159,7 +158,7 @@ namespace ClientSignup.UI
             private void button_Delete_Click(object sender, EventArgs e)
             {
                 if (label_id.Text == "0")
-                    MessageBox.Show("You must select a background martial art");
+                    MessageBox.Show("You must select a level");
                 else
                 {
                     if (MessageBox.Show("Warning", "Are you sure you want to delete?", MessageBoxButtons.YesNo,

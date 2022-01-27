@@ -287,20 +287,20 @@ namespace ClientSignup
             ClientToForm(null);
         }
 
-        public void LocationArrToForm(Location backgroundMA = null)
+        public void LocationArrToForm(Location location = null)
         {
          
             //ממירה את הטנ "מ אוסף ישובים לטופס
             Location curLocation = null;
-            LocationArr backgroundMAArr = new LocationArr();
-            Location backgroundMADefault = new Location();
-            backgroundMADefault.Id = -1;
-            backgroundMADefault.Name = "Choose a Background Martial Art";
-            backgroundMAArr.Add(backgroundMADefault);
+            LocationArr locationArr = new LocationArr();
+            Location locationDefault = new Location();
+            locationDefault.Id = -1;
+            locationDefault.Name = "Choose a location";
+            locationArr.Add(locationDefault);
 
-            backgroundMAArr.Fill();
+            locationArr.Fill();
 
-            comboBox_Location.DataSource = backgroundMAArr;
+            comboBox_Location.DataSource = locationArr;
             comboBox_Location.ValueMember = "Id";
             comboBox_Location.DisplayMember = "Name";
             if (curLocation != null)

@@ -46,7 +46,7 @@ namespace ClientSignup.BL
             return maxProduct;
         }
 
-        public ProductArr Filter(string name, Level level, Category category)
+        public ProductArr Filter(string name, Category category, Level level)
         {
             ProductArr productArr = new ProductArr();
 

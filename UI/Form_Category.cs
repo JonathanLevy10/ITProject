@@ -94,8 +94,6 @@ namespace ClientSignup.UI
             CategoryToForm(listBox_Category.SelectedItem as Category);
         }
 
-
-
         private void button_Delete_Click(object sender, EventArgs e)
         {
             if (label_id.Text == "0")
@@ -106,10 +104,8 @@ namespace ClientSignup.UI
                 MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     Category category = FormToCategory();
-
                     //לפני המחיקה - בדיקה שהישוב לא בשימוש בישויות אחרות
                     //בדיקה עבור לקוחות
-
                     ProductArr productArr = new ProductArr();
                     productArr.Fill();
                     if (productArr.DoesExist(category))
@@ -123,11 +119,13 @@ namespace ClientSignup.UI
                     }
                     else
                         MessageBox.Show("Error");
-
                 }
             }
         }
 
         public Category SelectedCategory { get => listBox_Category.SelectedItem as Category; }
+
+        
+        
     }
 }

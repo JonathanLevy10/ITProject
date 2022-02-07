@@ -20,7 +20,7 @@ namespace ClientSignup.UI
         {
             InitializeComponent();
         }
-        public void Category(ComboBox comboBox, bool isMustChoose, Category curCategory = null)
+        public void CategoryArrToFormy(ComboBox comboBox, bool isMustChoose, Category curCategory = null)
         {
             CategoryArr categoryArr = new CategoryArr();
 
@@ -40,6 +40,28 @@ namespace ClientSignup.UI
             if (curCategory != null)
                 comboBox.SelectedValue = curCategory.Id;
         }
+
+        public void LevelArrToFormy(ComboBox comboBox, bool isMustChoose, Level curLevel = null)
+        {
+            LevelArr levelArr = new LevelArr();
+
+            Level levelDefault = new Level();
+            levelDefault.Id = -1;
+            if (isMustChoose)
+                levelDefault.Name = "Choose a level";
+            else
+                levelDefault.Name = "All levels";
+            levelArr.Add(levelDefault);
+
+            levelArr.Fill();
+            comboBox.DataSource = levelArr;
+            comboBox.ValueMember = "Id";
+            comboBox.DisplayMember = "Name";
+
+            if (curLevel != null)
+                comboBox.SelectedValue = curLevel.Id;
+        }
+        #region Filters
         private void textBox_Filter_KeyUp(object sender, KeyEventArgs e)
         {
             SetProductsByFilter();
@@ -65,10 +87,7 @@ namespace ClientSignup.UI
             //מציבים בתיבת הרשימה את אוסף המוצרים
             listBox_Products.DataSource = productArr;
         }
-
-        private void comboBox_Category_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        #endregion Filters
+        
     }
 }

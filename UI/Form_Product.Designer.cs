@@ -214,7 +214,7 @@ namespace ClientSignup.UI
             this.comboBox_Category.Size = new System.Drawing.Size(172, 24);
             this.comboBox_Category.TabIndex = 33;
             this.comboBox_Category.Text = "Choose Category";
-            this.comboBox_Category.SelectedIndexChanged += new System.EventHandler(this.comboBox_Category_SelectedIndexChanged);
+            
             // 
             // comboBox_FilterCategory
             // 

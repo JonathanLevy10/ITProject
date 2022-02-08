@@ -27,7 +27,7 @@ namespace ClientSignup.DAL
                 Dal.FillDataSet(dataSet, "Table_Order", "[Client]");
             }
         }
-        public static bool Update(int id, string client, DateTime date, string notes)
+        public static bool Update(int id, int client, DateTime date, string notes)
         {
 
             //מעדכנת את הלקוח במסד הנתונים
@@ -40,7 +40,7 @@ namespace ClientSignup.DAL
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה
             return Dal.ExecuteSql(str);
         }
-        public static bool Insert(string client, DateTime date, string notes)
+        public static bool Insert(int client, DateTime date, string notes)
         { // Adds location directly to database via SQL
             string sql = "INSERT INTO Table_Location"
             + "("

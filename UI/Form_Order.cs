@@ -17,6 +17,5 @@ namespace ClientSignup.UI
             InitializeComponent();
         }
 
-
     }
 }

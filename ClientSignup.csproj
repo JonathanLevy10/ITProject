@@ -114,11 +114,11 @@
     <Compile Include="UI\Form_Product.Designer.cs">
       <DependentUpon>Form_Product.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Order.cs">
+    <Compile Include="UI\Form_Order.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Order.Designer.cs">
-      <DependentUpon>Order.cs</DependentUpon>
+    <Compile Include="UI\Form_Order.Designer.cs">
+      <DependentUpon>Form_Order.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="UI\ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
@@ -144,8 +144,8 @@
     <EmbeddedResource Include="UI\Form_Product.resx">
       <DependentUpon>Form_Product.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Order.resx">
-      <DependentUpon>Order.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Form_Order.resx">
+      <DependentUpon>Form_Order.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

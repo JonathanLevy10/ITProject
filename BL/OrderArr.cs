@@ -26,21 +26,21 @@ namespace ClientSignup.BL
             }
         }
         //Fix Filter
-        public OrderArr Filter(int id, Client client, DateTime date) //checks if clients exists, then moves the ones that exist into new array
+        public OrderArr Filter(int id, DateTime FromDate, DateTime ToDate, Client client)
         {
             OrderArr orderArr = new OrderArr();
             Order order;
             for (int i = 0; i < this.Count; i++)
             {
+                //הצבת הלקוח הנוכחי במשתנה עזר - לקוח
+
                 order = (this[i] as Order);
-                if (
-
-                    (id == 0 || order.id == id) &&
-                    order.LastName.ToLower().StartsWith(lastName.ToLower()) &&
-                    (client.Email.ToString()).Contains(date)
-
-
-                    )
+                if
+                (
+                // מזהה 0 – כלומר, לא נבחר מזהה בסינון
+                (id == 0 || order.Id == id) && (client == null || client.id == -1 || order.Client.id == client.id) && (order.Date >= FromDate && order.Date <= ToDate)
+                )
+                    //הלקוח ענה לדרישות הסינון - הוספת הלקוח לאוסף הלקוחות המוחזר
                     orderArr.Add(order);
             }
             return orderArr;

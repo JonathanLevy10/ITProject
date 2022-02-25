@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ClientSignup.BL
 {
-    class Order
+    public class Order
     {
         #region Members
         private int m_Id;
@@ -26,7 +26,7 @@ namespace ClientSignup.BL
         public Order() { }
         public Order(DataRow dataRow)
         {
-            m_Id = (int)dataRow["Id"];
+            this.m_Id = (int)dataRow["ID"];
             m_Client = new Client(dataRow.GetParentRow("OrderClient"));
             m_Date = (DateTime)dataRow["Date"];
             m_Notes = dataRow["Notes"].ToString();

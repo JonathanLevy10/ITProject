@@ -63,7 +63,7 @@ namespace ClientSignup
                 textBox_Pwd.Text = "";
                 comboBox_Gender.Text = null;
                 comboBox_Location.SelectedItem = null;
-                //checkBox_isPro.Checked = null; check why it cannot be null
+                
             }
         }
 

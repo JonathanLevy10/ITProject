@@ -37,41 +37,50 @@ namespace ClientSignup.UI
             this.listBox_Orders = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label_id = new System.Windows.Forms.Label();
+            this.label_Id = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox_Client = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker_To = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_From = new System.Windows.Forms.DateTimePicker();
+            this.textBotextBox_7 = new System.Windows.Forms.TextBox();
+            this.textBox_Filter_OrderDetails_ID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.OrderClient = new System.Windows.Forms.TabPage();
+            this.label_Name_Chosen = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.label_Id_Chosen = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label_FirstName_Chosen = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.label_LastName_Chosen = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.listBox_Client = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox_Filter_PhoneNumber = new System.Windows.Forms.TextBox();
+            this.textBox_Filter_LastName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.OrderItems = new System.Windows.Forms.TabPage();
+            this.listBox_InOrderProducts = new System.Windows.Forms.ListBox();
+            this.listBox_Potential = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button_Save = new System.Windows.Forms.Button();
+            this.button_Clear = new System.Windows.Forms.Button();
             this.tabControl_Order.SuspendLayout();
             this.OrderDetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.OrderClient.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.OrderItems.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl_Order
@@ -96,7 +105,7 @@ namespace ClientSignup.UI
             this.OrderDetails.Controls.Add(this.listBox_Orders);
             this.OrderDetails.Controls.Add(this.label9);
             this.OrderDetails.Controls.Add(this.label8);
-            this.OrderDetails.Controls.Add(this.label_id);
+            this.OrderDetails.Controls.Add(this.label_Id);
             this.OrderDetails.Controls.Add(this.label6);
             this.OrderDetails.Controls.Add(this.label2);
             this.OrderDetails.Controls.Add(this.groupBox1);
@@ -160,14 +169,14 @@ namespace ClientSignup.UI
             this.label8.TabIndex = 8;
             this.label8.Text = "Note";
             // 
-            // label_id
+            // label_Id
             // 
-            this.label_id.AutoSize = true;
-            this.label_id.Location = new System.Drawing.Point(492, 39);
-            this.label_id.Name = "label_id";
-            this.label_id.Size = new System.Drawing.Size(46, 17);
-            this.label_id.TabIndex = 7;
-            this.label_id.Text = "label7";
+            this.label_Id.AutoSize = true;
+            this.label_Id.Location = new System.Drawing.Point(492, 39);
+            this.label_Id.Name = "label_Id";
+            this.label_Id.Size = new System.Drawing.Size(46, 17);
+            this.label_Id.TabIndex = 7;
+            this.label_Id.Text = "label7";
             // 
             // label6
             // 
@@ -189,10 +198,10 @@ namespace ClientSignup.UI
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.textBox_Client);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.dateTimePicker_To);
+            this.groupBox1.Controls.Add(this.dateTimePicker_From);
+            this.groupBox1.Controls.Add(this.textBotextBox_7);
+            this.groupBox1.Controls.Add(this.textBox_Filter_OrderDetails_ID);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label1);
@@ -204,33 +213,33 @@ namespace ClientSignup.UI
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter";
             // 
-            // dateTimePicker2
+            // dateTimePicker_To
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(104, 106);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(100, 22);
-            this.dateTimePicker2.TabIndex = 16;
+            this.dateTimePicker_To.Location = new System.Drawing.Point(104, 106);
+            this.dateTimePicker_To.Name = "dateTimePicker_To";
+            this.dateTimePicker_To.Size = new System.Drawing.Size(100, 22);
+            this.dateTimePicker_To.TabIndex = 16;
             // 
-            // dateTimePicker1
+            // dateTimePicker_From
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(104, 66);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(100, 22);
-            this.dateTimePicker1.TabIndex = 15;
+            this.dateTimePicker_From.Location = new System.Drawing.Point(104, 66);
+            this.dateTimePicker_From.Name = "dateTimePicker_From";
+            this.dateTimePicker_From.Size = new System.Drawing.Size(100, 22);
+            this.dateTimePicker_From.TabIndex = 15;
             // 
-            // textBox_Client
+            // textBotextBox_7
             // 
-            this.textBox_Client.Location = new System.Drawing.Point(104, 140);
-            this.textBox_Client.Name = "textBox_Client";
-            this.textBox_Client.Size = new System.Drawing.Size(100, 22);
-            this.textBox_Client.TabIndex = 14;
+            this.textBotextBox_7.Location = new System.Drawing.Point(104, 145);
+            this.textBotextBox_7.Name = "textBotextBox_7";
+            this.textBotextBox_7.Size = new System.Drawing.Size(100, 22);
+            this.textBotextBox_7.TabIndex = 14;
             // 
-            // textBox1
+            // textBox_Filter_OrderDetails_ID
             // 
-            this.textBox1.Location = new System.Drawing.Point(104, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 11;
+            this.textBox_Filter_OrderDetails_ID.Location = new System.Drawing.Point(104, 30);
+            this.textBox_Filter_OrderDetails_ID.Name = "textBox_Filter_OrderDetails_ID";
+            this.textBox_Filter_OrderDetails_ID.Size = new System.Drawing.Size(100, 22);
+            this.textBox_Filter_OrderDetails_ID.TabIndex = 11;
             // 
             // label10
             // 
@@ -270,6 +279,8 @@ namespace ClientSignup.UI
             // 
             // OrderClient
             // 
+            this.OrderClient.Controls.Add(this.label_Name_Chosen);
+            this.OrderClient.Controls.Add(this.label15);
             this.OrderClient.Controls.Add(this.groupBox3);
             this.OrderClient.Controls.Add(this.listBox_Client);
             this.OrderClient.Controls.Add(this.groupBox2);
@@ -281,29 +292,67 @@ namespace ClientSignup.UI
             this.OrderClient.Text = "Order Client";
             this.OrderClient.UseVisualStyleBackColor = true;
             // 
+            // label_Name_Chosen
+            // 
+            this.label_Name_Chosen.AutoSize = true;
+            this.label_Name_Chosen.Location = new System.Drawing.Point(361, 114);
+            this.label_Name_Chosen.Name = "label_Name_Chosen";
+            this.label_Name_Chosen.Size = new System.Drawing.Size(94, 17);
+            this.label_Name_Chosen.TabIndex = 4;
+            this.label_Name_Chosen.Text = "None Chosen";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(248, 114);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(95, 17);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Client Chosen";
+            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.label_Id_Chosen);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label_FirstName_Chosen);
             this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.label_LastName_Chosen);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Location = new System.Drawing.Point(251, 8);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(371, 100);
+            this.groupBox3.Size = new System.Drawing.Size(404, 100);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chosen Client Details";
             // 
-            // label18
+            // label_Id_Chosen
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(303, 29);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(54, 17);
-            this.label18.TabIndex = 9;
-            this.label18.Text = "label18";
+            this.label_Id_Chosen.AutoSize = true;
+            this.label_Id_Chosen.Location = new System.Drawing.Point(303, 64);
+            this.label_Id_Chosen.Name = "label_Id_Chosen";
+            this.label_Id_Chosen.Size = new System.Drawing.Size(94, 17);
+            this.label_Id_Chosen.TabIndex = 11;
+            this.label_Id_Chosen.Text = "None Chosen";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(247, 64);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(21, 17);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "ID";
+            // 
+            // label_FirstName_Chosen
+            // 
+            this.label_FirstName_Chosen.AutoSize = true;
+            this.label_FirstName_Chosen.Location = new System.Drawing.Point(303, 29);
+            this.label_FirstName_Chosen.Name = "label_FirstName_Chosen";
+            this.label_FirstName_Chosen.Size = new System.Drawing.Size(94, 17);
+            this.label_FirstName_Chosen.TabIndex = 9;
+            this.label_FirstName_Chosen.Text = "None Chosen";
             // 
             // label17
             // 
@@ -314,14 +363,14 @@ namespace ClientSignup.UI
             this.label17.TabIndex = 8;
             this.label17.Text = "label17";
             // 
-            // label16
+            // label_LastName_Chosen
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(82, 29);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(54, 17);
-            this.label16.TabIndex = 7;
-            this.label16.Text = "label16";
+            this.label_LastName_Chosen.AutoSize = true;
+            this.label_LastName_Chosen.Location = new System.Drawing.Point(82, 29);
+            this.label_LastName_Chosen.Name = "label_LastName_Chosen";
+            this.label_LastName_Chosen.Size = new System.Drawing.Size(94, 17);
+            this.label_LastName_Chosen.TabIndex = 7;
+            this.label_LastName_Chosen.Text = "None Chosen";
             // 
             // label14
             // 
@@ -361,8 +410,8 @@ namespace ClientSignup.UI
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.textBox_Filter_PhoneNumber);
+            this.groupBox2.Controls.Add(this.textBox_Filter_LastName);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(8, 8);
@@ -372,19 +421,19 @@ namespace ClientSignup.UI
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filter";
             // 
-            // textBox3
+            // textBox_Filter_PhoneNumber
             // 
-            this.textBox3.Location = new System.Drawing.Point(84, 59);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 3;
+            this.textBox_Filter_PhoneNumber.Location = new System.Drawing.Point(84, 59);
+            this.textBox_Filter_PhoneNumber.Name = "textBox_Filter_PhoneNumber";
+            this.textBox_Filter_PhoneNumber.Size = new System.Drawing.Size(100, 22);
+            this.textBox_Filter_PhoneNumber.TabIndex = 3;
             // 
-            // textBox2
+            // textBox_Filter_LastName
             // 
-            this.textBox2.Location = new System.Drawing.Point(84, 24);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 1;
+            this.textBox_Filter_LastName.Location = new System.Drawing.Point(84, 24);
+            this.textBox_Filter_LastName.Name = "textBox_Filter_LastName";
+            this.textBox_Filter_LastName.Size = new System.Drawing.Size(100, 22);
+            this.textBox_Filter_LastName.TabIndex = 1;
             // 
             // label5
             // 
@@ -407,6 +456,8 @@ namespace ClientSignup.UI
             // OrderItems
             // 
             this.OrderItems.AccessibleName = "";
+            this.OrderItems.Controls.Add(this.listBox_InOrderProducts);
+            this.OrderItems.Controls.Add(this.listBox_Potential);
             this.OrderItems.Location = new System.Drawing.Point(4, 25);
             this.OrderItems.Name = "OrderItems";
             this.OrderItems.Padding = new System.Windows.Forms.Padding(3);
@@ -414,6 +465,24 @@ namespace ClientSignup.UI
             this.OrderItems.TabIndex = 2;
             this.OrderItems.Text = "Order Items";
             this.OrderItems.UseVisualStyleBackColor = true;
+            // 
+            // listBox_InOrderProducts
+            // 
+            this.listBox_InOrderProducts.FormattingEnabled = true;
+            this.listBox_InOrderProducts.ItemHeight = 16;
+            this.listBox_InOrderProducts.Location = new System.Drawing.Point(274, 18);
+            this.listBox_InOrderProducts.Name = "listBox_InOrderProducts";
+            this.listBox_InOrderProducts.Size = new System.Drawing.Size(232, 372);
+            this.listBox_InOrderProducts.TabIndex = 1;
+            // 
+            // listBox_Potential
+            // 
+            this.listBox_Potential.FormattingEnabled = true;
+            this.listBox_Potential.ItemHeight = 16;
+            this.listBox_Potential.Location = new System.Drawing.Point(18, 18);
+            this.listBox_Potential.Name = "listBox_Potential";
+            this.listBox_Potential.Size = new System.Drawing.Size(232, 372);
+            this.listBox_Potential.TabIndex = 0;
             // 
             // tabPage4
             // 
@@ -435,11 +504,32 @@ namespace ClientSignup.UI
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // button_Save
+            // 
+            this.button_Save.Location = new System.Drawing.Point(628, 440);
+            this.button_Save.Name = "button_Save";
+            this.button_Save.Size = new System.Drawing.Size(75, 23);
+            this.button_Save.TabIndex = 1;
+            this.button_Save.Text = "Save";
+            this.button_Save.UseVisualStyleBackColor = true;
+            // 
+            // button_Clear
+            // 
+            this.button_Clear.Location = new System.Drawing.Point(709, 440);
+            this.button_Clear.Name = "button_Clear";
+            this.button_Clear.Size = new System.Drawing.Size(75, 23);
+            this.button_Clear.TabIndex = 2;
+            this.button_Clear.Text = "Clear";
+            this.button_Clear.UseVisualStyleBackColor = true;
+            this.button_Clear.Click += new System.EventHandler(this.Button_Clear_Click);
+            // 
             // Form_Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(796, 469);
+            this.Controls.Add(this.button_Clear);
+            this.Controls.Add(this.button_Save);
             this.Controls.Add(this.tabControl_Order);
             this.Name = "Form_Order";
             this.Text = "Order";
@@ -449,10 +539,12 @@ namespace ClientSignup.UI
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.OrderClient.ResumeLayout(false);
+            this.OrderClient.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.OrderItems.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -470,31 +562,39 @@ namespace ClientSignup.UI
         private System.Windows.Forms.ListBox listBox_Orders;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label_id;
+        private System.Windows.Forms.Label label_Id;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_Filter_OrderDetails_ID;
         private System.Windows.Forms.ListBox listBox_Client;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox_Filter_PhoneNumber;
+        private System.Windows.Forms.TextBox textBox_Filter_LastName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label_FirstName_Chosen;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label_LastName_Chosen;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox_Note;
-        private System.Windows.Forms.TextBox textBox_Client;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox textBotextBox_7;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_To;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_From;
         private System.Windows.Forms.Label label_Client;
         private System.Windows.Forms.DateTimePicker Date_DateTime;
+        private System.Windows.Forms.Button button_Save;
+        private System.Windows.Forms.Button button_Clear;
+        private System.Windows.Forms.Label label_Id_Chosen;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label_Name_Chosen;
+        private System.Windows.Forms.ListBox listBox_Potential;
+        private System.Windows.Forms.ListBox listBox_InOrderProducts;
     }
 }

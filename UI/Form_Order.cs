@@ -37,7 +37,7 @@ namespace ClientSignup.UI
             
             return order;
         }
-        private void OrderToForm(Order order) //Puts specific client info into form
+        private void OrderToForm(Order order) //Puts specific order info into form
         {
             if (order != null)
             {
@@ -69,9 +69,9 @@ namespace ClientSignup.UI
         {
             OrderToForm(null);
             ClientToForm(null);
-            for(int i=0; i < ListBox_InOrderProducts.Items.COunt; i++)
+            for(int i=0; i < listBox_InOrderProducts.Items.Count; i++)
             {
-                MoveSelectedItemBetweenListBox(ListBox_InOrderProducts, Potential_ListBox);
+                MoveSelectedItemBetweenListBox(listBox_InOrderProducts, listBox_Potential);
             }
         }
 
@@ -117,13 +117,13 @@ namespace ClientSignup.UI
                 label_Name_Chosen.BackColor = Color.Black;
 
 
-            if (InOrderProducts_ListBox.Items.Count == 0)
+            if (listBox_InOrderProducts.Items.Count == 0)
             {
                 flag = false;
-                InOrderProducts_ListBox.BackColor = Color.Red;
+                listBox_InOrderProducts.BackColor = Color.Red;
             }
             else
-                InOrderProducts_ListBox.BackColor = Color.White;
+                listBox_InOrderProducts.BackColor = Color.White;
 
             return flag;
         }
@@ -158,7 +158,7 @@ namespace ClientSignup.UI
 
         private void Orders_ListBox_DoubleClick(object sender, EventArgs e)
         {
-            Order order = Orders_ListBox.SelectedItem as Order;
+            Order order = listBox_Orders.SelectedItem as Order;
 
             //הצגת חלקי ההזמנה בלשוניות השונות
             //לשונית פרטי הזמנה
@@ -322,16 +322,16 @@ namespace ClientSignup.UI
             productArr.Fill();
 
             //מסננים את אוסף המוצרים לפי שדות הסינון שרשם המשתמש
-            productArr = productArr.Filter(Name_TextBox_Filter.Text,
-            Level_ComboBox_Filter.SelectedItem as Level,
-            Category_ComboBox_Filter.SelectedItem as Category);
+            productArr = productArr.Filter(textBox_FilterID.Text,
+            comboBox_FilterCategory.SelectedItem as Category,
+            comboBox_FilterLevel.SelectedItem as Level);
 
             //אחרי שמסננים את אוסף המוצרים לפי שדות הסינון שרשם המשתמש 
-            if (InOrderProducts_ListBox.DataSource != null)
-                productArr.Remove(InOrderProducts_ListBox.DataSource as ProductArr);
+            if (listBox_InOrderProducts.DataSource != null)
+                productArr.Remove(listBox_InOrderProducts.DataSource as ProductArr);
 
             //מציבים בתיבת הרשימה את אוסף המוצרים
-            ProductArrToForm(Potential_ListBox, productArr);
+            ProductArrToForm(listBox_Potential, productArr);
         }
         private void ProductArrToForm(ListBox listBox, ProductArr productArr = null)
         {

@@ -73,6 +73,7 @@
     <Compile Include="BL\ClientArr.cs" />
     <Compile Include="BL\Order.cs" />
     <Compile Include="BL\OrderArr.cs" />
+    <Compile Include="BL\OrderProduct.cs" />
     <Compile Include="BL\OrderProductArr.cs" />
     <Compile Include="BL\Product.cs" />
     <Compile Include="BL\ProductArr.cs" />

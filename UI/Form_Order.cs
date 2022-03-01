@@ -323,7 +323,7 @@ namespace ClientSignup.UI
 
             //מסננים את אוסף המוצרים לפי שדות הסינון שרשם המשתמש
             productArr = productArr.Filter(Name_TextBox_Filter.Text,
-            Company_ComboBox_Filter.SelectedItem as Company,
+            Level_ComboBox_Filter.SelectedItem as Level,
             Category_ComboBox_Filter.SelectedItem as Category);
 
             //אחרי שמסננים את אוסף המוצרים לפי שדות הסינון שרשם המשתמש 
@@ -333,5 +333,48 @@ namespace ClientSignup.UI
             //מציבים בתיבת הרשימה את אוסף המוצרים
             ProductArrToForm(Potential_ListBox, productArr);
         }
+        private void ProductArrToForm(ListBox listBox, ProductArr productArr = null)
+        {
+
+            //מקבלת אוסף פריטים ותיבת רשימה לפריטים ומציבה את האוסף בתוך התיבה
+            //אם האוסף ריק - מייצרת אוסף חדש מלא בכל הערכים מהטבלה
+
+            listBox.DataSource = null;
+            if (productArr == null)
+            {
+                productArr = new ProductArr();
+                productArr.Fill();
+            }
+            listBox.DataSource = productArr;
+        }
+
+        private OrderProductArr FormToOrderProductArr(Order curOrder)
+        {
+
+            // יצירת אוסף המוצרים להזמנה מהטופס
+            // מייצרים זוגות של הזמנה-מוצר , ההזמנה - תמיד אותה הזמנה )הרי מדובר על הזמנה אחת(, המוצר - מגיע מרשימת המוצרים שנבחרו
+            OrderProductArr orderProductArr = new OrderProductArr();
+            OrderProduct orderProduct;
+
+            //סורקים את כל הערכים בתיבת הרשימה של המוצרים שנבחרו להזמנה
+            for (int i = 0; i < listBox_InOrderProducts.Items.Count; i++)
+            {
+                orderProduct = new OrderProduct();
+
+                //ההזמנה הנוכחית היא ההזמנה לכל הזוגות באוסף
+
+                orderProduct.Order = curOrder;
+
+                //מוצר נוכחי לזוג הזמנה-מוצר
+
+                orderProduct.Product = listBox_InOrderProducts.Items[i] as Product;
+
+                //הוספת הזוג הזמנה -מוצר לאוסף
+
+                orderProductArr.Add(orderProduct);
+            }
+            return orderProductArr;
+        }
+
     }
 }

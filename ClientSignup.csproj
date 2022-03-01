@@ -73,6 +73,7 @@
     <Compile Include="BL\ClientArr.cs" />
     <Compile Include="BL\Order.cs" />
     <Compile Include="BL\OrderArr.cs" />
+    <Compile Include="BL\OrderProductArr.cs" />
     <Compile Include="BL\Product.cs" />
     <Compile Include="BL\ProductArr.cs" />
     <Compile Include="DAL\Category_Dal.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="DAL\Location_Dal.cs" />
     <Compile Include="DAL\Client_Dal.cs" />
     <Compile Include="DAL\Dal.cs" />
+    <Compile Include="DAL\OrderProduct_Dal.cs" />
     <Compile Include="DAL\Order_Dal.cs" />
     <Compile Include="DAL\Product_Dal.cs" />
     <Compile Include="UI\ClientForm.cs">

@@ -96,6 +96,15 @@ namespace ClientSignup.UI
 
         }
 
+        private void ClientArrToForm()
+        {
+            ClientArr clientArr = new ClientArr();
+            clientArr.Fill();
+
+            listBox_Client.DataSource = clientArr;
+            listBox_Client.ValueMember = "ID";
+            listBox_Client.DisplayMember = "";
+        }
 
         private bool CheckForm()
         {
@@ -156,7 +165,7 @@ namespace ClientSignup.UI
             MoveSelectedItemBetweenListBox(listBox_Potential, listBox_InOrderProducts);
         }
 
-        private void Orders_ListBox_DoubleClick(object sender, EventArgs e)
+        private void listbox_Orders_DoubleClick(object sender, EventArgs e)
         {
             Order order = listBox_Orders.SelectedItem as Order;
 

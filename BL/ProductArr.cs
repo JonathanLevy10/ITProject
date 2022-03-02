@@ -99,5 +99,20 @@ namespace ClientSignup.BL
             return false;
         }
 
+        public ProductArr GetProductArr()
+        {
+            ProductArr productArr = new ProductArr();
+            for (int i = 0; i < this.Count; i++)
+                productArr.Add((this[i] as OrderProduct).Product);
+
+            return productArr;
+        }
+
+        public void Remove(ProductArr productArr)
+        {
+            for (int i = 0; i < productArr.Count; i++)
+                this.Remove(productArr[i] as Product);
+        }
+
     }
 }

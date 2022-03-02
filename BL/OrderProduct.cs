@@ -30,8 +30,8 @@ namespace ClientSignup.BL
         public OrderProduct(DataRow dataRow)
         {
             this.m_Id = (int)dataRow["ID"];
-            m_Order = dataRow["Order"].ToString();
-            m_Product = dataRow["Product"].ToString();
+            m_Order = dataRow["Order"];
+            m_Product = dataRow["Product"];
         }
         public override string ToString()
         { return $"{m_Order} {m_Product}"; }
@@ -39,16 +39,15 @@ namespace ClientSignup.BL
 
         public bool Update()
         {
-
-            return Client_Dal.Update(m_id, m_Order, m_Product);
+            return Client_Dal.Update(m_Id, m_Order, m_Product);
         }
-
 
         public bool Delete()
         {
-            return Client_Dal.Delete(m_id);
+            return Client_Dal.Delete(m_Id);
         }
+
     }
 
 }
-}
+

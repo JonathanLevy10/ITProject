@@ -49,6 +49,14 @@ namespace ClientSignup.BL
         }
         public override string ToString()
         { return $"{m_Level}"; }
+        public void Remove(Product product)
+        {
+            for (int i = 0; i < this.Count; i++)
+            {
+                if ((this.[i] as Product).Id == product.Id)
+                    this.RemoveAt(i); return;
+            }
+        }
 
     }
 }

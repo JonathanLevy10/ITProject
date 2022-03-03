@@ -39,12 +39,12 @@ namespace ClientSignup.BL
 
         public bool Update()
         {
-            return Client_Dal.Update(m_Id, m_Order, m_Product);
+            return OrderProduct_Dal.Update(m_Id, m_Order, m_Product);
         }
 
         public bool Delete()
         {
-            return Client_Dal.Delete(m_Id);
+            return OrderProduct_Dal.Delete(m_Id);
         }
 
     }

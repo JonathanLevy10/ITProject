@@ -295,13 +295,11 @@ namespace ClientSignup.UI
             if (!IsENGMLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.KeyChar = char.MinValue;
         }
-
         private void textBox_Number_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.KeyChar = char.MinValue;
         }
-
         private void TextBoxOrder_Filter_KeyUp(object sender, KeyEventArgs e)
         {
             int id = 0;
@@ -313,7 +311,6 @@ namespace ClientSignup.UI
             orderArr = orderArr.Filter(id, dateTimePicker_From.Value, dateTimePicker_To.Value, Client_ComboBox_Filter.SelectedItem as Client);
             listBox_Orders.DataSource = orderArr;
         }
-
         private void textBox_Filter_KeyUp(object sender, KeyEventArgs e)
         {
             SetProductsByFilter();
@@ -322,7 +319,6 @@ namespace ClientSignup.UI
         {
             SetProductsByFilter();
         }
-
         private void SetProductsByFilter()
         {
             //מייצרים אוסף של כלל המוצרים
@@ -356,7 +352,6 @@ namespace ClientSignup.UI
             }
             listBox.DataSource = productArr;
         }
-
         private OrderProductArr FormToOrderProductArr(Order curOrder)
         {
 

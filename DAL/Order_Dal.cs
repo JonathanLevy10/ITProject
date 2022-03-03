@@ -67,16 +67,13 @@ namespace ClientSignup.DAL
 
             return Dal.ExecuteSql(sql);
         }
+        
+
         public static bool Delete(int id)
         {
 
-            //מוחקת את הישוב ממסד הנתונים
-
-            string str = "DELETE FROM Table_Order WHERE ID = " + id;
-
-            //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה הצליחה
-
-            return Dal.ExecuteSql(str);
+            //מוחקת את הפריט ממסד הנתונים
+            return Dal.ExecuteSql($"DELETE FROM Table_OrderProduct WHERE ID = {id}");
         }
 
     }

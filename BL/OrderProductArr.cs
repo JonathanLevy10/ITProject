@@ -25,5 +25,15 @@ namespace ClientSignup.BL
             }
             return true;
         }
+
+        public bool Delete()
+        {
+
+            //מוחקת את אוסף המוצרים להזמנה ממסד הנתונים
+
+            for (int i = 0; i < this.Count; i++)
+                (this[i] as OrderProduct).Delete();
+            return true;
+        }
     }
 }

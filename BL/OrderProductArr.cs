@@ -11,6 +11,47 @@ namespace ClientSignup.BL
 {
     class OrderProductArr : ArrayList
     {
+        public void Fill()
+        {
+            DataTable dataTable = OrderProduct_Dal.GetDataTable();
+
+            DataRow dataRow;
+            OrderProduct curOrderProduct;
+
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                dataRow = dataTable.Rows[i];
+                curOrderProduct = new OrderProduct(dataRow);
+                this.Add(curOrderProduct);
+            }
+        }
+
+        public OrderProductArr Filter(Order order) //checks if orderproduct exists, then moves the ones that exist into new array
+        {
+            OrderProductArr orderProductArr = new OrderProductArr();
+            OrderProduct orderProduct;
+            for (int i = 0; i < this.Count; i++)
+            {
+                orderProduct = (this[i] as OrderProduct);
+                if (orderProduct.Order.Id == order.Id)
+                    orderProductArr.Add(orderProduct);
+            }
+            return orderProductArr;
+        }
+        public OrderProductArr Filter(Product curProduct) //checks if orderproduct exists, then moves the ones that exist into new array
+        {
+            OrderProductArr orderProductArr = new OrderProductArr();
+            OrderProduct orderProduct;
+            for (int i = 0; i < this.Count; i++)
+            {
+                orderProduct = (this[i] as OrderProduct);
+                if (orderProduct.Product.Id == curProduct.Id)
+                    orderProductArr.Add(orderProduct);
+            }
+            return orderProductArr;
+        }
+        
+
         public bool Insert()
         {
 
@@ -34,6 +75,17 @@ namespace ClientSignup.BL
             for (int i = 0; i < this.Count; i++)
                 (this[i] as OrderProduct).Delete();
             return true;
+        }
+
+        public ProductArr GetProductArr()
+        {
+
+            //מחזירה את אוסף הפריטים מתוך אוסף הזוגות פריט-הזמנה
+
+            ProductArr productArr = new ProductArr();
+            for (int i = 0; i < this.Count; i++)
+                productArr.Add((this[i] as OrderProduct).Product);
+            return productArr;
         }
     }
 }

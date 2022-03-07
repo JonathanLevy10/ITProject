@@ -26,7 +26,7 @@ namespace ClientSignup.BL
             }
         }
         //Fix Filter
-        public OrderArr Filter(int id, DateTime FromDate, DateTime ToDate, Client client)
+        public OrderArr Filter(int id, DateTime fromDate, DateTime toDate, string client)
         {
             OrderArr orderArr = new OrderArr();
             Order order;
@@ -37,13 +37,24 @@ namespace ClientSignup.BL
                 order = (this[i] as Order);
                 if
                 (
-                // מזהה 0 – כלומר, לא נבחר מזהה בסינון
-                (id == 0 || order.Id == id) && (client == null || client.id == -1 || order.Client.id == client.id) && (order.Date >= FromDate && order.Date <= ToDate)
+                (id == 0 || order.Id == id)
+                && (order.Client.FullName.Contains(client))
+                && (order.Date >= fromDate && order.Date <= toDate)
                 )
                     //הלקוח ענה לדרישות הסינון - הוספת הלקוח לאוסף הלקוחות המוחזר
                     orderArr.Add(order);
             }
             return orderArr;
+        }
+
+        public Order GetOrderWithMaxId()
+        {
+            Order maxOrder = new Order();
+            for (int i = 0; i < this.Count; i++)
+                if ((this[i] as Order).Id > maxOrder.Id)
+                    maxOrder = this[i] as Order;
+
+            return maxOrder;
         }
     }
 }

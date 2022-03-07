@@ -34,7 +34,7 @@ namespace ClientSignup.UI
             order.Id = int.Parse(label_Id.Text);
             order.Date = Date_DateTime.Value;
             order.Notes = textBox_Note.Text;
-            
+
             return order;
         }
         private void OrderToForm(Order order) //Puts specific order info into form
@@ -69,7 +69,7 @@ namespace ClientSignup.UI
         {
             OrderToForm(null);
             ClientToForm(null);
-            for(int i=0; i < listBox_InOrderProducts.Items.Count; i++)
+            for (int i = 0; i < listBox_InOrderProducts.Items.Count; i++)
             {
                 MoveSelectedItemBetweenListBox(listBox_InOrderProducts, listBox_Potential);
             }
@@ -189,7 +189,7 @@ namespace ClientSignup.UI
 
             //סינון לפי הזמנה נוכחית
 
-            orderProductArr = orderProductArr.FilterOrder(order);
+            orderProductArr = orderProductArr.Filter(order);
 
             //רק אוסף הפריטים מתוך אוסף הזוגות פריט-הזמנה
 
@@ -209,7 +209,7 @@ namespace ClientSignup.UI
             ProductArrToForm(listBox_Potential, productArrNotInOrder);
         }
 
-        private void Clear_Button_Click(object sender, EventArgs e)
+        private void button_Clear_Click(object sender, EventArgs e)
         {
             OrderToForm(null);
             ClientToForm(null);
@@ -218,7 +218,7 @@ namespace ClientSignup.UI
                 MoveSelectedItemBetweenListBox(listBox_InOrderProducts, listBox_Potential);
             }
         }
-        private void Save_Button_Click(object sender, EventArgs e)
+        private void button_Save_Click(object sender, EventArgs e)
         {
             if (!CheckForm())
             {
@@ -229,39 +229,58 @@ namespace ClientSignup.UI
             else
             {
                 //יצירת הזמנה מהטופס
-
                 Order order = FormToOrder();
-
                 //הוספת ההזמנה למסד הנתונים
-
                 OrderProductArr orderProductArr_New;
                 if (order.Id == 0)
                 {
                     if (order.Insert())
                     {
-
                         //מוצאים את ההזמנה החדשה - לפי המזהה הגבוה ביותר
-
                         OrderArr orderArr = new OrderArr();
                         orderArr.Fill();
                         order = orderArr.GetOrderWithMaxId();
                         orderProductArr_New = FormToOrderProductArr(order);
-
                         //מוסיפים את הפריטים החדשים להזמנה
-
                         if (orderProductArr_New.Insert())
                             MessageBox.Show("Successfully saved");
                         else
                             MessageBox.Show("Error in insert");
-
                         //לא לשכוח כאן לנקות את הטופס ולטעון מחדש ערכים לתיבת הרשימה של ההזמנות
-
                     }
                     else
-                        MessageBox.Show("Error in insert");
+                    {
+                        if (order.Update())
+                        {
+                            //מוחקים את הפריטים הקודמים של ההזמנה
+                            //אוסף כלל הזוגות - הזמנה-פריט
+
+                            OrderProductArr orderProductArr_Old = new OrderProductArr();
+                            orderProductArr_Old.Fill();
+
+                            //סינון לפי ההזמנה הנוכחית
+
+                            orderProductArr_Old = orderProductArr_Old.Filter(order);
+
+                            //מחיקת כל הפריטים באוסף ההזמנה-פריט של ההזמנה הנוכחית
+
+                            orderProductArr_Old.Delete();
+
+                            //מוסיפים את הפריטים לפי העדכני להזמנה
+
+                            orderProductArr_New = FormToOrderProductArr(order);
+                            orderProductArr_New.Insert();
+                        }
+                        else
+                            MessageBox.Show("Error in update");
+                    }
                 }
+                else
+                    MessageBox.Show("Error");
             }
         }
+    
+
 
         private bool IsENGMLetter(char c)
         {
@@ -284,7 +303,7 @@ namespace ClientSignup.UI
 
             //מסננים את אוסף הלקוחות לפי שדות הסינון שרשם המשתמש
 
-            clientArr = clientArr.Filter(id, textBotextBox_7.Text, textBox_Filter_PhoneNumber.Text);
+            clientArr = clientArr.Filter(id, client_TextBox_Filter.Text, textBox_Filter_PhoneNumber.Text);
             //מציבים בתיבת הרשימה את אוסף הלקוחות
 
             listBox_Client.DataSource = clientArr;
@@ -308,7 +327,7 @@ namespace ClientSignup.UI
 
             OrderArr orderArr = new OrderArr();
             orderArr.Fill();
-            orderArr = orderArr.Filter(id, dateTimePicker_From.Value, dateTimePicker_To.Value, Client_ComboBox_Filter.SelectedItem as Client);
+            orderArr = orderArr.Filter(id, dateTimePicker_From.Value, dateTimePicker_To.Value, client_TextBox_Filter.Text);
             listBox_Orders.DataSource = orderArr;
         }
         private void textBox_Filter_KeyUp(object sender, KeyEventArgs e)

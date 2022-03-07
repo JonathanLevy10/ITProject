@@ -113,6 +113,14 @@ namespace ClientSignup.BL
             for (int i = 0; i < productArr.Count; i++)
                 this.Remove(productArr[i] as Product);
         }
+        public void Remove(Product product)
+        {
+            for (int i = 0; i < this.Count; i++)
+            {
+                if ((this[i] as Product).Id == product.Id)
+                    this.RemoveAt(i); return;
+            }
+        }
 
     }
 }

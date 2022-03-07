@@ -43,7 +43,7 @@ namespace ClientSignup.UI
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker_To = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_From = new System.Windows.Forms.DateTimePicker();
-            this.textBotextBox_7 = new System.Windows.Forms.TextBox();
+            this.client_TextBox_Filter = new System.Windows.Forms.TextBox();
             this.textBox_Filter_OrderDetails_ID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -208,7 +208,7 @@ namespace ClientSignup.UI
             // 
             this.groupBox1.Controls.Add(this.dateTimePicker_To);
             this.groupBox1.Controls.Add(this.dateTimePicker_From);
-            this.groupBox1.Controls.Add(this.textBotextBox_7);
+            this.groupBox1.Controls.Add(this.client_TextBox_Filter);
             this.groupBox1.Controls.Add(this.textBox_Filter_OrderDetails_ID);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label11);
@@ -235,12 +235,12 @@ namespace ClientSignup.UI
             this.dateTimePicker_From.Size = new System.Drawing.Size(100, 22);
             this.dateTimePicker_From.TabIndex = 15;
             // 
-            // textBotextBox_7
+            // client_TextBox_Filter
             // 
-            this.textBotextBox_7.Location = new System.Drawing.Point(104, 145);
-            this.textBotextBox_7.Name = "textBotextBox_7";
-            this.textBotextBox_7.Size = new System.Drawing.Size(100, 22);
-            this.textBotextBox_7.TabIndex = 14;
+            this.client_TextBox_Filter.Location = new System.Drawing.Point(104, 145);
+            this.client_TextBox_Filter.Name = "client_TextBox_Filter";
+            this.client_TextBox_Filter.Size = new System.Drawing.Size(100, 22);
+            this.client_TextBox_Filter.TabIndex = 14;
             // 
             // textBox_Filter_OrderDetails_ID
             // 
@@ -659,7 +659,7 @@ namespace ClientSignup.UI
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox_Note;
-        private System.Windows.Forms.TextBox textBotextBox_7;
+        private System.Windows.Forms.TextBox client_TextBox_Filter;
         private System.Windows.Forms.DateTimePicker dateTimePicker_To;
         private System.Windows.Forms.DateTimePicker dateTimePicker_From;
         private System.Windows.Forms.Label label_Client;

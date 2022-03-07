@@ -11,6 +11,7 @@ namespace ClientSignup.BL
 {
     public class Client
     {
+        #region Members
         private string m_FirstName; // Client's first name
         private string m_LastName; // Client's last name
         private string m_Email; // Client's email address
@@ -29,6 +30,9 @@ namespace ClientSignup.BL
         public bool IsPro { get => m_IsPro; set => m_IsPro = value; }
         public int id { get => m_id; set => m_id = value; }
         
+        public string FullName { get => $"{m_FirstName} {m_LastName}"; }
+        #endregion
+
 
         // Sends client information to DAL layer for insertion to database
         public bool Insert()

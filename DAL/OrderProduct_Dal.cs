@@ -38,26 +38,28 @@ namespace ClientSignup.DAL
         public static void FillDataSet(DataSet dataSet)
         {
             if (!dataSet.Tables.Contains("Table_OrderProduct"))
-                Dal.FillDataSet(dataSet, "Table_OrderProduct", "[Order], [Product]");
+            {
+                Dal.FillDataSet(dataSet, "Table_OrderProduct");
 
-            Product_Dal.FillDataSet(dataSet);
-            DataRelation dataRelation = null;
-            dataRelation = new DataRelation("OrderProductProduct"
-            //המפתח הראשי של טבלת האב
-            , dataSet.Tables["Table_Product"].Columns["ID"]
-            //עמודת הקשר בטבלת הבן
-            , dataSet.Tables["Table_OrderProduct"].Columns["Product"]);
-            //הוספת קשר הגומלין לאוסף הטבלאות
-            dataSet.Relations.Add(dataRelation);
+                Product_Dal.FillDataSet(dataSet);
+                DataRelation dataRelation = null;
+                dataRelation = new DataRelation("OrderProductProduct"
+                //המפתח הראשי של טבלת האב
+                , dataSet.Tables["Table_Product"].Columns["ID"]
+                //עמודת הקשר בטבלת הבן
+                , dataSet.Tables["Table_OrderProduct"].Columns["Product"]);
+                //הוספת קשר הגומלין לאוסף הטבלאות
+                dataSet.Relations.Add(dataRelation);
 
-            Order_Dal.FillDataSet(dataSet);
-            dataRelation = new DataRelation("OrderProductOrder"
-            //המפתח הראשי של טבלת האב
-            , dataSet.Tables["Table_Order"].Columns["ID"]
-            //עמודת הקשר בטבלת הבן
-            , dataSet.Tables["Table_OrderProduct"].Columns["Order"]);
-            //הוספת קשר הגומלין לאוסף הטבלאות
-            dataSet.Relations.Add(dataRelation);
+                Order_Dal.FillDataSet(dataSet);
+                dataRelation = new DataRelation("OrderProductOrder"
+                //המפתח הראשי של טבלת האב
+                , dataSet.Tables["Table_Order"].Columns["ID"]
+                //עמודת הקשר בטבלת הבן
+                , dataSet.Tables["Table_OrderProduct"].Columns["Order"]);
+                //הוספת קשר הגומלין לאוסף הטבלאות
+                dataSet.Relations.Add(dataRelation);
+            }
         }
 
         public static bool Update(int Id, int Order, int Product)

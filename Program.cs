@@ -19,7 +19,8 @@ namespace ClientSignup
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
             //Application.Run(new Form_Level());
-            Application.Run(new Form_Category());
+            //Application.Run(new Form_Category());
+            Application.Run(new Form_Order());
         }
     }
 }

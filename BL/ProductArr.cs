@@ -24,9 +24,7 @@ namespace ClientSignup.BL
                 curProduct = new Product(dataRow);
                 this.Add(curProduct);
             }
-        }
-
-        
+        }  
         public bool IsContains(string Product_Name)
         {
             for (int i = 0; i < this.Count; i++)
@@ -35,7 +33,6 @@ namespace ClientSignup.BL
 
             return false;
         }
-
         public Product GetProductWithMaxId()
         {
             Product maxProduct = new Product();
@@ -45,7 +42,6 @@ namespace ClientSignup.BL
 
             return maxProduct;
         }
-
         public ProductArr Filter(string name, Category category, Level level)
         {
             ProductArr productArr = new ProductArr();
@@ -74,7 +70,6 @@ namespace ClientSignup.BL
             }
             return productArr;
         }
-
         public bool DoesExist(Category curCategory)
         {
 
@@ -86,7 +81,6 @@ namespace ClientSignup.BL
 
             return false;
         }
-
         public bool DoesExist(Level curLevel)
         {
 
@@ -98,7 +92,6 @@ namespace ClientSignup.BL
 
             return false;
         }
-
         public ProductArr GetProductArr()
         {
             ProductArr productArr = new ProductArr();
@@ -107,7 +100,6 @@ namespace ClientSignup.BL
 
             return productArr;
         }
-
         public void Remove(ProductArr productArr)
         {
             for (int i = 0; i < productArr.Count; i++)

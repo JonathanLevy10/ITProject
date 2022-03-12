@@ -23,7 +23,6 @@ namespace ClientSignup.UI
                 LevelToForm(level);
 
             }
-
             private Level FormToLevel()
             {
                 Level level = new Level();
@@ -32,7 +31,6 @@ namespace ClientSignup.UI
 
                 return level;
             }
-
             private void LevelArrToForm(Level curLevel = null)
             {
                 LevelArr levelArr = new LevelArr();
@@ -44,7 +42,6 @@ namespace ClientSignup.UI
                 listBox_Level.DisplayMember = "Name";
 
             }
-
             private bool CheckForm()
             {
 
@@ -152,9 +149,6 @@ namespace ClientSignup.UI
             {
                 LevelToForm(listBox_Level.SelectedItem as Level);
             }
-
-
-
             private void button_Delete_Click(object sender, EventArgs e)
             {
                 if (label_id.Text == "0")
@@ -186,8 +180,6 @@ namespace ClientSignup.UI
                     }
                 }
             }
-
             public Level SelectedLevel { get => listBox_Level.SelectedItem as Level; }
         }
-    
 }

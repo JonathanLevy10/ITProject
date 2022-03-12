@@ -20,7 +20,6 @@ namespace ClientSignup
             ClientArrToForm();
             CapsLockCheck();
         }
-
         // Form client from data collected by the form
         private Client FormToClient()
         {
@@ -38,7 +37,6 @@ namespace ClientSignup
 
             return client;
         }
-
         private void ClientToForm(Client client) //Puts specific client info into form
         {
 
@@ -66,23 +64,6 @@ namespace ClientSignup
                 
             }
         }
-
-        private void button_Signup_Click(object sender, EventArgs e)
-        {
-            if (ValidateForm() == true)
-            {
-                // Set client to the client that just formed
-                Client client = FormToClient();
-
-                // Add client to SQL database
-                client.Insert();
-
-                // Confirmation message
-                MessageBox.Show($"Dear {client.FirstName}, your user has been created succesfully in the database. You can safely leave this page.", "User created succesfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ClientArrToForm();
-            }
-        }
-
         private bool IsEngLetter(char c)
         {
             return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
@@ -92,7 +73,6 @@ namespace ClientSignup
             if (!IsEngLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
                 e.KeyChar = char.MinValue;
         }
-
         private void textBox_NotHebrew_KeyPress(object sender, KeyPressEventArgs e) //for email
         {
             if (!IsEngLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '@')
@@ -104,8 +84,6 @@ namespace ClientSignup
                 MessageBox.Show("Warning! You have enabled caps-lock");
                 
         }
-
-
         private bool ValidateForm()
         {
             // First Name Validation
@@ -196,14 +174,12 @@ namespace ClientSignup
 
             return true;
         }
-
         private void ClientArrToForm()
         {
             ClientArr clientArr = new ClientArr();
             clientArr.Fill();
             listBox_Clients.DataSource = clientArr;
         }
-
         private void listBox_Clients_DoubleClick(object sender, EventArgs e)
         {
             ClientToForm(listBox_Clients.SelectedItem as Client); 
@@ -243,8 +219,6 @@ namespace ClientSignup
 
 
         }
-
-
         private void button_Delete_Click(object sender, EventArgs e)
         {
             Client client = FormToClient();
@@ -266,7 +240,6 @@ namespace ClientSignup
 
             }
         }
-
         private void GroupBox_Filter_KeyUp(object sender, KeyEventArgs e)
         {
             int id = 0;
@@ -281,12 +254,10 @@ namespace ClientSignup
 
             listBox_Clients.DataSource = clientArr;
         }
-
         private void button_Clear_Click(object sender, EventArgs e)
         {
             ClientToForm(null);
         }
-
         public void LocationArrToForm(Location location = null)
         {
          
@@ -306,14 +277,11 @@ namespace ClientSignup
             if (curLocation != null)
                 comboBox_Location.SelectedValue = curLocation.Id;
         }
-
         private void ChooseLocation_Click(object sender, EventArgs e)
         {
             Form_Location form_Location = new Form_Location(comboBox_Location.SelectedItem as Location);
             form_Location.ShowDialog();
             LocationArrToForm(form_Location.SelectedLocation);
         }
-
-
     }
 }

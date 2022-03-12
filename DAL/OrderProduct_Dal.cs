@@ -25,7 +25,6 @@ namespace ClientSignup.DAL
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה הצליחה
             return Dal.ExecuteSql(str);
         }
-
         public static DataTable GetDataTable()
         {
             DataTable dataTable = null;
@@ -34,7 +33,6 @@ namespace ClientSignup.DAL
             dataTable = dataSet.Tables["Table_OrderProduct"];
             return dataTable;
         }
-
         public static void FillDataSet(DataSet dataSet)
         {
             if (!dataSet.Tables.Contains("Table_OrderProduct"))
@@ -61,7 +59,6 @@ namespace ClientSignup.DAL
                 dataSet.Relations.Add(dataRelation);
             }
         }
-
         public static bool Update(int Id, int Order, int Product)
         {
 
@@ -76,7 +73,6 @@ namespace ClientSignup.DAL
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה הצליחה
             return Dal.ExecuteSql(str);
         }
-
         public static bool Delete(int id)
         {
             //מוחקת את הפריט ממסד הנתונים

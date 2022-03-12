@@ -23,7 +23,6 @@ namespace ClientSignup.UI
             LocationToForm(location);
 
         }
-
         private Location FormToLocation()
         {
             Location location = new Location();
@@ -32,7 +31,6 @@ namespace ClientSignup.UI
 
             return location;
         }
-
         private void LocationArrToForm(Location curLocation = null)
         {
             LocationArr locationArr = new LocationArr();
@@ -153,9 +151,6 @@ namespace ClientSignup.UI
         {
             LocationToForm(listBox_Location.SelectedItem as Location);
         }
-
-
-
         private void button_Delete_Click(object sender, EventArgs e)
         {
             if (label_id.Text == "0")
@@ -187,9 +182,6 @@ namespace ClientSignup.UI
                 }
             }
         }
-
         public Location SelectedLocation { get => listBox_Location.SelectedItem as Location; }
-
-       
     }
 }

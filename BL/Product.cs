@@ -22,7 +22,6 @@ namespace ClientSignup.BL
         public Level Level { get => m_Level; set => m_Level = value; }      
         public Category Category { get => m_Category; set => m_Category = value; }
         #endregion
-
         public Product() { }
         public Product(DataRow dataRow)
         {
@@ -32,8 +31,6 @@ namespace ClientSignup.BL
             m_Category = new Category(dataRow.GetParentRow("ProductCategory"));
 
         }
-
-
         public bool Insert()
         {
             return Product_Dal.Insert(m_Name); // Sends product information to DAL layer for insertion to database
@@ -49,8 +46,6 @@ namespace ClientSignup.BL
         }
         public override string ToString()
         { return $"{m_Level}"; }
-        
-
     }
 }
 

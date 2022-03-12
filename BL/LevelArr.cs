@@ -20,7 +20,6 @@ namespace ClientSignup.BL
                 this.Add(curLevel);
             }
         }
-
         public LevelArr Filter(int id, string name) 
         {
             LevelArr levelArr = new LevelArr(); //checks if level exists, then moves the ones that exist into new array
@@ -34,7 +33,6 @@ namespace ClientSignup.BL
             }
             return levelArr;
         }
-
         public bool IsContains(string name)
         {
             for (int i = 0; i < this.Count; i++)
@@ -43,7 +41,6 @@ namespace ClientSignup.BL
 
             return false;
         }
-
         public Level GetLevelWithMaxId()
         {
             Level maxLevel = new Level();

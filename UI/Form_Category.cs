@@ -23,7 +23,6 @@ namespace ClientSignup.UI
             CategoryToForm(category);
 
         }
-
         private Category FormToCategory()
         {
             Category category = new Category();
@@ -32,7 +31,6 @@ namespace ClientSignup.UI
 
             return category;
         }
-
         private void CategoryArrToForm(Category curCategory = null)
         {
             CategoryArr categoryArr = new CategoryArr();
@@ -93,7 +91,6 @@ namespace ClientSignup.UI
         {
             CategoryToForm(listBox_Category.SelectedItem as Category);
         }
-
         private void button_Delete_Click(object sender, EventArgs e)
         {
             if (label_id.Text == "0")
@@ -122,10 +119,6 @@ namespace ClientSignup.UI
                 }
             }
         }
-
         public Category SelectedCategory { get => listBox_Category.SelectedItem as Category; }
-
-        
-        
     }
 }

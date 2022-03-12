@@ -11,7 +11,6 @@ namespace ClientSignup.BL
 {
     public class CategoryArr : ArrayList
     {
-
         public void Fill()
         {
             DataTable dataTable = Category_Dal.GetDataTable();
@@ -26,7 +25,6 @@ namespace ClientSignup.BL
                 this.Add(curCategory);
             }
         }
-
         public CategoryArr Filter(int id, string name)
         {
             CategoryArr levelArr = new CategoryArr(); //checks if level exists, then moves the ones that exist into new array
@@ -40,7 +38,6 @@ namespace ClientSignup.BL
             }
             return levelArr;
         }
-
         public bool IsContains(string name)
         {
             for (int i = 0; i < this.Count; i++)
@@ -49,7 +46,6 @@ namespace ClientSignup.BL
 
             return false;
         }
-
         public Category GetCategoryWithMaxId()
         {
             Category maxCategory = new Category();

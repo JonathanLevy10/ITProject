@@ -20,14 +20,11 @@ namespace ClientSignup.UI
             OrderArrToForm();
             CapsLockCheck();
         }
-
         private void CapsLockCheck()
         {
             if (Control.IsKeyLocked(Keys.CapsLock))
                 MessageBox.Show("Warning! You have enabled caps-lock");
-
         }
-
         private Order FormToOrder()
         {
             Order order = new Order();
@@ -52,19 +49,16 @@ namespace ClientSignup.UI
                 textBox_Note.Text = "";
             }
         }
-
         private void OrderArrToForm()
         {
             OrderArr orderArr = new OrderArr();
             orderArr.Fill();
             listBox_Orders.DataSource = orderArr;
         }
-
         private void listBox_Orders_DoubleClick(object sender, EventArgs e)
         {
             OrderToForm(listBox_Orders.SelectedItem as Order);
         }
-
         private void Button_Clear_Click(object sender, EventArgs e)
         {
             OrderToForm(null);
@@ -74,7 +68,6 @@ namespace ClientSignup.UI
                 MoveSelectedItemBetweenListBox(listBox_InOrderProducts, listBox_Potential);
             }
         }
-
         private void ClientToForm(Client client)
         {
             if (client != null)
@@ -95,7 +88,6 @@ namespace ClientSignup.UI
             }
 
         }
-
         private void ClientArrToForm()
         {
             ClientArr clientArr = new ClientArr();
@@ -105,7 +97,6 @@ namespace ClientSignup.UI
             listBox_Client.ValueMember = "ID";
             listBox_Client.DisplayMember = "";
         }
-
         private bool CheckForm()
         {
             bool flag = true;
@@ -136,7 +127,6 @@ namespace ClientSignup.UI
 
             return flag;
         }
-
         private void MoveSelectedItemBetweenListBox(ListBox listBox_From, ListBox listBox_To)
         {
             ProductArr productarr = null;
@@ -164,7 +154,6 @@ namespace ClientSignup.UI
         {
             MoveSelectedItemBetweenListBox(listBox_Potential, listBox_InOrderProducts);
         }
-
         private void listbox_Orders_DoubleClick(object sender, EventArgs e)
         {
             Order order = listBox_Orders.SelectedItem as Order;
@@ -208,7 +197,6 @@ namespace ClientSignup.UI
             productArrNotInOrder.Remove(productArrInOrder);
             ProductArrToForm(listBox_Potential, productArrNotInOrder);
         }
-
         private void button_Clear_Click(object sender, EventArgs e)
         {
             OrderToForm(null);
@@ -279,45 +267,37 @@ namespace ClientSignup.UI
                     MessageBox.Show("Error");
             }
         }
-    
-
-
         private bool IsENGMLetter(char c)
         {
             return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == '-') || (c == ' ');
         }
-
-        private void TextBoxClient_Filter_KeyUp(object sender, KeyEventArgs e)
+        private void textBoxClient_Filter_KeyUp(object sender, KeyEventArgs e)
         {
             int id = 0;
-
             //אם המשתמש רשם ערך בשדה המזהה
-
             if (textBox_Filter_OrderDetails_ID.Text != "")
                 id = int.Parse(textBox_Filter_OrderDetails_ID.Text);
-
             //מייצרים אוסף של כלל הלקוחות
-
             ClientArr clientArr = new ClientArr();
             clientArr.Fill();
-
             //מסננים את אוסף הלקוחות לפי שדות הסינון שרשם המשתמש
-
-            clientArr = clientArr.Filter(id, client_TextBox_Filter.Text, textBox_Filter_PhoneNumber.Text);
+            clientArr = clientArr.Filter(id, client_TextBox_Filter.Text, textBox_Filter_Email.Text);
             //מציבים בתיבת הרשימה את אוסף הלקוחות
-
             listBox_Client.DataSource = clientArr;
         }
-
         private void textBox_Names_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!IsENGMLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.KeyChar = char.MinValue;
         }
-        private void textBox_Number_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBox_Email_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!IsEngLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '@')
                 e.KeyChar = char.MinValue;
+        }
+        private bool IsEngLetter(char c)
+        {
+            return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
         }
         private void TextBoxOrder_Filter_KeyUp(object sender, KeyEventArgs e)
         {
@@ -398,6 +378,5 @@ namespace ClientSignup.UI
             }
             return orderProductArr;
         }
-
     }
 }

@@ -40,7 +40,6 @@ namespace ClientSignup.UI
             if (curCategory != null)
                 comboBox.SelectedValue = curCategory.Id;
         }
-
         public void LevelArrToFormy(ComboBox comboBox, bool isMustChoose, Level curLevel = null)
         {
             LevelArr levelArr = new LevelArr();
@@ -61,6 +60,7 @@ namespace ClientSignup.UI
             if (curLevel != null)
                 comboBox.SelectedValue = curLevel.Id;
         }
+
         #region Filters
         private void textBox_Filter_KeyUp(object sender, KeyEventArgs e)
         {
@@ -88,6 +88,5 @@ namespace ClientSignup.UI
             listBox_Products.DataSource = productArr;
         }
         #endregion Filters
-        
     }
 }

@@ -137,7 +137,7 @@ namespace ClientSignup
             this.button_Signup.TabIndex = 8;
             this.button_Signup.Text = "Sign Up";
             this.button_Signup.UseVisualStyleBackColor = true;
-            this.button_Signup.Click += new System.EventHandler(this.button_Signup_Click);
+           
             // 
             // label_FirstName
             // 

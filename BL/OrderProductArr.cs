@@ -11,21 +11,6 @@ namespace ClientSignup.BL
 {
     class OrderProductArr : ArrayList
     {
-        public void Fill()
-        {
-            DataTable dataTable = OrderProduct_Dal.GetDataTable();
-
-            DataRow dataRow;
-            OrderProduct curOrderProduct;
-
-            for (int i = 0; i < dataTable.Rows.Count; i++)
-            {
-                dataRow = dataTable.Rows[i];
-                curOrderProduct = new OrderProduct(dataRow);
-                this.Add(curOrderProduct);
-            }
-        }
-
         public OrderProductArr Filter(Order order) //checks if orderproduct exists, then moves the ones that exist into new array
         {
             OrderProductArr orderProductArr = new OrderProductArr();
@@ -50,8 +35,6 @@ namespace ClientSignup.BL
             }
             return orderProductArr;
         }
-        
-
         public bool Insert()
         {
 
@@ -66,7 +49,6 @@ namespace ClientSignup.BL
             }
             return true;
         }
-
         public bool Delete()
         {
 
@@ -76,7 +58,20 @@ namespace ClientSignup.BL
                 (this[i] as OrderProduct).Delete();
             return true;
         }
+        public void Fill()
+        {
+            DataTable dataTable = OrderProduct_Dal.GetDataTable();
 
+            DataRow dataRow;
+            OrderProduct curOrderProduct;
+
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                dataRow = dataTable.Rows[i];
+                curOrderProduct = new OrderProduct(dataRow);
+                this.Add(curOrderProduct);
+            }
+        }
         public ProductArr GetProductArr()
         {
 

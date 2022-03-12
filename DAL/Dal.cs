@@ -6,7 +6,6 @@ using System.Collections;
 
 class Dal
 {
-    
     public static bool ExecuteSql(string sql)
     {
         SqlConnection connection = new SqlConnection();
@@ -32,7 +31,6 @@ class Dal
 
         return false;
     }
-
     public static void FillDataSet(DataSet dataSet, string tableName, string orderBy = "")
     {
         SqlConnection connection = new SqlConnection();
@@ -50,7 +48,6 @@ class Dal
         adapter.SelectCommand = command;
         adapter.Fill(dataSet, tableName);
     }
-
     private static string GetConnectionString()
     {
         SqlConnectionStringBuilder cString = new SqlConnectionStringBuilder();

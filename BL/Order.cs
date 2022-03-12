@@ -31,7 +31,6 @@ namespace ClientSignup.BL
             m_Date = (DateTime)dataRow["Date"];
             m_Notes = dataRow["Notes"].ToString();
         }
-
         public bool Insert()
         {
             return Order_Dal.Insert(m_Client.id, m_Date, m_Notes);
@@ -44,7 +43,6 @@ namespace ClientSignup.BL
         {
             return Order_Dal.Delete(m_Id);
         }
-
         public override string ToString()
         { return $"{m_Client}{m_Date.ToShortDateString()}"; }
     }

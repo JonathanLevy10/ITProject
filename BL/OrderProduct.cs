@@ -19,30 +19,23 @@ namespace ClientSignup.BL
         public Order Order { get => m_Order; set => m_Order = value; }
         public Product Product { get => m_Product; set => m_Product = value; }
         #endregion
-
-        // Sends order information to DAL layer for insertion to database
-        public bool Insert()
-        {
-            return OrderProduct_Dal.Insert(m_Order.Id, m_Product.Id);
-        }
-
         public OrderProduct() { }
-
         public OrderProduct(DataRow dataRow)
         {
             this.m_Id = (int)dataRow["ID"];
             m_Order = new Order(dataRow.GetParentRow("OrderProductOrder"));
             m_Product = new Product(dataRow.GetParentRow("OrderProductProduct"));
         }
+        public bool Insert()
+        {
+            return OrderProduct_Dal.Insert(m_Order.Id, m_Product.Id);
+        }
         public override string ToString()
         { return $"{m_Order} {m_Product}"; }
-
-
         public bool Update()
         {
             return OrderProduct_Dal.Update(m_Id, m_Order.Id, m_Product.Id);
         }
-
         public bool Delete()
         {
             return OrderProduct_Dal.Delete(m_Id);

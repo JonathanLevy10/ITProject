@@ -10,9 +10,8 @@ namespace ClientSignup.DAL
 {
     class Client_Dal
     {
-        // Adds client directly to database via SQL
         public static bool Insert(string firstName, string lastName, string email, string pwd, string gender, int Location, bool isPro)
-        {
+        {         // Adds client directly to database via SQL
             string sql = "INSERT INTO Table_Client"
             + "("
             + "[FirstName],[LastName],[Email],[Pwd],[Gender], [Location], [isPro], [IdLocation]"
@@ -34,7 +33,6 @@ namespace ClientSignup.DAL
 
             return dataTable;
         }
-
         public static void FillDataSet(DataSet dataSet)
         {
             Dal.FillDataSet(dataSet, "Table_Client", "[LastName], [FirstName]");
@@ -47,9 +45,6 @@ namespace ClientSignup.DAL
                 , dataSet.Tables["Table_Client"].Columns["Location"]);////עמודת הקשר בטבלת הבן )המפתח הזר בטבלת הבן(
             dataSet.Relations.Add(dataRelation);
         }
-
-
-
         public static bool Update(int id, string firstName, string lastName, string email, string pwd, string gender, int backgroundMA, bool isPro)
         {
 
@@ -69,7 +64,6 @@ namespace ClientSignup.DAL
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה
             return Dal.ExecuteSql(str);
         }
-
         public static bool Delete(int id)
         {
             string str = $"DELETE FROM Table_Client WHERE ID = {id}";

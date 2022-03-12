@@ -26,7 +26,6 @@ namespace ClientSignup.BL
                 this.Add(curClient);
             }
         }
-
         public ClientArr Filter(int id, string lastName, string email) //checks if clients exists, then moves the ones that exist into new array
         {
             ClientArr clientArr = new ClientArr();

@@ -46,7 +46,6 @@ namespace ClientSignup.BL
             }
             return orderArr;
         }
-
         public Order GetOrderWithMaxId()
         {
             Order maxOrder = new Order();

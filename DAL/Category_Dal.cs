@@ -11,7 +11,6 @@ namespace ClientSignup.DAL
     class Category_Dal
     {
         ///OK
-        
         public static bool Insert(string name)
         { // Adds category directly to database via SQL
             string sql = "INSERT INTO Table_Category"

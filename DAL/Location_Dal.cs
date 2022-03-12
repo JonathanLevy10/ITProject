@@ -10,7 +10,6 @@ namespace ClientSignup.DAL
 {
     class Location_Dal
     {
-       
         public static bool Insert(string name)
         { // Adds location directly to database via SQL
             string sql = "INSERT INTO Table_Location"

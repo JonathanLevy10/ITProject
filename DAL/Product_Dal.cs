@@ -10,7 +10,6 @@ namespace ClientSignup.DAL
 {
     class Product_Dal
     {
-        // Adds client directly to database via SQL
         public static bool Insert(string name)
         {
             string sql = "INSERT INTO Table_Product"
@@ -34,7 +33,6 @@ namespace ClientSignup.DAL
 
             return dataTable;
         }
-
         public static void FillDataSet(DataSet dataSet)
         {
             if (!dataSet.Tables.Contains("Table_Product"))
@@ -60,9 +58,6 @@ namespace ClientSignup.DAL
 
 
         }
-
-
-
         public static bool Update(int id, string name, int level, int category)
         {
 
@@ -76,7 +71,6 @@ namespace ClientSignup.DAL
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה
             return Dal.ExecuteSql(str);
         }
-
         public static bool Delete(int id)
         {
 

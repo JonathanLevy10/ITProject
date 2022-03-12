@@ -14,12 +14,9 @@ namespace ClientSignup.BL
         private int m_Id;
         private string m_Name;
 
-
         public int Id { get => m_Id; set => m_Id = value; }
         public string Name { get => m_Name; set => m_Name = value; }
         #endregion
-
-
         public Level() { }
         public Level(DataRow dataRow)
         {
@@ -27,8 +24,6 @@ namespace ClientSignup.BL
             m_Name = dataRow["Name"].ToString();
 
         }
-
-
         //Sends Level information to DAL layer
         public bool Insert()
         {
@@ -42,7 +37,6 @@ namespace ClientSignup.BL
         {
             return Level_Dal.Delete(m_Id);
         }
-
         public override string ToString()
         { return $"{m_Name}"; }
     }

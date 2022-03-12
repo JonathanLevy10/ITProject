@@ -28,7 +28,6 @@ namespace ClientSignup.BL
             m_Name = dataRow["Name"].ToString();
 
         }
-
         public bool Insert()
         {
             return Category_Dal.Insert(m_Name);  //Sends Category information to DAL layer

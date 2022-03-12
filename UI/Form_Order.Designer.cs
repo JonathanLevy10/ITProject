@@ -63,9 +63,9 @@ namespace ClientSignup.UI
             this.label12 = new System.Windows.Forms.Label();
             this.listBox_Client = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox_Filter_PhoneNumber = new System.Windows.Forms.TextBox();
+            this.textBox_Filter_Email = new System.Windows.Forms.TextBox();
             this.textBox_Filter_LastName = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label_Email_Filter = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.OrderItems = new System.Windows.Forms.TabPage();
             this.GroupBox_Filter = new System.Windows.Forms.GroupBox();
@@ -394,9 +394,9 @@ namespace ClientSignup.UI
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(17, 64);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(49, 17);
+            this.label13.Size = new System.Drawing.Size(42, 17);
             this.label13.TabIndex = 4;
-            this.label13.Text = "Phone";
+            this.label13.Text = "Email";
             // 
             // label12
             // 
@@ -418,9 +418,9 @@ namespace ClientSignup.UI
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox_Filter_PhoneNumber);
+            this.groupBox2.Controls.Add(this.textBox_Filter_Email);
             this.groupBox2.Controls.Add(this.textBox_Filter_LastName);
-            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label_Email_Filter);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(8, 8);
             this.groupBox2.Name = "groupBox2";
@@ -429,12 +429,14 @@ namespace ClientSignup.UI
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filter";
             // 
-            // textBox_Filter_PhoneNumber
+            // textBox_Filter_Email
             // 
-            this.textBox_Filter_PhoneNumber.Location = new System.Drawing.Point(84, 59);
-            this.textBox_Filter_PhoneNumber.Name = "textBox_Filter_PhoneNumber";
-            this.textBox_Filter_PhoneNumber.Size = new System.Drawing.Size(100, 22);
-            this.textBox_Filter_PhoneNumber.TabIndex = 3;
+            this.textBox_Filter_Email.Location = new System.Drawing.Point(84, 59);
+            this.textBox_Filter_Email.Name = "textBox_Filter_Email";
+            this.textBox_Filter_Email.Size = new System.Drawing.Size(100, 22);
+            this.textBox_Filter_Email.TabIndex = 3;
+            this.textBox_Filter_Email.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Email_KeyPress);
+            this.textBox_Filter_Email.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxClient_Filter_KeyUp);
             // 
             // textBox_Filter_LastName
             // 
@@ -442,15 +444,16 @@ namespace ClientSignup.UI
             this.textBox_Filter_LastName.Name = "textBox_Filter_LastName";
             this.textBox_Filter_LastName.Size = new System.Drawing.Size(100, 22);
             this.textBox_Filter_LastName.TabIndex = 1;
+            this.textBox_Filter_LastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Names_KeyPress);
             // 
-            // label5
+            // label_Email_Filter
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 62);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 17);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Phone #";
+            this.label_Email_Filter.AutoSize = true;
+            this.label_Email_Filter.Location = new System.Drawing.Point(6, 62);
+            this.label_Email_Filter.Name = "label_Email_Filter";
+            this.label_Email_Filter.Size = new System.Drawing.Size(42, 17);
+            this.label_Email_Filter.TabIndex = 2;
+            this.label_Email_Filter.Text = "Email";
             // 
             // label4
             // 
@@ -586,6 +589,7 @@ namespace ClientSignup.UI
             this.button_Save.TabIndex = 1;
             this.button_Save.Text = "Save";
             this.button_Save.UseVisualStyleBackColor = true;
+            this.button_Save.Click += new System.EventHandler(this.button_Save_Click);
             // 
             // button_Clear
             // 
@@ -647,9 +651,9 @@ namespace ClientSignup.UI
         private System.Windows.Forms.TextBox textBox_Filter_OrderDetails_ID;
         private System.Windows.Forms.ListBox listBox_Client;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox_Filter_PhoneNumber;
+        private System.Windows.Forms.TextBox textBox_Filter_Email;
         private System.Windows.Forms.TextBox textBox_Filter_LastName;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label_Email_Filter;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label_FirstName_Chosen;

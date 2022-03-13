@@ -56,7 +56,7 @@ namespace ClientSignup.UI
             this.label_Id_Chosen = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label_FirstName_Chosen = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.label_Email_Chosen = new System.Windows.Forms.Label();
             this.label_LastName_Chosen = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -248,6 +248,7 @@ namespace ClientSignup.UI
             this.textBox_Filter_OrderDetails_ID.Name = "textBox_Filter_OrderDetails_ID";
             this.textBox_Filter_OrderDetails_ID.Size = new System.Drawing.Size(100, 22);
             this.textBox_Filter_OrderDetails_ID.TabIndex = 11;
+            this.textBox_Filter_OrderDetails_ID.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxOrder_Filter_KeyUp);
             // 
             // label10
             // 
@@ -323,7 +324,7 @@ namespace ClientSignup.UI
             this.groupBox3.Controls.Add(this.label_Id_Chosen);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label_FirstName_Chosen);
-            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.label_Email_Chosen);
             this.groupBox3.Controls.Add(this.label_LastName_Chosen);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label13);
@@ -362,14 +363,14 @@ namespace ClientSignup.UI
             this.label_FirstName_Chosen.TabIndex = 9;
             this.label_FirstName_Chosen.Text = "None Chosen";
             // 
-            // label17
+            // label_Email_Chosen
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(82, 64);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(54, 17);
-            this.label17.TabIndex = 8;
-            this.label17.Text = "label17";
+            this.label_Email_Chosen.AutoSize = true;
+            this.label_Email_Chosen.Location = new System.Drawing.Point(82, 64);
+            this.label_Email_Chosen.Name = "label_Email_Chosen";
+            this.label_Email_Chosen.Size = new System.Drawing.Size(94, 17);
+            this.label_Email_Chosen.TabIndex = 8;
+            this.label_Email_Chosen.Text = "None Chosen";
             // 
             // label_LastName_Chosen
             // 
@@ -415,6 +416,7 @@ namespace ClientSignup.UI
             this.listBox_Client.Name = "listBox_Client";
             this.listBox_Client.Size = new System.Drawing.Size(200, 276);
             this.listBox_Client.TabIndex = 1;
+            this.listBox_Client.DoubleClick += new System.EventHandler(this.listBox_Client_DoubleClick);
             // 
             // groupBox2
             // 
@@ -445,6 +447,7 @@ namespace ClientSignup.UI
             this.textBox_Filter_LastName.Size = new System.Drawing.Size(100, 22);
             this.textBox_Filter_LastName.TabIndex = 1;
             this.textBox_Filter_LastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Names_KeyPress);
+            this.textBox_Filter_LastName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxClient_Filter_KeyUp);
             // 
             // label_Email_Filter
             // 
@@ -496,6 +499,10 @@ namespace ClientSignup.UI
             // comboBox_FilterLevel
             // 
             this.comboBox_FilterLevel.FormattingEnabled = true;
+            this.comboBox_FilterLevel.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
             this.comboBox_FilterLevel.Location = new System.Drawing.Point(121, 103);
             this.comboBox_FilterLevel.Name = "comboBox_FilterLevel";
             this.comboBox_FilterLevel.Size = new System.Drawing.Size(100, 24);
@@ -504,6 +511,12 @@ namespace ClientSignup.UI
             // comboBox_FilterCategory
             // 
             this.comboBox_FilterCategory.FormattingEnabled = true;
+            this.comboBox_FilterCategory.Items.AddRange(new object[] {
+            "MMA",
+            "Jiu Jitsu",
+            "Muay Thai",
+            "Boxing",
+            "Wrestling"});
             this.comboBox_FilterCategory.Location = new System.Drawing.Point(121, 66);
             this.comboBox_FilterCategory.Name = "comboBox_FilterCategory";
             this.comboBox_FilterCategory.Size = new System.Drawing.Size(100, 24);
@@ -560,6 +573,7 @@ namespace ClientSignup.UI
             this.listBox_Potential.Name = "listBox_Potential";
             this.listBox_Potential.Size = new System.Drawing.Size(232, 372);
             this.listBox_Potential.TabIndex = 0;
+            this.listBox_Potential.DoubleClick += new System.EventHandler(this.Potential_ListBox_DoubleClick);
             // 
             // tabPage4
             // 
@@ -657,7 +671,7 @@ namespace ClientSignup.UI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label_FirstName_Chosen;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label_Email_Chosen;
         private System.Windows.Forms.Label label_LastName_Chosen;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;

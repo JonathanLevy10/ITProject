@@ -68,26 +68,6 @@ namespace ClientSignup.UI
                 MoveSelectedItemBetweenListBox(listBox_InOrderProducts, listBox_Potential);
             }
         }
-        private void ClientToForm(Client client)
-        {
-            if (client != null)
-            {
-                //ממירה את המידע בטנ "מ לקוח לטופס
-
-                label_Id_Chosen.Text = client.id.ToString();
-                label_FirstName_Chosen.Text = client.FirstName;
-                label_LastName_Chosen.Text = client.LastName;
-                label_Name_Chosen.Text = client.FirstName + " " + client.LastName;
-            }
-            else
-            {
-                label_Id_Chosen.Text = "0";
-                label_FirstName_Chosen.Text = "-";
-                label_LastName_Chosen.Text = "-";
-                label_Name_Chosen.Text = "None Chosen";
-            }
-
-        }
         private void ClientArrToForm()
         {
             ClientArr clientArr = new ClientArr();
@@ -299,20 +279,10 @@ namespace ClientSignup.UI
         {
             return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
         }
-        private void TextBoxOrder_Filter_KeyUp(object sender, KeyEventArgs e)
-        {
-            int id = 0;
-            if (textBox_Filter_OrderDetails_ID.Text != "")
-                id = int.Parse(textBox_Filter_OrderDetails_ID.Text);
-
-            OrderArr orderArr = new OrderArr();
-            orderArr.Fill();
-            orderArr = orderArr.Filter(id, dateTimePicker_From.Value, dateTimePicker_To.Value, client_TextBox_Filter.Text);
-            listBox_Orders.DataSource = orderArr;
-        }
-        private void textBox_Filter_KeyUp(object sender, KeyEventArgs e)
+        private void textBoxOrder_Filter_KeyUp(object sender, KeyEventArgs e)
         {
             SetProductsByFilter();
+
         }
         private void comboBoxFilter_TextChanged(object sender, EventArgs e)
         {
@@ -378,5 +348,33 @@ namespace ClientSignup.UI
             }
             return orderProductArr;
         }
+        private void listBox_Client_DoubleClick(object sender, EventArgs e)
+        {
+            ClientToForm(listBox_Client.SelectedItem as Client);
+        }
+        private void ClientToForm(Client client)
+        {
+            if (client != null)
+            {
+                //ממירה את המידע בטנ "מ לקוח לטופס
+
+                label_Id_Chosen.Text = client.id.ToString();
+                label_FirstName_Chosen.Text = client.FirstName;
+                label_LastName_Chosen.Text = client.LastName;
+                label_Email_Chosen.Text = client.Email;
+                label_Name_Chosen.Text = client.FirstName + " " + client.LastName;
+            }
+            else
+            {
+                label_Id_Chosen.Text = "0";
+                label_FirstName_Chosen.Text = "-";
+                label_LastName_Chosen.Text = "-";
+                label_Email_Chosen.Text = "-";
+                label_Name_Chosen.Text = "None Chosen";
+            }
+
+        }
+
+
     }
 }

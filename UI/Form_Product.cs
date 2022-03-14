@@ -19,8 +19,13 @@ namespace ClientSignup.UI
         public Form_Product()
         {
             InitializeComponent();
+            CategoryArrToForm(comboBox_Category, true);
+            CategoryArrToForm(comboBox_FilterCategory, false);
+            LevelArrToForm(comboBox_Level, true);
+            LevelArrToForm(comboBox_FilterLevel, false);
+
         }
-        public void CategoryArrToFormy(ComboBox comboBox, bool isMustChoose, Category curCategory = null)
+        public void CategoryArrToForm(ComboBox comboBox, bool isMustChoose, Category curCategory = null)
         {
             CategoryArr categoryArr = new CategoryArr();
 
@@ -40,7 +45,7 @@ namespace ClientSignup.UI
             if (curCategory != null)
                 comboBox.SelectedValue = curCategory.Id;
         }
-        public void LevelArrToFormy(ComboBox comboBox, bool isMustChoose, Level curLevel = null)
+        public void LevelArrToForm(ComboBox comboBox, bool isMustChoose, Level curLevel = null)
         {
             LevelArr levelArr = new LevelArr();
 
@@ -88,5 +93,87 @@ namespace ClientSignup.UI
             listBox_Products.DataSource = productArr;
         }
         #endregion Filters
+
+        private void button_Save_Click(object sender, EventArgs e)
+        {
+
+
+             Product product = FormToProduct();
+
+
+            if (product.Id == 0)
+            {
+                if (product.Insert())
+                {
+                    MessageBox.Show("Added Successfully");
+                }
+                else
+                    MessageBox.Show("Error adding");
+            }
+
+            else
+            {
+                if (product.Update())
+                {
+                    MessageBox.Show("Updated Successfully");
+                    ProductArrToForm();
+                }
+                else
+                    MessageBox.Show("Error update");
+            }
+            ProductArrToForm();
+
+        }
+
+        private Product FormToProduct()
+        {
+            Product product = new Product();
+            product.id = int.Parse(label_id.Text);
+
+            product.FirstName = textBox_FirstName.Text;
+            product.LastName = textBox_LastName.Text;
+            product.Email = textBox_Email.Text;
+            product.Pwd = textBox_Pwd.Text;
+            product.IsPro = checkBox_isPro.Checked;
+            product.Location = comboBox_Location.SelectedItem as Location;
+            if (comboBox_Gender.Text != "Not Specified")
+                product.Gender = comboBox_Gender.Text;
+
+            return product;
+        }
+        private void ProductToForm(Product product) //Puts specific product info into form
+        {
+
+            //ממירה את המידע בטנ"מ לקוח לטופס
+            if (product != null)
+            {
+                label_id.Text = product.id.ToString();
+                textBox_FirstName.Text = product.FirstName;
+                textBox_LastName.Text = product.LastName;
+                textBox_Email.Text = product.Email;
+                textBox_Pwd.Text = product.Pwd;
+                comboBox_Gender.Text = product.Gender;
+                comboBox_Location.SelectedItem = product.Location;
+                checkBox_isPro.Checked = product.IsPro;
+            }
+            else
+            {
+                label_id.Text = "0";
+                textBox_FirstName.Text = "";
+                textBox_LastName.Text = "";
+                textBox_Email.Text = "";
+                textBox_Pwd.Text = "";
+                comboBox_Gender.Text = null;
+                comboBox_Location.SelectedItem = null;
+
+            }
+        }
+        private void ProductArrToForm()
+        {
+            ProductArr productArr = new ProductArr();
+            productArr.Fill();
+            listBox_Products.DataSource = productArr;
+        }
     }
 }
+

@@ -10,19 +10,6 @@ namespace ClientSignup.DAL
 {
     class Product_Dal
     {
-        public static bool Insert(string name)
-        {
-            string sql = "INSERT INTO Table_Product"
-            + "("
-            + "[Name]"
-            + ")"
-            + " VALUES "
-            + "("
-            + $"'{name}'"
-            + ")";
-
-            return Dal.ExecuteSql(sql);
-        }
         public static DataTable GetDataTable()
         {
             DataTable dataTable = null;
@@ -58,15 +45,36 @@ namespace ClientSignup.DAL
 
 
         }
-        public static bool Update(int id, string name, int level, int category)
+
+        public static bool Insert(string name, int category, int level, int count)
+        {
+            string sql = "INSERT INTO Table_Product"
+            + "("
+            + "[Name]"
+            + ",[Category]"
+            + ",[Level]"
+            + ",[Count]"
+            + ")"
+            + " VALUES "
+            + "("
+            + $"'{name}'"
+            + $",{category}"
+            + $",{level}"
+            + $",{count}"
+            + ")";
+
+            return Dal.ExecuteSql(sql);
+        }
+        public static bool Update(int id, string name, int level, int category, int count)
         {
 
             //מעדכנת את הלקוח במסד הנתונים
 
             string str = "UPDATE Table_Products SET"
-            + $"[Name] = N'{name}'"
-            + $"[Level] = N'{level}'"
-            + $"[Category] = N'{category}'"
+            + $" [Name] = N'{name}'"
+            + $",[Level] = {level}"
+            + $",[Category] = {category}"
+            + $",[Count] = {count}"
             + $"WHERE [Id] = {id}";
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה
             return Dal.ExecuteSql(str);

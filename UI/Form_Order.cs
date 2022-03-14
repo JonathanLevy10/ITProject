@@ -19,6 +19,8 @@ namespace ClientSignup.UI
             InitializeComponent();
             OrderArrToForm();
             CapsLockCheck();
+            ClientArrToForm();
+            ProductArrToForm(listBox_Potential);
         }
         private void CapsLockCheck()
         {
@@ -261,7 +263,7 @@ namespace ClientSignup.UI
             ClientArr clientArr = new ClientArr();
             clientArr.Fill();
             //מסננים את אוסף הלקוחות לפי שדות הסינון שרשם המשתמש
-            clientArr = clientArr.Filter(id, client_TextBox_Filter.Text, textBox_Filter_Email.Text);
+            clientArr = clientArr.Filter(id, textBox_Filter_LastName.Text, textBox_Filter_Email.Text);
             //מציבים בתיבת הרשימה את אוסף הלקוחות
             listBox_Client.DataSource = clientArr;
         }
@@ -374,7 +376,5 @@ namespace ClientSignup.UI
             }
 
         }
-
-
     }
 }

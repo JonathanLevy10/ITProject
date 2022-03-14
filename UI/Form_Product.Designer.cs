@@ -37,6 +37,8 @@ namespace ClientSignup.UI
             this.button_Save = new System.Windows.Forms.Button();
             this.listBox_Products = new System.Windows.Forms.ListBox();
             this.GroupBox_Filter = new System.Windows.Forms.GroupBox();
+            this.comboBox_FilterLevel = new System.Windows.Forms.ComboBox();
+            this.comboBox_FilterCategory = new System.Windows.Forms.ComboBox();
             this.textBox_FilterID = new System.Windows.Forms.TextBox();
             this.label_level = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -45,9 +47,10 @@ namespace ClientSignup.UI
             this.label_ID = new System.Windows.Forms.Label();
             this.comboBox_Level = new System.Windows.Forms.ComboBox();
             this.comboBox_Category = new System.Windows.Forms.ComboBox();
-            this.comboBox_FilterCategory = new System.Windows.Forms.ComboBox();
-            this.comboBox_FilterLevel = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.GroupBox_Filter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,13 +85,13 @@ namespace ClientSignup.UI
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(311, 125);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 17);
+            this.label4.Size = new System.Drawing.Size(69, 17);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Company:";
+            this.label4.Text = "Category:";
             // 
             // button_Clear
             // 
-            this.button_Clear.Location = new System.Drawing.Point(392, 217);
+            this.button_Clear.Location = new System.Drawing.Point(383, 263);
             this.button_Clear.Name = "button_Clear";
             this.button_Clear.Size = new System.Drawing.Size(75, 42);
             this.button_Clear.TabIndex = 8;
@@ -97,12 +100,13 @@ namespace ClientSignup.UI
             // 
             // button_Save
             // 
-            this.button_Save.Location = new System.Drawing.Point(517, 217);
+            this.button_Save.Location = new System.Drawing.Point(517, 263);
             this.button_Save.Name = "button_Save";
             this.button_Save.Size = new System.Drawing.Size(77, 42);
             this.button_Save.TabIndex = 9;
             this.button_Save.Text = "Save";
             this.button_Save.UseVisualStyleBackColor = true;
+            this.button_Save.Click += new System.EventHandler(this.button_Save_Click);
             // 
             // listBox_Products
             // 
@@ -127,6 +131,24 @@ namespace ClientSignup.UI
             this.GroupBox_Filter.TabIndex = 26;
             this.GroupBox_Filter.TabStop = false;
             this.GroupBox_Filter.Text = "Filter";
+            // 
+            // comboBox_FilterLevel
+            // 
+            this.comboBox_FilterLevel.FormattingEnabled = true;
+            this.comboBox_FilterLevel.Location = new System.Drawing.Point(121, 103);
+            this.comboBox_FilterLevel.Name = "comboBox_FilterLevel";
+            this.comboBox_FilterLevel.Size = new System.Drawing.Size(100, 24);
+            this.comboBox_FilterLevel.TabIndex = 30;
+            this.comboBox_FilterLevel.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilter_TextChanged);
+            // 
+            // comboBox_FilterCategory
+            // 
+            this.comboBox_FilterCategory.FormattingEnabled = true;
+            this.comboBox_FilterCategory.Location = new System.Drawing.Point(121, 66);
+            this.comboBox_FilterCategory.Name = "comboBox_FilterCategory";
+            this.comboBox_FilterCategory.Size = new System.Drawing.Size(100, 24);
+            this.comboBox_FilterCategory.TabIndex = 29;
+            this.comboBox_FilterCategory.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilter_TextChanged);
             // 
             // textBox_FilterID
             // 
@@ -175,9 +197,9 @@ namespace ClientSignup.UI
             this.label_ID.AutoSize = true;
             this.label_ID.Location = new System.Drawing.Point(548, 23);
             this.label_ID.Name = "label_ID";
-            this.label_ID.Size = new System.Drawing.Size(46, 17);
+            this.label_ID.Size = new System.Drawing.Size(16, 17);
             this.label_ID.TabIndex = 31;
-            this.label_ID.Text = "label5";
+            this.label_ID.Text = "0";
             // 
             // comboBox_Level
             // 
@@ -214,29 +236,30 @@ namespace ClientSignup.UI
             this.comboBox_Category.Size = new System.Drawing.Size(172, 24);
             this.comboBox_Category.TabIndex = 33;
             this.comboBox_Category.Text = "Choose Category";
-            
             // 
-            // comboBox_FilterCategory
+            // label5
             // 
-            this.comboBox_FilterCategory.FormattingEnabled = true;
-            this.comboBox_FilterCategory.Location = new System.Drawing.Point(121, 66);
-            this.comboBox_FilterCategory.Name = "comboBox_FilterCategory";
-            this.comboBox_FilterCategory.Size = new System.Drawing.Size(100, 24);
-            this.comboBox_FilterCategory.TabIndex = 29;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(311, 217);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 17);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Places:";
             // 
-            // comboBox_FilterLevel
+            // numericUpDown1
             // 
-            this.comboBox_FilterLevel.FormattingEnabled = true;
-            this.comboBox_FilterLevel.Location = new System.Drawing.Point(121, 103);
-            this.comboBox_FilterLevel.Name = "comboBox_FilterLevel";
-            this.comboBox_FilterLevel.Size = new System.Drawing.Size(100, 24);
-            this.comboBox_FilterLevel.TabIndex = 30;
+            this.numericUpDown1.Location = new System.Drawing.Point(422, 217);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(172, 22);
+            this.numericUpDown1.TabIndex = 35;
             // 
             // Form_Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBox_Category);
             this.Controls.Add(this.comboBox_Level);
             this.Controls.Add(this.label_ID);
@@ -253,6 +276,7 @@ namespace ClientSignup.UI
             this.Text = "Product";
             this.GroupBox_Filter.ResumeLayout(false);
             this.GroupBox_Filter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,5 +302,7 @@ namespace ClientSignup.UI
         private System.Windows.Forms.ComboBox comboBox_Category;
         private System.Windows.Forms.ComboBox comboBox_FilterLevel;
         private System.Windows.Forms.ComboBox comboBox_FilterCategory;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

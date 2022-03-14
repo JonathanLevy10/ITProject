@@ -1,5 +1,5 @@
 ﻿
-namespace ClientSignup.UI
+namespace WFP_GOS.UI
 {
     partial class Form_Level
     {

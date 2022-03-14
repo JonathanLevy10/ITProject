@@ -1,4 +1,4 @@
-﻿using ClientSignup.BL;
+﻿using WFP_GOS.BL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ClientSignup.UI
+namespace WFP_GOS.UI
 {
     public partial class Form_Category : Form
     {

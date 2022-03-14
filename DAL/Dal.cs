@@ -53,7 +53,7 @@ class Dal
         SqlConnectionStringBuilder cString = new SqlConnectionStringBuilder();
 
         cString.DataSource = @"(localdb)\.";
-        cString.AttachDBFilename = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + @"\DB_ClientSignup.mdf";
+        cString.AttachDBFilename = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + @"\DB_GOS.mdf";
 
         return cString.ToString();
     }

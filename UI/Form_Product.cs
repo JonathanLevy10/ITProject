@@ -7,12 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClientSignup.BL;
-using ClientSignup.UI;
+using WFP_GOS.BL;
+using WFP_GOS.UI;
 
-
-
-namespace ClientSignup.UI
+namespace WFP_GOS.UI
 {
     public partial class Form_Product : Form
     {
@@ -65,7 +63,6 @@ namespace ClientSignup.UI
             if (curLevel != null)
                 comboBox.SelectedValue = curLevel.Id;
         }
-
         #region Filters
         private void textBox_Filter_KeyUp(object sender, KeyEventArgs e)
         {
@@ -96,11 +93,7 @@ namespace ClientSignup.UI
 
         private void button_Save_Click(object sender, EventArgs e)
         {
-
-
-             Product product = FormToProduct();
-
-
+            Product product = FormToProduct();
             if (product.Id == 0)
             {
                 if (product.Insert())
@@ -110,7 +103,6 @@ namespace ClientSignup.UI
                 else
                     MessageBox.Show("Error adding");
             }
-
             else
             {
                 if (product.Update())
@@ -122,22 +114,20 @@ namespace ClientSignup.UI
                     MessageBox.Show("Error update");
             }
             ProductArrToForm();
-
         }
-
+        private void button_Clear_Click(object sender, EventArgs e)
+        {
+            ProductToForm(null);
+        }
         private Product FormToProduct()
         {
             Product product = new Product();
-            product.id = int.Parse(label_id.Text);
+            product.Id = int.Parse(label_Id.Text);
 
-            product.FirstName = textBox_FirstName.Text;
-            product.LastName = textBox_LastName.Text;
-            product.Email = textBox_Email.Text;
-            product.Pwd = textBox_Pwd.Text;
-            product.IsPro = checkBox_isPro.Checked;
-            product.Location = comboBox_Location.SelectedItem as Location;
-            if (comboBox_Gender.Text != "Not Specified")
-                product.Gender = comboBox_Gender.Text;
+            product.Name = textBox_ProductName.Text;
+            product.Category = comboBox_Category.SelectedItem as Category;
+            product.Level = comboBox_Level.SelectedItem as Level;
+            product.Count = int.Parse(nUD_Places.Text);
 
             return product;
         }
@@ -147,25 +137,19 @@ namespace ClientSignup.UI
             //ממירה את המידע בטנ"מ לקוח לטופס
             if (product != null)
             {
-                label_id.Text = product.id.ToString();
-                textBox_FirstName.Text = product.FirstName;
-                textBox_LastName.Text = product.LastName;
-                textBox_Email.Text = product.Email;
-                textBox_Pwd.Text = product.Pwd;
-                comboBox_Gender.Text = product.Gender;
-                comboBox_Location.SelectedItem = product.Location;
-                checkBox_isPro.Checked = product.IsPro;
+                label_Id.Text = product.Id.ToString();
+                textBox_ProductName.Text = product.Name;
+                comboBox_Category.SelectedItem = product.Category;
+                comboBox_Level.SelectedItem = product.Level;
+                nUD_Places.Text = product.Count.ToString();
             }
             else
             {
-                label_id.Text = "0";
-                textBox_FirstName.Text = "";
-                textBox_LastName.Text = "";
-                textBox_Email.Text = "";
-                textBox_Pwd.Text = "";
-                comboBox_Gender.Text = null;
-                comboBox_Location.SelectedItem = null;
-
+                label_Id.Text = "0";
+                textBox_ProductName.Text = "";
+                comboBox_Category.Text = "";
+                comboBox_Level.Text = "";
+                nUD_Places.Text = "";
             }
         }
         private void ProductArrToForm()

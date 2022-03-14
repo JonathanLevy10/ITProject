@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClientSignup.DAL;
+using WFP_GOS.DAL;
 
-namespace ClientSignup.BL
+namespace WFP_GOS.BL
 {
     class OrderArr : ArrayList
     {

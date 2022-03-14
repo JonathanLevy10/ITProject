@@ -1,8 +1,8 @@
-﻿using ClientSignup.DAL;
+﻿using WFP_GOS.DAL;
 using System.Collections;
 using System.Data;
 
-namespace ClientSignup.BL
+namespace WFP_GOS.BL
 {
     public class LevelArr : ArrayList
     {

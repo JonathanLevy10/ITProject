@@ -1,4 +1,4 @@
-﻿using ClientSignup.DAL;
+﻿using WFP_GOS.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClientSignup.BL
+namespace WFP_GOS.BL
 {
     public class Level
     {

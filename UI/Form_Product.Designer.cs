@@ -1,5 +1,5 @@
 ﻿
-namespace ClientSignup.UI
+namespace WFP_GOS.UI
 {
     partial class Form_Product
     {
@@ -44,13 +44,13 @@ namespace ClientSignup.UI
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox_ProductName = new System.Windows.Forms.TextBox();
-            this.label_ID = new System.Windows.Forms.Label();
+            this.label_Id = new System.Windows.Forms.Label();
             this.comboBox_Level = new System.Windows.Forms.ComboBox();
             this.comboBox_Category = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nUD_Places = new System.Windows.Forms.NumericUpDown();
             this.GroupBox_Filter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUD_Places)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -91,12 +91,13 @@ namespace ClientSignup.UI
             // 
             // button_Clear
             // 
-            this.button_Clear.Location = new System.Drawing.Point(383, 263);
+            this.button_Clear.Location = new System.Drawing.Point(422, 263);
             this.button_Clear.Name = "button_Clear";
             this.button_Clear.Size = new System.Drawing.Size(75, 42);
             this.button_Clear.TabIndex = 8;
             this.button_Clear.Text = "Clear";
             this.button_Clear.UseVisualStyleBackColor = true;
+            this.button_Clear.Click += new System.EventHandler(this.button_Clear_Click);
             // 
             // button_Save
             // 
@@ -192,14 +193,14 @@ namespace ClientSignup.UI
             this.textBox_ProductName.Size = new System.Drawing.Size(172, 22);
             this.textBox_ProductName.TabIndex = 27;
             // 
-            // label_ID
+            // label_Id
             // 
-            this.label_ID.AutoSize = true;
-            this.label_ID.Location = new System.Drawing.Point(548, 23);
-            this.label_ID.Name = "label_ID";
-            this.label_ID.Size = new System.Drawing.Size(16, 17);
-            this.label_ID.TabIndex = 31;
-            this.label_ID.Text = "0";
+            this.label_Id.AutoSize = true;
+            this.label_Id.Location = new System.Drawing.Point(548, 23);
+            this.label_Id.Name = "label_Id";
+            this.label_Id.Size = new System.Drawing.Size(16, 17);
+            this.label_Id.TabIndex = 31;
+            this.label_Id.Text = "0";
             // 
             // comboBox_Level
             // 
@@ -246,23 +247,23 @@ namespace ClientSignup.UI
             this.label5.TabIndex = 34;
             this.label5.Text = "Places:";
             // 
-            // numericUpDown1
+            // nUD_Places
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(422, 217);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(172, 22);
-            this.numericUpDown1.TabIndex = 35;
+            this.nUD_Places.Location = new System.Drawing.Point(422, 217);
+            this.nUD_Places.Name = "nUD_Places";
+            this.nUD_Places.Size = new System.Drawing.Size(172, 22);
+            this.nUD_Places.TabIndex = 35;
             // 
             // Form_Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.nUD_Places);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBox_Category);
             this.Controls.Add(this.comboBox_Level);
-            this.Controls.Add(this.label_ID);
+            this.Controls.Add(this.label_Id);
             this.Controls.Add(this.textBox_ProductName);
             this.Controls.Add(this.GroupBox_Filter);
             this.Controls.Add(this.listBox_Products);
@@ -276,7 +277,7 @@ namespace ClientSignup.UI
             this.Text = "Product";
             this.GroupBox_Filter.ResumeLayout(false);
             this.GroupBox_Filter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUD_Places)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,12 +298,12 @@ namespace ClientSignup.UI
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox_ProductName;
-        private System.Windows.Forms.Label label_ID;
+        private System.Windows.Forms.Label label_Id;
         private System.Windows.Forms.ComboBox comboBox_Level;
         private System.Windows.Forms.ComboBox comboBox_Category;
         private System.Windows.Forms.ComboBox comboBox_FilterLevel;
         private System.Windows.Forms.ComboBox comboBox_FilterCategory;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nUD_Places;
     }
 }

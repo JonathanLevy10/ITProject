@@ -1,5 +1,5 @@
 ﻿
-namespace ClientSignup
+namespace WFP_GOS
 {
     partial class Form1
     {
@@ -418,7 +418,7 @@ namespace ClientSignup
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "ClientSignup";
+            this.Text = "WFP_GOS";
             this.GroupBox_Filter.ResumeLayout(false);
             this.GroupBox_Filter.PerformLayout();
             this.ResumeLayout(false);

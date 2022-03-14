@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClientSignup.UI;
+using WFP_GOS.UI;
 
-namespace ClientSignup
+namespace WFP_GOS
 {
     static class Program
     {
@@ -20,8 +20,8 @@ namespace ClientSignup
             //Application.Run(new Form1());
             //Application.Run(new Form_Level());
             //Application.Run(new Form_Category());
-            //Application.Run(new Form_Order());
-            Application.Run(new Form_Product());
+            Application.Run(new Form_Order());
+            //Application.Run(new Form_Product());
         }
     }
 }

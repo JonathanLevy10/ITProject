@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClientSignup.BL;
-using ClientSignup.UI;
+using WFP_GOS.BL;
+using WFP_GOS.UI;
 
-namespace ClientSignup.UI
+namespace WFP_GOS.UI
 {
     public partial class Form_Order : Form
     {

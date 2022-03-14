@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 
 
-namespace ClientSignup.DAL
+namespace WFP_GOS.DAL
 {
     class OrderProduct_Dal
     {

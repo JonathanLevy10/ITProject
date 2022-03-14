@@ -22,20 +22,7 @@ namespace WFP_GOS.UI
             ClientArrToForm();
             ProductArrToForm(listBox_Potential);
         }
-        private void CapsLockCheck()
-        {
-            if (Control.IsKeyLocked(Keys.CapsLock))
-                MessageBox.Show("Warning! You have enabled caps-lock");
-        }
-        private Order FormToOrder()
-        {
-            Order order = new Order();
-            order.Id = int.Parse(label_Id.Text);
-            order.Date = Date_DateTime.Value;
-            order.Notes = textBox_Note.Text;
-
-            return order;
-        }
+        #region tab 1
         private void OrderToForm(Order order) //Puts specific order info into form
         {
             if (order != null)
@@ -51,34 +38,6 @@ namespace WFP_GOS.UI
                 textBox_Note.Text = "";
             }
         }
-        private void OrderArrToForm()
-        {
-            OrderArr orderArr = new OrderArr();
-            orderArr.Fill();
-            listBox_Orders.DataSource = orderArr;
-        }
-        private void listBox_Orders_DoubleClick(object sender, EventArgs e)
-        {
-            OrderToForm(listBox_Orders.SelectedItem as Order);
-        }
-        private void Button_Clear_Click(object sender, EventArgs e)
-        {
-            OrderToForm(null);
-            ClientToForm(null);
-            for (int i = 0; i < listBox_InOrderProducts.Items.Count; i++)
-            {
-                MoveSelectedItemBetweenListBox(listBox_InOrderProducts, listBox_Potential);
-            }
-        }
-        private void ClientArrToForm()
-        {
-            ClientArr clientArr = new ClientArr();
-            clientArr.Fill();
-
-            listBox_Client.DataSource = clientArr;
-            listBox_Client.ValueMember = "ID";
-            listBox_Client.DisplayMember = "";
-        }
         private bool CheckForm()
         {
             bool flag = true;
@@ -89,7 +48,6 @@ namespace WFP_GOS.UI
             }
             else
 
-
             if (label_Name_Chosen.Text == "None Chosen") //בחר משתמש
             {
                 flag = false;
@@ -97,7 +55,6 @@ namespace WFP_GOS.UI
             }
             else
                 label_Name_Chosen.BackColor = Color.Black;
-
 
             if (listBox_InOrderProducts.Items.Count == 0)
             {
@@ -109,6 +66,85 @@ namespace WFP_GOS.UI
 
             return flag;
         }
+        private void OrderArrToForm()
+        {
+            OrderArr orderArr = new OrderArr();
+            orderArr.Fill();
+            listBox_Orders.DataSource = orderArr;
+        }
+        private Order FormToOrder()
+        {
+            Order order = new Order();
+            order.Id = int.Parse(label_Id.Text);
+            order.Date = Date_DateTime.Value;
+            order.Notes = textBox_Note.Text;
+
+            return order;
+        }
+        private void textBoxOrder_Filter_KeyUp(object sender, KeyEventArgs e)
+        {
+            SetProductsByFilter();
+        }
+        private void listBox_Orders_DoubleClick(object sender, EventArgs e)
+        {
+            OrderToForm(listBox_Orders.SelectedItem as Order);
+        }
+        #endregion
+
+        #region tab 2
+        private void textBoxClient_Filter_KeyUp(object sender, KeyEventArgs e)
+        {
+            int id = 0;
+            //אם המשתמש רשם ערך בשדה המזהה
+            if (textBox_Filter_OrderDetails_ID.Text != "")
+                id = int.Parse(textBox_Filter_OrderDetails_ID.Text);
+            //מייצרים אוסף של כלל הלקוחות
+            ClientArr clientArr = new ClientArr();
+            clientArr.Fill();
+            //מסננים את אוסף הלקוחות לפי שדות הסינון שרשם המשתמש
+            clientArr = clientArr.Filter(id, textBox_Filter_LastName.Text, textBox_Filter_Email.Text);
+            //מציבים בתיבת הרשימה את אוסף הלקוחות
+            listBox_Client.DataSource = clientArr;
+        }
+        private void ClientArrToForm()
+        {
+            ClientArr clientArr = new ClientArr();
+            clientArr.Fill();
+
+            listBox_Client.DataSource = clientArr;
+            listBox_Client.ValueMember = "ID";
+            listBox_Client.DisplayMember = "";
+        }
+        private void listBox_Client_DoubleClick(object sender, EventArgs e)
+        {
+            ClientToForm(listBox_Client.SelectedItem as Client);
+        }
+        private void ClientToForm(Client client)
+        {
+            if (client != null)
+            {
+                //ממירה את המידע בטנ "מ לקוח לטופס
+
+                label_Id_Chosen.Text = client.id.ToString();
+                label_FirstName_Chosen.Text = client.FirstName;
+                label_LastName_Chosen.Text = client.LastName;
+                label_Email_Chosen.Text = client.Email;
+                label_Name_Chosen.Text = client.FirstName + " " + client.LastName;
+            }
+            else
+            {
+                label_Id_Chosen.Text = "0";
+                label_FirstName_Chosen.Text = "-";
+                label_LastName_Chosen.Text = "-";
+                label_Email_Chosen.Text = "-";
+                label_Name_Chosen.Text = "None Chosen";
+            }
+
+        }
+
+        #endregion
+
+        #region tab 3
         private void MoveSelectedItemBetweenListBox(ListBox listBox_From, ListBox listBox_To)
         {
             ProductArr productarr = null;
@@ -179,6 +215,13 @@ namespace WFP_GOS.UI
             productArrNotInOrder.Remove(productArrInOrder);
             ProductArrToForm(listBox_Potential, productArrNotInOrder);
         }
+        #endregion
+        private void CapsLockCheck()
+        {
+            if (Control.IsKeyLocked(Keys.CapsLock))
+                MessageBox.Show("Warning! You have enabled caps-lock");
+        }
+        
         private void button_Clear_Click(object sender, EventArgs e)
         {
             OrderToForm(null);
@@ -249,43 +292,6 @@ namespace WFP_GOS.UI
                     MessageBox.Show("Error");
             }
         }
-        private bool IsENGMLetter(char c)
-        {
-            return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == '-') || (c == ' ');
-        }
-        private void textBoxClient_Filter_KeyUp(object sender, KeyEventArgs e)
-        {
-            int id = 0;
-            //אם המשתמש רשם ערך בשדה המזהה
-            if (textBox_Filter_OrderDetails_ID.Text != "")
-                id = int.Parse(textBox_Filter_OrderDetails_ID.Text);
-            //מייצרים אוסף של כלל הלקוחות
-            ClientArr clientArr = new ClientArr();
-            clientArr.Fill();
-            //מסננים את אוסף הלקוחות לפי שדות הסינון שרשם המשתמש
-            clientArr = clientArr.Filter(id, textBox_Filter_LastName.Text, textBox_Filter_Email.Text);
-            //מציבים בתיבת הרשימה את אוסף הלקוחות
-            listBox_Client.DataSource = clientArr;
-        }
-        private void textBox_Names_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!IsENGMLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
-                e.KeyChar = char.MinValue;
-        }
-        private void textBox_Email_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!IsEngLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '@')
-                e.KeyChar = char.MinValue;
-        }
-        private bool IsEngLetter(char c)
-        {
-            return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
-        }
-        private void textBoxOrder_Filter_KeyUp(object sender, KeyEventArgs e)
-        {
-            SetProductsByFilter();
-
-        }
         private void comboBoxFilter_TextChanged(object sender, EventArgs e)
         {
             SetProductsByFilter();
@@ -350,31 +356,25 @@ namespace WFP_GOS.UI
             }
             return orderProductArr;
         }
-        private void listBox_Client_DoubleClick(object sender, EventArgs e)
+        #region Text Validators
+        private void textBox_Names_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ClientToForm(listBox_Client.SelectedItem as Client);
+            if (!IsENGMLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.KeyChar = char.MinValue;
         }
-        private void ClientToForm(Client client)
+        private void textBox_Email_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (client != null)
-            {
-                //ממירה את המידע בטנ "מ לקוח לטופס
-
-                label_Id_Chosen.Text = client.id.ToString();
-                label_FirstName_Chosen.Text = client.FirstName;
-                label_LastName_Chosen.Text = client.LastName;
-                label_Email_Chosen.Text = client.Email;
-                label_Name_Chosen.Text = client.FirstName + " " + client.LastName;
-            }
-            else
-            {
-                label_Id_Chosen.Text = "0";
-                label_FirstName_Chosen.Text = "-";
-                label_LastName_Chosen.Text = "-";
-                label_Email_Chosen.Text = "-";
-                label_Name_Chosen.Text = "None Chosen";
-            }
-
+            if (!IsEngLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '@')
+                e.KeyChar = char.MinValue;
         }
+        private bool IsEngLetter(char c)
+        {
+            return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+        }
+        private bool IsENGMLetter(char c)
+        {
+            return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == '-') || (c == ' ');
+        }
+        #endregion
     }
 }

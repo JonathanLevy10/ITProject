@@ -59,6 +59,26 @@ namespace WFP_GOS.UI
 
                 return flag;
             }
+            private void LevelToForm(Level level)
+        {
+            if (level != null)
+            {
+                //ממירה את המידע בטנ "מ לקוח לטופס
+
+                label_id.Text = level.Id.ToString();
+                textBox_Name.Text = level.Name;
+            }
+            else
+            {
+                label_id.Text = "0";
+                textBox_Name.Text = "";
+                textBox_Name.BackColor = Color.White;
+            }
+
+
+        }
+            public Level SelectedLevel { get => listBox_Level.SelectedItem as Level; }
+            #region Click Functions
             private void button_Save_Click(object sender, EventArgs e)
             {
 
@@ -127,24 +147,6 @@ namespace WFP_GOS.UI
             {
                 LevelToForm(null);
             }
-            private void LevelToForm(Level level)
-            {
-                if (level != null)
-                {
-                    //ממירה את המידע בטנ "מ לקוח לטופס
-
-                    label_id.Text = level.Id.ToString();
-                    textBox_Name.Text = level.Name;
-                }
-                else
-                {
-                    label_id.Text = "0";
-                    textBox_Name.Text = "";
-                    textBox_Name.BackColor = Color.White;
-                }
-
-
-            }
             private void listBox_Level_DoubleClick(object sender, EventArgs e)
             {
                 LevelToForm(listBox_Level.SelectedItem as Level);
@@ -180,6 +182,6 @@ namespace WFP_GOS.UI
                     }
                 }
             }
-            public Level SelectedLevel { get => listBox_Level.SelectedItem as Level; }
+            #endregion
         }
 }

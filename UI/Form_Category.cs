@@ -23,6 +23,7 @@ namespace WFP_GOS.UI
             CategoryToForm(category);
 
         }
+        public Category SelectedCategory { get => listBox_Category.SelectedItem as Category; }
         private Category FormToCategory()
         {
             Category category = new Category();
@@ -44,6 +45,10 @@ namespace WFP_GOS.UI
             listBox_Category.DisplayMember = "Name";
 
         }
+        private void listBox_Category_DoubleClick(object sender, EventArgs e)
+        {
+            CategoryToForm(listBox_Category.SelectedItem as Category);
+        }
         private bool CheckForm()
         {
 
@@ -61,6 +66,7 @@ namespace WFP_GOS.UI
 
             return flag;
         }
+        #region Click Funtions
         private void button_Save_Click(object sender, EventArgs e)
         {
 
@@ -87,10 +93,7 @@ namespace WFP_GOS.UI
 
 
         }
-        private void listBox_Category_DoubleClick(object sender, EventArgs e)
-        {
-            CategoryToForm(listBox_Category.SelectedItem as Category);
-        }
+
         private void button_Delete_Click(object sender, EventArgs e)
         {
             if (label_id.Text == "0")
@@ -119,6 +122,6 @@ namespace WFP_GOS.UI
                 }
             }
         }
-        public Category SelectedCategory { get => listBox_Category.SelectedItem as Category; }
+        #endregion
     }
 }

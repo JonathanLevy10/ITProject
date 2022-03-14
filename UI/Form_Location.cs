@@ -61,6 +61,30 @@ namespace WFP_GOS.UI
 
             return flag;
         }
+        private void LocationToForm(Location location)
+        {
+            if (location != null)
+            {
+                //ממירה את המידע בטנ "מ לקוח לטופס
+
+                label_id.Text = location.Id.ToString();
+                textBox_Name.Text = location.Name;
+            }
+            else
+            {
+                label_id.Text = "0";
+                textBox_Name.Text = "";
+                textBox_Name.BackColor = Color.White;
+            }
+
+
+        }
+        public Location SelectedLocation { get => listBox_Location.SelectedItem as Location; }
+        #region Click Functions
+        private void listBox_Location_DoubleClick(object sender, EventArgs e)
+        {
+            LocationToForm(listBox_Location.SelectedItem as Location);
+        }
         private void button_Save_Click(object sender, EventArgs e)
         {
 
@@ -129,28 +153,6 @@ namespace WFP_GOS.UI
         {
             LocationToForm(null);
         }
-        private void LocationToForm(Location location)
-        {
-            if (location != null)
-            {
-                //ממירה את המידע בטנ "מ לקוח לטופס
-
-                label_id.Text = location.Id.ToString();
-                textBox_Name.Text = location.Name;
-            }
-            else
-            {
-                label_id.Text = "0";
-                textBox_Name.Text = "";
-                textBox_Name.BackColor = Color.White;
-            }
-
-
-        }
-        private void listBox_Location_DoubleClick(object sender, EventArgs e)
-        {
-            LocationToForm(listBox_Location.SelectedItem as Location);
-        }
         private void button_Delete_Click(object sender, EventArgs e)
         {
             if (label_id.Text == "0")
@@ -182,6 +184,6 @@ namespace WFP_GOS.UI
                 }
             }
         }
-        public Location SelectedLocation { get => listBox_Location.SelectedItem as Location; }
+        #endregion
     }
 }

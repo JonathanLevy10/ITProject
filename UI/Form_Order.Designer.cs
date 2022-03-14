@@ -613,7 +613,6 @@ namespace WFP_GOS.UI
             this.button_Clear.TabIndex = 2;
             this.button_Clear.Text = "Clear";
             this.button_Clear.UseVisualStyleBackColor = true;
-            this.button_Clear.Click += new System.EventHandler(this.Button_Clear_Click);
             // 
             // Form_Order
             // 

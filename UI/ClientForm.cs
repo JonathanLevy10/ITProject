@@ -64,26 +64,6 @@ namespace WFP_GOS
                 
             }
         }
-        private bool IsEngLetter(char c)
-        {
-            return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
-        }
-        private void textBox_Eng_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!IsEngLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
-                e.KeyChar = char.MinValue;
-        }
-        private void textBox_NotHebrew_KeyPress(object sender, KeyPressEventArgs e) //for email
-        {
-            if (!IsEngLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '@')
-                e.KeyChar = char.MinValue;
-        }
-        private void CapsLockCheck()
-        {
-            if (Control.IsKeyLocked(Keys.CapsLock))
-                MessageBox.Show("Warning! You have enabled caps-lock");
-                
-        }
         private bool ValidateForm()
         {
             // First Name Validation
@@ -180,6 +160,26 @@ namespace WFP_GOS
             clientArr.Fill();
             listBox_Clients.DataSource = clientArr;
         }
+        public void LocationArrToForm(Location location = null)
+        {
+
+            //ממירה את הטנ "מ אוסף ישובים לטופס
+            Location curLocation = null;
+            LocationArr locationArr = new LocationArr();
+            Location locationDefault = new Location();
+            locationDefault.Id = -1;
+            locationDefault.Name = "Choose a location";
+            locationArr.Add(locationDefault);
+
+            locationArr.Fill();
+
+            comboBox_Location.DataSource = locationArr;
+            comboBox_Location.ValueMember = "Id";
+            comboBox_Location.DisplayMember = "Name";
+            if (curLocation != null)
+                comboBox_Location.SelectedValue = curLocation.Id;
+        }
+        #region Click Functions
         private void listBox_Clients_DoubleClick(object sender, EventArgs e)
         {
             ClientToForm(listBox_Clients.SelectedItem as Client); 
@@ -258,30 +258,34 @@ namespace WFP_GOS
         {
             ClientToForm(null);
         }
-        public void LocationArrToForm(Location location = null)
-        {
-         
-            //ממירה את הטנ "מ אוסף ישובים לטופס
-            Location curLocation = null;
-            LocationArr locationArr = new LocationArr();
-            Location locationDefault = new Location();
-            locationDefault.Id = -1;
-            locationDefault.Name = "Choose a location";
-            locationArr.Add(locationDefault);
-
-            locationArr.Fill();
-
-            comboBox_Location.DataSource = locationArr;
-            comboBox_Location.ValueMember = "Id";
-            comboBox_Location.DisplayMember = "Name";
-            if (curLocation != null)
-                comboBox_Location.SelectedValue = curLocation.Id;
-        }
         private void ChooseLocation_Click(object sender, EventArgs e)
         {
             Form_Location form_Location = new Form_Location(comboBox_Location.SelectedItem as Location);
             form_Location.ShowDialog();
             LocationArrToForm(form_Location.SelectedLocation);
         }
+        #endregion
+        #region Text Regulators
+        private bool IsEngLetter(char c)
+        {
+            return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+        }
+        private void textBox_Eng_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!IsEngLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+                e.KeyChar = char.MinValue;
+        }
+        private void textBox_NotHebrew_KeyPress(object sender, KeyPressEventArgs e) //for email
+        {
+            if (!IsEngLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '@')
+                e.KeyChar = char.MinValue;
+        }
+        private void CapsLockCheck()
+        {
+            if (Control.IsKeyLocked(Keys.CapsLock))
+                MessageBox.Show("Warning! You have enabled caps-lock");
+
+        }
+        #endregion
     }
 }

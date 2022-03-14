@@ -55,7 +55,6 @@ namespace WFP_GOS.BL
         { return $"{m_LastName} {m_FirstName}"; }
         public bool Update()
         {
-            
             return Client_Dal.Update(m_id, m_FirstName, m_LastName, m_Email, m_Pwd, m_Gender, m_Location.Id, m_IsPro);
         }
         public bool Delete()

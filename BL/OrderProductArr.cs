@@ -82,5 +82,16 @@ namespace WFP_GOS.BL
                 productArr.Add((this[i] as OrderProduct).Product);
             return productArr;
         }
+        public bool DoesExist(Product curProduct)
+        {
+
+            //מחזירה האם לפחות לאחד מהלקוחות יש את היישוב
+
+            for (int i = 0; i < this.Count; i++)
+                if ((this[i] as OrderProduct).Product.Id == curProduct.Id)
+                    return true;
+
+            return false;
+        }
     }
 }

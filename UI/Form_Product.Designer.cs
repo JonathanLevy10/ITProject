@@ -49,6 +49,7 @@ namespace WFP_GOS.UI
             this.comboBox_Category = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.nUD_Places = new System.Windows.Forms.NumericUpDown();
+            this.button_Delete = new System.Windows.Forms.Button();
             this.GroupBox_Filter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUD_Places)).BeginInit();
             this.SuspendLayout();
@@ -101,7 +102,7 @@ namespace WFP_GOS.UI
             // 
             // button_Save
             // 
-            this.button_Save.Location = new System.Drawing.Point(517, 263);
+            this.button_Save.Location = new System.Drawing.Point(528, 263);
             this.button_Save.Name = "button_Save";
             this.button_Save.Size = new System.Drawing.Size(77, 42);
             this.button_Save.TabIndex = 9;
@@ -117,6 +118,7 @@ namespace WFP_GOS.UI
             this.listBox_Products.Name = "listBox_Products";
             this.listBox_Products.Size = new System.Drawing.Size(253, 244);
             this.listBox_Products.TabIndex = 20;
+            this.listBox_Products.DoubleClick += new System.EventHandler(this.listBox_Products_DoubleClick);
             // 
             // GroupBox_Filter
             // 
@@ -157,6 +159,7 @@ namespace WFP_GOS.UI
             this.textBox_FilterID.Name = "textBox_FilterID";
             this.textBox_FilterID.Size = new System.Drawing.Size(100, 22);
             this.textBox_FilterID.TabIndex = 26;
+            this.textBox_FilterID.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_Product_Filter_KeyUp);
             // 
             // label_level
             // 
@@ -254,11 +257,24 @@ namespace WFP_GOS.UI
             this.nUD_Places.Size = new System.Drawing.Size(172, 22);
             this.nUD_Places.TabIndex = 35;
             // 
+            // button_Delete
+            // 
+            this.button_Delete.BackColor = System.Drawing.Color.Red;
+            this.button_Delete.ForeColor = System.Drawing.Color.Black;
+            this.button_Delete.Location = new System.Drawing.Point(314, 263);
+            this.button_Delete.Name = "button_Delete";
+            this.button_Delete.Size = new System.Drawing.Size(75, 42);
+            this.button_Delete.TabIndex = 37;
+            this.button_Delete.Text = "Delete";
+            this.button_Delete.UseVisualStyleBackColor = false;
+            this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
+            // 
             // Form_Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button_Delete);
             this.Controls.Add(this.nUD_Places);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBox_Category);
@@ -305,5 +321,6 @@ namespace WFP_GOS.UI
         private System.Windows.Forms.ComboBox comboBox_FilterCategory;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nUD_Places;
+        private System.Windows.Forms.Button button_Delete;
     }
 }

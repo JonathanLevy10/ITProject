@@ -64,7 +64,7 @@ namespace WFP_GOS.UI
                 comboBox.SelectedValue = curLevel.Id;
         }
         #region Filters
-        private void textBox_Filter_KeyUp(object sender, KeyEventArgs e)
+        private void textBox_Product_Filter_KeyUp(object sender, KeyEventArgs e)
         {
             SetProductsByFilter();
         }
@@ -93,31 +93,70 @@ namespace WFP_GOS.UI
 
         private void button_Save_Click(object sender, EventArgs e)
         {
-            Product product = FormToProduct();
-            if (product.Id == 0)
+            if(ValidateForm())
             {
-                if (product.Insert())
+                Product product = FormToProduct();
+                if (product.Id == 0)
                 {
-                    MessageBox.Show("Added Successfully");
+                    if (product.Insert())
+                    {
+                        MessageBox.Show("Added Successfully");
+                    }
+                    else
+                        MessageBox.Show("Error adding");
                 }
                 else
-                    MessageBox.Show("Error adding");
-            }
-            else
-            {
-                if (product.Update())
                 {
-                    MessageBox.Show("Updated Successfully");
-                    ProductArrToForm();
+                    if (product.Update())
+                    {
+                        MessageBox.Show("Updated Successfully");
+                        ProductArrToForm();
+                    }
+                    else
+                        MessageBox.Show("Error update");
                 }
-                else
-                    MessageBox.Show("Error update");
+                ProductArrToForm();
             }
-            ProductArrToForm();
+            
         }
         private void button_Clear_Click(object sender, EventArgs e)
         {
             ProductToForm(null);
+        }
+        private void button_Delete_Click(object sender, EventArgs e)
+        {
+            if (label_Id.Text == "0")
+                MessageBox.Show("You must select a product");
+            else
+            {
+                if (MessageBox.Show("Warning", "Are you sure you want to delete?", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    Product product = FormToProduct();
+
+                    //לפני המחיקה - בדיקה שהישוב לא בשימוש בישויות אחרות
+                    //בדיקה עבור לקוחות
+
+                    OrderProductArr orderProductArr = new OrderProductArr();
+                    orderProductArr.Fill();
+                    if (orderProductArr.DoesExist(product))
+                        MessageBox.Show("You can’t delete a product that is related to an order");
+                    else
+                    if (product.Delete())
+                    {
+                        MessageBox.Show("Deleted");
+                        ProductToForm(null);
+                        ProductArrToForm();
+                    }
+                    else
+                        MessageBox.Show("Error");
+
+                }
+            }
+        }
+        private void listBox_Products_DoubleClick(object sender, EventArgs e)
+        {
+            ProductToForm(listBox_Products.SelectedItem as Product);
         }
         private Product FormToProduct()
         {
@@ -157,6 +196,56 @@ namespace WFP_GOS.UI
             ProductArr productArr = new ProductArr();
             productArr.Fill();
             listBox_Products.DataSource = productArr;
+        }
+
+        private bool ValidateForm()
+        {
+            // Product Name Validation
+            if ("" == (textBox_ProductName.Text))
+            {
+                textBox_ProductName.BackColor = Color.OrangeRed;
+                MessageBox.Show("Product name cannot be empty!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                return false;
+            }
+
+            else
+                textBox_ProductName.BackColor = Color.White;
+
+            // Category Validation
+            if ("" == (comboBox_Category.Text))
+            {
+                comboBox_Category.BackColor = Color.OrangeRed;
+                MessageBox.Show("Category cannot be empty!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                return false;
+            }
+
+            else
+                comboBox_Category.BackColor = Color.White;
+
+            // Level Validation
+            if ("" == (comboBox_Level.Text))
+            {
+                comboBox_Level.BackColor = Color.OrangeRed;
+                MessageBox.Show("Level cannot be empty!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                return false;
+            }
+
+            else
+                comboBox_Category.BackColor = Color.White;
+
+            // Place Validation
+            if ("" == (nUD_Places.Text))
+            {
+                nUD_Places.BackColor = Color.OrangeRed;
+                MessageBox.Show("Places cannot be empty!", "Error creating user", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                return false;
+            }
+
+            else
+                nUD_Places.BackColor = Color.White;
+
+
+            return true;
         }
     }
 }

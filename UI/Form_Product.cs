@@ -178,8 +178,8 @@ namespace WFP_GOS.UI
             {
                 label_Id.Text = product.Id.ToString();
                 textBox_ProductName.Text = product.Name;
-                comboBox_Category.SelectedItem = product.Category;
-                comboBox_Level.SelectedItem = product.Level;
+                comboBox_Category.SelectedItem = product.Category; //Why does this not display?
+                comboBox_Level.SelectedItem = product.Level; //Why does this not display?
                 nUD_Places.Text = product.Count.ToString();
             }
             else
@@ -197,7 +197,6 @@ namespace WFP_GOS.UI
             productArr.Fill();
             listBox_Products.DataSource = productArr;
         }
-
         private bool ValidateForm()
         {
             // Product Name Validation

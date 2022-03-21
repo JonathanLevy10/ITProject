@@ -30,12 +30,14 @@ namespace WFP_GOS.UI
                 label_Id.Text = order.Id.ToString();
                 Date_DateTime.Value = order.Date;
                 textBox_Note.Text = order.Notes;
+                label_Client.Text = order.Client.LastName + " " + order.Client.FirstName;
             }
             else
             {
                 label_Id.Text = "0";
                 Date_DateTime.Value = DateTime.Today;
                 textBox_Note.Text = "";
+                label_Client.Text = "";
             }
         }
         private bool CheckForm()
@@ -84,6 +86,10 @@ namespace WFP_GOS.UI
         private void textBoxOrder_Filter_KeyUp(object sender, KeyEventArgs e)
         {
             SetProductsByFilter();
+        }
+        private void textBoxOrderGroup_Filter_KeyUp(object sender, KeyEventArgs e)
+        {
+            SetOrdersByFilter();
         }
         private void listBox_Orders_DoubleClick(object sender, EventArgs e)
         {
@@ -314,6 +320,25 @@ namespace WFP_GOS.UI
 
             //מציבים בתיבת הרשימה את אוסף המוצרים
             ProductArrToForm(listBox_Potential, productArr);
+        }
+
+        private void SetOrdersByFilter()
+        {
+
+            //מייצרים אוסף של כלל המוצרים
+
+            OrderArr orderArr = new OrderArr();
+            orderArr.Fill();
+
+            //מסננים את אוסף המוצרים לפי שדות הסינון שרשם המשתמש
+
+            orderArr = orderArr.Filter(int.Parse(textBox_Filter_OrderDetails_ID.Text), 
+            Convert.ToDateTime(dateTimePicker_From.Text), 
+            Convert.ToDateTime(dateTimePicker_To.Text), 
+            client_TextBox_Filter.Text);
+
+            //מציבים בתיבת הרשימה את אוסף המוצרים
+            listBox_Orders.DataSource = orderArr;
         }
         private void ProductArrToForm(ListBox listBox, ProductArr productArr = null)
         {

@@ -129,7 +129,7 @@ namespace WFP_GOS.UI
             // 
             this.Date_DateTime.Location = new System.Drawing.Point(495, 72);
             this.Date_DateTime.Name = "Date_DateTime";
-            this.Date_DateTime.Size = new System.Drawing.Size(200, 22);
+            this.Date_DateTime.Size = new System.Drawing.Size(253, 22);
             this.Date_DateTime.TabIndex = 12;
             // 
             // label_Client
@@ -227,6 +227,7 @@ namespace WFP_GOS.UI
             this.dateTimePicker_To.Name = "dateTimePicker_To";
             this.dateTimePicker_To.Size = new System.Drawing.Size(100, 22);
             this.dateTimePicker_To.TabIndex = 16;
+            this.dateTimePicker_To.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxOrderGroup_Filter_KeyUp);
             // 
             // dateTimePicker_From
             // 
@@ -234,6 +235,7 @@ namespace WFP_GOS.UI
             this.dateTimePicker_From.Name = "dateTimePicker_From";
             this.dateTimePicker_From.Size = new System.Drawing.Size(100, 22);
             this.dateTimePicker_From.TabIndex = 15;
+            this.dateTimePicker_From.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxOrderGroup_Filter_KeyUp);
             // 
             // client_TextBox_Filter
             // 
@@ -241,6 +243,7 @@ namespace WFP_GOS.UI
             this.client_TextBox_Filter.Name = "client_TextBox_Filter";
             this.client_TextBox_Filter.Size = new System.Drawing.Size(100, 22);
             this.client_TextBox_Filter.TabIndex = 14;
+            this.client_TextBox_Filter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxOrderGroup_Filter_KeyUp);
             // 
             // textBox_Filter_OrderDetails_ID
             // 
@@ -248,7 +251,7 @@ namespace WFP_GOS.UI
             this.textBox_Filter_OrderDetails_ID.Name = "textBox_Filter_OrderDetails_ID";
             this.textBox_Filter_OrderDetails_ID.Size = new System.Drawing.Size(100, 22);
             this.textBox_Filter_OrderDetails_ID.TabIndex = 11;
-            this.textBox_Filter_OrderDetails_ID.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxOrder_Filter_KeyUp);
+            this.textBox_Filter_OrderDetails_ID.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxOrderGroup_Filter_KeyUp);
             // 
             // label10
             // 
@@ -613,6 +616,7 @@ namespace WFP_GOS.UI
             this.button_Clear.TabIndex = 2;
             this.button_Clear.Text = "Clear";
             this.button_Clear.UseVisualStyleBackColor = true;
+            this.button_Clear.Click += new System.EventHandler(this.button_Clear_Click);
             // 
             // Form_Order
             // 

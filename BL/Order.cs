@@ -29,7 +29,7 @@ namespace WFP_GOS.BL
             this.m_Id = (int)dataRow["ID"];
             m_Client = new Client(dataRow.GetParentRow("OrderClient"));
             m_Date = (DateTime)dataRow["Date"];
-            m_Notes = dataRow["Notes"].ToString();
+            m_Notes = dataRow["Note"].ToString();
         }
         public bool Insert()
         {

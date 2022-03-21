@@ -24,7 +24,14 @@ namespace WFP_GOS.DAL
         {
             if (!dataSet.Tables.Contains("Table_Order"))
             {
-                Dal.FillDataSet(dataSet, "Table_Order", "[Client]");
+                Dal.FillDataSet(dataSet, "Table_Order");
+                Client_Dal.FillDataSet(dataSet);
+                DataRelation dataRelation = null;
+                dataRelation = new DataRelation(
+                    "OrderClient"
+                    , dataSet.Tables["Table_Client"].Columns["Id"]//עמודת הקשר בטבלת האב )המפתח הראשי של טבלת האב(
+                    , dataSet.Tables["Table_Order"].Columns["Client"]);////עמודת הקשר בטבלת הבן )המפתח הזר בטבלת הבן(
+                dataSet.Relations.Add(dataRelation);
             }
         }
         public static bool Update(int id, int client, DateTime date, string notes)

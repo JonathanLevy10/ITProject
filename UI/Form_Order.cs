@@ -326,13 +326,15 @@ namespace WFP_GOS.UI
         {
 
             //מייצרים אוסף של כלל המוצרים
-
+            int id = 0;
+            if (textBox_Filter_OrderDetails_ID.Text!="")
+                id = int.Parse(textBox_Filter_OrderDetails_ID.Text);
             OrderArr orderArr = new OrderArr();
             orderArr.Fill();
 
             //מסננים את אוסף המוצרים לפי שדות הסינון שרשם המשתמש
 
-            orderArr = orderArr.Filter(int.Parse(textBox_Filter_OrderDetails_ID.Text), 
+            orderArr = orderArr.Filter(id, 
             Convert.ToDateTime(dateTimePicker_From.Text), 
             Convert.ToDateTime(dateTimePicker_To.Text), 
             client_TextBox_Filter.Text);
@@ -400,6 +402,7 @@ namespace WFP_GOS.UI
         {
             return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == '-') || (c == ' ');
         }
+        
         #endregion
     }
 }

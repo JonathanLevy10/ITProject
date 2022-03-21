@@ -223,6 +223,7 @@ namespace WFP_GOS.UI
             // 
             // dateTimePicker_To
             // 
+            this.dateTimePicker_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_To.Location = new System.Drawing.Point(104, 106);
             this.dateTimePicker_To.Name = "dateTimePicker_To";
             this.dateTimePicker_To.Size = new System.Drawing.Size(100, 22);
@@ -231,6 +232,7 @@ namespace WFP_GOS.UI
             // 
             // dateTimePicker_From
             // 
+            this.dateTimePicker_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_From.Location = new System.Drawing.Point(104, 66);
             this.dateTimePicker_From.Name = "dateTimePicker_From";
             this.dateTimePicker_From.Size = new System.Drawing.Size(100, 22);
@@ -243,6 +245,7 @@ namespace WFP_GOS.UI
             this.client_TextBox_Filter.Name = "client_TextBox_Filter";
             this.client_TextBox_Filter.Size = new System.Drawing.Size(100, 22);
             this.client_TextBox_Filter.TabIndex = 14;
+            this.client_TextBox_Filter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Names_KeyPress);
             this.client_TextBox_Filter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxOrderGroup_Filter_KeyUp);
             // 
             // textBox_Filter_OrderDetails_ID

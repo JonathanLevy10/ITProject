@@ -44,27 +44,27 @@ namespace WFP_GOS.UI
         {
             bool flag = true;
 
-            if (Date_DateTime.Value < DateTime.Today)
+            /*if (Date_DateTime.Value < DateTime.Today)
             {
                 flag = false;
             }
-            else
+            else*/
 
-            if (label_Name_Chosen.Text == "None Chosen") //בחר משתמש
+            if (label_Client.Text == "None Chosen") //בחר משתמש
             {
                 flag = false;
-                label_Name_Chosen.BackColor = Color.Red;
+                label_Client.BackColor = Color.Red;
             }
-            else
-                label_Name_Chosen.BackColor = Color.Black;
+            
 
-            if (listBox_InOrderProducts.Items.Count == 0)
+            /*if (listBox_InOrderProducts.Items.Count == 0)
             {
                 flag = false;
                 listBox_InOrderProducts.BackColor = Color.Red;
             }
             else
                 listBox_InOrderProducts.BackColor = Color.White;
+            */
 
             return flag;
         }
@@ -189,7 +189,7 @@ namespace WFP_GOS.UI
 
             //לשונית לקוח להזמנה
 
-            ClientToForm(order.Client);
+            ClientToForm(order.Client); //Already have these lines
             listBox_Client.SelectedValue = order.Client.id;
 
             //לשונית פריטים להזמנה
@@ -251,7 +251,7 @@ namespace WFP_GOS.UI
                 Order order = FormToOrder();
                 //הוספת ההזמנה למסד הנתונים
                 OrderProductArr orderProductArr_New;
-                if (order.Id == 0)
+                if (order.Id == 0) //It sees the order id as 0 for some reason error123
                 {
                     if (order.Insert())
                     {
@@ -267,8 +267,7 @@ namespace WFP_GOS.UI
                             MessageBox.Show("Error in insert");
                         //לא לשכוח כאן לנקות את הטופס ולטעון מחדש ערכים לתיבת הרשימה של ההזמנות
                     }
-                    else
-                    {
+                }
                         if (order.Update())
                         {
                             //מוחקים את הפריטים הקודמים של ההזמנה
@@ -292,10 +291,6 @@ namespace WFP_GOS.UI
                         }
                         else
                             MessageBox.Show("Error in update");
-                    }
-                }
-                else
-                    MessageBox.Show("Error");
             }
         }
         private void comboBoxFilter_TextChanged(object sender, EventArgs e)

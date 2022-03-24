@@ -182,9 +182,9 @@ namespace WFP_GOS.UI
             this.label_Id.AutoSize = true;
             this.label_Id.Location = new System.Drawing.Point(492, 39);
             this.label_Id.Name = "label_Id";
-            this.label_Id.Size = new System.Drawing.Size(46, 17);
+            this.label_Id.Size = new System.Drawing.Size(42, 17);
             this.label_Id.TabIndex = 7;
-            this.label_Id.Text = "label7";
+            this.label_Id.Text = "None";
             // 
             // label6
             // 
@@ -237,6 +237,7 @@ namespace WFP_GOS.UI
             this.dateTimePicker_From.Name = "dateTimePicker_From";
             this.dateTimePicker_From.Size = new System.Drawing.Size(100, 22);
             this.dateTimePicker_From.TabIndex = 15;
+            this.dateTimePicker_From.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker_From.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxOrderGroup_Filter_KeyUp);
             // 
             // client_TextBox_Filter

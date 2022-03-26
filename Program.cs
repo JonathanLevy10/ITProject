@@ -20,8 +20,9 @@ namespace WFP_GOS
             //Application.Run(new Form1());
             //Application.Run(new Form_Level());
             //Application.Run(new Form_Category());
-            //Application.Run(new Form_Order());
-            Application.Run(new Form_Product());
+            Application.Run(new Form_Order());
+            //Application.Run(new Form_Product());
+            //Application.Run(new Form_Location());
         }
     }
 }

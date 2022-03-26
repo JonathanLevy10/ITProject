@@ -156,7 +156,7 @@ namespace WFP_GOS.UI
         private void button_Delete_Click(object sender, EventArgs e)
         {
             if (label_id.Text == "0")
-                MessageBox.Show("You must select a background martial art");
+                MessageBox.Show("You must select a location");
             else
             {
                 if (MessageBox.Show("Warning", "Are you sure you want to delete?", MessageBoxButtons.YesNo,

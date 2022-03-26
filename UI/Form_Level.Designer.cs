@@ -49,6 +49,7 @@ namespace WFP_GOS.UI
             this.button1.TabIndex = 16;
             this.button1.Text = "Delete";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button_Delete_Click);
             // 
             // textBox_Name
             // 
@@ -83,6 +84,7 @@ namespace WFP_GOS.UI
             this.save.TabIndex = 12;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.button_Save_Click);
             // 
             // clear
             // 
@@ -92,6 +94,7 @@ namespace WFP_GOS.UI
             this.clear.TabIndex = 11;
             this.clear.Text = "Clear";
             this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.button_Clear_Click);
             // 
             // listBox_Level
             // 
@@ -101,6 +104,7 @@ namespace WFP_GOS.UI
             this.listBox_Level.Name = "listBox_Level";
             this.listBox_Level.Size = new System.Drawing.Size(161, 372);
             this.listBox_Level.TabIndex = 10;
+            this.listBox_Level.DoubleClick += new System.EventHandler(this.listBox_Level_DoubleClick);
             // 
             // label1
             // 

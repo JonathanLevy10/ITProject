@@ -153,35 +153,36 @@ namespace WFP_GOS.UI
             }
             private void button_Delete_Click(object sender, EventArgs e)
             {
-                if (label_id.Text == "0")
-                    MessageBox.Show("You must select a level");
-                else
+            if (label_id.Text == "0")
+                MessageBox.Show("You must select a level");
+            else
+            {
+                if (MessageBox.Show("Warning", "Are you sure you want to delete?", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
-                    if (MessageBox.Show("Warning", "Are you sure you want to delete?", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    Level level = FormToLevel();
+
+                    //לפני המחיקה - בדיקה שהישוב לא בשימוש בישויות אחרות
+                    //בדיקה עבור לקוחות
+
+                    ProductArr productArr = new ProductArr();
+                    productArr.Fill();
+                    if (productArr.DoesExist(level))
+                        MessageBox.Show("You can’t delete a background martial art that is related to a product");
+                    else
+                    if (level.Delete())
                     {
-                        Level level = FormToLevel();
-
-                        //לפני המחיקה - בדיקה שהישוב לא בשימוש בישויות אחרות
-                        //בדיקה עבור לקוחות
-
-                        ProductArr productArr = new ProductArr();
-                        productArr.Fill();
-                        if (productArr.DoesExist(level))
-                            MessageBox.Show("You can’t delete a level that is related to a product");
-                        else
-                        if (level.Delete())
-                        {
-                            MessageBox.Show("Deleted");
-                            LevelToForm(null);
-                            LevelArrToForm();
-                        }
-                        else
-                            MessageBox.Show("Error");
-
+                        MessageBox.Show("Deleted");
+                        LevelToForm(null);
+                        LevelArrToForm();
                     }
+                    else
+                        MessageBox.Show("Error");
+
                 }
             }
-            #endregion
         }
+    }
+        #endregion
+    
 }

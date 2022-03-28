@@ -65,6 +65,8 @@
   <ItemGroup>
     <Compile Include="BL\Category.cs" />
     <Compile Include="BL\CategoryArr.cs" />
+    <Compile Include="BL\Comp.cs" />
+    <Compile Include="BL\CompArr.cs" />
     <Compile Include="BL\Level.cs" />
     <Compile Include="BL\LevelArr.cs" />
     <Compile Include="BL\Location.cs" />
@@ -78,6 +80,7 @@
     <Compile Include="BL\Product.cs" />
     <Compile Include="BL\ProductArr.cs" />
     <Compile Include="DAL\Category_Dal.cs" />
+    <Compile Include="DAL\Comp_Dal.cs" />
     <Compile Include="DAL\Level_Dal.cs" />
     <Compile Include="DAL\Location_Dal.cs" />
     <Compile Include="DAL\Client_Dal.cs" />
@@ -98,6 +101,12 @@
     </Compile>
     <Compile Include="UI\Form_Category.Designer.cs">
       <DependentUpon>Form_Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_Comp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Comp.Designer.cs">
+      <DependentUpon>Form_Comp.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form_HomePage.cs">
       <SubType>Form</SubType>
@@ -150,6 +159,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Form_Category.resx">
       <DependentUpon>Form_Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Comp.resx">
+      <DependentUpon>Form_Comp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_HomePage.resx">
       <DependentUpon>Form_HomePage.cs</DependentUpon>

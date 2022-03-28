@@ -69,7 +69,54 @@ namespace WFP_GOS.UI
         #region Click Funtions
         private void button_Save_Click(object sender, EventArgs e)
         {
+            if (!CheckForm())
+            {
+                MessageBox.Show("Fill all the mandatory fields!", "Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            else
+            {
+                Category category = FormToCategory();
 
+                if (category.Id == 0)
+                {
+                    CategoryArr oldCategoryArr = new CategoryArr();
+                    oldCategoryArr.Fill();
+                    if (!oldCategoryArr.IsContains(category.Name))
+                    {
+                        if (category.Insert())
+                        {
+                            MessageBox.Show("Added successfully");
+                            label_id.Text = "0";
+                            textBox_Name.Text = "";
+                            //עדכון תיבת הרשימה
+                            CategoryArrToForm();
+                            CategoryArr categoryArr = new CategoryArr();
+                            categoryArr.Fill();
+                            category = categoryArr.GetCategoryWithMaxId();
+                        }
+                        else
+                            MessageBox.Show("Error adding");
+                    }
+                    else
+                        MessageBox.Show("Already exist");
+                }
+                else
+                {
+                    //עדכון לקוח קיים
+                    if (category.Update())
+                    {
+                        MessageBox.Show("Updated successfully");
+                        CategoryArrToForm();
+
+                        label_id.Text = "0";
+                        textBox_Name.Text = "";
+                    }
+                    else
+                        MessageBox.Show("Error updating");
+                }
+                CategoryArrToForm(category);
+            }
         }
         private void button_Clear_Click(object sender, EventArgs e)
         {
@@ -90,10 +137,7 @@ namespace WFP_GOS.UI
                 textBox_Name.Text = "";
                 textBox_Name.BackColor = Color.White;
             }
-
-
         }
-
         private void button_Delete_Click(object sender, EventArgs e)
         {
             if (label_id.Text == "0")

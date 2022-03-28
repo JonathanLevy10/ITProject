@@ -32,7 +32,7 @@ namespace WFP_GOS.UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_HomePage));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button_Doc = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -40,6 +40,8 @@ namespace WFP_GOS.UI
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.button_Comp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +58,7 @@ namespace WFP_GOS.UI
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(377, 207);
+            this.button2.Location = new System.Drawing.Point(335, 207);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(143, 69);
             this.button2.TabIndex = 1;
@@ -64,27 +66,29 @@ namespace WFP_GOS.UI
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button_Category_Click);
             // 
-            // button3
+            // button_Doc
             // 
-            this.button3.Location = new System.Drawing.Point(576, 207);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(143, 163);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button_Doc.Location = new System.Drawing.Point(484, 280);
+            this.button_Doc.Name = "button_Doc";
+            this.button_Doc.Size = new System.Drawing.Size(143, 70);
+            this.button_Doc.TabIndex = 2;
+            this.button_Doc.Text = "Software\r\nDocumentation\r\n";
+            this.button_Doc.UseVisualStyleBackColor = true;
+            this.button_Doc.Click += new System.EventHandler(this.button_Doc_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(377, 301);
+            this.button4.Location = new System.Drawing.Point(335, 282);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(143, 69);
             this.button4.TabIndex = 3;
             this.button4.Text = "Level";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button_Level_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(196, 301);
+            this.button5.Location = new System.Drawing.Point(186, 282);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(143, 69);
             this.button5.TabIndex = 4;
@@ -94,7 +98,7 @@ namespace WFP_GOS.UI
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(37, 301);
+            this.button6.Location = new System.Drawing.Point(37, 282);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(143, 69);
             this.button6.TabIndex = 5;
@@ -104,12 +108,13 @@ namespace WFP_GOS.UI
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(196, 207);
+            this.button7.Location = new System.Drawing.Point(186, 207);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(143, 69);
             this.button7.TabIndex = 6;
             this.button7.Text = "Order";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button_Order_Click);
             // 
             // label1
             // 
@@ -129,6 +134,7 @@ namespace WFP_GOS.UI
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.EasterEgg_Click);
             // 
             // pictureBox2
             // 
@@ -141,11 +147,30 @@ namespace WFP_GOS.UI
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(560, 280);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(0, 17);
+            this.linkLabel1.TabIndex = 10;
+            // 
+            // button_Comp
+            // 
+            this.button_Comp.Location = new System.Drawing.Point(484, 204);
+            this.button_Comp.Name = "button_Comp";
+            this.button_Comp.Size = new System.Drawing.Size(143, 70);
+            this.button_Comp.TabIndex = 11;
+            this.button_Comp.Text = "Competition";
+            this.button_Comp.UseVisualStyleBackColor = true;
+            // 
             // Form_HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button_Comp);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
@@ -153,7 +178,7 @@ namespace WFP_GOS.UI
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button_Doc);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Form_HomePage";
@@ -169,7 +194,7 @@ namespace WFP_GOS.UI
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button_Doc;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
@@ -177,5 +202,7 @@ namespace WFP_GOS.UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button button_Comp;
     }
 }

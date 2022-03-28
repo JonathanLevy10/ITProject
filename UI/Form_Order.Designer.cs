@@ -77,8 +77,6 @@ namespace WFP_GOS.UI
             this.label18 = new System.Windows.Forms.Label();
             this.listBox_InOrderProducts = new System.Windows.Forms.ListBox();
             this.listBox_Potential = new System.Windows.Forms.ListBox();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.button_Save = new System.Windows.Forms.Button();
             this.button_Clear = new System.Windows.Forms.Button();
             this.tabControl_Order.SuspendLayout();
@@ -96,8 +94,6 @@ namespace WFP_GOS.UI
             this.tabControl_Order.Controls.Add(this.OrderDetails);
             this.tabControl_Order.Controls.Add(this.OrderClient);
             this.tabControl_Order.Controls.Add(this.OrderItems);
-            this.tabControl_Order.Controls.Add(this.tabPage4);
-            this.tabControl_Order.Controls.Add(this.tabPage5);
             this.tabControl_Order.Location = new System.Drawing.Point(0, 0);
             this.tabControl_Order.Name = "tabControl_Order";
             this.tabControl_Order.SelectedIndex = 0;
@@ -582,26 +578,6 @@ namespace WFP_GOS.UI
             this.listBox_Potential.TabIndex = 0;
             this.listBox_Potential.DoubleClick += new System.EventHandler(this.Potential_ListBox_DoubleClick);
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(780, 409);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 25);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(780, 409);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
             // button_Save
             // 
             this.button_Save.Location = new System.Drawing.Point(628, 440);
@@ -656,8 +632,6 @@ namespace WFP_GOS.UI
         private System.Windows.Forms.TabPage OrderDetails;
         private System.Windows.Forms.TabPage OrderClient;
         private System.Windows.Forms.TabPage OrderItems;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox listBox_Orders;

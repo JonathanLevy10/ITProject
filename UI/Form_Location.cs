@@ -87,66 +87,53 @@ namespace WFP_GOS.UI
         }
         private void button_Save_Click(object sender, EventArgs e)
         {
-
             if (!CheckForm())
             {
                 MessageBox.Show("Fill all the mandatory fields!", "Error", MessageBoxButtons.OK,
-                MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading |
-                MessageBoxOptions.RightAlign);
+                MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 Location location = FormToLocation();
 
-
-                LocationArr oldLocationArr = new LocationArr();
-                oldLocationArr.Fill();
-                location = oldLocationArr.GetLocationWithMaxId(); //why error?
-                LocationArrToForm(location);
-                if (!oldLocationArr.IsContains(location.Name))//
-                {
-                    if (location.Insert())
-                    {
-                        MessageBox.Show("Ok");
-
-                        //עדכון תיבת הרשימה
-
-                        LocationArrToForm();
-                    }
-                    else
-                        MessageBox.Show("Not Ok");
-
-                }
-                else
-                    MessageBox.Show("Already exist");
-
-
-
-
                 if (location.Id == 0)
                 {
-                    //הוספת לקוח חדש
-
-                    if (location.Insert())
+                    LocationArr oldLocationArr = new LocationArr();
+                    oldLocationArr.Fill();
+                    if (!oldLocationArr.IsContains(location.Name))
                     {
-                        MessageBox.Show("Added successfully");
+                        if (location.Insert())
+                        {
+                            MessageBox.Show("Added successfully");
+                            label_id.Text = "0";
+                            textBox_Name.Text = "";
+                            //עדכון תיבת הרשימה
+                            LocationArrToForm();
+                            LocationArr locationArr = new LocationArr();
+                            locationArr.Fill();
+                            location = locationArr.GetLocationWithMaxId();
+                        }
+                        else
+                            MessageBox.Show("Error adding");
                     }
                     else
-                        MessageBox.Show("Error adding");
+                        MessageBox.Show("Already exist");
                 }
                 else
                 {
-
                     //עדכון לקוח קיים
-
                     if (location.Update())
                     {
                         MessageBox.Show("Updated successfully");
+                        LocationArrToForm();
+
+                        label_id.Text = "0";
+                        textBox_Name.Text = "";
                     }
                     else
                         MessageBox.Show("Error updating");
                 }
-                LocationArrToForm();
+                LocationArrToForm(location);
             }
         }
         private void button_Clear_Click(object sender, EventArgs e)

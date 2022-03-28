@@ -70,7 +70,7 @@ namespace WFP_GOS.DAL
 
             //מעדכנת את הלקוח במסד הנתונים
 
-            string str = "UPDATE Table_Products SET"
+            string str = "UPDATE Table_Product SET"
             + $" [Name] = N'{name}'"
             + $",[Level] = {level}"
             + $",[Category] = {category}"

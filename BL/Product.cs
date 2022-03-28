@@ -37,7 +37,7 @@ namespace WFP_GOS.BL
         }
         public bool Insert()
         {
-            return Product_Dal.Insert(m_Name, m_Level.Id, m_Category.Id, m_Count); // Sends product information to DAL layer for insertion to database
+            return Product_Dal.Insert(m_Name, m_Category.Id, m_Level.Id, m_Count); // Sends product information to DAL layer for insertion to database
         }
         public bool Update()
         {

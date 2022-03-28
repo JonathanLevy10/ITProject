@@ -178,8 +178,8 @@ namespace WFP_GOS.UI
             {
                 label_Id.Text = product.Id.ToString();
                 textBox_ProductName.Text = product.Name;
-                comboBox_Category.SelectedItem = product.Category.Name; //Why does this not display? error123
-                comboBox_Level.SelectedItem = product.Level.Name; //Why does this not display?
+                comboBox_Category.SelectedValue= product.Category.Id;
+                comboBox_Level.SelectedValue = product.Level.Id;
                 nUD_Places.Text = product.Count.ToString();
             }
             else

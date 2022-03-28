@@ -99,6 +99,12 @@
     <Compile Include="UI\Form_Category.Designer.cs">
       <DependentUpon>Form_Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Form_HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_HomePage.Designer.cs">
+      <DependentUpon>Form_HomePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form_Level.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Form_Category.resx">
       <DependentUpon>Form_Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_HomePage.resx">
+      <DependentUpon>Form_HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Level.resx">
       <DependentUpon>Form_Level.cs</DependentUpon>

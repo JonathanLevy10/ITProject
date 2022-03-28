@@ -23,6 +23,7 @@ namespace WFP_GOS
             Application.Run(new Form_Order());
             //Application.Run(new Form_Product());
             //Application.Run(new Form_Location());
+            //Application.Run(new Form_HomePage());
         }
     }
 }

@@ -53,6 +53,11 @@ namespace WFP_GOS.UI
         {
             System.Diagnostics.Process.Start("https://docs.google.com/document/d/1aEz3OcxcfvGaca0H71H6XxXNM6tHz9GQMaorIohZ50c/edit#");
         }
+        private void button_Comp_Click(object sender, EventArgs e)
+        {
+            Form_Comp form_Comp = new Form_Comp();
+            form_Comp.ShowDialog();
+        }
 
         private void EasterEgg_Click(object sender, EventArgs e)
         {

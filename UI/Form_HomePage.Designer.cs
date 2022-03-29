@@ -163,6 +163,7 @@ namespace WFP_GOS.UI
             this.button_Comp.TabIndex = 11;
             this.button_Comp.Text = "Competition";
             this.button_Comp.UseVisualStyleBackColor = true;
+            this.button_Comp.Click += new System.EventHandler(this.button_Comp_Click);
             // 
             // Form_HomePage
             // 

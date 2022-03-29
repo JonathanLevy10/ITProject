@@ -23,9 +23,9 @@ namespace WFP_GOS
             //Application.Run(new Form_Order());
             //Application.Run(new Form_Product());
             //Application.Run(new Form_Location());
-            //Application.Run(new Form_HomePage());
+            Application.Run(new Form_HomePage());
             //Application.Run(new WelcomeScreen());
-            Application.Run(new Form_Comp());
+            //Application.Run(new Form_Comp());
         }
     }
 }

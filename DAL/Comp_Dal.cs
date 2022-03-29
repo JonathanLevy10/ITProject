@@ -16,21 +16,21 @@ namespace WFP_GOS.DAL
             DataSet dataset = new DataSet();
 
             FillDataSet(dataset);
-            dataTable = dataset.Tables["Table_Comp"];
+            dataTable = dataset.Tables["Table_Comps"];
 
             return dataTable;
         }
         public static void FillDataSet(DataSet dataSet)
         {
-            if (!dataSet.Tables.Contains("Table_Comp"))
+            if (!dataSet.Tables.Contains("Table_Comps"))
             {
-                Dal.FillDataSet(dataSet, "Table_Comp");
-                Client_Dal.FillDataSet(dataSet);
+                Dal.FillDataSet(dataSet, "Table_Comps");
+                Category_Dal.FillDataSet(dataSet);
                 DataRelation dataRelation = null;
                 dataRelation = new DataRelation(
                     "CompCategory"
                     , dataSet.Tables["Table_Category"].Columns["Id"]//עמודת הקשר בטבלת האב )המפתח הראשי של טבלת האב(
-                    , dataSet.Tables["Table_Comp"].Columns["Category"]);////עמודת הקשר בטבלת הבן )המפתח הזר בטבלת הבן(
+                    , dataSet.Tables["Table_Comps"].Columns["Category"]);////עמודת הקשר בטבלת הבן )המפתח הזר בטבלת הבן(
                 dataSet.Relations.Add(dataRelation);
             }
         }
@@ -49,7 +49,7 @@ namespace WFP_GOS.DAL
         }
         public static bool Insert(int id, int category, DateTime date, string name)
         { // Adds location directly to database via SQL
-            string sql = "INSERT INTO Table_Comp"
+            string sql = "INSERT INTO Table_Comps"
             + "("
             + "[Category]"
             + ")"
@@ -81,7 +81,7 @@ namespace WFP_GOS.DAL
         public static bool Delete(int id)
         {
             //מוחקת את הפריט ממסד הנתונים
-            return Dal.ExecuteSql($"DELETE FROM Table_CompProduct WHERE ID = {id}");
+            return Dal.ExecuteSql($"DELETE FROM Table_CompClient WHERE ID = {id}");
         }
     }
 }

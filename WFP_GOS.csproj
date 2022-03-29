@@ -67,6 +67,8 @@
     <Compile Include="BL\CategoryArr.cs" />
     <Compile Include="BL\Comp.cs" />
     <Compile Include="BL\CompArr.cs" />
+    <Compile Include="BL\CompClient.cs" />
+    <Compile Include="BL\CompClientArr.cs" />
     <Compile Include="BL\Level.cs" />
     <Compile Include="BL\LevelArr.cs" />
     <Compile Include="BL\Location.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="BL\Product.cs" />
     <Compile Include="BL\ProductArr.cs" />
     <Compile Include="DAL\Category_Dal.cs" />
+    <Compile Include="DAL\CompClient_Dal.cs" />
     <Compile Include="DAL\Comp_Dal.cs" />
     <Compile Include="DAL\Level_Dal.cs" />
     <Compile Include="DAL\Location_Dal.cs" />

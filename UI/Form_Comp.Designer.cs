@@ -66,7 +66,7 @@ namespace WFP_GOS.UI
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.listBox_Fighters = new System.Windows.Forms.ListBox();
+            this.listBox_Potential_Fighters = new System.Windows.Forms.ListBox();
             this.label_Client = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -81,6 +81,7 @@ namespace WFP_GOS.UI
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.Clear = new System.Windows.Forms.Button();
+            this.listBox_Fighters_Comp = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -147,6 +148,12 @@ namespace WFP_GOS.UI
             // comboBox_Comp_Category
             // 
             this.comboBox_Comp_Category.FormattingEnabled = true;
+            this.comboBox_Comp_Category.Items.AddRange(new object[] {
+            "Boxing",
+            "Jiu Jitsu",
+            "Muay Thai",
+            "Wrestling",
+            "MMA"});
             this.comboBox_Comp_Category.Location = new System.Drawing.Point(90, 302);
             this.comboBox_Comp_Category.Name = "comboBox_Comp_Category";
             this.comboBox_Comp_Category.Size = new System.Drawing.Size(100, 24);
@@ -367,9 +374,10 @@ namespace WFP_GOS.UI
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.listBox_Fighters_Comp);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.GroupBox_Filter);
-            this.tabPage2.Controls.Add(this.listBox_Fighters);
+            this.tabPage2.Controls.Add(this.listBox_Potential_Fighters);
             this.tabPage2.Controls.Add(this.label_Client);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -455,15 +463,15 @@ namespace WFP_GOS.UI
             this.label5.TabIndex = 28;
             this.label5.Text = "ID";
             // 
-            // listBox_Fighters
+            // listBox_Potential_Fighters
             // 
-            this.listBox_Fighters.FormattingEnabled = true;
-            this.listBox_Fighters.ItemHeight = 16;
-            this.listBox_Fighters.Location = new System.Drawing.Point(6, 187);
-            this.listBox_Fighters.Name = "listBox_Fighters";
-            this.listBox_Fighters.Size = new System.Drawing.Size(247, 244);
-            this.listBox_Fighters.TabIndex = 69;
-            this.listBox_Fighters.DoubleClick += new System.EventHandler(this.listBox_Fighters_DoubleClick);
+            this.listBox_Potential_Fighters.FormattingEnabled = true;
+            this.listBox_Potential_Fighters.ItemHeight = 16;
+            this.listBox_Potential_Fighters.Location = new System.Drawing.Point(259, 8);
+            this.listBox_Potential_Fighters.Name = "listBox_Potential_Fighters";
+            this.listBox_Potential_Fighters.Size = new System.Drawing.Size(216, 420);
+            this.listBox_Potential_Fighters.TabIndex = 69;
+            this.listBox_Potential_Fighters.DoubleClick += new System.EventHandler(this.listBox_Fighters_DoubleClick);
             // 
             // label_Client
             // 
@@ -603,6 +611,15 @@ namespace WFP_GOS.UI
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.button_Clear_Click);
             // 
+            // listBox_Fighters_Comp
+            // 
+            this.listBox_Fighters_Comp.FormattingEnabled = true;
+            this.listBox_Fighters_Comp.ItemHeight = 16;
+            this.listBox_Fighters_Comp.Location = new System.Drawing.Point(492, 8);
+            this.listBox_Fighters_Comp.Name = "listBox_Fighters_Comp";
+            this.listBox_Fighters_Comp.Size = new System.Drawing.Size(216, 420);
+            this.listBox_Fighters_Comp.TabIndex = 72;
+            // 
             // Form_Comp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -666,7 +683,7 @@ namespace WFP_GOS.UI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox listBox_Fighters;
+        private System.Windows.Forms.ListBox listBox_Potential_Fighters;
         private System.Windows.Forms.Label label_Client;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tabPage3;
@@ -681,5 +698,6 @@ namespace WFP_GOS.UI
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.ListBox listBox_Fighters_Comp;
     }
 }

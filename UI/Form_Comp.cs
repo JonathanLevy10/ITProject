@@ -33,11 +33,11 @@ namespace WFP_GOS.UI
 
             clientArr = clientArr.Filter(id, textBox_FilterLastName.Text, textBox_FilterEmail.Text);
 
-            listBox_Fighters.DataSource = clientArr;
+            listBox_Potential_Fighters.DataSource = clientArr;
         }
         private void listBox_Fighters_DoubleClick(object sender, EventArgs e)
         {
-            ClientToForm(listBox_Fighters.SelectedItem as Client);
+            ClientToForm(listBox_Potential_Fighters.SelectedItem as Client);
         }
         private void ClientToForm(Client client) //Puts specific client info into form
         {
@@ -59,7 +59,7 @@ namespace WFP_GOS.UI
         {
             ClientArr clientArr = new ClientArr();
             clientArr.Fill();
-            listBox_Fighters.DataSource = clientArr;
+            listBox_Potential_Fighters.DataSource = clientArr;
         }
         #endregion
 

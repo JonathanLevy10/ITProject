@@ -29,6 +29,7 @@ namespace WFP_GOS.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Level));
             this.button1 = new System.Windows.Forms.Button();
             this.textBox_Name = new System.Windows.Forms.TextBox();
             this.label_id = new System.Windows.Forms.Label();
@@ -128,8 +129,9 @@ namespace WFP_GOS.UI
             this.Controls.Add(this.clear);
             this.Controls.Add(this.listBox_Level);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Level";
-            this.Text = "Form_Level";
+            this.Text = "Level";
             this.ResumeLayout(false);
             this.PerformLayout();
 

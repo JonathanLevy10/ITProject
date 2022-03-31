@@ -29,6 +29,7 @@ namespace WFP_GOS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBox_FirstName = new System.Windows.Forms.TextBox();
             this.textBox_Pwd = new System.Windows.Forms.TextBox();
             this.textBox_LastName = new System.Windows.Forms.TextBox();
@@ -137,7 +138,6 @@ namespace WFP_GOS
             this.button_Signup.TabIndex = 8;
             this.button_Signup.Text = "Sign Up";
             this.button_Signup.UseVisualStyleBackColor = true;
-           
             // 
             // label_FirstName
             // 
@@ -415,10 +415,11 @@ namespace WFP_GOS
             this.Controls.Add(this.textBox_Pwd);
             this.Controls.Add(this.textBox_FirstName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "WFP_GOS";
+            this.Text = "Client";
             this.GroupBox_Filter.ResumeLayout(false);
             this.GroupBox_Filter.PerformLayout();
             this.ResumeLayout(false);

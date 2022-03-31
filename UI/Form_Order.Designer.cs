@@ -29,6 +29,7 @@ namespace WFP_GOS.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Order));
             this.tabControl_Order = new System.Windows.Forms.TabControl();
             this.OrderDetails = new System.Windows.Forms.TabPage();
             this.Date_DateTime = new System.Windows.Forms.DateTimePicker();
@@ -606,6 +607,7 @@ namespace WFP_GOS.UI
             this.Controls.Add(this.button_Clear);
             this.Controls.Add(this.button_Save);
             this.Controls.Add(this.tabControl_Order);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Order";
             this.Text = "Order";
             this.tabControl_Order.ResumeLayout(false);

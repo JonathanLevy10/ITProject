@@ -29,6 +29,7 @@ namespace WFP_GOS.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Category));
             this.button_delete = new System.Windows.Forms.Button();
             this.textBox_Name = new System.Windows.Forms.TextBox();
             this.label_id = new System.Windows.Forms.Label();
@@ -128,8 +129,9 @@ namespace WFP_GOS.UI
             this.Controls.Add(this.button_clear);
             this.Controls.Add(this.listBox_Category);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Category";
-            this.Text = "Form_Category";
+            this.Text = "Category";
             this.ResumeLayout(false);
             this.PerformLayout();
 

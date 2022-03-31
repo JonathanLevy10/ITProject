@@ -63,5 +63,10 @@ namespace WFP_GOS.UI
         {
             System.Diagnostics.Process.Start("https://www.linkedin.com/in/rony-%D7%A8%D7%95%D7%A0%D7%99-walden-%D7%95%D7%9C%D7%93%D7%9F-08839268/overlay/photo/");
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://docs.google.com/document/d/1aEz3OcxcfvGaca0H71H6XxXNM6tHz9GQMaorIohZ50c/edit#");
+        }
     }
 }

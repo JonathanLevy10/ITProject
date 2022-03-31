@@ -68,7 +68,7 @@ namespace WFP_GOS.UI
             this.LoadLab.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.LoadLab.Location = new System.Drawing.Point(454, 12);
             this.LoadLab.Name = "LoadLab";
-            this.LoadLab.Size = new System.Drawing.Size(213, 52);
+            this.LoadLab.Size = new System.Drawing.Size(212, 51);
             this.LoadLab.TabIndex = 2;
             this.LoadLab.Text = "Loading...";
             this.LoadLab.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -87,8 +87,9 @@ namespace WFP_GOS.UI
             this.Controls.Add(this.LoadLab);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WelcomeScreen";
-            this.Text = "WelcomeScreen";
+            this.Text = "Welcome Screen";
             this.Load += new System.EventHandler(this.WelcomeScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

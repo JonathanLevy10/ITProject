@@ -29,6 +29,7 @@ namespace WFP_GOS.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Location));
             this.label1 = new System.Windows.Forms.Label();
             this.listBox_Location = new System.Windows.Forms.ListBox();
             this.clear = new System.Windows.Forms.Button();
@@ -128,8 +129,9 @@ namespace WFP_GOS.UI
             this.Controls.Add(this.clear);
             this.Controls.Add(this.listBox_Location);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Location";
-            this.Text = "Form_Location";
+            this.Text = "Location";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -511,6 +511,7 @@ namespace WFP_GOS.UI
             this.comboBox_FilterLevel.Name = "comboBox_FilterLevel";
             this.comboBox_FilterLevel.Size = new System.Drawing.Size(100, 24);
             this.comboBox_FilterLevel.TabIndex = 30;
+            this.comboBox_FilterLevel.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GroupBox_Filter_KeyUp);
             // 
             // comboBox_FilterCategory
             // 
@@ -525,6 +526,7 @@ namespace WFP_GOS.UI
             this.comboBox_FilterCategory.Name = "comboBox_FilterCategory";
             this.comboBox_FilterCategory.Size = new System.Drawing.Size(100, 24);
             this.comboBox_FilterCategory.TabIndex = 29;
+            this.comboBox_FilterCategory.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GroupBox_Filter_KeyUp);
             // 
             // textBox_FilterID
             // 
@@ -532,6 +534,7 @@ namespace WFP_GOS.UI
             this.textBox_FilterID.Name = "textBox_FilterID";
             this.textBox_FilterID.Size = new System.Drawing.Size(100, 22);
             this.textBox_FilterID.TabIndex = 26;
+            this.textBox_FilterID.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GroupBox_Filter_KeyUp);
             // 
             // label_level
             // 

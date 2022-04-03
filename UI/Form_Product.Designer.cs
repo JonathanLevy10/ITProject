@@ -58,7 +58,7 @@ namespace WFP_GOS.UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(311, 23);
+            this.label1.Location = new System.Drawing.Point(438, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(25, 17);
             this.label1.TabIndex = 0;
@@ -67,7 +67,7 @@ namespace WFP_GOS.UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(311, 169);
+            this.label2.Location = new System.Drawing.Point(438, 184);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 17);
             this.label2.TabIndex = 1;
@@ -76,7 +76,7 @@ namespace WFP_GOS.UI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(311, 70);
+            this.label3.Location = new System.Drawing.Point(438, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 17);
             this.label3.TabIndex = 2;
@@ -85,7 +85,7 @@ namespace WFP_GOS.UI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(311, 125);
+            this.label4.Location = new System.Drawing.Point(438, 140);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 17);
             this.label4.TabIndex = 3;
@@ -93,7 +93,7 @@ namespace WFP_GOS.UI
             // 
             // button_Clear
             // 
-            this.button_Clear.Location = new System.Drawing.Point(422, 263);
+            this.button_Clear.Location = new System.Drawing.Point(549, 278);
             this.button_Clear.Name = "button_Clear";
             this.button_Clear.Size = new System.Drawing.Size(75, 42);
             this.button_Clear.TabIndex = 8;
@@ -103,7 +103,7 @@ namespace WFP_GOS.UI
             // 
             // button_Save
             // 
-            this.button_Save.Location = new System.Drawing.Point(528, 263);
+            this.button_Save.Location = new System.Drawing.Point(655, 278);
             this.button_Save.Name = "button_Save";
             this.button_Save.Size = new System.Drawing.Size(77, 42);
             this.button_Save.TabIndex = 9;
@@ -117,7 +117,7 @@ namespace WFP_GOS.UI
             this.listBox_Products.ItemHeight = 16;
             this.listBox_Products.Location = new System.Drawing.Point(12, 160);
             this.listBox_Products.Name = "listBox_Products";
-            this.listBox_Products.Size = new System.Drawing.Size(253, 244);
+            this.listBox_Products.Size = new System.Drawing.Size(391, 244);
             this.listBox_Products.TabIndex = 20;
             this.listBox_Products.DoubleClick += new System.EventHandler(this.listBox_Products_DoubleClick);
             // 
@@ -191,7 +191,7 @@ namespace WFP_GOS.UI
             // 
             // textBox_ProductName
             // 
-            this.textBox_ProductName.Location = new System.Drawing.Point(422, 70);
+            this.textBox_ProductName.Location = new System.Drawing.Point(549, 85);
             this.textBox_ProductName.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_ProductName.Name = "textBox_ProductName";
             this.textBox_ProductName.Size = new System.Drawing.Size(172, 22);
@@ -200,7 +200,7 @@ namespace WFP_GOS.UI
             // label_Id
             // 
             this.label_Id.AutoSize = true;
-            this.label_Id.Location = new System.Drawing.Point(548, 23);
+            this.label_Id.Location = new System.Drawing.Point(675, 38);
             this.label_Id.Name = "label_Id";
             this.label_Id.Size = new System.Drawing.Size(16, 17);
             this.label_Id.TabIndex = 31;
@@ -217,7 +217,7 @@ namespace WFP_GOS.UI
             "Female",
             "Non-Binary",
             "Prefer Not To Say"});
-            this.comboBox_Level.Location = new System.Drawing.Point(422, 169);
+            this.comboBox_Level.Location = new System.Drawing.Point(549, 184);
             this.comboBox_Level.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_Level.Name = "comboBox_Level";
             this.comboBox_Level.Size = new System.Drawing.Size(172, 24);
@@ -235,7 +235,7 @@ namespace WFP_GOS.UI
             "Female",
             "Non-Binary",
             "Prefer Not To Say"});
-            this.comboBox_Category.Location = new System.Drawing.Point(422, 122);
+            this.comboBox_Category.Location = new System.Drawing.Point(549, 137);
             this.comboBox_Category.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_Category.Name = "comboBox_Category";
             this.comboBox_Category.Size = new System.Drawing.Size(172, 24);
@@ -245,7 +245,7 @@ namespace WFP_GOS.UI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(311, 217);
+            this.label5.Location = new System.Drawing.Point(438, 232);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 17);
             this.label5.TabIndex = 34;
@@ -253,7 +253,7 @@ namespace WFP_GOS.UI
             // 
             // nUD_Places
             // 
-            this.nUD_Places.Location = new System.Drawing.Point(422, 217);
+            this.nUD_Places.Location = new System.Drawing.Point(549, 232);
             this.nUD_Places.Name = "nUD_Places";
             this.nUD_Places.Size = new System.Drawing.Size(172, 22);
             this.nUD_Places.TabIndex = 35;
@@ -262,7 +262,7 @@ namespace WFP_GOS.UI
             // 
             this.button_Delete.BackColor = System.Drawing.Color.Red;
             this.button_Delete.ForeColor = System.Drawing.Color.Black;
-            this.button_Delete.Location = new System.Drawing.Point(314, 263);
+            this.button_Delete.Location = new System.Drawing.Point(441, 278);
             this.button_Delete.Name = "button_Delete";
             this.button_Delete.Size = new System.Drawing.Size(75, 42);
             this.button_Delete.TabIndex = 37;

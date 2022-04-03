@@ -397,7 +397,26 @@ namespace WFP_GOS.UI
         {
             return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == '-') || (c == ' ');
         }
-        
+
         #endregion
+        /*
+        private void GroupBox_Filter_KeyUp(object sender, KeyEventArgs e)
+        {
+            int id = 0;
+
+            if (textBox_FilterID.Text != "")
+                id = int.Parse(textBox_FilterID.Text);
+
+            ProductArr productArr = new ProductArr();
+            productArr.Fill();
+
+            productArr = productArr.Filter2(id, comboBox_FilterCategory.Text, comboBox_FilterLevel.Text); //how can I sort by category and level
+
+            listBox_Potential.DataSource = productArr;
+        }*/
+        private void GroupBox_Filter_KeyUp(object sender, KeyEventArgs e)
+        {
+            SetProductsByFilter();
+        }
     }
 }

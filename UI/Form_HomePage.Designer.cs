@@ -60,7 +60,7 @@ namespace WFP_GOS.UI
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(561, 0);
+            this.button1.Location = new System.Drawing.Point(564, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 86);
             this.button1.TabIndex = 0;
@@ -118,7 +118,7 @@ namespace WFP_GOS.UI
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(448, 0);
+            this.button5.Location = new System.Drawing.Point(441, 0);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(123, 86);
             this.button5.TabIndex = 4;
@@ -146,7 +146,7 @@ namespace WFP_GOS.UI
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(330, -1);
+            this.button7.Location = new System.Drawing.Point(318, 0);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(123, 86);
             this.button7.TabIndex = 6;
@@ -169,7 +169,7 @@ namespace WFP_GOS.UI
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(-2, -1);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(248, 101);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -207,7 +207,7 @@ namespace WFP_GOS.UI
             this.pictureBox3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pictureBox3.Location = new System.Drawing.Point(-2, 465);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(815, 75);
+            this.pictureBox3.Size = new System.Drawing.Size(815, 70);
             this.pictureBox3.TabIndex = 12;
             this.pictureBox3.TabStop = false;
             // 
@@ -290,7 +290,7 @@ namespace WFP_GOS.UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(806, 536);
+            this.ClientSize = new System.Drawing.Size(811, 531);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

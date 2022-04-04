@@ -500,5 +500,7 @@ namespace WFP_GOS.UI
             if (curLevel != null)
                 comboBox.SelectedValue = curLevel.Id;
         }
+
+
     }
 }

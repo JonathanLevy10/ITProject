@@ -80,6 +80,8 @@ namespace WFP_GOS.UI
             this.listBox_Potential = new System.Windows.Forms.ListBox();
             this.button_Save = new System.Windows.Forms.Button();
             this.button_Clear = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabControl_Order.SuspendLayout();
             this.OrderDetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -88,6 +90,7 @@ namespace WFP_GOS.UI
             this.groupBox2.SuspendLayout();
             this.OrderItems.SuspendLayout();
             this.GroupBox_Filter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl_Order
@@ -124,22 +127,25 @@ namespace WFP_GOS.UI
             // 
             // Date_DateTime
             // 
+            this.Date_DateTime.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Date_DateTime.Location = new System.Drawing.Point(495, 72);
             this.Date_DateTime.Name = "Date_DateTime";
-            this.Date_DateTime.Size = new System.Drawing.Size(253, 22);
+            this.Date_DateTime.Size = new System.Drawing.Size(253, 23);
             this.Date_DateTime.TabIndex = 12;
             // 
             // label_Client
             // 
             this.label_Client.AutoSize = true;
+            this.label_Client.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Client.Location = new System.Drawing.Point(492, 321);
             this.label_Client.Name = "label_Client";
-            this.label_Client.Size = new System.Drawing.Size(42, 17);
+            this.label_Client.Size = new System.Drawing.Size(46, 19);
             this.label_Client.TabIndex = 11;
             this.label_Client.Text = "None";
             // 
             // textBox_Note
             // 
+            this.textBox_Note.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Note.Location = new System.Drawing.Point(495, 164);
             this.textBox_Note.Multiline = true;
             this.textBox_Note.Name = "textBox_Note";
@@ -159,45 +165,50 @@ namespace WFP_GOS.UI
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(333, 72);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 17);
+            this.label9.Size = new System.Drawing.Size(43, 19);
             this.label9.TabIndex = 9;
             this.label9.Text = "Date";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(333, 167);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 17);
+            this.label8.Size = new System.Drawing.Size(42, 19);
             this.label8.TabIndex = 8;
             this.label8.Text = "Note";
             // 
             // label_Id
             // 
             this.label_Id.AutoSize = true;
+            this.label_Id.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Id.Location = new System.Drawing.Point(492, 39);
             this.label_Id.Name = "label_Id";
-            this.label_Id.Size = new System.Drawing.Size(42, 17);
+            this.label_Id.Size = new System.Drawing.Size(46, 19);
             this.label_Id.TabIndex = 7;
             this.label_Id.Text = "None";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(333, 321);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 17);
+            this.label6.Size = new System.Drawing.Size(49, 19);
             this.label6.TabIndex = 6;
             this.label6.Text = "Client";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(333, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 17);
+            this.label2.Size = new System.Drawing.Size(22, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Id";
             // 
@@ -211,6 +222,7 @@ namespace WFP_GOS.UI
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(8, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(247, 178);
@@ -223,7 +235,7 @@ namespace WFP_GOS.UI
             this.dateTimePicker_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_To.Location = new System.Drawing.Point(104, 106);
             this.dateTimePicker_To.Name = "dateTimePicker_To";
-            this.dateTimePicker_To.Size = new System.Drawing.Size(100, 22);
+            this.dateTimePicker_To.Size = new System.Drawing.Size(100, 23);
             this.dateTimePicker_To.TabIndex = 16;
             this.dateTimePicker_To.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxOrderGroup_Filter_KeyUp);
             // 
@@ -232,7 +244,7 @@ namespace WFP_GOS.UI
             this.dateTimePicker_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_From.Location = new System.Drawing.Point(104, 66);
             this.dateTimePicker_From.Name = "dateTimePicker_From";
-            this.dateTimePicker_From.Size = new System.Drawing.Size(100, 22);
+            this.dateTimePicker_From.Size = new System.Drawing.Size(100, 23);
             this.dateTimePicker_From.TabIndex = 15;
             this.dateTimePicker_From.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker_From.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxOrderGroup_Filter_KeyUp);
@@ -241,7 +253,7 @@ namespace WFP_GOS.UI
             // 
             this.client_TextBox_Filter.Location = new System.Drawing.Point(104, 145);
             this.client_TextBox_Filter.Name = "client_TextBox_Filter";
-            this.client_TextBox_Filter.Size = new System.Drawing.Size(100, 22);
+            this.client_TextBox_Filter.Size = new System.Drawing.Size(100, 23);
             this.client_TextBox_Filter.TabIndex = 14;
             this.client_TextBox_Filter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Names_KeyPress);
             this.client_TextBox_Filter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxOrderGroup_Filter_KeyUp);
@@ -250,7 +262,7 @@ namespace WFP_GOS.UI
             // 
             this.textBox_Filter_OrderDetails_ID.Location = new System.Drawing.Point(104, 30);
             this.textBox_Filter_OrderDetails_ID.Name = "textBox_Filter_OrderDetails_ID";
-            this.textBox_Filter_OrderDetails_ID.Size = new System.Drawing.Size(100, 22);
+            this.textBox_Filter_OrderDetails_ID.Size = new System.Drawing.Size(100, 23);
             this.textBox_Filter_OrderDetails_ID.TabIndex = 11;
             this.textBox_Filter_OrderDetails_ID.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxOrderGroup_Filter_KeyUp);
             // 
@@ -259,7 +271,7 @@ namespace WFP_GOS.UI
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(6, 106);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(25, 17);
+            this.label10.Size = new System.Drawing.Size(23, 19);
             this.label10.TabIndex = 10;
             this.label10.Text = "To";
             // 
@@ -268,7 +280,7 @@ namespace WFP_GOS.UI
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(6, 33);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(19, 17);
+            this.label11.Size = new System.Drawing.Size(22, 19);
             this.label11.TabIndex = 11;
             this.label11.Text = "Id";
             // 
@@ -277,7 +289,7 @@ namespace WFP_GOS.UI
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 17);
+            this.label1.Size = new System.Drawing.Size(42, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "From";
             // 
@@ -286,7 +298,7 @@ namespace WFP_GOS.UI
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 145);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 17);
+            this.label3.Size = new System.Drawing.Size(49, 19);
             this.label3.TabIndex = 3;
             this.label3.Text = "Client";
             // 
@@ -308,18 +320,20 @@ namespace WFP_GOS.UI
             // label_Name_Chosen
             // 
             this.label_Name_Chosen.AutoSize = true;
+            this.label_Name_Chosen.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Name_Chosen.Location = new System.Drawing.Point(361, 114);
             this.label_Name_Chosen.Name = "label_Name_Chosen";
-            this.label_Name_Chosen.Size = new System.Drawing.Size(94, 17);
+            this.label_Name_Chosen.Size = new System.Drawing.Size(102, 19);
             this.label_Name_Chosen.TabIndex = 4;
             this.label_Name_Chosen.Text = "None Chosen";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(248, 114);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(95, 17);
+            this.label15.Size = new System.Drawing.Size(105, 19);
             this.label15.TabIndex = 3;
             this.label15.Text = "Client Chosen";
             // 
@@ -333,6 +347,7 @@ namespace WFP_GOS.UI
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(251, 8);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(404, 100);
@@ -345,7 +360,7 @@ namespace WFP_GOS.UI
             this.label_Id_Chosen.AutoSize = true;
             this.label_Id_Chosen.Location = new System.Drawing.Point(303, 64);
             this.label_Id_Chosen.Name = "label_Id_Chosen";
-            this.label_Id_Chosen.Size = new System.Drawing.Size(94, 17);
+            this.label_Id_Chosen.Size = new System.Drawing.Size(102, 19);
             this.label_Id_Chosen.TabIndex = 11;
             this.label_Id_Chosen.Text = "None Chosen";
             // 
@@ -354,7 +369,7 @@ namespace WFP_GOS.UI
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(247, 64);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(21, 17);
+            this.label7.Size = new System.Drawing.Size(22, 19);
             this.label7.TabIndex = 10;
             this.label7.Text = "ID";
             // 
@@ -363,7 +378,7 @@ namespace WFP_GOS.UI
             this.label_FirstName_Chosen.AutoSize = true;
             this.label_FirstName_Chosen.Location = new System.Drawing.Point(303, 29);
             this.label_FirstName_Chosen.Name = "label_FirstName_Chosen";
-            this.label_FirstName_Chosen.Size = new System.Drawing.Size(94, 17);
+            this.label_FirstName_Chosen.Size = new System.Drawing.Size(102, 19);
             this.label_FirstName_Chosen.TabIndex = 9;
             this.label_FirstName_Chosen.Text = "None Chosen";
             // 
@@ -372,7 +387,7 @@ namespace WFP_GOS.UI
             this.label_Email_Chosen.AutoSize = true;
             this.label_Email_Chosen.Location = new System.Drawing.Point(82, 64);
             this.label_Email_Chosen.Name = "label_Email_Chosen";
-            this.label_Email_Chosen.Size = new System.Drawing.Size(94, 17);
+            this.label_Email_Chosen.Size = new System.Drawing.Size(102, 19);
             this.label_Email_Chosen.TabIndex = 8;
             this.label_Email_Chosen.Text = "None Chosen";
             // 
@@ -381,7 +396,7 @@ namespace WFP_GOS.UI
             this.label_LastName_Chosen.AutoSize = true;
             this.label_LastName_Chosen.Location = new System.Drawing.Point(82, 29);
             this.label_LastName_Chosen.Name = "label_LastName_Chosen";
-            this.label_LastName_Chosen.Size = new System.Drawing.Size(94, 17);
+            this.label_LastName_Chosen.Size = new System.Drawing.Size(102, 19);
             this.label_LastName_Chosen.TabIndex = 7;
             this.label_LastName_Chosen.Text = "None Chosen";
             // 
@@ -390,7 +405,7 @@ namespace WFP_GOS.UI
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(247, 29);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(35, 17);
+            this.label14.Size = new System.Drawing.Size(33, 19);
             this.label14.TabIndex = 5;
             this.label14.Text = "First";
             // 
@@ -399,7 +414,7 @@ namespace WFP_GOS.UI
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(17, 64);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(42, 17);
+            this.label13.Size = new System.Drawing.Size(46, 19);
             this.label13.TabIndex = 4;
             this.label13.Text = "Email";
             // 
@@ -408,7 +423,7 @@ namespace WFP_GOS.UI
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(17, 29);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(35, 17);
+            this.label12.Size = new System.Drawing.Size(35, 19);
             this.label12.TabIndex = 3;
             this.label12.Text = "Last";
             // 
@@ -428,6 +443,7 @@ namespace WFP_GOS.UI
             this.groupBox2.Controls.Add(this.textBox_Filter_LastName);
             this.groupBox2.Controls.Add(this.label_Email_Filter);
             this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(8, 8);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 100);
@@ -437,18 +453,18 @@ namespace WFP_GOS.UI
             // 
             // textBox_Filter_Email
             // 
-            this.textBox_Filter_Email.Location = new System.Drawing.Point(84, 59);
+            this.textBox_Filter_Email.Location = new System.Drawing.Point(90, 59);
             this.textBox_Filter_Email.Name = "textBox_Filter_Email";
-            this.textBox_Filter_Email.Size = new System.Drawing.Size(100, 22);
+            this.textBox_Filter_Email.Size = new System.Drawing.Size(94, 23);
             this.textBox_Filter_Email.TabIndex = 3;
             this.textBox_Filter_Email.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Email_KeyPress);
             this.textBox_Filter_Email.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxClient_Filter_KeyUp);
             // 
             // textBox_Filter_LastName
             // 
-            this.textBox_Filter_LastName.Location = new System.Drawing.Point(84, 24);
+            this.textBox_Filter_LastName.Location = new System.Drawing.Point(90, 24);
             this.textBox_Filter_LastName.Name = "textBox_Filter_LastName";
-            this.textBox_Filter_LastName.Size = new System.Drawing.Size(100, 22);
+            this.textBox_Filter_LastName.Size = new System.Drawing.Size(94, 23);
             this.textBox_Filter_LastName.TabIndex = 1;
             this.textBox_Filter_LastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Names_KeyPress);
             this.textBox_Filter_LastName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxClient_Filter_KeyUp);
@@ -458,7 +474,7 @@ namespace WFP_GOS.UI
             this.label_Email_Filter.AutoSize = true;
             this.label_Email_Filter.Location = new System.Drawing.Point(6, 62);
             this.label_Email_Filter.Name = "label_Email_Filter";
-            this.label_Email_Filter.Size = new System.Drawing.Size(42, 17);
+            this.label_Email_Filter.Size = new System.Drawing.Size(46, 19);
             this.label_Email_Filter.TabIndex = 2;
             this.label_Email_Filter.Text = "Email";
             // 
@@ -467,7 +483,7 @@ namespace WFP_GOS.UI
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 27);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 17);
+            this.label4.Size = new System.Drawing.Size(81, 19);
             this.label4.TabIndex = 1;
             this.label4.Text = "Last Name";
             // 
@@ -493,6 +509,7 @@ namespace WFP_GOS.UI
             this.GroupBox_Filter.Controls.Add(this.label_level);
             this.GroupBox_Filter.Controls.Add(this.label16);
             this.GroupBox_Filter.Controls.Add(this.label18);
+            this.GroupBox_Filter.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupBox_Filter.Location = new System.Drawing.Point(23, 18);
             this.GroupBox_Filter.Name = "GroupBox_Filter";
             this.GroupBox_Filter.Size = new System.Drawing.Size(245, 166);
@@ -503,26 +520,26 @@ namespace WFP_GOS.UI
             // comboBox_FilterLevel
             // 
             this.comboBox_FilterLevel.FormattingEnabled = true;
-            this.comboBox_FilterLevel.Location = new System.Drawing.Point(76, 103);
+            this.comboBox_FilterLevel.Location = new System.Drawing.Point(84, 103);
             this.comboBox_FilterLevel.Name = "comboBox_FilterLevel";
-            this.comboBox_FilterLevel.Size = new System.Drawing.Size(145, 24);
+            this.comboBox_FilterLevel.Size = new System.Drawing.Size(137, 25);
             this.comboBox_FilterLevel.TabIndex = 30;
             this.comboBox_FilterLevel.SelectedValueChanged += new System.EventHandler(this.comboBox_FilterProduct_SelectedValueChanged);
             // 
             // comboBox_FilterCategory
             // 
             this.comboBox_FilterCategory.FormattingEnabled = true;
-            this.comboBox_FilterCategory.Location = new System.Drawing.Point(76, 66);
+            this.comboBox_FilterCategory.Location = new System.Drawing.Point(84, 66);
             this.comboBox_FilterCategory.Name = "comboBox_FilterCategory";
-            this.comboBox_FilterCategory.Size = new System.Drawing.Size(145, 24);
+            this.comboBox_FilterCategory.Size = new System.Drawing.Size(137, 25);
             this.comboBox_FilterCategory.TabIndex = 29;
             this.comboBox_FilterCategory.SelectedValueChanged += new System.EventHandler(this.comboBox_FilterProduct_SelectedValueChanged);
             // 
             // textBox_FilterID
             // 
-            this.textBox_FilterID.Location = new System.Drawing.Point(76, 29);
+            this.textBox_FilterID.Location = new System.Drawing.Point(84, 29);
             this.textBox_FilterID.Name = "textBox_FilterID";
-            this.textBox_FilterID.Size = new System.Drawing.Size(145, 22);
+            this.textBox_FilterID.Size = new System.Drawing.Size(137, 23);
             this.textBox_FilterID.TabIndex = 26;
             this.textBox_FilterID.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GroupBox_Filter_KeyUp);
             // 
@@ -531,7 +548,7 @@ namespace WFP_GOS.UI
             this.label_level.AutoSize = true;
             this.label_level.Location = new System.Drawing.Point(6, 110);
             this.label_level.Name = "label_level";
-            this.label_level.Size = new System.Drawing.Size(42, 17);
+            this.label_level.Size = new System.Drawing.Size(44, 19);
             this.label_level.TabIndex = 26;
             this.label_level.Text = "Level";
             // 
@@ -540,7 +557,7 @@ namespace WFP_GOS.UI
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(6, 73);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(65, 17);
+            this.label16.Size = new System.Drawing.Size(74, 19);
             this.label16.TabIndex = 27;
             this.label16.Text = "Category";
             // 
@@ -549,7 +566,7 @@ namespace WFP_GOS.UI
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(6, 32);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(21, 17);
+            this.label18.Size = new System.Drawing.Size(22, 19);
             this.label18.TabIndex = 28;
             this.label18.Text = "ID";
             // 
@@ -574,31 +591,59 @@ namespace WFP_GOS.UI
             // 
             // button_Save
             // 
-            this.button_Save.Location = new System.Drawing.Point(628, 440);
+            this.button_Save.BackColor = System.Drawing.Color.White;
+            this.button_Save.FlatAppearance.BorderSize = 0;
+            this.button_Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Save.Location = new System.Drawing.Point(638, 440);
             this.button_Save.Name = "button_Save";
-            this.button_Save.Size = new System.Drawing.Size(75, 23);
+            this.button_Save.Size = new System.Drawing.Size(75, 52);
             this.button_Save.TabIndex = 1;
             this.button_Save.Text = "Save";
-            this.button_Save.UseVisualStyleBackColor = true;
+            this.button_Save.UseVisualStyleBackColor = false;
             // 
             // button_Clear
             // 
-            this.button_Clear.Location = new System.Drawing.Point(709, 440);
+            this.button_Clear.BackColor = System.Drawing.Color.White;
+            this.button_Clear.FlatAppearance.BorderSize = 0;
+            this.button_Clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Clear.Location = new System.Drawing.Point(713, 440);
             this.button_Clear.Name = "button_Clear";
-            this.button_Clear.Size = new System.Drawing.Size(75, 23);
+            this.button_Clear.Size = new System.Drawing.Size(75, 52);
             this.button_Clear.TabIndex = 2;
             this.button_Clear.Text = "Clear";
-            this.button_Clear.UseVisualStyleBackColor = true;
+            this.button_Clear.UseVisualStyleBackColor = false;
             this.button_Clear.Click += new System.EventHandler(this.button_Clear_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Black;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(18, 458);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(212, 17);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "© 2022 Apex MMA, Incorporated";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 440);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(815, 93);
+            this.pictureBox3.TabIndex = 31;
+            this.pictureBox3.TabStop = false;
             // 
             // Form_Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 469);
+            this.ClientSize = new System.Drawing.Size(786, 492);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button_Clear);
             this.Controls.Add(this.button_Save);
             this.Controls.Add(this.tabControl_Order);
+            this.Controls.Add(this.pictureBox3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Order";
             this.Text = "Order";
@@ -616,7 +661,9 @@ namespace WFP_GOS.UI
             this.OrderItems.ResumeLayout(false);
             this.GroupBox_Filter.ResumeLayout(false);
             this.GroupBox_Filter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -672,5 +719,7 @@ namespace WFP_GOS.UI
         private System.Windows.Forms.Label label_level;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

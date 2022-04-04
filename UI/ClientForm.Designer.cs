@@ -237,13 +237,7 @@ namespace WFP_GOS
             this.comboBox_Location.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Location.FormattingEnabled = true;
             this.comboBox_Location.Items.AddRange(new object[] {
-            "Miami",
-            "Pittsburgh",
-            "Tel Aviv",
-            "Tokyo",
-            "New York",
-            "London",
-            "Paris"});
+            ""});
             this.comboBox_Location.Location = new System.Drawing.Point(421, 266);
             this.comboBox_Location.Name = "comboBox_Location";
             this.comboBox_Location.Size = new System.Drawing.Size(270, 24);

@@ -19,6 +19,7 @@ namespace WFP_GOS
             InitializeComponent();
             ClientArrToForm();
             CapsLockCheck();
+            LocationArrToForm();
         }
         // Form client from data collected by the form
         private Client FormToClient()
@@ -179,6 +180,7 @@ namespace WFP_GOS
             if (curLocation != null)
                 comboBox_Location.SelectedValue = curLocation.Id;
         }
+
         #region Click Functions
         private void listBox_Clients_DoubleClick(object sender, EventArgs e)
         {

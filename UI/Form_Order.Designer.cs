@@ -503,36 +503,26 @@ namespace WFP_GOS.UI
             // comboBox_FilterLevel
             // 
             this.comboBox_FilterLevel.FormattingEnabled = true;
-            this.comboBox_FilterLevel.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.comboBox_FilterLevel.Location = new System.Drawing.Point(121, 103);
+            this.comboBox_FilterLevel.Location = new System.Drawing.Point(76, 103);
             this.comboBox_FilterLevel.Name = "comboBox_FilterLevel";
-            this.comboBox_FilterLevel.Size = new System.Drawing.Size(100, 24);
+            this.comboBox_FilterLevel.Size = new System.Drawing.Size(145, 24);
             this.comboBox_FilterLevel.TabIndex = 30;
-            this.comboBox_FilterLevel.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GroupBox_Filter_KeyUp);
+            this.comboBox_FilterLevel.SelectedValueChanged += new System.EventHandler(this.comboBox_FilterProduct_SelectedValueChanged);
             // 
             // comboBox_FilterCategory
             // 
             this.comboBox_FilterCategory.FormattingEnabled = true;
-            this.comboBox_FilterCategory.Items.AddRange(new object[] {
-            "MMA",
-            "Jiu Jitsu",
-            "Muay Thai",
-            "Boxing",
-            "Wrestling"});
-            this.comboBox_FilterCategory.Location = new System.Drawing.Point(121, 66);
+            this.comboBox_FilterCategory.Location = new System.Drawing.Point(76, 66);
             this.comboBox_FilterCategory.Name = "comboBox_FilterCategory";
-            this.comboBox_FilterCategory.Size = new System.Drawing.Size(100, 24);
+            this.comboBox_FilterCategory.Size = new System.Drawing.Size(145, 24);
             this.comboBox_FilterCategory.TabIndex = 29;
-            this.comboBox_FilterCategory.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GroupBox_Filter_KeyUp);
+            this.comboBox_FilterCategory.SelectedValueChanged += new System.EventHandler(this.comboBox_FilterProduct_SelectedValueChanged);
             // 
             // textBox_FilterID
             // 
-            this.textBox_FilterID.Location = new System.Drawing.Point(121, 29);
+            this.textBox_FilterID.Location = new System.Drawing.Point(76, 29);
             this.textBox_FilterID.Name = "textBox_FilterID";
-            this.textBox_FilterID.Size = new System.Drawing.Size(100, 22);
+            this.textBox_FilterID.Size = new System.Drawing.Size(145, 22);
             this.textBox_FilterID.TabIndex = 26;
             this.textBox_FilterID.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GroupBox_Filter_KeyUp);
             // 
@@ -590,7 +580,6 @@ namespace WFP_GOS.UI
             this.button_Save.TabIndex = 1;
             this.button_Save.Text = "Save";
             this.button_Save.UseVisualStyleBackColor = true;
-            this.button_Save.Click += new System.EventHandler(this.button_Save_Click);
             // 
             // button_Clear
             // 

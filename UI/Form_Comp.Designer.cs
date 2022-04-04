@@ -149,12 +149,6 @@ namespace WFP_GOS.UI
             // comboBox_Comp_Category
             // 
             this.comboBox_Comp_Category.FormattingEnabled = true;
-            this.comboBox_Comp_Category.Items.AddRange(new object[] {
-            "Boxing",
-            "Jiu Jitsu",
-            "Muay Thai",
-            "Wrestling",
-            "MMA"});
             this.comboBox_Comp_Category.Location = new System.Drawing.Point(90, 302);
             this.comboBox_Comp_Category.Name = "comboBox_Comp_Category";
             this.comboBox_Comp_Category.Size = new System.Drawing.Size(100, 24);

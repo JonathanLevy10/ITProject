@@ -19,6 +19,9 @@ namespace WFP_GOS.UI
             InitializeComponent();
             ClientArrToForm();
             CompArrToForm();
+            CategoryArrToForm(comboBox_FilterCategory, false);
+            CategoryArrToForm(comboBox_Comp_Category, false);
+            LevelArrToForm(comboBox_FilterLevel, false);
         }
         #region Client
         private void GroupBox_Filter_KeyUp(object sender, KeyEventArgs e)
@@ -115,7 +118,8 @@ namespace WFP_GOS.UI
         {
             CompToForm(null);
         }
-       
+
+
 
         /*
         private void listBox_Category_DoubleClick(object sender, EventArgs e)
@@ -223,6 +227,46 @@ namespace WFP_GOS.UI
         */
         #endregion
 
+        public void CategoryArrToForm(ComboBox comboBox, bool isMustChoose, Category curCategory = null)
+        {
+            CategoryArr categoryArr = new CategoryArr();
+
+            Category categoryDefault = new Category();
+            categoryDefault.Id = -1;
+            if (isMustChoose)
+                categoryDefault.Name = "Choose a category";
+            else
+                categoryDefault.Name = "All categories";
+            categoryArr.Add(categoryDefault);
+
+            categoryArr.Fill();
+            comboBox.DataSource = categoryArr;
+            comboBox.ValueMember = "Id";
+            comboBox.DisplayMember = "Name";
+
+            if (curCategory != null)
+                comboBox.SelectedValue = curCategory.Id;
+        }
+        public void LevelArrToForm(ComboBox comboBox, bool isMustChoose, Level curLevel = null)
+        {
+            LevelArr levelArr = new LevelArr();
+
+            Level levelDefault = new Level();
+            levelDefault.Id = -1;
+            if (isMustChoose)
+                levelDefault.Name = "Choose a level";
+            else
+                levelDefault.Name = "All Levels";
+            levelArr.Add(levelDefault);
+
+            levelArr.Fill();
+            comboBox.DataSource = levelArr;
+            comboBox.ValueMember = "Id";
+            comboBox.DisplayMember = "Name";
+
+            if (curLevel != null)
+                comboBox.SelectedValue = curLevel.Id;
+        }
 
     }
 }

@@ -21,6 +21,8 @@ namespace WFP_GOS.UI
             CapsLockCheck();
             ClientArrToForm();
             ProductArrToForm(listBox_Potential);
+            CategoryArrToForm(comboBox_FilterCategory, false);
+            LevelArrToForm(comboBox_FilterLevel, false);
         }
         #region tab 1
         private void OrderToForm(Order order) //Puts specific order info into form
@@ -48,7 +50,7 @@ namespace WFP_GOS.UI
             {
                 flag = false;
             }
-            else*/
+            else*/ 
 
             if (label_Client.Text == "None Chosen") //בחר משתמש
             {
@@ -178,49 +180,55 @@ namespace WFP_GOS.UI
         {
             MoveSelectedItemBetweenListBox(listBox_Potential, listBox_InOrderProducts);
         }
-        private void listbox_Orders_DoubleClick(object sender, EventArgs e)
+        /*
+        private void listBox_ProductsInOrder_DoubleClick(object sender, EventArgs e)
         {
-            Order order = listBox_Orders.SelectedItem as Order;
-
-            //הצגת חלקי ההזמנה בלשוניות השונות
-            //לשונית פרטי הזמנה
-
-            OrderToForm(order);
-
-            //לשונית לקוח להזמנה
-
-            ClientToForm(order.Client); //Already have these lines
-            listBox_Client.SelectedValue = order.Client.id;
-
-            //לשונית פריטים להזמנה
-            //תיבת רשימה - פריטים בהזמנה
-            //מוצאים את הפריטים בהזמנה הנוכחית
-            //כל הזוגות פריט-הזמנה
-
-            OrderProductArr orderProductArr = new OrderProductArr();
-            orderProductArr.Fill();
-
-            //סינון לפי הזמנה נוכחית
-
-            orderProductArr = orderProductArr.Filter(order);
-
-            //רק אוסף הפריטים מתוך אוסף הזוגות פריט-הזמנה
-
-            ProductArr productArrInOrder = orderProductArr.GetProductArr();
-            ProductArrToForm(listBox_InOrderProducts, productArrInOrder);
-
-
-            //תיבת רשימה - פריטים פוטנציאלים
-            //כל הפריטים - פחות אלו שכבר נבחרו
-
-            ProductArr productArrNotInOrder = new ProductArr();
-            productArrNotInOrder.Fill();
-
-            //הורדת הפריטים שכבר קיימים בהזמנה
-
-            productArrNotInOrder.Remove(productArrInOrder);
-            ProductArrToForm(listBox_Potential, productArrNotInOrder);
+            MoveSelectedItemBetweenListBox(listBox_InOrderProducts, listBox_Potential, false);
         }
+        private void MoveSelectedItemBetweenListBox(ListBox listBox_From, ListBox listBox_To, bool isToOrder)
+        {
+            ProductArr arrList = null;
+
+            //מוצאים את הפריט הנבחר
+
+            Product selectedItem = listBox_From.SelectedItem as Product;
+            //עדכון הכמות במלאי של הפריט
+            if (isToOrder)
+            //ההעברה היא אל הרשימה של הפריטים בהזמנה
+            {
+                selectedItem.Count--;
+                listBox_InOrderProductsCount.Items.Add(1);
+            }
+            else
+            {
+                selectedItem.Count += (int)listBox_InOrderProductsCount.SelectedItem;
+                listBox_ProductsInOrderCount.Items.RemoveAt(listBox_ProductsInOrderCount.SelectedIndex);
+            }
+            //מוסיפים את הפריט הנבחר לרשימת הפריטים הפוטנציאליים
+            //אם כבר יש פריטים ברשימת הפוטנציאליים
+
+            if (listBox_To.DataSource != null)
+                arrList = listBox_To.DataSource as ProductArr;
+            else
+                arrList = new ProductArr();
+            arrList.Add(selectedItem);
+            ProductArrToForm(listBox_To, arrList);
+            ///הסרת הפריט הנבחר מרשימת הפריטים הנבחרים
+
+            arrList = listBox_From.DataSource as ProductArr;
+            arrList.Remove(selectedItem);
+            ProductArrToForm(listBox_From, arrList);
+            //בסוף הפעולה
+            //אם זאת הוספה לתיבת המוצרים בהזמנה - סימון שתי השורה האחרונה בה וגם בתיבת הרשימה של הכמויות
+
+            if (isToOrder)
+            {
+                int k = listBox_To.Items.Count - 1;
+                listBox_To.SelectedIndex = k;
+                listBox_InOrderProductsCount.SelectedIndex = k;
+            }
+        }
+        */
         #endregion
         private void CapsLockCheck()
         {
@@ -237,62 +245,89 @@ namespace WFP_GOS.UI
                 MoveSelectedItemBetweenListBox(listBox_InOrderProducts, listBox_Potential);
             }
         }
+        /*
         private void button_Save_Click(object sender, EventArgs e)
         {
             if (!CheckForm())
             {
-                MessageBox.Show("Please Fill The *Error* Fields Again", "Error", MessageBoxButtons.OK,
-                MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading |
-                MessageBoxOptions.RightAlign);
+                MessageBox.Show("Fill all the mandatory fields!", "Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
             else
             {
-                //יצירת הזמנה מהטופס
+
                 Order order = FormToOrder();
+
                 //הוספת ההזמנה למסד הנתונים
+
                 OrderProductArr orderProductArr_New;
-                if (order.Id == 0) //It sees the order id as 0 for some reason error123
+                if (order.Id == 0)
                 {
                     if (order.Insert())
                     {
+
                         //מוצאים את ההזמנה החדשה - לפי המזהה הגבוה ביותר
+
                         OrderArr orderArr = new OrderArr();
                         orderArr.Fill();
                         order = orderArr.GetOrderWithMaxId();
                         orderProductArr_New = FormToOrderProductArr(order);
+                        //מעדכנים את מלאי הפריטים שהוזמנו
+
+                        (listBox_InOrderProducts.DataSource as ProductArr).UpdateCount();
+
                         //מוסיפים את הפריטים החדשים להזמנה
+
                         if (orderProductArr_New.Insert())
                             MessageBox.Show("Successfully saved");
                         else
                             MessageBox.Show("Error in insert");
+                        OrderArrToForm();
+                        ResetForm();
                         //לא לשכוח כאן לנקות את הטופס ולטעון מחדש ערכים לתיבת הרשימה של ההזמנות
+
                     }
+
                 }
-                        if (order.Update())
-                        {
-                            //מוחקים את הפריטים הקודמים של ההזמנה
-                            //אוסף כלל הזוגות - הזמנה-פריט
+                else
+                {
+                    if (order.Update())
+                    {
 
-                            OrderProductArr orderProductArr_Old = new OrderProductArr();
-                            orderProductArr_Old.Fill();
+                        //מוחקים את הפריטים הקודמים של ההזמנה
+                        //אוסף כלל הזוגות - הזמנה-פריט
 
-                            //סינון לפי ההזמנה הנוכחית
+                        OrderProductArr orderProductArr_Old = new OrderProductArr();
+                        orderProductArr_Old.Fill();
 
-                            orderProductArr_Old = orderProductArr_Old.Filter(order);
+                        //סינון לפי ההזמנה הנוכחית
 
-                            //מחיקת כל הפריטים באוסף ההזמנה-פריט של ההזמנה הנוכחית
+                        orderProductArr_Old = orderProductArr_Old.FilterByOrder(order);
 
-                            orderProductArr_Old.Delete();
+                        //מחיקת כל הפריטים באוסף ההזמנה-פריט של ההזמנה הנוכחית
 
-                            //מוסיפים את הפריטים לפי העדכני להזמנה
+                        orderProductArr_Old.Delete();
 
-                            orderProductArr_New = FormToOrderProductArr(order);
-                            orderProductArr_New.Insert();
-                        }
-                        else
-                            MessageBox.Show("Error in update");
+                        //מוסיפים את הפריטים לפי העדכני להזמנה
+
+                        orderProductArr_New = FormToOrderProductArr(order);
+                        orderProductArr_New.Insert();
+                        //מעדכנים את מלאי הפריטים, אלו שהוזמנו ואלו שבפוטנציאל
+
+                        (listBox_InOrderProducts.DataSource as ProductArr).UpdateCount();
+                        (listBox_Potential.DataSource as ProductArr).UpdateCount();
+                        MessageBox.Show("Updated successfully");
+                        OrderArrToForm();
+
+
+                        ResetForm();
+                    }
+                    else
+                        MessageBox.Show("Error updating");
+                }
             }
         }
+        */
         private void comboBoxFilter_TextChanged(object sender, EventArgs e)
         {
             SetProductsByFilter();
@@ -417,6 +452,53 @@ namespace WFP_GOS.UI
         private void GroupBox_Filter_KeyUp(object sender, KeyEventArgs e)
         {
             SetProductsByFilter();
+        }
+
+        private void comboBox_FilterProduct_SelectedValueChanged(object sender, EventArgs e)
+        {
+            SetProductsByFilter();
+
+        }
+
+        public void CategoryArrToForm(ComboBox comboBox, bool isMustChoose, Category curCategory = null)
+        {
+            CategoryArr categoryArr = new CategoryArr();
+
+            Category categoryDefault = new Category();
+            categoryDefault.Id = -1;
+            if (isMustChoose)
+                categoryDefault.Name = "Choose a category";
+            else
+                categoryDefault.Name = "All categories";
+            categoryArr.Add(categoryDefault);
+
+            categoryArr.Fill();
+            comboBox.DataSource = categoryArr;
+            comboBox.ValueMember = "Id";
+            comboBox.DisplayMember = "Name";
+
+            if (curCategory != null)
+                comboBox.SelectedValue = curCategory.Id;
+        }
+        public void LevelArrToForm(ComboBox comboBox, bool isMustChoose, Level curLevel = null)
+        {
+            LevelArr levelArr = new LevelArr();
+
+            Level levelDefault = new Level();
+            levelDefault.Id = -1;
+            if (isMustChoose)
+                levelDefault.Name = "Choose a level";
+            else
+                levelDefault.Name = "All levels";
+            levelArr.Add(levelDefault);
+
+            levelArr.Fill();
+            comboBox.DataSource = levelArr;
+            comboBox.ValueMember = "Id";
+            comboBox.DisplayMember = "Name";
+
+            if (curLevel != null)
+                comboBox.SelectedValue = curLevel.Id;
         }
     }
 }

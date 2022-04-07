@@ -153,32 +153,13 @@ namespace WFP_GOS.UI
         #endregion
 
         #region tab 3
-        private void MoveSelectedItemBetweenListBox(ListBox listBox_From, ListBox listBox_To)
-        {
-            ProductArr productarr = null;
-
-            //מוצאים את הפריט הנבחר
-
-            Product product = listBox_From.SelectedItem as Product;
-
-            //מוסיפים את הפריט הנבחר לרשימת הפריטים הפוטנציאליים
-            //אם כבר יש פריטים ברשימת הפוטנציאליים
-
-            if (listBox_To.DataSource != null)
-                productarr = listBox_To.DataSource as ProductArr;
-            else
-                productarr = new ProductArr();
-            productarr.Add(product);
-            ProductArrToForm(listBox_To, productarr);
-
-            ///הסרת הפריט הנבחר מרשימת הפריטים הנבחרים
-            productarr = listBox_From.DataSource as ProductArr;
-            productarr.Remove(product);
-            ProductArrToForm(listBox_From, productarr);
-        }
         private void Potential_ListBox_DoubleClick(object sender, EventArgs e)
         {
-            MoveSelectedItemBetweenListBox(listBox_Potential, listBox_InOrderProducts);
+            MoveSelectedItemBetweenListBox(listBox_Potential, listBox_InOrderProducts, true);
+        }
+        private void InOrder_ListBox_DoubleClick(object sender, EventArgs e)
+        {
+            MoveSelectedItemBetweenListBox(listBox_Potential, listBox_InOrderProducts, false);
         }
         /*
         private void listBox_ProductsInOrder_DoubleClick(object sender, EventArgs e)
@@ -202,7 +183,7 @@ namespace WFP_GOS.UI
             else
             {
                 selectedItem.Count += (int)listBox_InOrderProductsCount.SelectedItem;
-                listBox_ProductsInOrderCount.Items.RemoveAt(listBox_ProductsInOrderCount.SelectedIndex);
+                listBox_InOrderProductsCount.Items.RemoveAt(listBox_InOrderProductsCount.SelectedIndex);
             }
             //מוסיפים את הפריט הנבחר לרשימת הפריטים הפוטנציאליים
             //אם כבר יש פריטים ברשימת הפוטנציאליים
@@ -242,7 +223,7 @@ namespace WFP_GOS.UI
             ClientToForm(null);
             for (int i = 0; i < listBox_InOrderProducts.Items.Count; i++)
             {
-                MoveSelectedItemBetweenListBox(listBox_InOrderProducts, listBox_Potential);
+                MoveSelectedItemBetweenListBox(listBox_InOrderProducts, listBox_Potential, false);
             }
         }
         /*
@@ -502,5 +483,52 @@ namespace WFP_GOS.UI
         }
 
 
+        private void MoveSelectedItemBetweenListBox(ListBox listBox_From, ListBox listBox_To, bool isToOrder)
+        {
+            ProductArr arrList = null;
+
+            //מוצאים את הפריט הנבחר
+
+            Product selectedItem = listBox_From.SelectedItem as Product;
+            //עדכון הכמות במלאי של הפריט
+            if (isToOrder)
+            //ההעברה היא אל הרשימה של הפריטים בהזמנה
+            {
+                selectedItem.Count--;
+                listBox_InOrderProducts.Items.Add(1);
+            }
+            else
+            {
+                selectedItem.Count += (int)listBox_InOrderProductsCount.SelectedItem;
+                listBox_InOrderProductsCount.Items.RemoveAt(listBox_InOrderProductsCount.SelectedIndex);
+            }
+            //מוסיפים את הפריט הנבחר לרשימת הפריטים הפוטנציאליים
+            //אם כבר יש פריטים ברשימת הפוטנציאליים
+
+            if (listBox_To.DataSource != null)
+                arrList = listBox_To.DataSource as ProductArr;
+            else
+                arrList = new ProductArr();
+            arrList.Add(selectedItem);
+            ProductArrToForm(listBox_To, arrList);
+            ///הסרת הפריט הנבחר מרשימת הפריטים הנבחרים
+
+            arrList = listBox_From.DataSource as ProductArr;
+            arrList.Remove(selectedItem);
+            ProductArrToForm(listBox_From, arrList);
+            //בסוף הפעולה
+            //אם זאת הוספה לתיבת המוצרים בהזמנה - סימון שתי השורה האחרונה בה וגם בתיבת הרשימה של הכמויות
+
+            if (isToOrder)
+            {
+                int k = listBox_To.Items.Count - 1;
+                listBox_To.SelectedIndex = k;
+                listBox_InOrderProductsCount.SelectedIndex = k;
+            }
+        }
+        private void listBox_InOrderProductsCount_Click(object sender, EventArgs e)
+        {
+            listBox_InOrderProductsCount.SelectedIndex = listBox_InOrderProductsCount.SelectedIndex;
+        }
     }
 }

@@ -141,6 +141,13 @@
     <Compile Include="UI\Form_Order.Designer.cs">
       <DependentUpon>Form_Order.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ListViewSorter.cs" />
+    <Compile Include="UI\ProductsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsReport.Designer.cs">
+      <DependentUpon>ProductsReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\WelcomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Order.resx">
       <DependentUpon>Form_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsReport.resx">
+      <DependentUpon>ProductsReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\WelcomeScreen.resx">
       <DependentUpon>WelcomeScreen.cs</DependentUpon>

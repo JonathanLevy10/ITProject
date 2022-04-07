@@ -224,7 +224,7 @@ namespace WFP_GOS.UI
             this.Controls.Add(this.GroupBox_Filter);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listViewProducts);
-            this.Name = "Form_ProductsReport";
+            //this.Name = "Form_ProductsReport";
             this.Text = "ProductsReport";
             this.GroupBox_Filter.ResumeLayout(false);
             this.GroupBox_Filter.PerformLayout();

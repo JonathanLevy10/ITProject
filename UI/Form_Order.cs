@@ -495,7 +495,7 @@ namespace WFP_GOS.UI
             //ההעברה היא אל הרשימה של הפריטים בהזמנה
             {
                 selectedItem.Count--;
-                listBox_InOrderProducts.Items.Add(1);
+                listBox_InOrderProductsCount.Items.Add(1);
             }
             else
             {

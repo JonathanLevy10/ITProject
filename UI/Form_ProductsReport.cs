@@ -12,12 +12,12 @@ using WFP_GOS.UI;
 
 namespace WFP_GOS.UI
 {
-    public partial class ProductsReport : Form
+    public partial class Form_ProductsReport : Form
     {
-        public ProductsReport()
+        public Form_ProductsReport()
         {
             InitializeComponent();
-            
+            FillListView();
         }
         Bitmap m_bitmap;
         private void FillListView()
@@ -47,16 +47,12 @@ namespace WFP_GOS.UI
         
         private void document_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-
             //מגדיר את העמוד שיודפס - כולל מרחק מהשמאל ומלמעלה
-
             e.Graphics.DrawImage(m_bitmap, 100, 100);
         }
         private void CaptureScreen()
         {
-
             //תפיסת החלק של הטופס להדפסה כולל הרשימה והכותרת שמעליה - לתוך תמונת הסיביות
-
             int addAboveListView = 30;
             int moveLeft = 150;
             Graphics graphics = listViewProducts.CreateGraphics();
@@ -84,9 +80,7 @@ namespace WFP_GOS.UI
             listViewProducts.ListViewItemSorter = sorter;
             sorter = listViewProducts.ListViewItemSorter as ListViewSorter;
             sorter.ByColumn = e.Column;
-
             // אם לחצו שוב על אותה עמודה - המיון יהיה בסדר הפוך לקודם
-
             if (m_LastColumnSortBy == e.Column)
                 if (m_LastSortOrder == SortOrder.Ascending)
                     sorter.SortOrder = SortOrder.Descending;
@@ -98,13 +92,9 @@ namespace WFP_GOS.UI
             else
                 sorter.SortOrder = SortOrder.Ascending;
             listViewProducts.Sort();
-
             // שומרים את העמודה הנוכחית כאחרונה שלפיה היה המיון
-
             m_LastColumnSortBy = e.Column;
-
             // שומרים את סדר המיון האחרון
-
             m_LastSortOrder = sorter.SortOrder;
         }
     }

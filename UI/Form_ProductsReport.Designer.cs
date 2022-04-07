@@ -1,7 +1,7 @@
 ﻿
 namespace WFP_GOS.UI
 {
-    partial class ProductsReport
+    partial class Form_ProductsReport
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,9 @@ namespace WFP_GOS.UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsReport));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_ProductsReport));
             this.listViewProducts = new System.Windows.Forms.ListView();
-            this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Names = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Level = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -43,7 +43,7 @@ namespace WFP_GOS.UI
             // listViewProducts
             // 
             this.listViewProducts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Name,
+            this.Names,
             this.Category,
             this.Level,
             this.Count});
@@ -56,15 +56,15 @@ namespace WFP_GOS.UI
             this.listViewProducts.View = System.Windows.Forms.View.Details;
             this.listViewProducts.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView_Products_ColumnClick);
             // 
-            // Name
+            // Names
             // 
-            this.Name.Text = "Name";
-            this.Name.Width = 259;
+            this.Names.Text = "Name";
+            this.Names.Width = 89;
             // 
             // Category
             // 
             this.Category.Text = "Category";
-            this.Category.Width = 262;
+            this.Category.Width = 143;
             // 
             // Level
             // 
@@ -101,14 +101,14 @@ namespace WFP_GOS.UI
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button_Print_Click);
             // 
-            // ProductsReport
+            // Form_ProductsReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 446);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listViewProducts);
-            //this.Name = "ProductsReport";
+            this.Name = "Form_ProductsReport";
             this.Text = "ProductsReport";
             this.ResumeLayout(false);
 
@@ -117,7 +117,7 @@ namespace WFP_GOS.UI
         #endregion
 
         private System.Windows.Forms.ListView listViewProducts;
-        private System.Windows.Forms.ColumnHeader Name;
+        private System.Windows.Forms.ColumnHeader Names;
         private System.Windows.Forms.ColumnHeader Category;
         private System.Windows.Forms.ColumnHeader Level;
         private System.Windows.Forms.ColumnHeader Count;

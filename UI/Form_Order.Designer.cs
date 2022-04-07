@@ -69,6 +69,7 @@ namespace WFP_GOS.UI
             this.label_Email_Filter = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.OrderItems = new System.Windows.Forms.TabPage();
+            this.listBox_InOrderProductsCount = new System.Windows.Forms.ListBox();
             this.GroupBox_Filter = new System.Windows.Forms.GroupBox();
             this.comboBox_FilterLevel = new System.Windows.Forms.ComboBox();
             this.comboBox_FilterCategory = new System.Windows.Forms.ComboBox();
@@ -82,7 +83,8 @@ namespace WFP_GOS.UI
             this.button_Clear = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.listBox_InOrderProductsCount = new System.Windows.Forms.ListBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl_Order.SuspendLayout();
             this.OrderDetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -92,6 +94,8 @@ namespace WFP_GOS.UI
             this.OrderItems.SuspendLayout();
             this.GroupBox_Filter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl_Order
@@ -99,10 +103,10 @@ namespace WFP_GOS.UI
             this.tabControl_Order.Controls.Add(this.OrderDetails);
             this.tabControl_Order.Controls.Add(this.OrderClient);
             this.tabControl_Order.Controls.Add(this.OrderItems);
-            this.tabControl_Order.Location = new System.Drawing.Point(0, 0);
+            this.tabControl_Order.Location = new System.Drawing.Point(0, -1);
             this.tabControl_Order.Name = "tabControl_Order";
             this.tabControl_Order.SelectedIndex = 0;
-            this.tabControl_Order.Size = new System.Drawing.Size(860, 438);
+            this.tabControl_Order.Size = new System.Drawing.Size(860, 439);
             this.tabControl_Order.TabIndex = 0;
             this.tabControl_Order.TabStop = false;
             // 
@@ -121,7 +125,7 @@ namespace WFP_GOS.UI
             this.OrderDetails.Location = new System.Drawing.Point(4, 25);
             this.OrderDetails.Name = "OrderDetails";
             this.OrderDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.OrderDetails.Size = new System.Drawing.Size(780, 409);
+            this.OrderDetails.Size = new System.Drawing.Size(852, 410);
             this.OrderDetails.TabIndex = 0;
             this.OrderDetails.Text = "Order Details";
             this.OrderDetails.UseVisualStyleBackColor = true;
@@ -305,6 +309,7 @@ namespace WFP_GOS.UI
             // 
             // OrderClient
             // 
+            this.OrderClient.Controls.Add(this.pictureBox2);
             this.OrderClient.Controls.Add(this.label_Name_Chosen);
             this.OrderClient.Controls.Add(this.label15);
             this.OrderClient.Controls.Add(this.groupBox3);
@@ -313,7 +318,7 @@ namespace WFP_GOS.UI
             this.OrderClient.Location = new System.Drawing.Point(4, 25);
             this.OrderClient.Name = "OrderClient";
             this.OrderClient.Padding = new System.Windows.Forms.Padding(3);
-            this.OrderClient.Size = new System.Drawing.Size(780, 409);
+            this.OrderClient.Size = new System.Drawing.Size(852, 410);
             this.OrderClient.TabIndex = 1;
             this.OrderClient.Text = "Order Client";
             this.OrderClient.UseVisualStyleBackColor = true;
@@ -491,6 +496,7 @@ namespace WFP_GOS.UI
             // OrderItems
             // 
             this.OrderItems.AccessibleName = "";
+            this.OrderItems.Controls.Add(this.pictureBox1);
             this.OrderItems.Controls.Add(this.listBox_InOrderProductsCount);
             this.OrderItems.Controls.Add(this.GroupBox_Filter);
             this.OrderItems.Controls.Add(this.listBox_InOrderProducts);
@@ -498,10 +504,19 @@ namespace WFP_GOS.UI
             this.OrderItems.Location = new System.Drawing.Point(4, 25);
             this.OrderItems.Name = "OrderItems";
             this.OrderItems.Padding = new System.Windows.Forms.Padding(3);
-            this.OrderItems.Size = new System.Drawing.Size(852, 409);
+            this.OrderItems.Size = new System.Drawing.Size(852, 410);
             this.OrderItems.TabIndex = 2;
             this.OrderItems.Text = "Order Items";
             this.OrderItems.UseVisualStyleBackColor = true;
+            // 
+            // listBox_InOrderProductsCount
+            // 
+            this.listBox_InOrderProductsCount.FormattingEnabled = true;
+            this.listBox_InOrderProductsCount.ItemHeight = 16;
+            this.listBox_InOrderProductsCount.Location = new System.Drawing.Point(765, 18);
+            this.listBox_InOrderProductsCount.Name = "listBox_InOrderProductsCount";
+            this.listBox_InOrderProductsCount.Size = new System.Drawing.Size(57, 372);
+            this.listBox_InOrderProductsCount.TabIndex = 33;
             // 
             // GroupBox_Filter
             // 
@@ -637,14 +652,27 @@ namespace WFP_GOS.UI
             this.pictureBox3.TabIndex = 31;
             this.pictureBox3.TabStop = false;
             // 
-            // listBox_InOrderProductsCount
+            // pictureBox2
             // 
-            this.listBox_InOrderProductsCount.FormattingEnabled = true;
-            this.listBox_InOrderProductsCount.ItemHeight = 16;
-            this.listBox_InOrderProductsCount.Location = new System.Drawing.Point(765, 18);
-            this.listBox_InOrderProductsCount.Name = "listBox_InOrderProductsCount";
-            this.listBox_InOrderProductsCount.Size = new System.Drawing.Size(57, 372);
-            this.listBox_InOrderProductsCount.TabIndex = 33;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(558, 265);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(288, 145);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(23, 315);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(210, 89);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 33;
+            this.pictureBox1.TabStop = false;
             // 
             // Form_Order
             // 
@@ -674,6 +702,8 @@ namespace WFP_GOS.UI
             this.GroupBox_Filter.ResumeLayout(false);
             this.GroupBox_Filter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -734,5 +764,7 @@ namespace WFP_GOS.UI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.ListBox listBox_InOrderProductsCount;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

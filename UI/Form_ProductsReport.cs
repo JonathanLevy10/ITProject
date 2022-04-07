@@ -50,6 +50,7 @@ namespace WFP_GOS.UI
             //מגדיר את העמוד שיודפס - כולל מרחק מהשמאל ומלמעלה
             e.Graphics.DrawImage(m_bitmap, 100, 100);
         }
+
         private void CaptureScreen()
         {
             //תפיסת החלק של הטופס להדפסה כולל הרשימה והכותרת שמעליה - לתוך תמונת הסיביות

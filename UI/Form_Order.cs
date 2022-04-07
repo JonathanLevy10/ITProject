@@ -159,7 +159,7 @@ namespace WFP_GOS.UI
         }
         private void InOrder_ListBox_DoubleClick(object sender, EventArgs e)
         {
-            MoveSelectedItemBetweenListBox(listBox_Potential, listBox_InOrderProducts, false);
+            MoveSelectedItemBetweenListBox(listBox_InOrderProducts, listBox_Potential, false); 
         }
         /*
         private void listBox_ProductsInOrder_DoubleClick(object sender, EventArgs e)

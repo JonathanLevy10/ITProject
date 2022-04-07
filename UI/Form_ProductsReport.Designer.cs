@@ -38,6 +38,19 @@ namespace WFP_GOS.UI
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.button1 = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.GroupBox_Filter = new System.Windows.Forms.GroupBox();
+            this.comboBox_FilterLevel = new System.Windows.Forms.ComboBox();
+            this.comboBox_FilterCategory = new System.Windows.Forms.ComboBox();
+            this.textBox_FilterID = new System.Windows.Forms.TextBox();
+            this.label_level = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.Name = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.GroupBox_Filter.SuspendLayout();
             this.SuspendLayout();
             // 
             // listViewProducts
@@ -101,15 +114,120 @@ namespace WFP_GOS.UI
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button_Print_Click);
             // 
+            // GroupBox_Filter
+            // 
+            this.GroupBox_Filter.Controls.Add(this.textBox2);
+            this.GroupBox_Filter.Controls.Add(this.textBox1);
+            this.GroupBox_Filter.Controls.Add(this.label2);
+            this.GroupBox_Filter.Controls.Add(this.label1);
+            this.GroupBox_Filter.Controls.Add(this.comboBox_FilterLevel);
+            this.GroupBox_Filter.Controls.Add(this.comboBox_FilterCategory);
+            this.GroupBox_Filter.Controls.Add(this.textBox_FilterID);
+            this.GroupBox_Filter.Controls.Add(this.label_level);
+            this.GroupBox_Filter.Controls.Add(this.label16);
+            this.GroupBox_Filter.Controls.Add(this.Name);
+            this.GroupBox_Filter.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupBox_Filter.Location = new System.Drawing.Point(715, 12);
+            this.GroupBox_Filter.Name = "GroupBox_Filter";
+            this.GroupBox_Filter.Size = new System.Drawing.Size(245, 243);
+            this.GroupBox_Filter.TabIndex = 28;
+            this.GroupBox_Filter.TabStop = false;
+            this.GroupBox_Filter.Text = "Filter";
+            // 
+            // comboBox_FilterLevel
+            // 
+            this.comboBox_FilterLevel.FormattingEnabled = true;
+            this.comboBox_FilterLevel.Location = new System.Drawing.Point(106, 103);
+            this.comboBox_FilterLevel.Name = "comboBox_FilterLevel";
+            this.comboBox_FilterLevel.Size = new System.Drawing.Size(133, 25);
+            this.comboBox_FilterLevel.TabIndex = 30;
+            // 
+            // comboBox_FilterCategory
+            // 
+            this.comboBox_FilterCategory.FormattingEnabled = true;
+            this.comboBox_FilterCategory.Location = new System.Drawing.Point(106, 66);
+            this.comboBox_FilterCategory.Name = "comboBox_FilterCategory";
+            this.comboBox_FilterCategory.Size = new System.Drawing.Size(133, 25);
+            this.comboBox_FilterCategory.TabIndex = 29;
+            // 
+            // textBox_FilterID
+            // 
+            this.textBox_FilterID.Location = new System.Drawing.Point(106, 29);
+            this.textBox_FilterID.Name = "textBox_FilterID";
+            this.textBox_FilterID.Size = new System.Drawing.Size(133, 23);
+            this.textBox_FilterID.TabIndex = 26;
+            // 
+            // label_level
+            // 
+            this.label_level.AutoSize = true;
+            this.label_level.Location = new System.Drawing.Point(6, 110);
+            this.label_level.Name = "label_level";
+            this.label_level.Size = new System.Drawing.Size(44, 19);
+            this.label_level.TabIndex = 26;
+            this.label_level.Text = "Level";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 73);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(74, 19);
+            this.label16.TabIndex = 27;
+            this.label16.Text = "Category";
+            // 
+            // Name
+            // 
+            this.Name.AutoSize = true;
+            this.Name.Location = new System.Drawing.Point(6, 32);
+            this.Name.Name = "Name";
+            this.Name.Size = new System.Drawing.Size(51, 19);
+            this.Name.TabIndex = 28;
+            this.Name.Text = "Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 188);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 19);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Count (to)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 148);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 19);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "Count (from)";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(106, 144);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(133, 23);
+            this.textBox1.TabIndex = 33;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(106, 188);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(133, 23);
+            this.textBox2.TabIndex = 34;
+            // 
             // Form_ProductsReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 446);
+            this.ClientSize = new System.Drawing.Size(969, 446);
+            this.Controls.Add(this.GroupBox_Filter);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listViewProducts);
             this.Name = "Form_ProductsReport";
             this.Text = "ProductsReport";
+            this.GroupBox_Filter.ResumeLayout(false);
+            this.GroupBox_Filter.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -124,5 +242,17 @@ namespace WFP_GOS.UI
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Button button1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox GroupBox_Filter;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox_FilterLevel;
+        private System.Windows.Forms.ComboBox comboBox_FilterCategory;
+        private System.Windows.Forms.TextBox textBox_FilterID;
+        private System.Windows.Forms.Label label_level;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label Name;
     }
 }

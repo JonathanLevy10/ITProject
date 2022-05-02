@@ -53,7 +53,7 @@ namespace WFP_GOS.UI
             this.button_delete.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_delete.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button_delete.Location = new System.Drawing.Point(361, 283);
-            this.button_delete.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.button_delete.Margin = new System.Windows.Forms.Padding(0);
             this.button_delete.Name = "button_delete";
             this.button_delete.Size = new System.Drawing.Size(75, 75);
             this.button_delete.TabIndex = 16;
@@ -108,7 +108,7 @@ namespace WFP_GOS.UI
             this.button_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_clear.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_clear.Location = new System.Drawing.Point(286, 283);
-            this.button_clear.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.button_clear.Margin = new System.Windows.Forms.Padding(0);
             this.button_clear.Name = "button_clear";
             this.button_clear.Size = new System.Drawing.Size(75, 75);
             this.button_clear.TabIndex = 11;
@@ -162,7 +162,7 @@ namespace WFP_GOS.UI
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(18, 408);
+            this.label2.Location = new System.Drawing.Point(18, 417);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(212, 17);
             this.label2.TabIndex = 20;

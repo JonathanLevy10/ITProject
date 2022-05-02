@@ -20,7 +20,7 @@ namespace WFP_GOS.UI
             FillListView();
         }
         Bitmap m_bitmap;
-        private void FillListView()
+        /*private void FillListView()
         {
 
             //מוסיף נתונים לפקד תיבת התצוגה
@@ -41,10 +41,60 @@ namespace WFP_GOS.UI
                 listViewItem = new ListViewItem(new[] { p.Name,
                 p.Category.Name, p.Level.Name, p.Count.ToString() });
                 //הוספת פריט-תיבת-תצוגה לתיבת תצוגה
-                listViewProducts.Items.Add(listViewItem);
+                listView_Products.Items.Add(listViewItem);
             }
         }
-        
+        */
+        private void FillListView()
+        {
+            //מוסיף נתונים לפקד תיבת התצוגה
+
+            //ניקוי הרשימה מערכים קודמים
+            listView_Products.Items.Clear();
+
+            //יצירת מקור הנתונים
+            ProductArr productArr = new ProductArr();
+            productArr.Fill();
+
+            //הגבלת מספר השורות המקסימלי לאחר טעינת מקור הנתונים
+           //numericUpDown_RowCount.Maximum = productArr.Count;
+
+            //מסננים את אוסף המוצרים לפי שדות הסינון שרשם המשתמש
+            productArr = productArr.Filter(textBox_FilterName.Text,
+            comboBox_FilterCategory.SelectedItem as Category,
+            comboBox_FilterLevel.SelectedItem as Level, int.Parse(textBox_CountFrom.Text), int.Parse(textBox_CountTo.Text));
+
+            Product p;
+            ListViewItem listViewItem;
+            /*
+            //הגבלת מספר השורות המקסימלי לאחר הסינון
+            numericUpDown_RowCount.Maximum = productArr.Count;
+
+            //בדיקה האם סינון שורות הופעל
+            if (numericUpDown_RowCount.Value == -1)
+            {
+                numericUpDown_RowCount.Value = productArr.Count;
+                listView_Products.Items.Clear();
+            }
+            */
+            //במידה והופעל, בדיקה האם הערך שלו בר הדפסה
+            //if (numericUpDown_RowCount.Value != 0)
+            {
+                //מעבר על כל הפריטים במקור הנתונים והוספה שלהם לתיבת התצוגה
+
+                for (int i = 0; i < productArr.Count; i++)
+                {
+                    p = productArr[i] as Product;
+
+                    //יצירת פריט-תיבת-תצוגה
+                    listViewItem = new ListViewItem(new[] { p.Name,
+                    p.Category.Name, p.Level.Name});
+                    //הוספת פריט-תיבת-תצוגה לתיבת תצוגה
+                    listView_Products.Items.Add(listViewItem);
+                }
+            }
+        }
+
         private void document_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             //מגדיר את העמוד שיודפס - כולל מרחק מהשמאל ומלמעלה
@@ -56,13 +106,13 @@ namespace WFP_GOS.UI
             //תפיסת החלק של הטופס להדפסה כולל הרשימה והכותרת שמעליה - לתוך תמונת הסיביות
             int addAboveListView = 30;
             int moveLeft = 150;
-            Graphics graphics = listViewProducts.CreateGraphics();
-            Size curSize = listViewProducts.Size;
+            Graphics graphics = listView_Products.CreateGraphics();
+            Size curSize = listView_Products.Size;
             curSize.Height += addAboveListView;
             curSize.Width += moveLeft;
             m_bitmap = new Bitmap(curSize.Width, curSize.Height, graphics);
             graphics = Graphics.FromImage(m_bitmap);
-            Point panelLocation = PointToScreen(listViewProducts.Location);
+            Point panelLocation = PointToScreen(listView_Products.Location);
             graphics.CopyFromScreen(panelLocation.X, panelLocation.Y - addAboveListView,
             moveLeft, 0, curSize);
         }
@@ -78,8 +128,8 @@ namespace WFP_GOS.UI
         private void listView_Products_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             ListViewSorter sorter = new ListViewSorter();
-            listViewProducts.ListViewItemSorter = sorter;
-            sorter = listViewProducts.ListViewItemSorter as ListViewSorter;
+            listView_Products.ListViewItemSorter = sorter;
+            sorter = listView_Products.ListViewItemSorter as ListViewSorter;
             sorter.ByColumn = e.Column;
             // אם לחצו שוב על אותה עמודה - המיון יהיה בסדר הפוך לקודם
             if (m_LastColumnSortBy == e.Column)
@@ -92,7 +142,7 @@ namespace WFP_GOS.UI
 
             else
                 sorter.SortOrder = SortOrder.Ascending;
-            listViewProducts.Sort();
+            listView_Products.Sort();
             // שומרים את העמודה הנוכחית כאחרונה שלפיה היה המיון
             m_LastColumnSortBy = e.Column;
             // שומרים את סדר המיון האחרון

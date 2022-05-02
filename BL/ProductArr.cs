@@ -70,6 +70,35 @@ namespace WFP_GOS.BL
             }
             return productArr;
         }
+        public ProductArr Filter(string name, Category category, Level level, int countFrom, int countTo)
+        {
+            ProductArr productArr = new ProductArr();
+
+            for (int i = 0; i < this.Count; i++)
+            {
+
+                //הצבת המוצר הנוכחי במשתנה עזר - מוצר
+
+                Product product = (this[i] as Product);
+                if (
+
+                //סינון לפי שם המוצר
+
+                product.Name.StartsWith(name)
+
+                //סינון לפי החברה
+                && (level == null || level.Id == -1 || product.Level.Id == level.Id)
+                //סינון לפי קטגוריה
+                && (category == null || category.Id == -1 || product.Category.Id == category.Id)
+                && (product.Count > countFrom && product.Count < countTo)
+                )
+
+                    //ה מוצר ענה לדרישות החיפוש - הוספה שלו לאוסף המוחזר
+
+                    productArr.Add(product);
+            }
+            return productArr;
+        }
         public ProductArr Filter2(int id, Category category, Level level)
         {
             ProductArr productArr = new ProductArr();

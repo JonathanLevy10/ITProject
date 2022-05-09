@@ -79,11 +79,12 @@ namespace WFP_GOS.UI
         }
         private Order FormToOrder()
         {
+            
             Order order = new Order();
-            order.Id = int.Parse(label_Id.Text);
+            order.Id = int.Parse(label_Id_Chosen.Text);
             order.Date = Date_DateTime.Value;
             order.Notes = textBox_Note.Text;
-
+            order.Client = listBox_Client.SelectedItem as Client;
             return order;
         }
         private void textBoxOrder_Filter_KeyUp(object sender, KeyEventArgs e)

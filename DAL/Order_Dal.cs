@@ -40,36 +40,22 @@ namespace WFP_GOS.DAL
             //מעדכנת את הלקוח במסד הנתונים
 
             string str = "UPDATE Table_Order SET"
-            + $"[Client] = N'{client}'"
-            + $"[Date] = N'{date:yyyy-MM-dd}'"
-            + $"[Notes] = N'{notes}'"
-            + $"WHERE [Id] = {id}";
+            + $" [Client] = {client}"
+            + $",[Date] = N'{date:yyyy-MM-dd}'"
+            + $",[Note] = N'{notes}'"
+            + $" WHERE [Id] = {id}";
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה
             return Dal.ExecuteSql(str);
         }
         public static bool Insert(int client, DateTime date, string notes)
         { // Adds location directly to database via SQL
-            string sql = "INSERT INTO Table_Location"
+            string sql = "INSERT INTO Table_Order"
             + "("
-            + "[Client]"
+            + "[Client],[Date],[Note]"
             + ")"
             + " VALUES "
             + "("
-            + $"'{client}'"
-            + ")"
-            + "("
-            + "[Date]"
-            + ")"
-            + " VALUES "
-            + "("
-            + $"'{date:yyyy-MM-dd}'"
-            + ")"
-            + "("
-            + "[Notes]"
-            + ")"
-            + " VALUES "
-            + "("
-            + $"'{notes}'"
+            + $"'{client}','{date}','{notes}'"
             + ")";
 
             return Dal.ExecuteSql(sql);

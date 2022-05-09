@@ -88,7 +88,7 @@ namespace WFP_GOS.UI
 
                     //יצירת פריט-תיבת-תצוגה
                     listViewItem = new ListViewItem(new[] { p.Name,
-                    p.Category.Name, p.Level.Name});
+                    p.Category.Name, p.Level.Name, p.Count.ToString()});
                     //הוספת פריט-תיבת-תצוגה לתיבת תצוגה
                     listView_Products.Items.Add(listViewItem);
                 }

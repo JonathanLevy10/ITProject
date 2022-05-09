@@ -33,6 +33,7 @@ namespace WFP_GOS.UI
                 Date_DateTime.Value = order.Date;
                 textBox_Note.Text = order.Notes;
                 label_Client.Text = order.Client.LastName + " " + order.Client.FirstName;
+                ClientToForm(order.Client);
             }
             else
             {
@@ -221,12 +222,27 @@ namespace WFP_GOS.UI
         {
             OrderToForm(null);
             ClientToForm(null);
-            for (int i = 0; i < listBox_InOrderProducts.Items.Count; i++)
-            {
-                MoveSelectedItemBetweenListBox(listBox_InOrderProducts, listBox_Potential, false);
-            }
+            OrderArrToForm();
+            CapsLockCheck();
+            ClientArrToForm();
+            ProductArrToForm(listBox_Potential);
+            listBox_InOrderProducts.DataSource = null;
+            CategoryArrToForm(comboBox_FilterCategory, false);
+            LevelArrToForm(comboBox_FilterLevel, false);
         }
-        /*
+        private void ResetForm()
+        {
+            OrderToForm(null);
+            ClientToForm(null);
+            OrderArrToForm();
+            CapsLockCheck();
+            ClientArrToForm();
+            ProductArrToForm(listBox_Potential);
+            listBox_InOrderProducts.DataSource = null;
+            CategoryArrToForm(comboBox_FilterCategory, false);
+            LevelArrToForm(comboBox_FilterLevel, false);
+        }
+        
         private void button_Save_Click(object sender, EventArgs e)
         {
             if (!CheckForm())
@@ -283,7 +299,7 @@ namespace WFP_GOS.UI
 
                         //סינון לפי ההזמנה הנוכחית
 
-                        orderProductArr_Old = orderProductArr_Old.FilterByOrder(order);
+                        orderProductArr_Old = orderProductArr_Old.Filter(order);
 
                         //מחיקת כל הפריטים באוסף ההזמנה-פריט של ההזמנה הנוכחית
 
@@ -308,7 +324,7 @@ namespace WFP_GOS.UI
                 }
             }
         }
-        */
+        
         private void comboBoxFilter_TextChanged(object sender, EventArgs e)
         {
             SetProductsByFilter();
@@ -495,13 +511,10 @@ namespace WFP_GOS.UI
             //ההעברה היא אל הרשימה של הפריטים בהזמנה
             {
                 selectedItem.Count--;
-                listBox_InOrderProductsCount.Items.Add(1);
             }
             else
-            {
-                selectedItem.Count += (int)listBox_InOrderProductsCount.SelectedItem;
-                listBox_InOrderProductsCount.Items.RemoveAt(listBox_InOrderProductsCount.SelectedIndex);
-            }
+                selectedItem.Count++;
+            
             //מוסיפים את הפריט הנבחר לרשימת הפריטים הפוטנציאליים
             //אם כבר יש פריטים ברשימת הפוטנציאליים
 
@@ -523,12 +536,16 @@ namespace WFP_GOS.UI
             {
                 int k = listBox_To.Items.Count - 1;
                 listBox_To.SelectedIndex = k;
-                listBox_InOrderProductsCount.SelectedIndex = k;
+                
             }
+            else
+            {
+                int k = listBox_To.Items.Count + 1;
+                
+            }
+                
+
         }
-        private void listBox_InOrderProductsCount_Click(object sender, EventArgs e)
-        {
-            listBox_InOrderProductsCount.SelectedIndex = listBox_InOrderProductsCount.SelectedIndex;
-        }
+        
     }
 }

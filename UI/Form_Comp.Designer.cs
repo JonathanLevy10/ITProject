@@ -131,7 +131,7 @@ namespace WFP_GOS.UI
             // label_Comp2_Name
             // 
             this.label_Comp2_Name.AutoSize = true;
-            this.label_Comp2_Name.Location = new System.Drawing.Point(342, 290);
+            this.label_Comp2_Name.Location = new System.Drawing.Point(125, 291);
             this.label_Comp2_Name.Name = "label_Comp2_Name";
             this.label_Comp2_Name.Size = new System.Drawing.Size(42, 17);
             this.label_Comp2_Name.TabIndex = 88;
@@ -140,7 +140,7 @@ namespace WFP_GOS.UI
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(225, 290);
+            this.label16.Location = new System.Drawing.Point(6, 291);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(83, 17);
             this.label16.TabIndex = 87;
@@ -149,7 +149,7 @@ namespace WFP_GOS.UI
             // comboBox_Comp_Category
             // 
             this.comboBox_Comp_Category.FormattingEnabled = true;
-            this.comboBox_Comp_Category.Location = new System.Drawing.Point(90, 302);
+            this.comboBox_Comp_Category.Location = new System.Drawing.Point(563, 93);
             this.comboBox_Comp_Category.Name = "comboBox_Comp_Category";
             this.comboBox_Comp_Category.Size = new System.Drawing.Size(100, 24);
             this.comboBox_Comp_Category.TabIndex = 76;
@@ -157,7 +157,7 @@ namespace WFP_GOS.UI
             // dtp_Comp_Date
             // 
             this.dtp_Comp_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_Comp_Date.Location = new System.Drawing.Point(90, 274);
+            this.dtp_Comp_Date.Location = new System.Drawing.Point(563, 65);
             this.dtp_Comp_Date.Name = "dtp_Comp_Date";
             this.dtp_Comp_Date.Size = new System.Drawing.Size(100, 22);
             this.dtp_Comp_Date.TabIndex = 75;
@@ -270,7 +270,7 @@ namespace WFP_GOS.UI
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 274);
+            this.label9.Location = new System.Drawing.Point(476, 65);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 17);
             this.label9.TabIndex = 73;
@@ -279,7 +279,7 @@ namespace WFP_GOS.UI
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 305);
+            this.label8.Location = new System.Drawing.Point(476, 96);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 17);
             this.label8.TabIndex = 72;
@@ -289,7 +289,7 @@ namespace WFP_GOS.UI
             // 
             this.button_delete.BackColor = System.Drawing.Color.Red;
             this.button_delete.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_delete.Location = new System.Drawing.Point(87, 329);
+            this.button_delete.Location = new System.Drawing.Point(560, 120);
             this.button_delete.Name = "button_delete";
             this.button_delete.Size = new System.Drawing.Size(75, 34);
             this.button_delete.TabIndex = 71;
@@ -298,7 +298,7 @@ namespace WFP_GOS.UI
             // 
             // textBox_Comp_Name
             // 
-            this.textBox_Comp_Name.Location = new System.Drawing.Point(90, 245);
+            this.textBox_Comp_Name.Location = new System.Drawing.Point(563, 36);
             this.textBox_Comp_Name.Name = "textBox_Comp_Name";
             this.textBox_Comp_Name.Size = new System.Drawing.Size(100, 22);
             this.textBox_Comp_Name.TabIndex = 70;
@@ -306,7 +306,7 @@ namespace WFP_GOS.UI
             // label_Comp_id
             // 
             this.label_Comp_id.AutoSize = true;
-            this.label_Comp_id.Location = new System.Drawing.Point(87, 225);
+            this.label_Comp_id.Location = new System.Drawing.Point(560, 16);
             this.label_Comp_id.Name = "label_Comp_id";
             this.label_Comp_id.Size = new System.Drawing.Size(16, 17);
             this.label_Comp_id.TabIndex = 69;
@@ -315,7 +315,7 @@ namespace WFP_GOS.UI
             // Name_Label
             // 
             this.Name_Label.AutoSize = true;
-            this.Name_Label.Location = new System.Drawing.Point(3, 251);
+            this.Name_Label.Location = new System.Drawing.Point(476, 42);
             this.Name_Label.Name = "Name_Label";
             this.Name_Label.Size = new System.Drawing.Size(45, 17);
             this.Name_Label.TabIndex = 68;
@@ -323,7 +323,7 @@ namespace WFP_GOS.UI
             // 
             // button_save
             // 
-            this.button_save.Location = new System.Drawing.Point(6, 329);
+            this.button_save.Location = new System.Drawing.Point(479, 120);
             this.button_save.Name = "button_save";
             this.button_save.Size = new System.Drawing.Size(75, 65);
             this.button_save.TabIndex = 67;
@@ -332,7 +332,7 @@ namespace WFP_GOS.UI
             // 
             // button_clear
             // 
-            this.button_clear.Location = new System.Drawing.Point(87, 358);
+            this.button_clear.Location = new System.Drawing.Point(560, 149);
             this.button_clear.Name = "button_clear";
             this.button_clear.Size = new System.Drawing.Size(75, 36);
             this.button_clear.TabIndex = 66;
@@ -352,7 +352,7 @@ namespace WFP_GOS.UI
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 225);
+            this.label7.Location = new System.Drawing.Point(476, 16);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(21, 17);
             this.label7.TabIndex = 64;

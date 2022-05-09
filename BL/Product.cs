@@ -55,6 +55,12 @@ namespace WFP_GOS.BL
             else
                 return $"{m_Name} [{m_Category.Name}] (Full)";
         }
+        public bool UpdateCount()
+        {
+
+            return Product_Dal.UpdateCount(m_Id, m_Count);
+        }
+
     }
 }
 

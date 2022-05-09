@@ -172,6 +172,14 @@ namespace WFP_GOS.BL
                 }
             }
         }
+        public void UpdateCount()
+        {
+
+            //מעדכנת את אוסף המוצרים
+
+            for (int i = 0; i < this.Count; i++)
+                (this[i] as Product).UpdateCount();
+        }
 
     }
 }

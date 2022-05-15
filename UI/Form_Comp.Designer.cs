@@ -83,12 +83,19 @@ namespace WFP_GOS.UI
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.Clear = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.GroupBox_Filter.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -104,6 +111,8 @@ namespace WFP_GOS.UI
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.pictureBox2);
+            this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.label_Comp2_Name);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.comboBox_Comp_Category);
@@ -131,7 +140,7 @@ namespace WFP_GOS.UI
             // label_Comp2_Name
             // 
             this.label_Comp2_Name.AutoSize = true;
-            this.label_Comp2_Name.Location = new System.Drawing.Point(125, 291);
+            this.label_Comp2_Name.Location = new System.Drawing.Point(217, 291);
             this.label_Comp2_Name.Name = "label_Comp2_Name";
             this.label_Comp2_Name.Size = new System.Drawing.Size(42, 17);
             this.label_Comp2_Name.TabIndex = 88;
@@ -142,14 +151,14 @@ namespace WFP_GOS.UI
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(6, 291);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(83, 17);
+            this.label16.Size = new System.Drawing.Size(135, 17);
             this.label16.TabIndex = 87;
-            this.label16.Text = "Competiton:";
+            this.label16.Text = "Competiton Chosen:";
             // 
             // comboBox_Comp_Category
             // 
             this.comboBox_Comp_Category.FormattingEnabled = true;
-            this.comboBox_Comp_Category.Location = new System.Drawing.Point(563, 93);
+            this.comboBox_Comp_Category.Location = new System.Drawing.Point(564, 119);
             this.comboBox_Comp_Category.Name = "comboBox_Comp_Category";
             this.comboBox_Comp_Category.Size = new System.Drawing.Size(100, 24);
             this.comboBox_Comp_Category.TabIndex = 76;
@@ -157,7 +166,7 @@ namespace WFP_GOS.UI
             // dtp_Comp_Date
             // 
             this.dtp_Comp_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_Comp_Date.Location = new System.Drawing.Point(563, 65);
+            this.dtp_Comp_Date.Location = new System.Drawing.Point(564, 91);
             this.dtp_Comp_Date.Name = "dtp_Comp_Date";
             this.dtp_Comp_Date.Size = new System.Drawing.Size(100, 22);
             this.dtp_Comp_Date.TabIndex = 75;
@@ -270,7 +279,7 @@ namespace WFP_GOS.UI
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(476, 65);
+            this.label9.Location = new System.Drawing.Point(477, 91);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 17);
             this.label9.TabIndex = 73;
@@ -279,7 +288,7 @@ namespace WFP_GOS.UI
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(476, 96);
+            this.label8.Location = new System.Drawing.Point(477, 122);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 17);
             this.label8.TabIndex = 72;
@@ -289,7 +298,7 @@ namespace WFP_GOS.UI
             // 
             this.button_delete.BackColor = System.Drawing.Color.Red;
             this.button_delete.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_delete.Location = new System.Drawing.Point(560, 120);
+            this.button_delete.Location = new System.Drawing.Point(561, 146);
             this.button_delete.Name = "button_delete";
             this.button_delete.Size = new System.Drawing.Size(75, 34);
             this.button_delete.TabIndex = 71;
@@ -298,7 +307,7 @@ namespace WFP_GOS.UI
             // 
             // textBox_Comp_Name
             // 
-            this.textBox_Comp_Name.Location = new System.Drawing.Point(563, 36);
+            this.textBox_Comp_Name.Location = new System.Drawing.Point(564, 62);
             this.textBox_Comp_Name.Name = "textBox_Comp_Name";
             this.textBox_Comp_Name.Size = new System.Drawing.Size(100, 22);
             this.textBox_Comp_Name.TabIndex = 70;
@@ -306,7 +315,7 @@ namespace WFP_GOS.UI
             // label_Comp_id
             // 
             this.label_Comp_id.AutoSize = true;
-            this.label_Comp_id.Location = new System.Drawing.Point(560, 16);
+            this.label_Comp_id.Location = new System.Drawing.Point(561, 42);
             this.label_Comp_id.Name = "label_Comp_id";
             this.label_Comp_id.Size = new System.Drawing.Size(16, 17);
             this.label_Comp_id.TabIndex = 69;
@@ -315,7 +324,7 @@ namespace WFP_GOS.UI
             // Name_Label
             // 
             this.Name_Label.AutoSize = true;
-            this.Name_Label.Location = new System.Drawing.Point(476, 42);
+            this.Name_Label.Location = new System.Drawing.Point(477, 68);
             this.Name_Label.Name = "Name_Label";
             this.Name_Label.Size = new System.Drawing.Size(45, 17);
             this.Name_Label.TabIndex = 68;
@@ -323,7 +332,7 @@ namespace WFP_GOS.UI
             // 
             // button_save
             // 
-            this.button_save.Location = new System.Drawing.Point(479, 120);
+            this.button_save.Location = new System.Drawing.Point(480, 146);
             this.button_save.Name = "button_save";
             this.button_save.Size = new System.Drawing.Size(75, 65);
             this.button_save.TabIndex = 67;
@@ -332,7 +341,7 @@ namespace WFP_GOS.UI
             // 
             // button_clear
             // 
-            this.button_clear.Location = new System.Drawing.Point(560, 149);
+            this.button_clear.Location = new System.Drawing.Point(561, 175);
             this.button_clear.Name = "button_clear";
             this.button_clear.Size = new System.Drawing.Size(75, 36);
             this.button_clear.TabIndex = 66;
@@ -352,7 +361,7 @@ namespace WFP_GOS.UI
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(476, 16);
+            this.label7.Location = new System.Drawing.Point(477, 42);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(21, 17);
             this.label7.TabIndex = 64;
@@ -363,12 +372,13 @@ namespace WFP_GOS.UI
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(11, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 17);
+            this.label2.Size = new System.Drawing.Size(138, 17);
             this.label2.TabIndex = 63;
-            this.label2.Text = "Make/Choose Competition:";
+            this.label2.Text = "Choose Competition:";
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.pictureBox1);
             this.tabPage2.Controls.Add(this.listBox_Fighters_Comp);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.GroupBox_Filter);
@@ -497,6 +507,7 @@ namespace WFP_GOS.UI
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.pictureBox3);
             this.tabPage3.Controls.Add(this.button_Send);
             this.tabPage3.Controls.Add(this.label23);
             this.tabPage3.Controls.Add(this.label_Comp_Date);
@@ -615,6 +626,48 @@ namespace WFP_GOS.UI
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.button_Clear_Click);
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(477, 8);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(124, 17);
+            this.label17.TabIndex = 89;
+            this.label17.Text = "Make Competition:";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 350);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(210, 89);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 90;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 350);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(210, 89);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 90;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(0, 354);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(210, 89);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 90;
+            this.pictureBox3.TabStop = false;
+            // 
             // Form_Comp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -636,6 +689,9 @@ namespace WFP_GOS.UI
             this.GroupBox_Filter.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -695,5 +751,9 @@ namespace WFP_GOS.UI
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.ListBox listBox_Fighters_Comp;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

@@ -91,7 +91,11 @@ namespace WFP_GOS.UI
             {
                 label_Comp_id.Text = comp.Id.ToString();
                 textBox_Comp_Name.Text = comp.Name;
-                label_Comp_Name.Text = comp.Name;
+                label_Comp_Name.Text = comp.Name; //Doesnt work
+                if(comp.Name == null)
+                {
+                    MessageBox.Show("null");
+                }
                 label_Comp2_Name.Text = comp.Name;
                 comboBox_Comp_Category.SelectedItem = comp.Category;
                 label_Comp_Type.Text = comp.Name;
@@ -267,6 +271,7 @@ namespace WFP_GOS.UI
             if (curLevel != null)
                 comboBox.SelectedValue = curLevel.Id;
         }
+
 
     }
 }

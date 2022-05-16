@@ -22,6 +22,8 @@ namespace WFP_GOS.UI
             CategoryArrToForm(comboBox_FilterCategory, false);
             CategoryArrToForm(comboBox_Comp_Category, false);
             LevelArrToForm(comboBox_FilterLevel, false);
+            LevelArrToForm(comboBox_Comp_Level, false);
+
         }
         #region Client
         private void GroupBox_Filter_KeyUp(object sender, KeyEventArgs e)
@@ -123,14 +125,12 @@ namespace WFP_GOS.UI
             CompToForm(null);
         }
 
-
-
-        /*
+        
         private void listBox_Category_DoubleClick(object sender, EventArgs e)
         {
             CompToForm(listBox_Comp.SelectedItem as Comp);
         }
-        
+        /*
         private void CompArrToForm()
         {
             CompArr compArr = new CompArr();
@@ -144,6 +144,35 @@ namespace WFP_GOS.UI
         {
 
         }
+        */
+        private bool CheckForm()
+        {
+            bool flag = true;
+
+            /*if (Date_DateTime.Value < DateTime.Today)
+            {
+                flag = false;
+            }
+            else*/
+
+            if (label_Client2.Text == "None Chosen") //בחר משתמש
+            {
+                flag = false;
+                label_Client2.BackColor = Color.Red;
+            }
+
+
+            if (listBox_InOrderProducts.Items.Count == 0)
+            {
+                flag = false;
+                listBox_InOrderProducts.BackColor = Color.Red;
+            }
+            else
+                listBox_InOrderProducts.BackColor = Color.White;
+
+
+            return flag;
+        }
         private void button_Save_Click(object sender, EventArgs e)
         {
             if (!CheckForm())
@@ -153,53 +182,128 @@ namespace WFP_GOS.UI
             }
             else
             {
-                Category category = FormToCategory();
 
-                if (category.Id == 0)
+                Comp comp = FormToComp();
+
+                //הוספת ההזמנה למסד הנתונים
+
+                CompClientArr compClientArr_New;
+                if (comp.Id == 0)
                 {
-                    CategoryArr oldCategoryArr = new CategoryArr();
-                    oldCategoryArr.Fill();
-                    if (!oldCategoryArr.IsContains(category.Name))
+                    if (comp.Insert())
                     {
-                        if (category.Insert())
-                        {
-                            MessageBox.Show("Added successfully");
-                            label_id.Text = "0";
-                            textBox_Name.Text = "";
-                            //עדכון תיבת הרשימה
-                            CategoryArrToForm();
-                            CategoryArr categoryArr = new CategoryArr();
-                            categoryArr.Fill();
-                            category = categoryArr.GetCategoryWithMaxId();
-                        }
+
+                        //מוצאים את ההזמנה החדשה - לפי המזהה הגבוה ביותר
+
+                        CompArr compArr = new CompArr();
+                        compArr.Fill();
+                        comp = compArr.GetCompWithMaxId();
+                        compClientArr_New = FormToCompClientArr(comp);
+                        //מעדכנים את מלאי הפריטים שהוזמנו
+
+                        //מוסיפים את הפריטים החדשים להזמנה
+
+                        if (compClientArr_New.Insert())
+                            MessageBox.Show("Successfully saved");
                         else
-                            MessageBox.Show("Error adding");
+                            MessageBox.Show("Error in insert");
+                        CompArrToForm();
+                        ResetForm();
+                        //לא לשכוח כאן לנקות את הטופס ולטעון מחדש ערכים לתיבת הרשימה של ההזמנות
+
                     }
-                    else
-                        MessageBox.Show("Already exist");
+
                 }
                 else
                 {
-                    //עדכון לקוח קיים
-                    if (category.Update())
+                    if (comp.Update())
                     {
-                        MessageBox.Show("Updated successfully");
-                        CategoryArrToForm();
 
-                        label_id.Text = "0";
-                        textBox_Name.Text = "";
+                        //מוחקים את הפריטים הקודמים של ההזמנה
+                        //אוסף כלל הזוגות - הזמנה-פריט
+
+                        CompClientArr compClientArr_Old = new CompClientArr();
+                        compClientArr_Old.Fill();
+
+                        //סינון לפי ההזמנה הנוכחית
+
+                        compClientArr_Old = compClientArr_Old.Filter(comp);
+
+                        //מחיקת כל הפריטים באוסף ההזמנה-פריט של ההזמנה הנוכחית
+
+                        compClientArr_Old.Delete();
+
+                        //מוסיפים את הפריטים לפי העדכני להזמנה
+
+                        compClientArr_New = FormToCompClientArr(comp);
+                        compClientArr_New.Insert();
+                        //מעדכנים את מלאי הפריטים, אלו שהוזמנו ואלו שבפוטנציאל
+
+                        MessageBox.Show("Updated successfully");
+                        CompArrToForm();
+
+
+                        ResetForm();
                     }
                     else
                         MessageBox.Show("Error updating");
                 }
-                CategoryArrToForm(category);
             }
         }
-        private void button_Clear_Click(object sender, EventArgs e)
+        private void ResetForm()
         {
+            ClientToForm(null);
+            CompArrToForm();
             CompToForm(null);
+            ClientArrToForm();
+            ClientArrToForm(listBox_Potential_Fighters);
+            listBox_Fighters_Comp.DataSource = null;
+            CategoryArrToForm(comboBox_FilterCategory, false);
+            LevelArrToForm(comboBox_FilterLevel, false);
+        }
+        private void ClientArrToForm(ListBox listBox, ClientArr clientArr = null)
+        {
+
+            //מקבלת אוסף פריטים ותיבת רשימה לפריטים ומציבה את האוסף בתוך התיבה
+            //אם האוסף ריק - מייצרת אוסף חדש מלא בכל הערכים מהטבלה
+
+            listBox.DataSource = null;
+            if (clientArr == null)
+            {
+                clientArr = new ClientArr();
+                clientArr.Fill();
+            }
+            listBox.DataSource = clientArr;
+        }
+        private CompClientArr FormToCompClientArr(Comp curComp)
+        {
+
+            // יצירת אוסף המוצרים להזמנה מהטופס
+            // מייצרים זוגות של הזמנה-מוצר , ההזמנה - תמיד אותה הזמנה )הרי מדובר על הזמנה אחת(, המוצר - מגיע מרשימת המוצרים שנבחרו
+            CompClientArr compClientArr = new CompClientArr();
+            CompClient compClient;
+
+            //סורקים את כל הערכים בתיבת הרשימה של המוצרים שנבחרו להזמנה
+            for (int i = 0; i < listBox_Fighters_Comp.Items.Count; i++)
+            {
+                compClient = new CompClient();
+
+                //ההזמנה הנוכחית היא ההזמנה לכל הזוגות באוסף
+
+                compClient.Comp = curComp;
+
+                //מוצר נוכחי לזוג הזמנה-מוצר
+
+                compClient.Client = listBox_Fighters_Comp.Items[i] as Client;
+
+                //הוספת הזוג הזמנה -מוצר לאוסף
+
+                compClientArr.Add(compClient);
+            }
+            return compClientArr;
         }
 
+        /*
         private void button_Delete_Comp_Click(object sender, EventArgs e)
         {
             if (label_id.Text == "0")

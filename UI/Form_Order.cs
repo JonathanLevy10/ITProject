@@ -60,14 +60,14 @@ namespace WFP_GOS.UI
             }
             
 
-            /*if (listBox_InOrderProducts.Items.Count == 0)
+            if (listBox_InOrderProducts.Items.Count == 0)
             {
                 flag = false;
                 listBox_InOrderProducts.BackColor = Color.Red;
             }
             else
                 listBox_InOrderProducts.BackColor = Color.White;
-            */
+            
 
             return flag;
         }
@@ -81,7 +81,7 @@ namespace WFP_GOS.UI
         {
             
             Order order = new Order();
-            order.Id = int.Parse(label_Id_Chosen.Text);
+            order.Id = int.Parse(label_Id.Text);
             order.Date = Date_DateTime.Value;
             order.Notes = textBox_Note.Text;
             order.Client = listBox_Client.SelectedItem as Client;
@@ -98,6 +98,36 @@ namespace WFP_GOS.UI
         private void listBox_Orders_DoubleClick(object sender, EventArgs e)
         {
             OrderToForm(listBox_Orders.SelectedItem as Order);
+
+            Order order = listBox_Orders.SelectedItem as Order;
+
+            //הצגת חלקי ההזמנה בלשוניות השונות
+            //לשונית פרטי הזמנה
+
+            OrderToForm(order);
+
+            //לשונית לקוח להזמנה
+
+            ClientToForm(order.Client);
+            listBox_Client.SelectedValue = order.Client.id;
+
+            //לשונית פריטים להזמנה
+            //תיבת רשימה - פריטים בהזמנה
+            //מוצאים את הפריטים בהזמנה הנוכחית
+            //כל הזוגות פריט-הזמנה
+
+            OrderProductArr orderProductArr = new OrderProductArr();
+            orderProductArr.Fill();
+
+            //סינון לפי הזמנה נוכחית
+
+            orderProductArr = orderProductArr.Filter(order);
+
+            //רק אוסף הפריטים מתוך אוסף הזוגות פריט-הזמנה
+
+            ProductArr productArrInOrder = orderProductArr.GetProductArr();
+            ProductArrToForm(listBox_InOrderProducts, productArrInOrder);
+
         }
         #endregion
 

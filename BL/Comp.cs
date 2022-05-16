@@ -28,6 +28,7 @@ namespace WFP_GOS.BL
         {
             this.m_Id = (int)dataRow["ID"];
             m_Category = new Category(dataRow.GetParentRow("CompCategory"));
+            m_Name = dataRow["Name"].ToString();
             m_Date = (DateTime)dataRow["Date"];
         }
         public bool Insert()

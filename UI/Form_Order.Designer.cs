@@ -242,9 +242,9 @@ namespace WFP_GOS.UI
             // 
             this.listBox_InOrderProducts.FormattingEnabled = true;
             this.listBox_InOrderProducts.ItemHeight = 16;
-            this.listBox_InOrderProducts.Location = new System.Drawing.Point(527, 18);
+            this.listBox_InOrderProducts.Location = new System.Drawing.Point(289, 251);
             this.listBox_InOrderProducts.Name = "listBox_InOrderProducts";
-            this.listBox_InOrderProducts.Size = new System.Drawing.Size(232, 372);
+            this.listBox_InOrderProducts.Size = new System.Drawing.Size(468, 148);
             this.listBox_InOrderProducts.TabIndex = 1;
             this.listBox_InOrderProducts.DoubleClick += new System.EventHandler(this.InOrder_ListBox_DoubleClick);
             // 
@@ -254,7 +254,7 @@ namespace WFP_GOS.UI
             this.listBox_Potential.ItemHeight = 16;
             this.listBox_Potential.Location = new System.Drawing.Point(289, 18);
             this.listBox_Potential.Name = "listBox_Potential";
-            this.listBox_Potential.Size = new System.Drawing.Size(232, 372);
+            this.listBox_Potential.Size = new System.Drawing.Size(468, 228);
             this.listBox_Potential.TabIndex = 0;
             this.listBox_Potential.DoubleClick += new System.EventHandler(this.Potential_ListBox_DoubleClick);
             // 

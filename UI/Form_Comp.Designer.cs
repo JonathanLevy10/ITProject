@@ -32,6 +32,8 @@ namespace WFP_GOS.UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Comp));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.label_Comp2_Name = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.comboBox_Comp_Category = new System.Windows.Forms.ComboBox();
@@ -59,6 +61,7 @@ namespace WFP_GOS.UI
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listBox_Fighters_Comp = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.GroupBox_Filter = new System.Windows.Forms.GroupBox();
@@ -72,6 +75,7 @@ namespace WFP_GOS.UI
             this.label_Client = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button_Send = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.label_Comp_Date = new System.Windows.Forms.Label();
@@ -83,18 +87,16 @@ namespace WFP_GOS.UI
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.Clear = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.comboBox_Comp_Level = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.GroupBox_Filter.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,6 +113,8 @@ namespace WFP_GOS.UI
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.comboBox_Comp_Level);
+            this.tabPage1.Controls.Add(this.label18);
             this.tabPage1.Controls.Add(this.pictureBox2);
             this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.label_Comp2_Name);
@@ -136,6 +140,26 @@ namespace WFP_GOS.UI
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Competition";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 350);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(210, 89);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 90;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(477, 8);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(124, 17);
+            this.label17.TabIndex = 89;
+            this.label17.Text = "Make Competition:";
             // 
             // label_Comp2_Name
             // 
@@ -298,7 +322,7 @@ namespace WFP_GOS.UI
             // 
             this.button_delete.BackColor = System.Drawing.Color.Red;
             this.button_delete.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_delete.Location = new System.Drawing.Point(561, 146);
+            this.button_delete.Location = new System.Drawing.Point(561, 174);
             this.button_delete.Name = "button_delete";
             this.button_delete.Size = new System.Drawing.Size(75, 34);
             this.button_delete.TabIndex = 71;
@@ -332,7 +356,7 @@ namespace WFP_GOS.UI
             // 
             // button_save
             // 
-            this.button_save.Location = new System.Drawing.Point(480, 146);
+            this.button_save.Location = new System.Drawing.Point(480, 174);
             this.button_save.Name = "button_save";
             this.button_save.Size = new System.Drawing.Size(75, 65);
             this.button_save.TabIndex = 67;
@@ -341,7 +365,7 @@ namespace WFP_GOS.UI
             // 
             // button_clear
             // 
-            this.button_clear.Location = new System.Drawing.Point(561, 175);
+            this.button_clear.Location = new System.Drawing.Point(561, 203);
             this.button_clear.Name = "button_clear";
             this.button_clear.Size = new System.Drawing.Size(75, 36);
             this.button_clear.TabIndex = 66;
@@ -392,6 +416,17 @@ namespace WFP_GOS.UI
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Fighter";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 350);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(210, 89);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 90;
+            this.pictureBox1.TabStop = false;
             // 
             // listBox_Fighters_Comp
             // 
@@ -526,6 +561,17 @@ namespace WFP_GOS.UI
             this.tabPage3.Text = "Confirm and Send";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(0, 354);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(210, 89);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 90;
+            this.pictureBox3.TabStop = false;
+            // 
             // button_Send
             // 
             this.button_Send.Location = new System.Drawing.Point(6, 232);
@@ -626,47 +672,22 @@ namespace WFP_GOS.UI
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.button_Clear_Click);
             // 
-            // label17
+            // label18
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(477, 8);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(124, 17);
-            this.label17.TabIndex = 89;
-            this.label17.Text = "Make Competition:";
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(477, 151);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(42, 17);
+            this.label18.TabIndex = 91;
+            this.label18.Text = "Level";
             // 
-            // pictureBox2
+            // comboBox_Comp_Level
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 350);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(210, 89);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 90;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 350);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(210, 89);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 90;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(0, 354);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(210, 89);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 90;
-            this.pictureBox3.TabStop = false;
+            this.comboBox_Comp_Level.FormattingEnabled = true;
+            this.comboBox_Comp_Level.Location = new System.Drawing.Point(564, 151);
+            this.comboBox_Comp_Level.Name = "comboBox_Comp_Level";
+            this.comboBox_Comp_Level.Size = new System.Drawing.Size(100, 24);
+            this.comboBox_Comp_Level.TabIndex = 92;
             // 
             // Form_Comp
             // 
@@ -681,16 +702,16 @@ namespace WFP_GOS.UI
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.GroupBox_Filter.ResumeLayout(false);
             this.GroupBox_Filter.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
@@ -755,5 +776,7 @@ namespace WFP_GOS.UI
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.ComboBox comboBox_Comp_Level;
+        private System.Windows.Forms.Label label18;
     }
 }

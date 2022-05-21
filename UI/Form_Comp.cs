@@ -21,11 +21,18 @@ namespace WFP_GOS.UI
             CompArrToForm();
             CategoryArrToForm(comboBox_FilterCategory, false);
             CategoryArrToForm(comboBox_Comp_Category, false);
-            LevelArrToForm(comboBox_FilterLevel, false);
-            LevelArrToForm(comboBox_Comp_Level, false);
 
         }
         #region Client
+        private void textBox_Product_Filter_KeyUp(object sender, KeyEventArgs e)
+        {
+            SetProductsByFilter();
+        }
+        private void comboBoxFilter_TextChanged(object sender, EventArgs e)
+        {
+            SetProductsByFilter();
+        }
+
         private void GroupBox_Filter_KeyUp(object sender, KeyEventArgs e)
         {
             int id = 0;
@@ -39,6 +46,23 @@ namespace WFP_GOS.UI
             clientArr = clientArr.Filter(id, textBox_FilterLastName.Text, textBox_FilterEmail.Text);
 
             listBox_Potential_Fighters.DataSource = clientArr;
+        }
+
+            private void SetProductsByFilter()
+        {
+
+            //מייצרים אוסף של כלל המוצרים
+
+            CompArr compArr = new CompArr();
+            compArr.Fill();
+
+            //מסננים את אוסף המוצרים לפי שדות הסינון שרשם המשתמש
+
+            compArr = compArr.Filter(textBox_NameFilter.Text,
+            comboBox_FilterCategory.SelectedItem as Category);
+
+            //מציבים בתיבת הרשימה את אוסף המוצרים
+            listBox_Comp.DataSource = compArr;
         }
         private void listBox_Fighters_DoubleClick(object sender, EventArgs e)
         {
@@ -250,7 +274,6 @@ namespace WFP_GOS.UI
             ClientArrToForm(listBox_Potential_Fighters);
             listBox_Fighters_Comp.DataSource = null;
             CategoryArrToForm(comboBox_FilterCategory, false);
-            LevelArrToForm(comboBox_FilterLevel, false);
         }
         private void ClientArrToForm(ListBox listBox, ClientArr clientArr = null)
         {
@@ -425,18 +448,61 @@ namespace WFP_GOS.UI
                 else
                     comboBox_Comp_Category.BackColor = Color.White;
 
-                if ("" == (comboBox_Comp_Level.Text))
-                {
-                    comboBox_Comp_Level.BackColor = Color.OrangeRed;
-                    MessageBox.Show("Level cannot be empty!", "Error creating competition", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                    return false;
-                }
 
-                else
-                    comboBox_Comp_Level.BackColor = Color.White;
 
                 return true;
         }
+        private void listBox_Potential_Fighters_DoubleClick(object sender, EventArgs e)
+        {
+            MoveSelectedItemBetweenListBox(listBox_Potential_Fighters, listBox_Fighters_Comp, true);
+        }
+        private void InComp_ListBox_DoubleClick(object sender, EventArgs e)
+        {
+            MoveSelectedItemBetweenListBox(listBox_Fighters_Comp, listBox_Potential_Fighters, false);
+        }
+        private void MoveSelectedItemBetweenListBox(ListBox listBox_From, ListBox listBox_To, bool isToOrder)
+        {
+            CompArr arrList = null;
+
+            //מוצאים את הפריט הנבחר
+
+            Comp selectedItem = listBox_From.SelectedItem as Comp;
+            //עדכון הכמות במלאי של הפריט
+
+            //מוסיפים את הפריט הנבחר לרשימת הפריטים הפוטנציאליים
+            //אם כבר יש פריטים ברשימת הפוטנציאליים
+
+            if (listBox_To.DataSource != null)
+                arrList = listBox_To.DataSource as CompArr;
+            else
+                arrList = new CompArr();
+            arrList.Add(selectedItem);
+            CompArrToForm(listBox_To, arrList);
+            ///הסרת הפריט הנבחר מרשימת הפריטים הנבחרים
+
+            arrList = listBox_From.DataSource as CompArr;
+            arrList.Remove(selectedItem);
+            CompArrToForm(listBox_From, arrList);
+            //בסוף הפעולה
+            //אם זאת הוספה לתיבת המוצרים בהזמנה - סימון שתי השורה האחרונה בה וגם בתיבת הרשימה של הכמויות
+
+        }
+        private void CompArrToForm(ListBox listBox, CompArr compArr = null)
+        {
+
+            //מקבלת אוסף פריטים ותיבת רשימה לפריטים ומציבה את האוסף בתוך התיבה
+            //אם האוסף ריק - מייצרת אוסף חדש מלא בכל הערכים מהטבלה
+
+            listBox.DataSource = null;
+            if (compArr == null)
+            {
+                compArr = new CompArr();
+                compArr.Fill();
+            }
+            listBox.DataSource = compArr;
+        }
+
+
     }
         
 }

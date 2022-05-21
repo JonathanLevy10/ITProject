@@ -32,8 +32,6 @@ namespace WFP_GOS.UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Comp));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.comboBox_Comp_Level = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label_Comp2_Name = new System.Windows.Forms.Label();
@@ -41,16 +39,10 @@ namespace WFP_GOS.UI
             this.comboBox_Comp_Category = new System.Windows.Forms.ComboBox();
             this.dtp_Comp_Date = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker_To = new System.Windows.Forms.DateTimePicker();
-            this.comboBox_FilterLevel = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker_From = new System.Windows.Forms.DateTimePicker();
             this.comboBox_FilterCategory = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label_level = new System.Windows.Forms.Label();
+            this.textBox_NameFilter = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button_delete = new System.Windows.Forms.Button();
@@ -113,8 +105,6 @@ namespace WFP_GOS.UI
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.comboBox_Comp_Level);
-            this.tabPage1.Controls.Add(this.label18);
             this.tabPage1.Controls.Add(this.pictureBox2);
             this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.label_Comp2_Name);
@@ -140,23 +130,6 @@ namespace WFP_GOS.UI
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Competition";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox_Comp_Level
-            // 
-            this.comboBox_Comp_Level.FormattingEnabled = true;
-            this.comboBox_Comp_Level.Location = new System.Drawing.Point(564, 151);
-            this.comboBox_Comp_Level.Name = "comboBox_Comp_Level";
-            this.comboBox_Comp_Level.Size = new System.Drawing.Size(100, 24);
-            this.comboBox_Comp_Level.TabIndex = 92;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(477, 151);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(42, 17);
-            this.label18.TabIndex = 91;
-            this.label18.Text = "Level";
             // 
             // pictureBox2
             // 
@@ -215,47 +188,16 @@ namespace WFP_GOS.UI
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker_To);
-            this.groupBox1.Controls.Add(this.comboBox_FilterLevel);
-            this.groupBox1.Controls.Add(this.dateTimePicker_From);
             this.groupBox1.Controls.Add(this.comboBox_FilterCategory);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label_level);
+            this.groupBox1.Controls.Add(this.textBox_NameFilter);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.ID);
             this.groupBox1.Location = new System.Drawing.Point(6, 36);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(181, 172);
+            this.groupBox1.Size = new System.Drawing.Size(181, 103);
             this.groupBox1.TabIndex = 74;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter Competition";
-            // 
-            // dateTimePicker_To
-            // 
-            this.dateTimePicker_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_To.Location = new System.Drawing.Point(76, 145);
-            this.dateTimePicker_To.Name = "dateTimePicker_To";
-            this.dateTimePicker_To.Size = new System.Drawing.Size(100, 22);
-            this.dateTimePicker_To.TabIndex = 48;
-            // 
-            // comboBox_FilterLevel
-            // 
-            this.comboBox_FilterLevel.FormattingEnabled = true;
-            this.comboBox_FilterLevel.Location = new System.Drawing.Point(76, 86);
-            this.comboBox_FilterLevel.Name = "comboBox_FilterLevel";
-            this.comboBox_FilterLevel.Size = new System.Drawing.Size(100, 24);
-            this.comboBox_FilterLevel.TabIndex = 30;
-            // 
-            // dateTimePicker_From
-            // 
-            this.dateTimePicker_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_From.Location = new System.Drawing.Point(76, 117);
-            this.dateTimePicker_From.Name = "dateTimePicker_From";
-            this.dateTimePicker_From.Size = new System.Drawing.Size(100, 22);
-            this.dateTimePicker_From.TabIndex = 47;
-            this.dateTimePicker_From.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
             // comboBox_FilterCategory
             // 
@@ -264,40 +206,15 @@ namespace WFP_GOS.UI
             this.comboBox_FilterCategory.Name = "comboBox_FilterCategory";
             this.comboBox_FilterCategory.Size = new System.Drawing.Size(100, 24);
             this.comboBox_FilterCategory.TabIndex = 29;
+            this.comboBox_FilterCategory.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilter_TextChanged);
             // 
-            // label12
+            // textBox_NameFilter
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(5, 138);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(25, 17);
-            this.label12.TabIndex = 46;
-            this.label12.Text = "To";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(76, 27);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 26;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 115);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 17);
-            this.label13.TabIndex = 45;
-            this.label13.Text = "From";
-            // 
-            // label_level
-            // 
-            this.label_level.AutoSize = true;
-            this.label_level.Location = new System.Drawing.Point(5, 86);
-            this.label_level.Name = "label_level";
-            this.label_level.Size = new System.Drawing.Size(42, 17);
-            this.label_level.TabIndex = 26;
-            this.label_level.Text = "Level";
+            this.textBox_NameFilter.Location = new System.Drawing.Point(76, 27);
+            this.textBox_NameFilter.Name = "textBox_NameFilter";
+            this.textBox_NameFilter.Size = new System.Drawing.Size(100, 22);
+            this.textBox_NameFilter.TabIndex = 26;
+            this.textBox_NameFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_Product_Filter_KeyUp);
             // 
             // label10
             // 
@@ -308,14 +225,14 @@ namespace WFP_GOS.UI
             this.label10.TabIndex = 27;
             this.label10.Text = "Category";
             // 
-            // label11
+            // ID
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 29);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(21, 17);
-            this.label11.TabIndex = 28;
-            this.label11.Text = "ID";
+            this.ID.AutoSize = true;
+            this.ID.Location = new System.Drawing.Point(5, 29);
+            this.ID.Name = "ID";
+            this.ID.Size = new System.Drawing.Size(45, 17);
+            this.ID.TabIndex = 28;
+            this.ID.Text = "Name";
             // 
             // label9
             // 
@@ -339,7 +256,7 @@ namespace WFP_GOS.UI
             // 
             this.button_delete.BackColor = System.Drawing.Color.Red;
             this.button_delete.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_delete.Location = new System.Drawing.Point(561, 174);
+            this.button_delete.Location = new System.Drawing.Point(561, 158);
             this.button_delete.Name = "button_delete";
             this.button_delete.Size = new System.Drawing.Size(75, 34);
             this.button_delete.TabIndex = 71;
@@ -373,7 +290,7 @@ namespace WFP_GOS.UI
             // 
             // button_save
             // 
-            this.button_save.Location = new System.Drawing.Point(480, 174);
+            this.button_save.Location = new System.Drawing.Point(480, 158);
             this.button_save.Name = "button_save";
             this.button_save.Size = new System.Drawing.Size(75, 65);
             this.button_save.TabIndex = 67;
@@ -383,7 +300,7 @@ namespace WFP_GOS.UI
             // 
             // button_clear
             // 
-            this.button_clear.Location = new System.Drawing.Point(561, 203);
+            this.button_clear.Location = new System.Drawing.Point(561, 187);
             this.button_clear.Name = "button_clear";
             this.button_clear.Size = new System.Drawing.Size(75, 36);
             this.button_clear.TabIndex = 66;
@@ -454,6 +371,7 @@ namespace WFP_GOS.UI
             this.listBox_Fighters_Comp.Name = "listBox_Fighters_Comp";
             this.listBox_Fighters_Comp.Size = new System.Drawing.Size(216, 420);
             this.listBox_Fighters_Comp.TabIndex = 72;
+            this.listBox_Fighters_Comp.DoubleClick += new System.EventHandler(this.InComp_ListBox_DoubleClick);
             // 
             // label1
             // 
@@ -538,7 +456,7 @@ namespace WFP_GOS.UI
             this.listBox_Potential_Fighters.Name = "listBox_Potential_Fighters";
             this.listBox_Potential_Fighters.Size = new System.Drawing.Size(216, 420);
             this.listBox_Potential_Fighters.TabIndex = 69;
-            this.listBox_Potential_Fighters.DoubleClick += new System.EventHandler(this.listBox_Fighters_DoubleClick);
+            this.listBox_Potential_Fighters.DoubleClick += new System.EventHandler(this.listBox_Potential_Fighters_DoubleClick);
             // 
             // label_Client
             // 
@@ -728,16 +646,10 @@ namespace WFP_GOS.UI
         private System.Windows.Forms.ComboBox comboBox_Comp_Category;
         private System.Windows.Forms.DateTimePicker dtp_Comp_Date;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_To;
-        private System.Windows.Forms.ComboBox comboBox_FilterLevel;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_From;
         private System.Windows.Forms.ComboBox comboBox_FilterCategory;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label_level;
+        private System.Windows.Forms.TextBox textBox_NameFilter;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label ID;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button_delete;
@@ -778,7 +690,5 @@ namespace WFP_GOS.UI
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.ComboBox comboBox_Comp_Level;
-        private System.Windows.Forms.Label label18;
     }
 }

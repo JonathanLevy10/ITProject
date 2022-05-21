@@ -26,16 +26,31 @@ namespace WFP_GOS.BL
                 this.Add(curComp);
             }
         }
-        public CompArr Filter(int id, string name)
+        public CompArr Filter(string name, Category category)
         {
-            CompArr compArr = new CompArr(); //checks if comp exists, then moves the ones that exist into new array
-            Comp comp;
+            CompArr compArr = new CompArr();
+
             for (int i = 0; i < this.Count; i++)
             {
-                comp = (this[i] as Comp);
+
+                //הצבת המוצר הנוכחי במשתנה עזר - מוצר
+
+                Comp comp = (this[i] as Comp);
                 if (
-                    (id == 0 || comp.Id == id) && comp.Name.ToLower().StartsWith(name.ToLower()))
-                    compArr.Add(compArr);
+
+                //סינון לפי שם המוצר
+
+                comp.Name.StartsWith(name)
+
+                //סינון לפי החברה
+               
+                //סינון לפי קטגוריה
+                && (category == null || category.Id == -1 || comp.Category.Id == category.Id)
+                )
+
+                    //ה מוצר ענה לדרישות החיפוש - הוספה שלו לאוסף המוחזר
+
+                    compArr.Add(comp);
             }
             return compArr;
         }

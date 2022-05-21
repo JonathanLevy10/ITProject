@@ -73,7 +73,7 @@ namespace WFP_GOS.UI
         {
             Comp comp = new Comp();
             comp.Id = int.Parse(label_Comp_id.Text);
-            comp.Category = comboBox_Comp_Category.SelectedItem as Category; 
+            comp.Category = comboBox_Comp_Category.SelectedItem as Category;
             comp.Name = textBox_Comp_Name.Text;
             comp.Date = dtp_Comp_Date.Value;
 
@@ -94,7 +94,7 @@ namespace WFP_GOS.UI
                 label_Comp_id.Text = comp.Id.ToString();
                 textBox_Comp_Name.Text = comp.Name;
                 label_Comp_Name.Text = comp.Name; //Doesnt work
-                if(comp.Name == null)
+                if (comp.Name == null)
                 {
                     MessageBox.Show("null");
                 }
@@ -125,50 +125,41 @@ namespace WFP_GOS.UI
             CompToForm(null);
         }
 
-        
+
         private void listBox_Category_DoubleClick(object sender, EventArgs e)
         {
             CompToForm(listBox_Comp.SelectedItem as Comp);
         }
-        /*
-        private void CompArrToForm()
-        {
-            CompArr compArr = new CompArr();
-            compArr.Fill();
-            listBox_Clients.DataSource = compArr;
-        }
+
 
         #endregion
-        
-        private void button_Send_Click(object sender, EventArgs e)
-        {
 
-        }
-        */
         private bool CheckForm()
         {
             bool flag = true;
 
-            /*if (Date_DateTime.Value < DateTime.Today)
-            {
-                flag = false;
-            }
-            else*/
 
-            if (label_Client2.Text == "None Chosen") //בחר משתמש
+            if (label_Client2.Text == "None") //בחר משתמש
             {
                 flag = false;
                 label_Client2.BackColor = Color.Red;
             }
 
 
-            if (listBox_InOrderProducts.Items.Count == 0)
+            if (listBox_Fighters_Comp.Items.Count == 0)
             {
                 flag = false;
-                listBox_InOrderProducts.BackColor = Color.Red;
+                listBox_Fighters_Comp.BackColor = Color.Red;
+            }
+            if (label_Comp_Name.Text == "None")
+            {
+                flag = false;
+                label_Comp_Name.BackColor = Color.Red;
+                label_Comp_Type.BackColor = Color.Red;
+                label_Comp_Date.BackColor = Color.Red;
             }
             else
-                listBox_InOrderProducts.BackColor = Color.White;
+                listBox_Fighters_Comp.BackColor = Color.White;
 
 
             return flag;
@@ -333,7 +324,7 @@ namespace WFP_GOS.UI
 
             }
         */
-        #endregion
+
 
         public void CategoryArrToForm(ComboBox comboBox, bool isMustChoose, Category curCategory = null)
         {
@@ -375,7 +366,77 @@ namespace WFP_GOS.UI
             if (curLevel != null)
                 comboBox.SelectedValue = curLevel.Id;
         }
+        public void Comp_Save_Click(object sender, EventArgs e)
+        {
+            if (ValidateForm())
+            {
+                Comp comp = FormToComp();
+                if (comp.Id == 0)
+                {
+                    if (comp.Insert())
+                    {
+                        MessageBox.Show("Added Successfully");
+                    }
+                    else
+                        MessageBox.Show("Error adding");
+                }
+                else
+                {
+                    if (comp.Update())
+                    {
+                        MessageBox.Show("Updated Successfully");
+                        CompArrToForm();
+                    }
+                    else
+                        MessageBox.Show("Error update");
+                }
+                CompArrToForm();
+            }
+        }
+        public bool ValidateForm()
+        {
+                if ("" == (textBox_Comp_Name.Text))
+                {
+                    textBox_Comp_Name.BackColor = Color.OrangeRed;
+                    MessageBox.Show("Competition name cannot be empty!", "Error creating competition", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    return false;
+                }
 
+                else
+                    textBox_Comp_Name.BackColor = Color.White;
 
+                if ("" == (dtp_Comp_Date.Text))
+                {
+                    dtp_Comp_Date.BackColor = Color.OrangeRed;
+                    MessageBox.Show("Date cannot be empty!", "Error creating competition", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                else
+                    dtp_Comp_Date.BackColor = Color.White;
+
+                if ("" == (comboBox_Comp_Category.Text))
+                {
+                    comboBox_Comp_Category.BackColor = Color.OrangeRed;
+                    MessageBox.Show("Category cannot be empty!", "Error creating competition", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                else
+                    comboBox_Comp_Category.BackColor = Color.White;
+
+                if ("" == (comboBox_Comp_Level.Text))
+                {
+                    comboBox_Comp_Level.BackColor = Color.OrangeRed;
+                    MessageBox.Show("Level cannot be empty!", "Error creating competition", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                else
+                    comboBox_Comp_Level.BackColor = Color.White;
+
+                return true;
+        }
     }
+        
 }

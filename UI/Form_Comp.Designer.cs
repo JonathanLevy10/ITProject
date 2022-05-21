@@ -32,6 +32,8 @@ namespace WFP_GOS.UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Comp));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.comboBox_Comp_Level = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label_Comp2_Name = new System.Windows.Forms.Label();
@@ -87,8 +89,6 @@ namespace WFP_GOS.UI
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.Clear = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.comboBox_Comp_Level = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -140,6 +140,23 @@ namespace WFP_GOS.UI
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Competition";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox_Comp_Level
+            // 
+            this.comboBox_Comp_Level.FormattingEnabled = true;
+            this.comboBox_Comp_Level.Location = new System.Drawing.Point(564, 151);
+            this.comboBox_Comp_Level.Name = "comboBox_Comp_Level";
+            this.comboBox_Comp_Level.Size = new System.Drawing.Size(100, 24);
+            this.comboBox_Comp_Level.TabIndex = 92;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(477, 151);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(42, 17);
+            this.label18.TabIndex = 91;
+            this.label18.Text = "Level";
             // 
             // pictureBox2
             // 
@@ -362,6 +379,7 @@ namespace WFP_GOS.UI
             this.button_save.TabIndex = 67;
             this.button_save.Text = "Save";
             this.button_save.UseVisualStyleBackColor = true;
+            this.button_save.Click += new System.EventHandler(this.Comp_Save_Click);
             // 
             // button_clear
             // 
@@ -580,6 +598,7 @@ namespace WFP_GOS.UI
             this.button_Send.TabIndex = 96;
             this.button_Send.Text = "Send";
             this.button_Send.UseVisualStyleBackColor = true;
+            this.button_Send.Click += new System.EventHandler(this.button_Save_Click);
             // 
             // label23
             // 
@@ -671,23 +690,6 @@ namespace WFP_GOS.UI
             this.Clear.Text = "Clear";
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.button_Clear_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(477, 151);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(42, 17);
-            this.label18.TabIndex = 91;
-            this.label18.Text = "Level";
-            // 
-            // comboBox_Comp_Level
-            // 
-            this.comboBox_Comp_Level.FormattingEnabled = true;
-            this.comboBox_Comp_Level.Location = new System.Drawing.Point(564, 151);
-            this.comboBox_Comp_Level.Name = "comboBox_Comp_Level";
-            this.comboBox_Comp_Level.Size = new System.Drawing.Size(100, 24);
-            this.comboBox_Comp_Level.TabIndex = 92;
             // 
             // Form_Comp
             // 

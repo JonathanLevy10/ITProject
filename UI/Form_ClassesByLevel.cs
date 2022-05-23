@@ -23,7 +23,7 @@ namespace DataBase.UI
 
         public void Graph1()
         {
-            chart1.Palette = ChartColorPalette.Excel;
+            chart1.Palette = ChartColorPalette.EarthTones;
             chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
             Dictionary<string, int> dictionary = new Dictionary<string, int>();
             ProductArr pArr = new ProductArr();
@@ -56,14 +56,17 @@ namespace DataBase.UI
             chart1.Series.Clear();
             series.ChartType = SeriesChartType.Doughnut;
             series.Palette = ChartColorPalette.SeaGreen;
-            series.Label = "#VALX" + " " + "(#VAL" + " Products)";
+            //series.Label = "#VALX" + " " + "(#VAL" + " Products)";
+            series.Label = "";
             series.Points.DataBindXY(dictionary.Keys, dictionary.Values);
+            
+            /*
             series.SmartLabelStyle.AllowOutsidePlotArea = LabelOutsidePlotAreaStyle.No;
             series.SetCustomProperty("PieLabelStyle", "outside");
 
-            Font font = new Font("Microsoft JhengHei", 14, FontStyle.Bold);
+            Font font = new Font("Microsoft JhengHei", 0, FontStyle.Bold);
             series.Font = font;
-            series.LabelForeColor = Color.Red;
+            series.LabelForeColor = Color.Red;*/
 
             chart1.Series.Add(series);
         }

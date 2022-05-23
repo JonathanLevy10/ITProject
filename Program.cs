@@ -29,7 +29,8 @@ namespace WFP_GOS
             //Application.Run(new Form_Comp());
             //Application.Run(new Form_ProductsReport());
             //Application.Run(new BestSellingClass());
-            Application.Run(new Form_ClassesByLevel());
+            //Application.Run(new Form_ClassesByLevel());
+            Application.Run(new DataBase.UI.Form_ClassesByCategory());
         }
     }
 }

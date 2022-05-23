@@ -112,6 +112,12 @@
     <Compile Include="UI\Form_Category.Designer.cs">
       <DependentUpon>Form_Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Form_ClassesByCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_ClassesByCategory.Designer.cs">
+      <DependentUpon>Form_ClassesByCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form_ClassesByLevel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Form_Category.resx">
       <DependentUpon>Form_Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_ClassesByCategory.resx">
+      <DependentUpon>Form_ClassesByCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_ClassesByLevel.resx">
       <DependentUpon>Form_ClassesByLevel.cs</DependentUpon>

@@ -41,9 +41,9 @@ namespace WFP_GOS.DAL
 
             string str = "UPDATE Table_Comp SET"
             + $"[Category] = N'{category}'"
-            + $"[Date] = N'{date:yyyy-MM-dd}'"
-            + $"[Name] = N'{name}'"
-            + $"WHERE [Id] = {id}";
+            + $",[Date] = N'{date:yyyy-MM-dd}'"
+            + $",[Name] = N'{name}'"
+            + $" WHERE [Id] = {id}";
             //הפעלת פעולת הSQL -תוך שימוש בפעולה המוכנה ExecuteSql במחלקה Dal והחזרה האם הפעולה
             return Dal.ExecuteSql(str);
         }

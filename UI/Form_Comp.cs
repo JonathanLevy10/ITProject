@@ -147,6 +147,9 @@ namespace WFP_GOS.UI
         private void button_Clear_Click(object sender, EventArgs e)
         {
             CompToForm(null);
+            ClientArrToForm(listBox_Potential_Fighters);
+            listBox_Fighters_Comp.DataSource = null;
+
         }
 
 
@@ -163,10 +166,10 @@ namespace WFP_GOS.UI
             bool flag = true;
 
 
-            if (label_Client2.Text == "None") //בחר משתמש
+            if (label_Comp2_Name.Text == "None") //בחר משתמש
             {
                 flag = false;
-                label_Client2.BackColor = Color.Red;
+                label_Comp2_Name.BackColor = Color.Red;
             }
 
 
@@ -175,6 +178,8 @@ namespace WFP_GOS.UI
                 flag = false;
                 listBox_Fighters_Comp.BackColor = Color.Red;
             }
+            else
+                listBox_Fighters_Comp.BackColor = Color.White;
             if (label_Comp_Name.Text == "None")
             {
                 flag = false;
@@ -182,8 +187,7 @@ namespace WFP_GOS.UI
                 label_Comp_Type.BackColor = Color.Red;
                 label_Comp_Date.BackColor = Color.Red;
             }
-            else
-                listBox_Fighters_Comp.BackColor = Color.White;
+            
 
 
             return flag;
@@ -462,27 +466,27 @@ namespace WFP_GOS.UI
         }
         private void MoveSelectedItemBetweenListBox(ListBox listBox_From, ListBox listBox_To, bool isToOrder)
         {
-            CompArr arrList = null;
+            ClientArr arrList = null;
 
             //מוצאים את הפריט הנבחר
 
-            Comp selectedItem = listBox_From.SelectedItem as Comp;
+            Client selectedItem = listBox_From.SelectedItem as Client;
             //עדכון הכמות במלאי של הפריט
 
             //מוסיפים את הפריט הנבחר לרשימת הפריטים הפוטנציאליים
             //אם כבר יש פריטים ברשימת הפוטנציאליים
 
             if (listBox_To.DataSource != null)
-                arrList = listBox_To.DataSource as CompArr;
+                arrList = listBox_To.DataSource as ClientArr;
             else
-                arrList = new CompArr();
+                arrList = new ClientArr();
             arrList.Add(selectedItem);
-            CompArrToForm(listBox_To, arrList);
+            ClientArrToForm(listBox_To, arrList);
             ///הסרת הפריט הנבחר מרשימת הפריטים הנבחרים
 
-            arrList = listBox_From.DataSource as CompArr;
+            arrList = listBox_From.DataSource as ClientArr;
             arrList.Remove(selectedItem);
-            CompArrToForm(listBox_From, arrList);
+            ClientArrToForm(listBox_From, arrList);
             //בסוף הפעולה
             //אם זאת הוספה לתיבת המוצרים בהזמנה - סימון שתי השורה האחרונה בה וגם בתיבת הרשימה של הכמויות
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataBase.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,10 +24,12 @@ namespace WFP_GOS
             //Application.Run(new Form_Order());
             //Application.Run(new Form_Product());
             //Application.Run(new Form_Location());
-            Application.Run(new Form_HomePage());
-           // Application.Run(new WelcomeScreen());
+            //Application.Run(new Form_HomePage());
+            // Application.Run(new WelcomeScreen());
             //Application.Run(new Form_Comp());
             //Application.Run(new Form_ProductsReport());
+            //Application.Run(new BestSellingClass());
+            Application.Run(new Form_ClassesByLevel());
         }
     }
 }

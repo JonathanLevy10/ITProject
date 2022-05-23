@@ -51,14 +51,14 @@ namespace WFP_GOS.UI
             {
                 flag = false;
             }
-            else*/ 
+            else*/
 
             if (label_Client.Text == "None Chosen") //בחר משתמש
             {
                 flag = false;
                 label_Client.BackColor = Color.Red;
             }
-            
+
 
             if (listBox_InOrderProducts.Items.Count == 0)
             {
@@ -67,7 +67,7 @@ namespace WFP_GOS.UI
             }
             else
                 listBox_InOrderProducts.BackColor = Color.White;
-            
+
 
             return flag;
         }
@@ -79,9 +79,12 @@ namespace WFP_GOS.UI
         }
         private Order FormToOrder()
         {
-            
+
             Order order = new Order();
-            order.Id = int.Parse(label_Id.Text);
+            if (label_Id.Text == "None")
+                order.Id = 0;
+            else
+                order.Id = int.Parse(label_Id.Text);
             order.Date = Date_DateTime.Value;
             order.Notes = textBox_Note.Text;
             order.Client = listBox_Client.SelectedItem as Client;
@@ -191,7 +194,7 @@ namespace WFP_GOS.UI
         }
         private void InOrder_ListBox_DoubleClick(object sender, EventArgs e)
         {
-            MoveSelectedItemBetweenListBox(listBox_InOrderProducts, listBox_Potential, false); 
+            MoveSelectedItemBetweenListBox(listBox_InOrderProducts, listBox_Potential, false);
         }
         /*
         private void listBox_ProductsInOrder_DoubleClick(object sender, EventArgs e)
@@ -248,7 +251,7 @@ namespace WFP_GOS.UI
             if (Control.IsKeyLocked(Keys.CapsLock))
                 MessageBox.Show("Warning! You have enabled caps-lock");
         }
-        
+
         private void button_Clear_Click(object sender, EventArgs e)
         {
             OrderToForm(null);
@@ -273,7 +276,7 @@ namespace WFP_GOS.UI
             CategoryArrToForm(comboBox_FilterCategory, false);
             LevelArrToForm(comboBox_FilterLevel, false);
         }
-        
+
         private void button_Save_Click(object sender, EventArgs e)
         {
             if (!CheckForm())
@@ -355,7 +358,7 @@ namespace WFP_GOS.UI
                 }
             }
         }
-        
+
         private void comboBoxFilter_TextChanged(object sender, EventArgs e)
         {
             SetProductsByFilter();
@@ -385,16 +388,16 @@ namespace WFP_GOS.UI
 
             //מייצרים אוסף של כלל המוצרים
             int id = 0;
-            if (textBox_Filter_OrderDetails_ID.Text!="")
+            if (textBox_Filter_OrderDetails_ID.Text != "")
                 id = int.Parse(textBox_Filter_OrderDetails_ID.Text);
             OrderArr orderArr = new OrderArr();
             orderArr.Fill();
 
             //מסננים את אוסף המוצרים לפי שדות הסינון שרשם המשתמש
 
-            orderArr = orderArr.Filter(id, 
-            Convert.ToDateTime(dateTimePicker_From.Text), 
-            Convert.ToDateTime(dateTimePicker_To.Text), 
+            orderArr = orderArr.Filter(id,
+            Convert.ToDateTime(dateTimePicker_From.Text),
+            Convert.ToDateTime(dateTimePicker_To.Text),
             client_TextBox_Filter.Text);
 
             //מציבים בתיבת הרשימה את אוסף המוצרים
@@ -545,7 +548,7 @@ namespace WFP_GOS.UI
             }
             else
                 selectedItem.Count++;
-            
+
             //מוסיפים את הפריט הנבחר לרשימת הפריטים הפוטנציאליים
             //אם כבר יש פריטים ברשימת הפוטנציאליים
 
@@ -567,16 +570,16 @@ namespace WFP_GOS.UI
             {
                 int k = listBox_To.Items.Count - 1;
                 listBox_To.SelectedIndex = k;
-                
+
             }
             else
             {
                 int k = listBox_To.Items.Count + 1;
-                
+
             }
-                
+
 
         }
-        
+
     }
 }

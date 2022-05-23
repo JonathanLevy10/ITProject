@@ -70,7 +70,6 @@ namespace WFP_GOS.UI
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button_Send = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.label_Comp_Date = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -81,6 +80,7 @@ namespace WFP_GOS.UI
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.Clear = new System.Windows.Forms.Button();
+            this.button_Send = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -479,7 +479,6 @@ namespace WFP_GOS.UI
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.pictureBox3);
-            this.tabPage3.Controls.Add(this.button_Send);
             this.tabPage3.Controls.Add(this.label23);
             this.tabPage3.Controls.Add(this.label_Comp_Date);
             this.tabPage3.Controls.Add(this.label21);
@@ -507,16 +506,6 @@ namespace WFP_GOS.UI
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 90;
             this.pictureBox3.TabStop = false;
-            // 
-            // button_Send
-            // 
-            this.button_Send.Location = new System.Drawing.Point(6, 232);
-            this.button_Send.Name = "button_Send";
-            this.button_Send.Size = new System.Drawing.Size(75, 40);
-            this.button_Send.TabIndex = 96;
-            this.button_Send.Text = "Send";
-            this.button_Send.UseVisualStyleBackColor = true;
-            this.button_Send.Click += new System.EventHandler(this.button_Save_Click);
             // 
             // label23
             // 
@@ -601,19 +590,30 @@ namespace WFP_GOS.UI
             // 
             // Clear
             // 
-            this.Clear.Location = new System.Drawing.Point(655, 482);
+            this.Clear.Location = new System.Drawing.Point(655, 486);
             this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(75, 23);
+            this.Clear.Size = new System.Drawing.Size(75, 40);
             this.Clear.TabIndex = 89;
             this.Clear.Text = "Clear";
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.button_Clear_Click);
+            // 
+            // button_Send
+            // 
+            this.button_Send.Location = new System.Drawing.Point(574, 486);
+            this.button_Send.Name = "button_Send";
+            this.button_Send.Size = new System.Drawing.Size(75, 40);
+            this.button_Send.TabIndex = 97;
+            this.button_Send.Text = "Send";
+            this.button_Send.UseVisualStyleBackColor = true;
+            this.button_Send.Click += new System.EventHandler(this.button_Save_Click);
             // 
             // Form_Comp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 528);
+            this.Controls.Add(this.button_Send);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -674,7 +674,6 @@ namespace WFP_GOS.UI
         private System.Windows.Forms.Label label_Client;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button button_Send;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label_Comp_Date;
         private System.Windows.Forms.Label label21;
@@ -690,5 +689,6 @@ namespace WFP_GOS.UI
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button button_Send;
     }
 }

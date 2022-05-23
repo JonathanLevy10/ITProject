@@ -55,7 +55,7 @@ namespace WFP_GOS.DAL
             + ")"
             + " VALUES "
             + "("
-            + $"'{client}','{date}','{notes}'"
+            + $"'{client}','{date:yyyy-MM-dd}','{notes}'"
             + ")";
 
             return Dal.ExecuteSql(sql);

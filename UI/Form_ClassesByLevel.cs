@@ -56,8 +56,8 @@ namespace DataBase.UI
             chart1.Series.Clear();
             series.ChartType = SeriesChartType.Doughnut;
             series.Palette = ChartColorPalette.SeaGreen;
-            //series.Label = "#VALX" + " " + "(#VAL" + " Products)";
-            series.Label = "";
+            series.Label = "#VALX" + " " + "(#VAL)";
+            
             series.Points.DataBindXY(dictionary.Keys, dictionary.Values);
             
             /*

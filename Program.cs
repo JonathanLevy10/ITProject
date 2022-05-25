@@ -26,11 +26,12 @@ namespace WFP_GOS
             //Application.Run(new Form_Location());
             //Application.Run(new Form_HomePage());
             // Application.Run(new WelcomeScreen());
-            //Application.Run(new Form_Comp());
+            Application.Run(new Form_Comp());
             //Application.Run(new Form_ProductsReport());
             //Application.Run(new BestSellingClass());
             //Application.Run(new Form_ClassesByLevel());
-            Application.Run(new DataBase.UI.Form_ClassesByCategory());
+            //Application.Run(new Form_ClassesByCategory());
+            //Application.Run(new DataBase.UI.Form_ClassesByCategory());
         }
     }
 }

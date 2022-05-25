@@ -50,14 +50,14 @@ namespace DataBase.UI
             chart1.Series.Clear();
             series.ChartType = SeriesChartType.Column;
             series.Palette = ChartColorPalette.Excel;
-            series.Label = "#VALX" + " " + "(#VAL" + " Products)";
+            series.Label = "#VALX" + " " + "(#VAL)";
             series.Points.DataBindXY(dictionary.Keys, dictionary.Values);
             series.SmartLabelStyle.AllowOutsidePlotArea = LabelOutsidePlotAreaStyle.No;
             series.SetCustomProperty("PieLabelStyle", "outside");
 
-            Font font = new Font("Microsoft JhengHei", 14, FontStyle.Bold);
+           /* Font font = new Font("Microsoft JhengHei", 14, FontStyle.Bold);
             series.Font = font;
-            series.LabelForeColor = Color.Red;
+            series.LabelForeColor = Color.Red;*/
 
             chart1.Series.Add(series);
         }

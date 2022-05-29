@@ -54,7 +54,7 @@ namespace DataBase.UI
             }
             Series series = new Series("");
             chart1.Series.Clear();
-            series.ChartType = SeriesChartType.Doughnut;
+            series.ChartType = SeriesChartType.Pie;
             series.Palette = ChartColorPalette.SeaGreen;
             series.Label = "#VALX" + " " + "(#VAL)";
             

@@ -48,6 +48,11 @@ namespace WFP_GOS.UI
             Form_Level form_Level = new Form_Level();
             form_Level.ShowDialog();
         }
+        private void button_3_Click(object sender, EventArgs e)
+        {
+            Reports reports = new Reports();
+            reports.ShowDialog();
+        }
 
         private void button_Doc_Click(object sender, EventArgs e)
         {
@@ -68,5 +73,7 @@ namespace WFP_GOS.UI
         {
             System.Diagnostics.Process.Start("https://docs.google.com/document/d/1aEz3OcxcfvGaca0H71H6XxXNM6tHz9GQMaorIohZ50c/edit#");
         }
+
+
     }
 }

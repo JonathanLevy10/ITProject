@@ -44,7 +44,9 @@ namespace WFP_GOS.UI
             this.AmntSold = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ClassName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listView_Products = new System.Windows.Forms.ListView();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.GroupBox_Filter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox_FilterLevel
@@ -165,18 +167,31 @@ namespace WFP_GOS.UI
             this.listView_Products.UseCompatibleStateImageBehavior = false;
             this.listView_Products.View = System.Windows.Forms.View.Details;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(723, 241);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(275, 119);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 34;
+            this.pictureBox2.TabStop = false;
+            // 
             // BestSellingClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1016, 509);
+            this.ClientSize = new System.Drawing.Size(1016, 449);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.GroupBox_Filter);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView_Products);
             this.Name = "BestSellingClass";
-            this.Text = "BestSellingClass";
+            this.Text = "Best Selling Classes";
             this.GroupBox_Filter.ResumeLayout(false);
             this.GroupBox_Filter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -196,5 +211,6 @@ namespace WFP_GOS.UI
         private System.Windows.Forms.ColumnHeader AmntSold;
         private System.Windows.Forms.ColumnHeader ClassName;
         private System.Windows.Forms.ListView listView_Products;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

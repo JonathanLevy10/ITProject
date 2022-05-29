@@ -123,7 +123,7 @@ namespace WFP_GOS.UI
             this.GroupBox_Filter.Controls.Add(this.label16);
             this.GroupBox_Filter.Controls.Add(this.Label_Name);
             this.GroupBox_Filter.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GroupBox_Filter.Location = new System.Drawing.Point(715, 12);
+            this.GroupBox_Filter.Location = new System.Drawing.Point(812, 30);
             this.GroupBox_Filter.Name = "GroupBox_Filter";
             this.GroupBox_Filter.Size = new System.Drawing.Size(245, 243);
             this.GroupBox_Filter.TabIndex = 28;
@@ -218,12 +218,12 @@ namespace WFP_GOS.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(969, 446);
+            this.ClientSize = new System.Drawing.Size(806, 446);
             this.Controls.Add(this.GroupBox_Filter);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView_Products);
             this.Name = "Form_ProductsReport";
-            this.Text = "ProductsReport";
+            this.Text = "Products Report";
             this.GroupBox_Filter.ResumeLayout(false);
             this.GroupBox_Filter.PerformLayout();
             this.ResumeLayout(false);
